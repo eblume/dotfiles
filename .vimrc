@@ -126,3 +126,25 @@ set scrolloff=5
 " hide some files and remove stupid help
 let g:netrw_list_hide='^\.,.\(pyc\|pyo\|o\)$'
 
+" Disable the help key entirely
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Make ; and : do the same thing
+nnoremap ; :
+
+" I version control everything, so save whenever vim loses focus
+au FocusLost * :wa
+
+" <leader>w opens a vertical split window and selects it.
+nnoremap <leader>w <C-w>v<C-w>l
+
+" Hold Ctrl and use hjkl to move through window panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" NERDTree will not keep vim from closing when closing a window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
