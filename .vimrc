@@ -46,20 +46,19 @@ autocmd BufEnter * :syntax sync fromstart
 let mapleader=","
 let maplocalleader="\\"
 
-" Open files with command-t
-noremap <leader>o <Esc>:CommandT<CR>
-noremap <leader>O <Esc>:CommandTFlush<CR>
-noremap <leader>m <Esc>:CommandTBuffer<CR>
-
 " Take off the training wheels
-noremap <up> <nop>
-noremap <down> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-vnoremap <up> <nop>
-vnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+vnoremap  <Up>     <NOP>
+vnoremap  <Down>   <NOP>
+vnoremap  <Left>   <NOP>
+vnoremap  <Right>  <NOP>
+nnoremap  <Up>     <NOP>
+nnoremap  <Down>   <NOP>
+nnoremap  <Left>   <NOP>
+nnoremap  <Right>  <NOP>
 
 " Enable automatic title setting for terminals
 set title
@@ -112,6 +111,8 @@ set number
 
 " Tab Settings
 set smarttab
+set softtabstop=4
+set shiftwidth=4
 set tabstop=4
 
 " utf-8 default encoding
@@ -148,3 +149,13 @@ nnoremap <C-l> <C-w>l
 
 " NERDTree will not keep vim from closing when closing a window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" NERDTree will change the CWD to the current node when changing the tree
+" (ie, the root of the NERDTree will be the CWD at all times)
+let g:NERDTreeChDirMode=2
+
+" Map <leader>a to Ack
+nnoremap <leader>a :Ack
+
+" Automatically go fmt for golang files
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
