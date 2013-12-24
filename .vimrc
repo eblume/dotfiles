@@ -159,3 +159,8 @@ nnoremap <leader>a :Ack
 
 " Automatically go fmt for golang files
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" Use NERDTree in place of the default file browser
+let NERDTreeHijackNetrw=1
+
+
