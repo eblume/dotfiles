@@ -1,7 +1,11 @@
 " Set up Pathogen
 execute pathogen#infect()
+call pathogen#helptags()
 syntax on
 filetype plugin indent on
+
+" Enable 256 colors
+set t_Co=256
 
 " Fix backspace indentation
 set backspace=indent,eol,start
@@ -76,8 +80,6 @@ set ttyfast
 
 " Go with smartindent if there is no plugin indent file.
 set autoindent  smartindent
-" but don't outdent hashes
-inoremap # X#
 
 " Global substitution regexes by default
 set gdefault
@@ -163,4 +165,10 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " Use NERDTree in place of the default file browser
 let NERDTreeHijackNetrw=1
 
+" Use <Leader>p to open ctrl-p for finding files
+nnoremap <leader>p :CtrlPMixed
 
+" Powerline setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
