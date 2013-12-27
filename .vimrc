@@ -165,6 +165,9 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " Use NERDTree in place of the default file browser
 let NERDTreeHijackNetrw=1
 
+" Tell NERDTree to please show hidden files, for fuck's sake
+let NERDTreeShowHidden=1
+
 " Use <Leader>p to open ctrl-p for finding files
 nnoremap <leader>p :CtrlPMixed
 
