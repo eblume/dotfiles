@@ -26,7 +26,8 @@
 				"name": "virtualenv"
 			},
 			{
-				"name": "branch"
+				"name": "branch",
+				"status_colors": true
 			},
 			{
 				"name": "cwd",
