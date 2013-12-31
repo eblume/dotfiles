@@ -26,5 +26,9 @@
 		--type-set=json=.json
 
 # Personal settings for ebcore
---type-set=IGNORE=.po
---noIGNORE
+--type-set=gettext=.po,.pot
+--type-set=xml=.xml
+
+# Types to ignore
+--nogettext
+--noxml
