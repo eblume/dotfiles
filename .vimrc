@@ -78,9 +78,6 @@ set gcr=a:blinkon0
 " Every term I use is fast, sheesh
 set ttyfast
 
-" Go with smartindent if there is no plugin indent file.
-set autoindent  smartindent
-
 " Global substitution regexes by default
 set gdefault
 
@@ -116,6 +113,7 @@ set smarttab
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
+set expandtab
 
 " utf-8 default encoding
 set enc=utf-8
