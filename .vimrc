@@ -173,3 +173,21 @@ nnoremap <leader>p :CtrlPMixed
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+
+" Set up the column
+set colorcolumn=80
+
+" Ignore pyc files
+set wildignore=*.pyc,*/production/*.css
+
+" Don't add spaces when joining lines to avoid weird text errors.
+" Might need to revisit this if non-prose joining gets wonky.
+set nojoinspaces
+
+" Unfortunately, disable alternate screen mode. iterm2 crashes with it.
+" This is really dumb but iterm2 sucks a lot less than Terminal in other
+" cases, so I guess I need to put up with it.
+set t_ti=
+set t_te=
+" And then clear the screen so I don't get confused and think it's till open
+au VimLeave * :!clear

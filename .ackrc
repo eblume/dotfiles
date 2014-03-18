@@ -28,6 +28,7 @@
 # Personal settings for ebcore
 --type-set=gettext=.po,.pot
 --type-set=xml=.xml
+--ignore-dir=production
 
 # Types to ignore
 --nogettext
