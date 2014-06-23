@@ -2,3 +2,4 @@
 .vim/.VimballRecord
 .vim/sessions
 .vim/.netrwhist
+.DS_STORE
