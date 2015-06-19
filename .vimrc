@@ -1,14 +1,59 @@
-" Set up Pathogen
-execute pathogen#infect()
-call pathogen#helptags()
+" Set up Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+"""""""""""""""""""""""""
+" NOTE TO SELF          "
+" KEEP IT SIMPLE STUPID "
+"""""""""""""""""""""""""
+
+" ctrlp for fast project searching
+Bundle 'kien/ctrlp.vim'
+" nerdtree for a better file browser
+Bundle 'scrooloose/nerdtree'
+" pretty pretty
+Bundle 'altercation/vim-colors-solarized'
+" Kerboscript - syntax highlighting for kOS mod language for Kerbal Space Program
+Plugin 'tomvanderlee/vim-kerboscript'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Always try to syntax highlight... I rarely write bare prose.
 syntax on
-filetype plugin indent on
 
 " Enable 256 colors
 set t_Co=256
 
 " Fix backspace indentation
 set backspace=indent,eol,start
+
+" Disable bells... don't know why it's on anyway
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " Enable mouse everywhere
 set mouse=a
@@ -166,8 +211,11 @@ let NERDTreeHijackNetrw=1
 " Tell NERDTree to please show hidden files, for fuck's sake
 let NERDTreeShowHidden=1
 
+" Open NERDTree with <Leader>-
+nnoremap <leader>- :e .<CR>
+
 " Use <Leader>p to open ctrl-p for finding files
-nnoremap <leader>p :CtrlPMixed
+nnoremap <leader>p :CtrlPMixed<CR>
 
 " Powerline setup
 python from powerline.vim import setup as powerline_setup
@@ -175,19 +223,15 @@ python powerline_setup()
 python del powerline_setup
 
 " Set up the column
-set colorcolumn=80
-
+set colorcolumn=90
+ 
 " Ignore pyc files
-set wildignore=*.pyc,*/production/*.css
+set wildignore=*.pyc
 
 " Don't add spaces when joining lines to avoid weird text errors.
 " Might need to revisit this if non-prose joining gets wonky.
 set nojoinspaces
 
-" Unfortunately, disable alternate screen mode. iterm2 crashes with it.
-" This is really dumb but iterm2 sucks a lot less than Terminal in other
-" cases, so I guess I need to put up with it.
-set t_ti=
-set t_te=
-" And then clear the screen so I don't get confused and think it's till open
-au VimLeave * :!clear
+" Change between NERDTree tabs with Shift+Arrow keys
+nnoremap <S-Right> :tabn<CR>
+nnoremap <S-Left>  :tabp<CR>
