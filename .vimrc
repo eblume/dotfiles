@@ -218,9 +218,9 @@ nnoremap <leader>- :e .<CR>
 nnoremap <leader>p :CtrlPMixed<CR>
 
 " Powerline setup
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
 
 " Set up the column
 set colorcolumn=90
