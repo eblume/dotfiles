@@ -11,6 +11,7 @@
 # less -r
 	  
 	  --ignore-dir=node_modules/
+      --ignore-dir=env/
 	   
 #make sure ack knows how to search common filetypes used in rails projects
 	   --type-add=css=scss

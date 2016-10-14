@@ -228,6 +228,9 @@ set colorcolumn=90
 " Ignore pyc files
 set wildignore=*.pyc
 
+" CTRLP ignore env directory, python virtualenv
+let g:ctrlp_custom_ignore='\v/env$'
+
 " Don't add spaces when joining lines to avoid weird text errors.
 " Might need to revisit this if non-prose joining gets wonky.
 set nojoinspaces
@@ -235,3 +238,7 @@ set nojoinspaces
 " Change between NERDTree tabs with Shift+Arrow keys
 nnoremap <S-Right> :tabn<CR>
 nnoremap <S-Left>  :tabp<CR>
+
+" YAML files need 2 space indentation
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
