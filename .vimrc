@@ -16,14 +16,21 @@ Plugin 'gmarik/Vundle.vim'
 " KEEP IT SIMPLE STUPID "
 """""""""""""""""""""""""
 
-" ctrlp for fast project searching
-Bundle 'kien/ctrlp.vim'
 " nerdtree for a better file browser
 Bundle 'scrooloose/nerdtree'
 " pretty pretty
 Bundle 'altercation/vim-colors-solarized'
 " Kerboscript - syntax highlighting for kOS mod language for Kerbal Space Program
 Plugin 'tomvanderlee/vim-kerboscript'
+" Ruby linter
+Plugin 'vim-ruby/vim-ruby', {'for': 'ruby'}    
+" neomake
+Plugin 'neomake/neomake'
+" fzf file finder
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Auto-ctagging
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -214,22 +221,19 @@ let NERDTreeShowHidden=1
 " Open NERDTree with <Leader>-
 nnoremap <leader>- :e .<CR>
 
-" Use <Leader>p to open ctrl-p for finding files
-nnoremap <leader>p :CtrlPMixed<CR>
+" Use Ctrl-p to open fzf for finding files
+nnoremap <C-p> :FZF<CR>
 
 " Powerline setup
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Set up the column
 set colorcolumn=90
  
 " Ignore pyc files
 set wildignore=*.pyc
-
-" CTRLP ignore env directory, python virtualenv
-let g:ctrlp_custom_ignore='\v/env$'
 
 " Don't add spaces when joining lines to avoid weird text errors.
 " Might need to revisit this if non-prose joining gets wonky.
@@ -242,3 +246,18 @@ nnoremap <S-Left>  :tabp<CR>
 " YAML files need 2 space indentation
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
+" Ruby spacing
+au FileType ruby setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au FileType eruby setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" JS spacing
+au FileType javascript setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" NeoMake linter
+let g:neomake_ruby_enabled_makers = ['rubocop']
+autocmd! BufWritePost *.rb Neomake
+
+" easytags
+let g:easytags_async=1
+let g:easytags_by_filetype='~/.easytags'
+let g:easytags_auto_highlight=0
