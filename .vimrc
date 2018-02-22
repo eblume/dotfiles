@@ -18,12 +18,19 @@ Plugin 'gmarik/Vundle.vim'
 
 " ctrlp for fast project searching
 Bundle 'kien/ctrlp.vim'
+
 " nerdtree for a better file browser
-Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/nerdtree'
+"
 " pretty pretty
 Bundle 'altercation/vim-colors-solarized'
+
 " Kerboscript - syntax highlighting for kOS mod language for Kerbal Space Program
-Plugin 'tomvanderlee/vim-kerboscript'
+" Plugin 'tomvanderlee/vim-kerboscript'
+
+" powerline
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,6 +46,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+""""""""""""""" End of plugins stuff
 
 " Always try to syntax highlight... I rarely write bare prose.
 syntax on
@@ -64,11 +74,20 @@ set mousemodel=popup
 
 " Code Folding, everything folded by default
 set foldmethod=indent
-set foldlevel=99
+set foldnestmax=2
 set foldenable
+" use space as the code folder
+nnoremap <space> za
+vnoremap <space> zf
+" Note to check out
+" https://stackoverflow.com/questions/357785/what-is-the-recommended-way-to-use-vim-folding-for-python-code
+" in case there's some cool stuff there I missed. Specifically, code folding
+" changing by file type.
 
 " Middle mouse click paste without formatting
-map <MouseMiddle> <Esc>"*p
+" map <MouseMiddle> <Esc>"*p
+" temp disabled as I transition to linux: who knows what the clipboard story
+" is now
 
 " Disable swapfiles, they don't seem to ever help
 set noswapfile
@@ -217,13 +236,8 @@ nnoremap <leader>- :e .<CR>
 " Use <Leader>p to open ctrl-p for finding files
 nnoremap <leader>p :CtrlPMixed<CR>
 
-" Powerline setup
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
 " Set up the column
-set colorcolumn=90
+set colorcolumn=80
  
 " Ignore pyc files
 set wildignore=*.pyc
