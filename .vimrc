@@ -25,12 +25,15 @@ Bundle 'kien/ctrlp.vim'
 " pretty pretty
 Bundle 'altercation/vim-colors-solarized'
 
+" FZF searching instead for ctrlp
+" Bundle 'junegunn/fzf.vim'
+" TODO: This needs to be rebound to ctrl-p and fzf needs to be installed
+
 " Kerboscript - syntax highlighting for kOS mod language for Kerbal Space Program
 " Plugin 'tomvanderlee/vim-kerboscript'
 
-" powerline
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
-
+" vim-airline
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -255,4 +258,3 @@ nnoremap <S-Left>  :tabp<CR>
 
 " YAML files need 2 space indentation
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
