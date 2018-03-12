@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+
+profile=$1
+
+
+usage() {
+  printf "Usage: %s <profile>\n\nProfiles found:\n" $0 > /dev/stderr
+  ls -1 ${HOME}/openvpn/*.ovpn | xargs -n 1 basename -s .ovpn 1>&2
+  exit 1
+}
+
+
+[[ -z ${profile} ]] && usage
+
+command -v openvpn 2>&1 > /dev/null || usage
+  
+
+exec sudo openvpn --config ${HOME}/openvpn/${profile}.ovpn

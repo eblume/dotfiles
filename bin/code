@@ -1,0 +1,7 @@
+#!/bin/sh
+
+tmux new-session -d 'vim'
+tmux split-window -v 'scratch1'
+tmux split-window -h
+tmux new-window 'scratch2'
+tmux -2 attach-session -d
