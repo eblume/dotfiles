@@ -1,4 +1,5 @@
 .vim/undodir
+.vim/bundle
 .vim/.VimballRecord
 .vim/sessions
 .vim/.netrwhist

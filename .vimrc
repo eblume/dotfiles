@@ -32,8 +32,27 @@ Bundle 'altercation/vim-colors-solarized'
 " Kerboscript - syntax highlighting for kOS mod language for Kerbal Space Program
 " Plugin 'tomvanderlee/vim-kerboscript'
 
+" Syntax support for 100+ languages
+Bundle 'sheerun/vim-polyglot'
+
+" Linting
+Bundle 'vim-syntastic/syntastic'
+
 " vim-airline
 Plugin 'vim-airline/vim-airline'
+
+" Ag (via Ack)
+Plugin 'mileszs/ack.vim'
+
+" fugitive
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rhubarb'
+
+" pairs
+Bundle 'jiangmiao/auto-pairs'
+
+" editorconfig
+Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -175,11 +194,17 @@ set showcmd
 set showmode
 set number
 
-" Tab Settings
-set smarttab
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+"""""""""" Tab Settings
+" This is commented out because I think maybe it's causing tabbing issues
+"
+" set smarttab
+set autoindent
+"
+" These are commented out so I can use per-language tabs, I hope.
+"
+" set softtabstop=4
+" set shiftwidth=4
+" set tabstop=4
 set expandtab
 
 " utf-8 default encoding
@@ -258,3 +283,23 @@ nnoremap <S-Left>  :tabp<CR>
 
 " YAML files need 2 space indentation
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" JS files need 2 space indentation
+au FileType javascript setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" copy/paste in linux
+set clipboard+=unnamed,unnamedplus
+
+" Linting via Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Syntastic -- Javascript
+let g:syntastic_javascript_checkers=['eslint']
+
+" Ack.vim - use Ag when able
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
