@@ -1,9 +1,3 @@
-set PATH ~/code/notreon/dotfiles/bin $PATH  # personal binaries
-set PATH ~/.n/bin $PATH # n (npm) shims
-set PATH ~/.pyenv/bin $PATH # pyenv shims
-
-set --export EDITOR vim
-
 alias mux "tmuxinator"
 
 # bobthefish theme setup
@@ -59,3 +53,9 @@ end
 function fish_greeting
     logo
 end
+
+
+# pyenv stuff, the plugin is being weird
+set -x PATH "/home/erich/.pyenv/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
