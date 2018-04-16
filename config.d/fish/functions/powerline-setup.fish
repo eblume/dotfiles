@@ -1,1 +1,0 @@
-/home/erich/.local/lib/python3.6/site-packages/powerline/bindings/fish/powerline-setup.fish
