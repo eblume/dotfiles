@@ -1,0 +1,1 @@
+/home/erich/.config/fisherman/fzf/conf.d/fzf.fish

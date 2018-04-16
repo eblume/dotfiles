@@ -1,0 +1,17 @@
+{
+    "home": {
+        "DP1": {"off": true},
+        "HDMI1": {"off": true},
+        "eDP1": {"mode": [1920, 1080], "rotate": "normal"}
+    },
+    "office": {
+        "DP1": {"left-of": "eDP1", "mode": [3840, 2160], "rotate": "left"},
+        "HDMI1": {"off": true},
+        "eDP1": {"mode": [1920, 1080], "rotate": "normal"}
+    },
+    "standard": {
+        "DP1": {"off": true},
+        "HDMI2": {"off": true},
+        "eDP1": {"mode": [1920, 1080], "rotate": "normal"}
+    }
+}

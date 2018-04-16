@@ -1,0 +1,1 @@
+/home/erich/.config/fisherman/z/functions/__z.fish

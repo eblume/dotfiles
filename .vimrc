@@ -23,11 +23,12 @@ Bundle 'kien/ctrlp.vim'
 " Bundle 'scrooloose/nerdtree'
 "
 " pretty pretty
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
 
 " FZF searching instead for ctrlp
-" Bundle 'junegunn/fzf.vim'
-" TODO: This needs to be rebound to ctrl-p and fzf needs to be installed
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 " Kerboscript - syntax highlighting for kOS mod language for Kerbal Space Program
 " Plugin 'tomvanderlee/vim-kerboscript'
@@ -41,6 +42,9 @@ Bundle 'vim-syntastic/syntastic'
 " vim-airline
 Plugin 'vim-airline/vim-airline'
 
+" vim-projector by Bailey ❤️
+Plugin 'monokrome/vim-projector'
+
 " Ag (via Ack)
 Plugin 'mileszs/ack.vim'
 
@@ -49,7 +53,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rhubarb'
 
 " pairs
-Bundle 'jiangmiao/auto-pairs'
+" Bundle 'jiangmiao/auto-pairs'
 
 " editorconfig
 Plugin 'editorconfig/editorconfig-vim'
@@ -75,11 +79,11 @@ filetype plugin indent on    " required
 " Always try to syntax highlight... I rarely write bare prose.
 syntax on
 
-" Enable 256 colors
-set t_Co=256
+" Enable 256 colors (let's try keeping this off for a while, see how we do)
+" set t_Co=256
 
 " Fix backspace indentation
-set backspace=indent,eol,start
+" set backspace=indent,eol,start " temp disabling, just to see what's up
 
 " Disable bells... don't know why it's on anyway
 set noerrorbells visualbell t_vb=
@@ -88,7 +92,7 @@ if has('autocmd')
 endif
 
 " Enable mouse everywhere
-set mouse=a
+" set mouse=a (no, bad! stop using your mouse!)
 
 " Hide mouse pointer while typing
 set mousehide
@@ -96,7 +100,7 @@ set mousemodel=popup
 
 " Code Folding, everything folded by default
 set foldmethod=indent
-set foldnestmax=2
+set foldnestmax=0
 set foldenable
 " use space as the code folder
 nnoremap <space> za
@@ -122,12 +126,18 @@ set undofile
 set backupdir=~/.vim/sessions
 set dir=~/.vim/sessions
 
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
+"set background=dark
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
+"colorscheme solarized
+
+
+" CtrlP extension coolness stuff (uhoh)
+let g:ctrlp_extensions = ['tag', 'mixed']
+let g:ctrlp_cmd = 'CtrlPMixed'
+
 
 " Syntax highlight syncing from the start
 autocmd BufEnter * :syntax sync fromstart
@@ -178,16 +188,11 @@ nnoremap <leader><space> :nohlsearch<cr>
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
-" <leader>v selects the just pasted text
-nnoremap <leader>v V`]
-
 " Copy/Paste to and from Desktop Environment
 noremap <leader>yy "+y
 noremap <leader>pp "+gP
 
-" Make the command line two lines high and change the statusline display to
-" something that looks useful.
-set cmdheight=2
+" set cmdheight=2
 set laststatus=2
 " set statusline=[%l,%v\ %P%M][CWD:\ %{CWD()}][FILE:\ %f]\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}\ %#warningmsg#%{SyntasticStatuslineFlag()}%*
 set showcmd
@@ -225,13 +230,11 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Make ; and : do the same thing
-nnoremap ; :
+" nnoremap ; :  " why?!?
 
-" I version control everything, so save whenever vim loses focus
-au FocusLost * :wa
-
-" <leader>w opens a vertical split window and selects it.
-nnoremap <leader>w <C-w>v<C-w>l
+" <leader>[v,h] opens a [vertical/horizontal] split window and selects it.
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>h <C-w>h<C-w>l
 
 " Hold Ctrl and use hjkl to move through window panes
 nnoremap <C-h> <C-w>h
@@ -246,9 +249,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " (ie, the root of the NERDTree will be the CWD at all times)
 let g:NERDTreeChDirMode=2
 
-" Map <leader>a to Ack
-nnoremap <leader>a :Ack
-
 " Automatically go fmt for golang files
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
@@ -261,17 +261,11 @@ let NERDTreeShowHidden=1
 " Open NERDTree with <Leader>-
 nnoremap <leader>- :e .<CR>
 
-" Use <Leader>p to open ctrl-p for finding files
-nnoremap <leader>p :CtrlPMixed<CR>
-
 " Set up the column
 set colorcolumn=80
  
 " Ignore pyc files
 set wildignore=*.pyc
-
-" CTRLP ignore env directory, python virtualenv
-let g:ctrlp_custom_ignore='\v/env$'
 
 " Don't add spaces when joining lines to avoid weird text errors.
 " Might need to revisit this if non-prose joining gets wonky.
@@ -286,6 +280,9 @@ au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " JS files need 2 space indentation
 au FileType javascript setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" RST files get 4 because it plays nice with python/doctest
+au FileType rst setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " copy/paste in linux
 set clipboard+=unnamed,unnamedplus
