@@ -1,7 +1,7 @@
-# ~/.tmuxinator/usual.yml
+# via ~/.tmuxinator/usual.yml
 
-name: usual
-# root: ~/code
+name: devx-frontend
+root: ~/code/patreon/devx-frontend
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,7 +25,7 @@ name: usual
 # pre_window: rbenv shell 2.0.0-p247
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
-tmux_options: -2
+# tmux_options: -f ~/.tmux.mac.conf
 
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
@@ -45,10 +45,9 @@ tmux_options: -2
 
 windows:
   - coding:
-      root: ~/code
-      # layout: '6052,317x93,0,0[318x16,0,0{158x16,0,0,0,159x16,159,0,2},318x84,0,22,3]'  # 3 panes
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      layout: '810d,179x165,0,0[179x142,0,0,0,179x22,0,143{89x22,0,143,11,89x22,90,143,12}]'
       panes:
         -
+        - devx sync
+        - npm test --watch
+      

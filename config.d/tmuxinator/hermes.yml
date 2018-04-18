@@ -7,7 +7,6 @@ windows:
   - coding:
       layout: 'main-horizontal'
       panes:
-        -
-        - pytest -f
-        -
+        - logo
+        - pipenv shell -- python -m pytest --cov=hermes
       

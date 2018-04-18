@@ -1,5 +1,16 @@
 alias mux "tmuxinator"
 
+# vi mode enable
+#function fish_user_key_bindings
+#    # Execute this once per mode that vi bindings should be used in
+#    fish_default_key_bindings -M insert
+#    # Without an argument, fish_vi_key_bindings will default to
+#    # resetting all bindings.
+#    # The argument specifies the initial mode (insert, "default" or visual).
+#    fish_vi_key_bindings insert
+#end
+
+
 # bobthefish theme setup
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1  # disable virtualenv prompt - we got this
 # set -g theme_display_git yes
@@ -55,7 +66,3 @@ function fish_greeting
 end
 
 
-# pyenv stuff, the plugin is being weird
-set -x PATH "/home/erich/.pyenv/bin" $PATH
-status --is-interactive; and . (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)

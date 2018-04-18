@@ -284,6 +284,9 @@ au FileType javascript setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 " RST files get 4 because it plays nice with python/doctest
 au FileType rst setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
+" json
+au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " copy/paste in linux
 set clipboard+=unnamed,unnamedplus
 

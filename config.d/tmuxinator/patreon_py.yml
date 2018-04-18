@@ -1,6 +1,6 @@
-# ~/.tmuxinator/usual.yml
+# via ~/.tmuxinator/usual.yml
 
-name: usual
+name: patreon_py
 # root: ~/code
 
 # Optional tmux socket
@@ -45,7 +45,7 @@ tmux_options: -2
 
 windows:
   - coding:
-      root: ~/code
+      root: ~/code/patreon/patreon_py
       # layout: '6052,317x93,0,0[318x16,0,0{158x16,0,0,0,159x16,159,0,2},318x84,0,22,3]'  # 3 panes
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
