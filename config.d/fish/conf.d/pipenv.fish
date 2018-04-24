@@ -1,1 +1,0 @@
-/home/erich/.config/fisherman/pipenv/conf.d/pipenv.fish

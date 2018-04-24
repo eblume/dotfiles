@@ -1,6 +1,7 @@
 " Set up Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set shell=bash                " fix fish
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -40,7 +41,7 @@ Bundle 'sheerun/vim-polyglot'
 Bundle 'vim-syntastic/syntastic'
 
 " vim-airline
-Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline'
 
 " vim-projector by Bailey ❤️
 Plugin 'monokrome/vim-projector'
