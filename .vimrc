@@ -300,6 +300,9 @@ let g:syntastic_check_on_wq = 0
 " Syntastic -- Javascript
 let g:syntastic_javascript_checkers=['eslint']
 
+" Syntastic -- Python
+let g:syntastic_python_checkers=['flake8', 'python', 'mypy']
+
 " Ack.vim - use Ag when able
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

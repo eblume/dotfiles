@@ -7,5 +7,5 @@ windows:
   - coding:
       layout: 'main-horizontal'
       panes:
-        - logo
-        - pipenv shell -- python -m pytest --cov=hermes --cov-report:term-missing
+        - pipenv shell
+        - pipenv shell -- python -m pytest --cov=hermes --cov-report term-missing

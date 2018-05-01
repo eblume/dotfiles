@@ -10,3 +10,5 @@ set -x PATH "/home/erich/.pyenv/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
+
+set -x GOPATH ~/.config/go
