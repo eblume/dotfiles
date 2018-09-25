@@ -8,4 +8,4 @@ windows:
       layout: 'main-horizontal'
       panes:
         - pipenv shell
-        - pipenv shell -- python -m pytest --cov=hermes --cov-report term-missing
+        - pipenv shell -- pipenv run tests

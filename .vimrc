@@ -59,6 +59,12 @@ Bundle 'tpope/vim-rhubarb'
 " editorconfig
 Plugin 'editorconfig/editorconfig-vim'
 
+" unimpaired - Toggle Everything
+Plugin 'tpope/vim-unimpaired'
+
+" vim-vinegar, enhancements to netrw
+Bundle 'tpope/vim-vinegar'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -186,6 +192,14 @@ set showmatch
 " Hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
 
+" search highlight color
+hi Search cterm=NONE ctermbg=LightYellow ctermfg=Red
+hi Search guibg=LightYellow guifg=Red
+
+" Other highlights
+hi SpellBad cterm=None ctermbg=LightYellow ctermfg=Red
+hi SpellCap cterm=None ctermbg=LightYellow ctermfg=Red
+
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -222,8 +236,11 @@ set fileformats=unix,dos,mac
 " Keep more lines for scope
 set scrolloff=5
 
-" hide some files and remove stupid help
-let g:netrw_list_hide='^\.,.\(pyc\|pyo\|o\)$'
+
+" some netrw setup
+let g:netrw_liststyle = 3  " tree view
+let g:netrw_list_hide = '.\(pyc\|pyo\|o\)$' " hide some files and remove stupid help
+let g:netrw_banner = 0
 
 " Disable the help key entirely
 inoremap <F1> <ESC>

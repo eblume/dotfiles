@@ -1,0 +1,1 @@
+/home/erich/.config/fisherman/host_info/host_info.fish

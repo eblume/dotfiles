@@ -1,0 +1,1 @@
+/home/erich/.config/fisherman/segment/segment.fish

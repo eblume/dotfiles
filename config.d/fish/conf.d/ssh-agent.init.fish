@@ -1,0 +1,1 @@
+/home/erich/.config/fisherman/ssh-agent/init.fish

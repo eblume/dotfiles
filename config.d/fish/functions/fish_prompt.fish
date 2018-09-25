@@ -1,1 +1,1 @@
-/home/erich/.local/share/omf/themes/fox/fish_prompt.fish
+/home/erich/.config/fisherman/metro/fish_prompt.fish
