@@ -44,6 +44,10 @@ then
     echo "see ~/.config/yadm/bootstrap"
     exit 1
 else
+    asdf plugin add neovim
+    asdf plugin add python
+    asdf plugin add kustomize
+    asdf plugin update --all
     asdf install  # (this targets `.tool-versions`, which is linked by yadm)
 fi
 
