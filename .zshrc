@@ -24,3 +24,7 @@ then
     autoload -Uz compinit
     compinit
 fi
+
+
+### Helpful aliases 'n such
+alias vim="nvim"
