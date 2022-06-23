@@ -1,39 +1,26 @@
-function awsprofile() {
-    local profile="$1"
-    if grep "\[profile $profile\]" ~/.aws/config > /dev/null; then
-        export AWS_PROFILE="$profile"
-        if ! aws sts get-caller-identity 2>/dev/null >/dev/null; then
-            aws sso login --profile "$profile"
-        fi
-    else
-        unset AWS_PROFILE
-        if [ ! "$profile" == "unset" ]; then
-            echo >&2 "No AWS profile with name $profile. Unsetting for safety."
-            echo >&2 "(prod or staging, probably)"
-            return 1
-        fi
-    fi
-}
+# Activate asdf
+ASDF_ACTIVATION_SCRIPT=/usr/local/opt/asdf/libexec/asdf.sh
+if [[ -f "$ASDF_ACTIVATION_SCRIPT" ]]
+then
+    . /usr/local/opt/asdf/libexec/asdf.sh
+else
+    echo "WARNING: asdf not found, have you set up yadm yet? (Skipping asdf setup...)"
+fi
 
-alias awsp="awsprofile"
+# Activate my work config
+WORK_CONFIG_FILE="$HOME/code/work/config.zsh"
+if [[ -f "$WORK_CONFIG_FILE" ]]
+then
+    . $WORK_CONFIG_FILE
+else
+    echo "WARNING: Work Config not found; have you set up yadm yet? (Skipping work config...)"
+fi
 
-function kubecontext() {
-    local profile="$1"
-    if kubectl config get-contexts -o name | grep "^$profile$" > /dev/null; then
-        kubectl config use-context "$profile" > /dev/null
-    else
-        kubectl config unset current-context > /dev/null
-        if [ ! "$profile" == "unset" ] && [ ! "$profile" == "eks-unset" ]; then
-            echo >&2 "No Kubernetes context with name $profile. Unsetting for safety"
-            return 1
-        fi
-    fi
-}
+# Enable homebrew completions
+if type brew &>/dev/null
+then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-alias kubep=kubecontext
-
-function usecloud() {
-    local profile="$1"
-    awsprofile "$profile"
-    kubecontext "eks-$profile"
-}
+    autoload -Uz compinit
+    compinit
+fi
