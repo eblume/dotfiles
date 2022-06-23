@@ -51,3 +51,7 @@ else
     asdf install  # (this targets `.tool-versions`, which is linked by yadm)
 fi
 
+
+### Bootstrap sumbodules
+echo "Initializing/Updating Submodules"
+yadm submodule update --recursive --init
