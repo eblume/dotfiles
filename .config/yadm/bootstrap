@@ -1,6 +1,19 @@
 #!/bin/sh
 
+### TO USE: `yadm bootstrap` - fully idempotent and intended to be run often to get upgrades, etc.
+# To bootstrap from 0, you must first install yadm.
+# https://yadm.io/docs/install
+# On Mac OS, the typical process is:
+#  1. /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#  2. brew install yadm
+#  3. yadm clone <DOTFILES REPO HERE>
+#  4. yadm bootstrap
+#
+# (on non-Mac OS, you just need to replace steps 1 and 2 with whatever gives you a working 'yadm'.)
+
 system_type=$(uname -s)
+
+### Install homebrew and .Brewfile, to begin bootstrapping
 
 if [ "$system_type" = "Darwin" ]; then
 
@@ -15,4 +28,22 @@ if [ "$system_type" = "Darwin" ]; then
     brew bundle --global
   fi
 
+  echo "Upgrading all installed brew packages"
+  # NOTE: This is something I'm trying out, I may want to disable this later. It might be better to stick with
+  # only the `brew bundle --global` above, which does do updates after all.
+  brew update
+  brew upgrade
+
 fi
+
+
+### Install asdf versions (asdf itself hopefully installed above) 
+if ! command -v asdf &> /dev/null
+then
+    echo "asdf not found, bootstrapping failed - maybe bootstrapping needs to be added to your system: $system_type"
+    echo "see ~/.config/yadm/bootstrap"
+    exit 1
+else
+    asdf install  # (this targets `.tool-versions`, which is linked by yadm)
+fi
+
