@@ -1,5 +1,8 @@
 #!/bin/sh
 
+set -o xtrace
+set -o nounset
+
 ### TO USE: `yadm bootstrap` - fully idempotent and intended to be run often to get upgrades, etc.
 # To bootstrap from 0, you must first install yadm.
 # https://yadm.io/docs/install
@@ -19,16 +22,16 @@ if [ "$system_type" = "Darwin" ]; then
 
   # install homebrew if it's missing
   if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
+    # Installing homebrew
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
   if [ -f "$HOME/.Brewfile" ]; then
-    echo "Updating homebrew bundle"
+    # Updating homebrew bundle
     brew bundle --global
   fi
 
-  echo "Upgrading all installed brew packages"
+  # Upgrading all installed brew packages
   # NOTE: This is something I'm trying out, I may want to disable this later. It might be better to stick with
   # only the `brew bundle --global` above, which does do updates after all.
   brew update
@@ -53,5 +56,12 @@ fi
 
 
 ### Bootstrap sumbodules
-echo "Initializing/Updating Submodules"
 yadm submodule update --recursive --init
+
+
+### Bootstrap neovim packer.nvim
+# (This will fail if packer hasn't yet bootstrqpped; in which case, just run 'nvim' once and then bootstrap again)
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+### FIN
+echo "Bootstrapping complete"

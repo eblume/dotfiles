@@ -25,6 +25,10 @@ then
     compinit
 fi
 
+# Enable spaceship PS1 prompt
+autoload -U promptinit; promptinit
+prompt spaceship
+
 
 ### Helpful aliases 'n such
 alias vim="nvim"
