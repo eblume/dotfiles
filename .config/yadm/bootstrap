@@ -50,8 +50,9 @@ else
     asdf plugin add neovim
     asdf plugin add python
     asdf plugin add kustomize
+    asdf plugin add nodejs
     asdf plugin update --all
-    asdf install  # (this targets `.tool-versions`, which is linked by yadm)
+    asdf install  # (this targets `.tool-versions`, which is linked by yadm) 
 fi
 
 
@@ -62,6 +63,13 @@ yadm submodule update --recursive --init
 ### Bootstrap neovim packer.nvim
 # (This will fail if packer hasn't yet bootstrqpped; in which case, just run 'nvim' once and then bootstrap again)
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+### Install global npm packages
+npm install -g npm
+npm install -g yaml-language-server
+
+# Finally, do a global update, because I like to live dangerously
+npm update -g
 
 ### FIN
 echo "Bootstrapping complete"

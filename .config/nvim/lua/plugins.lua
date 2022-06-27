@@ -26,6 +26,8 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  -- ALE (LSP/Lint)
+  use { 'w0rp/ale', cmd = 'ALEEnable', config = 'vim.cmd[[ALEEnable]]' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
