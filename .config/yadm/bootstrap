@@ -71,5 +71,10 @@ npm install -g yaml-language-server
 # Finally, do a global update, because I like to live dangerously
 npm update -g
 
+
+### Install global python packages
+pip install --upgrade pip
+pip install yamlfix
+
 ### FIN
 echo "Bootstrapping complete"

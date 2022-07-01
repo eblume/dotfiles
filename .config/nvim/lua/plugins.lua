@@ -27,7 +27,12 @@ return require('packer').startup(function()
   }
 
   -- ALE (LSP/Lint)
-  use { 'w0rp/ale', cmd = 'ALEEnable', config = 'vim.cmd[[ALEEnable]]' }
+  use {
+    'w0rp/ale',
+    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex', 'python', 'yaml'},
+    cmd = 'ALEEnable',
+    config = 'vim.cmd[[ALEEnable]]'
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
