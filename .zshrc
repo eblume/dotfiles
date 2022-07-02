@@ -27,6 +27,16 @@ else
     echo "WARNING: Work Config not found; have you set up yadm yet? (Skipping work config...)"
 fi
 
+
+YADM_MODIFIED_FILES="$(yadm diff --name-only; yadm diff --name-only --staged; )"
+if [ ! -z "${YADM_MODIFIED_FILES// }" ]
+then
+    echo "NOTICE: There are uncommited modified config files. See 'yadm status'."
+    echo $YADM_MODIFIED_FILES
+fi
+
+
+
 # Enable spaceship PS1 prompt
 autoload -U promptinit; promptinit
 prompt spaceship
