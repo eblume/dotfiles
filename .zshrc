@@ -38,6 +38,10 @@ fi
 
 
 # Enable spaceship PS1 prompt
+export SPACESHIP_EXIT_CODE_SHOW=true
+export SPACESHIP_KUBECTL_SHOW=true
+export SPACESHIP_AWS_SHOW=true
+export SPACESHIP_DOCKER_CONTEXT_SHOW=true
 autoload -U promptinit; promptinit
 prompt spaceship
 
