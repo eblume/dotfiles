@@ -54,7 +54,7 @@ let g:ale_use_global_executables=1
 let g:ale_floating_preview=1
 let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 let g:ale_linters = {
-\   'sh': ['language_server', 'bashate'],
+\   'sh': ['language_server'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
