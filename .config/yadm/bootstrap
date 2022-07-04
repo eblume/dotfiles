@@ -19,29 +19,30 @@ system_type=$(uname -s)
 ### Install homebrew and .Brewfile, to begin bootstrapping
 
 if [ "$system_type" = "Darwin" ]; then
+    # install homebrew if it's missing
+    if ! command -v brew >/dev/null 2>&1; then
+        # Installing homebrew
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
 
-  # install homebrew if it's missing
-  if ! command -v brew >/dev/null 2>&1; then
-    # Installing homebrew
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
+    if [ -f "$HOME/.Brewfile" ]; then
+        # Updating homebrew bundle
+        brew bundle --global
+    fi
 
-  if [ -f "$HOME/.Brewfile" ]; then
-    # Updating homebrew bundle
-    brew bundle --global
-  fi
-
-  # Upgrading all installed brew packages
-  # NOTE: This is something I'm trying out, I may want to disable this later. It might be better to stick with
-  # only the `brew bundle --global` above, which does do updates after all.
-  brew update
-  brew upgrade
+    # Upgrading all installed brew packages
+    # NOTE: This is something I'm trying out, I may want to disable this later. It might be better to stick with
+    # only the `brew bundle --global` above, which does do updates after all.
+    brew update
+    brew upgrade
+    foobar
 
 fi
 
-
-### Install asdf versions (asdf itself hopefully installed above) 
-if ! command -v asdf &> /dev/null
+### Install asdf versions (asdf itself hopefully installed above)
+if
+    ! command -v asdf &
+    >/dev/null
 then
     echo "asdf not found, bootstrapping failed - maybe bootstrapping needs to be added to your system: $system_type"
     echo "see ~/.config/yadm/bootstrap"
@@ -51,14 +52,14 @@ else
     asdf plugin add python
     asdf plugin add kustomize
     asdf plugin add nodejs
+    asdf plugin add golang
     asdf plugin update --all
-    asdf install  # (this targets `.tool-versions`, which is linked by yadm) 
+    asdf install # (this targets `.tool-versions`, which is linked by yadm)
 fi
 
-
 ### Bootstrap sumbodules
+# (at time of writing, not used, but could be used some day and shouldn't hurt?)
 yadm submodule update --recursive --init
-
 
 ### Bootstrap neovim packer.nvim
 # (This will fail if packer hasn't yet bootstrqpped; in which case, just run 'nvim' once and then bootstrap again)
@@ -67,14 +68,21 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ### Install global npm packages
 npm install -g npm
 npm install -g yaml-language-server
-
+npm install -g cspell
+npm install -g bash-language-server
 # Finally, do a global update, because I like to live dangerously
 npm update -g
-
+asdf reshim nodejs
 
 ### Install global python packages
 pip install --upgrade pip
-pip install yamlfix
+pip install --upgrade yamlfix
+pip install --upgrade bashate
+asdf reshim python
+
+### Install global golang packages
+go install github.com/rhysd/actionlint/cmd/actionlint@latest
+asdf reshim golang
 
 ### FIN
 echo "Bootstrapping complete"
