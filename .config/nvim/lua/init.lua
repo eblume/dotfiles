@@ -45,4 +45,16 @@ end
 
 require('lspconfig')['pyright'].setup{on_attach = on_attach}
 require('lspconfig')['bashls'].setup{on_attach = on_attach}
-require('lspconfig')['yamlls'].setup{on_attach = on_attach}
+require('lspconfig')['yamlls'].setup{
+  on_attach = on_attach,
+  settings = {
+    yaml = {
+      -- note that setting these schemas here overrides ALL default schemas... see also:
+      -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#yamlls
+      schemas = {
+        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+        ["http://json.schemastore.org/kustomization"] = "kustomization.yaml",
+      },
+    },
+  },
+}
