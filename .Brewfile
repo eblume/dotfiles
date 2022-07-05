@@ -10,3 +10,6 @@ brew "spaceship"
 # nvim ale/lsp stuff
 brew "shellcheck"
 brew "shfmt"
+
+# kubectx/kubens (maybe check out kubie in the future?)
+brew "kubectx"

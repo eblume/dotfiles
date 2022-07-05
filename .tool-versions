@@ -3,3 +3,5 @@ neovim 0.7.0
 kustomize 4.5.5
 nodejs 18.4.0
 golang 1.18.3
+kubectl 1.21
+kubectx 0.9.4

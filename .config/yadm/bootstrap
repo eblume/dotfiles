@@ -35,14 +35,12 @@ if [ "$system_type" = "Darwin" ]; then
     # only the `brew bundle --global` above, which does do updates after all.
     brew update
     brew upgrade
-    foobar
 
 fi
 
 ### Install asdf versions (asdf itself hopefully installed above)
 if
-    ! command -v asdf &
-    >/dev/null
+    ! command -v asdf >/dev/null
 then
     echo "asdf not found, bootstrapping failed - maybe bootstrapping needs to be added to your system: $system_type"
     echo "see ~/.config/yadm/bootstrap"
@@ -53,6 +51,8 @@ else
     asdf plugin add kustomize
     asdf plugin add nodejs
     asdf plugin add golang
+    asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
+    asdf plugin-add kubectx https://github.com/virtualstaticvoid/asdf-kubectx.git
     asdf plugin update --all
     asdf install # (this targets `.tool-versions`, which is linked by yadm)
 fi
@@ -70,6 +70,7 @@ npm install -g npm
 npm install -g yaml-language-server
 npm install -g cspell
 npm install -g bash-language-server
+npm install -g pyright
 # Finally, do a global update, because I like to live dangerously
 npm update -g
 asdf reshim nodejs
