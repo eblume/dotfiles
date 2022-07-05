@@ -21,6 +21,12 @@ return require('packer').startup(function()
   -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
 
+  -- Tokyo Night color scheme
+  use 'folke/tokyonight.nvim'
+
+  -- fzf file finder (mru, history, etc.)
+  use 'junegunn/fzf'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

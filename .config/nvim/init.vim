@@ -6,7 +6,11 @@ lua require("init")
 
 " Configure lualine
 lua << EOD
-  require('lualine').setup()
+  require('lualine').setup{
+    options = {
+      theme = 'tokyonight'
+    }
+  }
 EOD
 
 " make some things really visible
@@ -39,3 +43,10 @@ autocmd FileType python setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype jade setlocal ts=4 sw=4 sts=0 expandtab
+
+" colors and prettyness
+set pumblend=15
+let g:tokyonight_style="night"
+" IMPORTANT: this colorscheme comes with assosciated terminal colors, found
+" here: https://github.com/folke/tokyonight.nvim/tree/main/extras
+colorscheme tokyonight

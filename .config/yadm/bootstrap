@@ -2,6 +2,7 @@
 
 set -o xtrace
 set -o nounset
+set -o errexit
 
 ### TO USE: `yadm bootstrap` - fully idempotent and intended to be run often to get upgrades, etc.
 # To bootstrap from 0, you must first install yadm.
@@ -46,13 +47,13 @@ then
     echo "see ~/.config/yadm/bootstrap"
     exit 1
 else
-    asdf plugin add neovim
-    asdf plugin add python
-    asdf plugin add kustomize
-    asdf plugin add nodejs
-    asdf plugin add golang
-    asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
-    asdf plugin-add kubectx https://github.com/virtualstaticvoid/asdf-kubectx.git
+    # The "|| true"'s here are because of the errexit set above, which these plugins will hit. oh well.
+    asdf plugin add python || true
+    asdf plugin add kustomize || true
+    asdf plugin add nodejs || true
+    asdf plugin add golang || true
+    asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git || true
+    asdf plugin add kubectx https://github.com/virtualstaticvoid/asdf-kubectx.git || true
     asdf plugin update --all
     asdf install # (this targets `.tool-versions`, which is linked by yadm)
 fi

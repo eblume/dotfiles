@@ -1,4 +1,6 @@
 brew "asdf"
+brew "neovim"
+brew "fzf"
 
 # Nerdfonts (for lualine, etc)
 tap "homebrew/cask-fonts"
