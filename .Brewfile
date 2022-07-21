@@ -1,6 +1,11 @@
 brew "asdf"
 brew "neovim"
 brew "fzf"
+brew "bat"
+brew "git-delta"
+brew "ripgrep"
+brew "k9s"
+brew "z"
 
 # Nerdfonts (for lualine, etc)
 tap "homebrew/cask-fonts"

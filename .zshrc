@@ -18,6 +18,15 @@ else
     echo "WARNING: asdf not found, have you set up yadm yet? (Skipping asdf setup...)"
 fi
 
+# Activate z (jump around!)
+Z_ACTIVATION_SCRIPT="$(brew --prefix)"/etc/profile.d/z.sh
+if [[ -f "$Z_ACTIVATION_SCRIPT" ]]
+then
+    . $Z_ACTIVATION_SCRIPT
+else
+    echo "WARNING: z.sh not found, have you run yadm bootstrap yet? (Skipping z.sh...)"
+fi
+
 # Activate my work config
 WORK_CONFIG_FILE="$HOME/code/work/config.zsh"
 if [[ -f "$WORK_CONFIG_FILE" ]]

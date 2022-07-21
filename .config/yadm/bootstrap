@@ -54,6 +54,7 @@ else
     asdf plugin add golang || true
     asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git || true
     asdf plugin add kubectx https://github.com/virtualstaticvoid/asdf-kubectx.git || true
+    asdf plugin add cmctl https://github.com/asdf-community/asdf-cmctl.git || true
     asdf plugin update --all
     asdf install # (this targets `.tool-versions`, which is linked by yadm)
 fi

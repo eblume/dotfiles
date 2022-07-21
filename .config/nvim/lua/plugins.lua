@@ -10,7 +10,11 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- tpope
-  use 'tpope/vim-sensible'
+  use 'tpope/vim-sensible'  -- sendible defaults
+  use 'tpope/vim-fugitive' -- git integration
+  use 'tpope/vim-rhubarb' -- fugitive for github
+  use 'tpope/vim-vinegar' -- enhancements to netrw
+  use 'tpope/vim-eunuch'  -- :Move, :Rename, etc
 
   -- lualine (statusline)
   use {
@@ -25,7 +29,14 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
 
   -- fzf file finder (mru, history, etc.)
-  use 'junegunn/fzf'
+  use 'junegunn/fzf'  -- We will let `yadm bootstrap` handle upgrading fzf
+  use 'junegunn/fzf.vim'
+
+  -- Syntax support for 100+ languages
+  use 'sheerun/vim-polyglot'
+
+  -- Dim Inactive Windows
+  use 'blueyed/vim-diminactive'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
