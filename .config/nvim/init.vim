@@ -4,15 +4,6 @@ lua require('plugins')
 " Load lua init, which is where I do init.vim stuff but in lua
 lua require("init")
 
-" Configure lualine
-lua << EOD
-  require('lualine').setup{
-    options = {
-      theme = 'tokyonight'
-    }
-  }
-EOD
-
 " Set <Leader> to <space> (ie, spacebar-leader)
 let mapleader="<space>"
 

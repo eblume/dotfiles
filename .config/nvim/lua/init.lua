@@ -58,3 +58,10 @@ require('lspconfig')['yamlls'].setup{
     },
   },
 }
+
+-- Configure lualine
+require('lualine').setup{
+  options = {
+    theme = 'tokyonight'
+  }
+}
