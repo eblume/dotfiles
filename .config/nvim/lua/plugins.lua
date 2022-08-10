@@ -38,6 +38,16 @@ return require('packer').startup(function()
   -- Dim Inactive Windows
   use 'blueyed/vim-diminactive'
 
+  -- nvim-cmp (autocomplete/snippeting for nvim-lspconfig)
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-vsnip'
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
