@@ -32,8 +32,6 @@ WORK_CONFIG_FILE="$HOME/code/work/config.zsh"
 if [[ -f "$WORK_CONFIG_FILE" ]]
 then
     . $WORK_CONFIG_FILE
-else
-    echo "WARNING: Work Config not found; have you set up yadm yet? (Skipping work config...)"
 fi
 
 
