@@ -74,6 +74,7 @@ npm install -g yaml-language-server
 npm install -g cspell
 npm install -g bash-language-server
 npm install -g pyright
+npm install -g neovim  # see :checkhealth
 # Finally, do a global update, because I like to live dangerously
 npm update -g
 asdf reshim nodejs
@@ -82,6 +83,7 @@ asdf reshim nodejs
 pip install --upgrade pip
 pip install --upgrade yamlfix
 pip install --upgrade bashate
+pip install --upgrade pynvim  # see :help provider-python
 asdf reshim python
 
 ### Install global golang packages

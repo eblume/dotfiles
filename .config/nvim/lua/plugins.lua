@@ -15,6 +15,8 @@ return require('packer').startup(function()
   use 'tpope/vim-rhubarb' -- fugitive for github
   use 'tpope/vim-vinegar' -- enhancements to netrw
   use 'tpope/vim-eunuch'  -- :Move, :Rename, etc
+  use 'tpope/vim-projectionist'  -- project-specific configuration
+
 
   -- lualine (statusline)
   use {

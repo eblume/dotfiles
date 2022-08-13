@@ -35,7 +35,6 @@ nnoremap <leader>/ :nohlsearch<CR>
 
 " some netrw setup
 let g:netrw_liststyle = 3  " tree view
-let g:netrw_list_hide = '.\(pyc\|pyo\|o\)$' " hide some files and remove stupid help
 let g:netrw_banner = 0
 
 " set wider column width

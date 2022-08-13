@@ -1,9 +1,6 @@
 --------
 -- nvim-cmp suggested config for vsnip
-vim.cmd([[
-  set completeopt=menu,menuone,noselect
-]])
-
+vim.api.nvim_set_option('completeopt', 'menu,menuone,noselect')
 local cmp = require('cmp')
 
 cmp.setup({

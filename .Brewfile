@@ -12,7 +12,7 @@ tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
 
 # zsh ps1 stuff
-brew "spaceship"
+brew "starship"
 
 # nvim ale/lsp stuff
 brew "shellcheck"

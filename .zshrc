@@ -43,16 +43,12 @@ then
 fi
 
 
-
-# Enable spaceship PS1 prompt
-export SPACESHIP_EXIT_CODE_SHOW=true
-export SPACESHIP_KUBECTL_SHOW=true
-export SPACESHIP_AWS_SHOW=true
-export SPACESHIP_DOCKER_CONTEXT_SHOW=true
-export SPACESHIP_KUBECTL_VERSION_SHOW=false
-autoload -U promptinit; promptinit
-prompt spaceship
+### Enable starship prompt
+eval "$(starship init zsh)"
 
 
 ### Helpful aliases 'n such
 alias vim="nvim"
+
+# Misc
+export PYTHONDONTWRITEBYTECODE=1
