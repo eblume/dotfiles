@@ -6,6 +6,7 @@ brew "git-delta"
 brew "ripgrep"
 brew "k9s"
 brew "z"
+brew "gnupg"
 
 # Nerdfonts (for lualine, etc)
 tap "homebrew/cask-fonts"

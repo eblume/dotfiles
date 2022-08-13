@@ -49,6 +49,9 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
 
+  -- python black
+  use 'averms/black-nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

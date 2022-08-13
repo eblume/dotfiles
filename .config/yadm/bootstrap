@@ -84,6 +84,7 @@ pip install --upgrade pip
 pip install --upgrade yamlfix
 pip install --upgrade bashate
 pip install --upgrade pynvim  # see :help provider-python
+pip install --upgrade jedi-language-server
 asdf reshim python
 
 ### Install global golang packages

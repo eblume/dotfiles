@@ -1,6 +1,6 @@
 --------
 -- nvim-cmp suggested config for vsnip
-vim.api.nvim_set_option('completeopt', 'menu,menuone,noselect')
+vim.api.nvim_set_option('completeopt', 'menu,menuone,noselect,preview')
 local cmp = require('cmp')
 
 cmp.setup({
@@ -89,11 +89,11 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
+  -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  -- vim.keymap.set('n', '<space>wl', function()
+  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  -- end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
@@ -104,6 +104,7 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
+require('lspconfig')['jedi_language_server'].setup{on_attach = on_attach, capabilities = capabilities}
 require('lspconfig')['bashls'].setup{on_attach = on_attach, capabilities = capabilities}
 require('lspconfig')['yamlls'].setup{
   on_attach = on_attach,
