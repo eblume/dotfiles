@@ -19,5 +19,17 @@ brew "starship"
 brew "shellcheck"
 brew "shfmt"
 
-# kubectx/kubens (maybe check out kubie in the future?)
-brew "kubectx"
+# yadm (note: yadm will always be installed first as the first yadm bootstrap command necessarily requires a
+# pre-existing yadm command)
+brew "yadm"
+
+# fun (and also a little bit UI design / config error detection)
+brew "cowsay"
+brew "lolcat"
+
+#github integration
+brew "gh"
+brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
+
+# aws vault
+cask "aws-vault"

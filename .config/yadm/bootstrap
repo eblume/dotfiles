@@ -91,5 +91,43 @@ asdf reshim python
 go install github.com/rhysd/actionlint/cmd/actionlint@latest
 asdf reshim golang
 
+### Detect if ssh keys have been decrypted, prompt otherwise
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+    echo "SSH keys seemingly not configured (or I forgot to update the bootstrap script after changing keyfiles)"
+    echo "Will now try to run 'yadm decrypt'; password will be required to continue"
+    # shellcheck disable=SC3045  # (warning about read -n missing in some POSIX environments)
+    read -n 1 -s -r -p "Press any key to continue (or ctrl-c to abort) [in some POSIXes, enter to continue]"
+    yadm decrypt
+    # TODO This bootstrap command is darwin specific, use yadm conditions to handle linux (with -K)
+    echo "ssh key decrypted, loading key, key password will now be needed..."
+    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
+fi
+
+### Update remote url to use git now that we know ssh is in place
+remote_url=$(yadm remote get-url origin)
+intended_url="git@github.com:eblume/dotfiles.git"
+if [ "$remote_url"  != "$intended_url" ]; then
+    echo "Remote set to unexpected url: $remote_url"
+    echo "Setting to expected url: $intended_url"
+    echo "(This is probably just because you used https and it's a first-time bootstrap and ssh keys weren't loaded, which is fine)"
+    yadm remote set-url origin intended_url
+    echo "(Otherwise, this probably just broke your setup, lol, sorrynotsorry)"
+    echo "(... and btw, because of this fix, you won't need to do https login again)"
+fi
+
 ### FIN
-echo "Bootstrapping complete"
+echo "Bootstrapping complete (note: encrypted files NOT automated, see bootstrap script for info, probably safe to ignore)"
+# Note on the above: So, they sort of ARE managed... if my .ssh/id_ed25519 file doesn't exist then it will attempt to
+# run yadm decrypt, but otherwise nothing. Why not just always run yadm decrypt? two problems:
+#
+# 1. yadm decrypt runs gpg decryption which grabs the entire tty to enter a password... very disruptive
+# 2. yadm decrypt clobbers any local changes, as far as I can tell
+#
+# Therefore, just handle yadm encrypt / yadm decrypt yourself whenever changing an encrypted file... I feel like this
+# needs to be made better, maybe transcrypt/git-crypt would be better?
+
+
+# still reading?
+# Putting this here makes me a bit happier every yime I run bootstrap, and also if it fails then something went wrong
+# yaaay
+echo "Bootstrapping complete" | cowsay | lolcat

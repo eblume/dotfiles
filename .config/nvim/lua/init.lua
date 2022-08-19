@@ -128,3 +128,11 @@ require('lualine').setup{
     theme = 'tokyonight'
   }
 }
+
+-- Configure telescope
+require('telescope').setup()
+require('telescope').load_extension('fzf')
+
+
+-- Configure octo (github)
+require("octo").setup()
