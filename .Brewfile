@@ -33,3 +33,9 @@ brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
 
 # aws vault
 cask "aws-vault"
+
+# iterm
+cask "iterm2"
+
+# todoist
+cask "todoist"
