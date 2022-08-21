@@ -47,6 +47,10 @@ fi
 eval "$(starship init zsh)"
 
 
+### Load iterm2 zsh integration
+source ~/.iterm2_shell_integration.zsh
+
+
 ### Helpful aliases 'n such
 alias vim="nvim"
 
