@@ -39,6 +39,15 @@ if [ "$system_type" = "Darwin" ]; then
 
 fi
 
+
+### Set up iterm2 config
+if [ "$system_type" = "Darwin" ]; then
+  if [ -d "$HOME/.iterm2" ]; then
+    echo "Setting iTerm preference folder"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+  fi
+fi
+
 ### Install asdf versions (asdf itself hopefully installed above)
 if
     ! command -v asdf >/dev/null
