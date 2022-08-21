@@ -57,6 +57,11 @@ else
     asdf plugin add cmctl https://github.com/asdf-community/asdf-cmctl.git || true
     asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git || true
     asdf plugin update --all
+
+    # HACK: directly install python first, because poetry depends on it
+    asdf install python
+
+
     asdf install # (this targets `.tool-versions`, which is linked by yadm)
 fi
 
