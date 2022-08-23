@@ -7,12 +7,10 @@ brew "ripgrep"
 brew "k9s"
 brew "z"
 brew "gnupg"
-
-# Nerdfonts (for lualine, etc)
-tap "homebrew/cask-fonts"
-cask "font-hack-nerd-font"
-
-# zsh ps1 stuff
+cask "aws-vault"
+cask "iterm2"
+cask "todoist"
+cask "fantastical"
 brew "starship"
 
 # nvim ale/lsp stuff
@@ -23,19 +21,13 @@ brew "shfmt"
 # pre-existing yadm command)
 brew "yadm"
 
-# fun (and also a little bit UI design / config error detection)
+# Stuff to be pretty
 brew "cowsay"
 brew "lolcat"
+tap "homebrew/cask-fonts"
+cask "font-hack-nerd-font"
 
 #github integration
 brew "gh"
 brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
 
-# aws vault
-cask "aws-vault"
-
-# iterm
-cask "iterm2"
-
-# todoist
-cask "todoist"
