@@ -12,6 +12,8 @@ cask "iterm2"
 cask "todoist"
 cask "fantastical"
 brew "starship"
+brew "docker"
+brew "wget"
 
 # nvim ale/lsp stuff
 brew "shellcheck"
