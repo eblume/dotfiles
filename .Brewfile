@@ -12,7 +12,6 @@ cask "iterm2"
 cask "todoist"
 cask "fantastical"
 brew "starship"
-brew "docker"
 brew "wget"
 
 # nvim ale/lsp stuff
@@ -32,4 +31,9 @@ cask "font-hack-nerd-font"
 #github integration
 brew "gh"
 brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
+
+# Docker for Mac
+brew "docker"
+brew "docker-compose"
+cask "docker"
 
