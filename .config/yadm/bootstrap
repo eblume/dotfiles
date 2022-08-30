@@ -15,6 +15,38 @@ set -o errexit
 #
 # (on non-Mac OS, you just need to replace steps 1 and 2 with whatever gives you a working 'yadm'.)
 
+
+# But before we do anything, let's check to see if we're up to date.
+# We will check the rev-parse of local and remote and if they don't match we will pull and then re-exec.
+yadm fetch
+LOCAL=$(yadm rev-parse @)
+REMOTE=$(yadm rev-parse '@{u}')
+BASE=$(yadm merge-base @ '@{u}')
+
+if [ "$LOCAL" = "$REMOTE" ]; then
+    echo "yadm up to date! continuing..."
+elif [ "$LOCAL" = "$BASE" ]; then
+    echo "yadm is behind, pulling and re-executing"
+    echo "(If this is stuck in a loop, check output of yadm rev-parse @ and @{u})"
+    yadm pull
+    exec yadm bootstrap
+    echo "What the... how did we get here???"
+    exit 1
+elif [ "$REMOTE" = "$BASE" ]; then
+    echo "WARNING: You have unpushed commits in yadm."
+    echo "I suggest running 'yadm push' to avoid forking history."
+    echo "Sleeping for 10s so you can think about it."
+    echo "(Feel free to ctrl+c and run it now!)"
+    sleep 10
+    echo "OK here we go..."
+else
+    echo "yadm history has diverged between local and remote... you need to fix this."
+    echo "I will now refuse to run, but you can edit me in ~/.config/yadm/bootstrap if you want."
+    exit 1
+fi
+
+# OK, we are up to date. Let's run.
+
 system_type=$(uname -s)
 
 ### Install homebrew and .Brewfile, to begin bootstrapping
