@@ -47,8 +47,11 @@ fi
 eval "$(starship init zsh)"
 
 
-### Load iterm2 zsh integration
-source ~/.iterm2_shell_integration.zsh
+### Load extra configs (managed by me)
+for file in ~/.config/zsh.d/*; do
+    source "$file"
+done
+
 
 
 ### Helpful aliases 'n such
