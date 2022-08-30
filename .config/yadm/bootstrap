@@ -19,6 +19,7 @@ set -o errexit
 # But before we do anything, let's check to see if we're up to date.
 # We will check the rev-parse of local and remote and if they don't match we will pull and then re-exec.
 yadm fetch
+
 LOCAL=$(yadm rev-parse @)
 REMOTE=$(yadm rev-parse '@{u}')
 BASE=$(yadm merge-base @ '@{u}')
