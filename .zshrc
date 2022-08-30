@@ -57,3 +57,8 @@ alias vim="nvim"
 # Misc
 export PYTHONDONTWRITEBYTECODE=1
 export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
+
+# Enable autocomplete with fly, if it's installed
+if type fly > /dev/null; then
+    eval "$(fly completion --shell=zsh)"
+fi
