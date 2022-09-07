@@ -1,0 +1,5 @@
+[[profiles]]
+name = 'sisyphus'
+provider = 'Okta'
+username = 'erich.blume@illumio.com'
+url = 'https://illumio.okta.com/home/amazon_aws/0oaeu6p2qkfL1btN52p6/272?fromHome=true'
