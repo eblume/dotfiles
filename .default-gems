@@ -1,0 +1,4 @@
+### Default gems to install with every version of ruby
+# This file is used by asdf-ruby
+# Details: https://github.com/asdf-vm/asdf-ruby
+solargraph

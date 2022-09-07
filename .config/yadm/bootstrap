@@ -100,6 +100,7 @@ else
     asdf plugin add cmctl https://github.com/asdf-community/asdf-cmctl.git || true
     asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git || true
     asdf plugin-add concourse https://github.com/mattysweeps/asdf-concourse || true
+    asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git || true
     asdf plugin update --all
 
     # HACK: directly install python first, because poetry depends on it

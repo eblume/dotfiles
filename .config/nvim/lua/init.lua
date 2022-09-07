@@ -120,6 +120,7 @@ require('lspconfig')['yamlls'].setup{
     },
   },
 }
+require('lspconfig')['solargraph'].setup{on_attach = on_attach, capabilities = capabilities}
 
 
 -- Configure lualine

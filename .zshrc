@@ -53,7 +53,6 @@ for file in ~/.config/zsh.d/*; do
 done
 
 
-
 ### Helpful aliases 'n such
 alias vim="nvim"
 
