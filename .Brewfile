@@ -7,7 +7,7 @@ brew "ripgrep"
 brew "k9s"
 brew "z"
 brew "gnupg"
-cask "aws-vault"
+# cask "aws-vault"  # See Crowbar below
 cask "iterm2"
 cask "todoist"
 cask "fantastical"
@@ -37,3 +37,6 @@ brew "docker"
 brew "docker-compose"
 cask "docker"
 
+# Crowbar / AWS  -- used instead of aws-vault, unfortunately
+tap "moritzheiber/tap"
+brew "crowbar"
