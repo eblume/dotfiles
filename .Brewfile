@@ -14,6 +14,7 @@ cask "todoist"
 cask "fantastical"
 brew "starship"
 brew "wget"
+brew "ffmpeg"
 
 # nvim ale/lsp stuff
 brew "shellcheck"

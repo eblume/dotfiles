@@ -4,6 +4,9 @@ lua require('plugins')
 " Load lua init, which is where I do init.vim stuff but in lua
 lua require("init")
 
+" Configure vim-fubitive
+let g:fubitive_domain_pattern = 'stash\.ilabs\.io'
+
 " Automatically reload Packer config if it changed
 augroup packer_user_config
   autocmd!
