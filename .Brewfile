@@ -42,3 +42,9 @@ cask "docker"
 # Crowbar / AWS  -- used instead of aws-vault, unfortunately
 tap "moritzheiber/tap"
 brew "crowbar"
+
+# Build old ruby things:
+# https://stackoverflow.com/questions/69012676/install-older-ruby-versions-on-a-m1-macbook
+brew "openssl"
+brew "readline"
+brew "ruby-build"

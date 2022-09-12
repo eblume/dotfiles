@@ -64,3 +64,7 @@ export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
 if type fly > /dev/null; then
     eval "$(fly completion --shell=zsh)"
 fi
+
+# Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
+setopt inc_append_history
+setopt share_history
