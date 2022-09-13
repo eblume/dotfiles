@@ -65,6 +65,11 @@ if type fly > /dev/null; then
     eval "$(fly completion --shell=zsh)"
 fi
 
+# Enable chef
+if type chef > /dev/null; then
+    eval "$(chef shell-init zsh)"
+fi
+
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history
 setopt share_history

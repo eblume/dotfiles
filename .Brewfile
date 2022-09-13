@@ -15,6 +15,7 @@ cask "fantastical"
 brew "starship"
 brew "wget"
 brew "ffmpeg"
+cask "chef-workstation"  # Work
 
 # nvim ale/lsp stuff
 brew "shellcheck"
@@ -48,3 +49,7 @@ brew "crowbar"
 brew "openssl"
 brew "readline"
 brew "ruby-build"
+
+# Hashicorp Vault
+tap "hashicorp/tap"
+brew "hashicorp/tap/vault"
