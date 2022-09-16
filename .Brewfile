@@ -16,6 +16,7 @@ brew "starship"
 brew "wget"
 brew "ffmpeg"
 cask "chef-workstation"  # Work
+brew "solargraph"  # for ruby lsp
 
 # nvim ale/lsp stuff
 brew "shellcheck"

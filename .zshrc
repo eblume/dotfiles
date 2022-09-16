@@ -66,9 +66,10 @@ if type fly > /dev/null; then
 fi
 
 # Enable chef
-if type chef > /dev/null; then
-    eval "$(chef shell-init zsh)"
-fi
+## (Disabled because it was interfering with PATH stuff; might be kludgeable)
+#if type chef > /dev/null; then
+#    eval "$(chef shell-init zsh)"
+#fi
 
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history

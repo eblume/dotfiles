@@ -16,6 +16,19 @@ set -o errexit
 # (on non-Mac OS, you just need to replace steps 1 and 2 with whatever gives you a working 'yadm'.)
 
 
+### Detect if ssh keys have been decrypted, prompt otherwise
+# (Note: I've moved this up higher because until this check is done we can't expect anything to work)
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+    echo "SSH keys seemingly not configured (or I forgot to update the bootstrap script after changing keyfiles)"
+    echo "Will now try to run 'yadm decrypt'; password will be required to continue"
+    # shellcheck disable=SC3045  # (warning about read -n missing in some POSIX environments)
+    read -n 1 -s -r -p "Press any key to continue (or ctrl-c to abort) [in some POSIXes, enter to continue]"
+    yadm decrypt
+    # TODO This bootstrap command is darwin specific, use yadm conditions to handle linux (with -K)
+    echo "ssh key decrypted, loading key, key password will now be needed..."
+    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
+fi
+
 # But before we do anything, let's check to see if we're up to date.
 # We will check the rev-parse of local and remote and if they don't match we will pull and then re-exec.
 yadm fetch
@@ -140,18 +153,6 @@ asdf reshim python
 ### Install global golang packages
 go install github.com/rhysd/actionlint/cmd/actionlint@latest
 asdf reshim golang
-
-### Detect if ssh keys have been decrypted, prompt otherwise
-if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
-    echo "SSH keys seemingly not configured (or I forgot to update the bootstrap script after changing keyfiles)"
-    echo "Will now try to run 'yadm decrypt'; password will be required to continue"
-    # shellcheck disable=SC3045  # (warning about read -n missing in some POSIX environments)
-    read -n 1 -s -r -p "Press any key to continue (or ctrl-c to abort) [in some POSIXes, enter to continue]"
-    yadm decrypt
-    # TODO This bootstrap command is darwin specific, use yadm conditions to handle linux (with -K)
-    echo "ssh key decrypted, loading key, key password will now be needed..."
-    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
-fi
 
 ### Update remote url to use git now that we know ssh is in place
 remote_url=$(yadm remote get-url origin)
