@@ -8,6 +8,7 @@ brew "k9s"
 brew "z"
 brew "gnupg"
 brew "jq"
+brew "yq"
 # cask "aws-vault"  # See Crowbar below
 brew "awscli"
 cask "iterm2"
