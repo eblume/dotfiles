@@ -1,4 +1,6 @@
 brew "asdf"
+brew "readline"
+brew "openssl"
 brew "neovim"
 brew "fzf"
 brew "bat"
@@ -47,12 +49,9 @@ cask "docker"
 tap "moritzheiber/tap"
 brew "crowbar"
 
-# Build old ruby things:
-# https://stackoverflow.com/questions/69012676/install-older-ruby-versions-on-a-m1-macbook
-brew "openssl"
-brew "readline"
-brew "ruby-build"
-
 # Hashicorp Vault
 tap "hashicorp/tap"
 brew "hashicorp/tap/vault"
+
+# blumeops
+brew "aws-iam-authenticator"
