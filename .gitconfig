@@ -10,6 +10,7 @@
 
 [core]
     pager = delta
+    excludesfiles = /Users/erich.blume/.gitignore
 
 [interactive]
     diffFilter = delta --color-only

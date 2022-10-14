@@ -10,6 +10,26 @@ orcrun() {
     docker run -it -v ~/code/work:/root/work -v ~/.gitconfig:/root/.gitconfig -v ~/.chef:/root/.chef --platform=linux/amd64 docker-chaos.ilabs.io/blackwidow/centos7-orc $@
 }
 
-myrun() {
-    docker run -it -v ~/code/work:/root/work -v ~/.gitconfig:/root/.gitconfig -v ~/.chef:/root/.chef --platform=linux/amd64 mydocker $@
+ilodevops-dev() {
+    ilodevops-core ilodevops-dev $@
+}
+
+ilodevops-prod() {
+    ilodevops-core ilodevops-prod $@
+}
+
+ilodevops-gov() {
+    ilodevops-core ilodevops-gov $@
+}
+
+ilodevops-core() {
+    if [ -z `ilodevops-compose ps -q $1` ] || [ -z `docker ps -q --no-trunc | grep $(ilodevops-compose ps -q $1)` ]; then
+        echo "service '$1' is not running. Have you run 'ilodevops-compose up'?"
+    else
+        ilodevops-compose run $@
+    fi
+}
+
+ilodevops-compose() {
+    docker compose -f ~/code/work/eblume/ilodevops/compose.yaml $@
 }
