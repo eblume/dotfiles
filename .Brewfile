@@ -21,6 +21,7 @@ brew "wget"
 brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 cask "asana"
+brew "dive"  # container exploration
 
 # nvim ale/lsp stuff
 brew "shellcheck"
