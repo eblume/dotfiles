@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-set -o xtrace
+# set -o xtrace
 set -o nounset
 set -o errexit
 
@@ -183,4 +183,10 @@ echo "Bootstrapping complete (note: encrypted files NOT automated, see bootstrap
 # still reading?
 # Putting this here makes me a bit happier every yime I run bootstrap, and also if it fails then something went wrong
 # yaaay
-echo "Bootstrapping complete" | cowsay | lolcat
+if [[ -x "$HOME/.iterm2/imgcat" ]]
+then
+    convert ~/otis.png -resize 512x512 png:- | ~/.iterm2/imgcat
+    echo "Otis says: Bootstrapping Complete!" | cowsay | lolcat
+else
+    echo "Bootstrapping Complete!" | cowsay | lolcat
+fi

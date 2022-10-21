@@ -22,6 +22,7 @@ brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 cask "asana"
 brew "dive"  # container exploration
+brew "imagemagick"
 
 # nvim ale/lsp stuff
 brew "shellcheck"
