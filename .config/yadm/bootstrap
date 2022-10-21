@@ -181,7 +181,7 @@ echo "Bootstrapping complete (note: encrypted files NOT automated, see bootstrap
 
 
 # still reading?
-# Putting this here makes me a bit happier every yime I run bootstrap, and also if it fails then something went wrong
+# Putting this here makes me a bit happier every time I run bootstrap, and also if it fails then something went wrong
 # yaaay
 if [[ -x "$HOME/.iterm2/imgcat" ]]
 then
