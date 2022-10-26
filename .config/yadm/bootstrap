@@ -185,7 +185,7 @@ echo "Bootstrapping complete (note: encrypted files NOT automated, see bootstrap
 # yaaay
 if [[ -x "$HOME/.iterm2/imgcat" ]]
 then
-    convert ~/otis.png -resize 512x512 png:- | ~/.iterm2/imgcat
+    ~/.iterm2/imgcat ~/otis.png
     echo "Otis says: Bootstrapping Complete!" | cowsay | lolcat
 else
     echo "Bootstrapping Complete!" | cowsay | lolcat
