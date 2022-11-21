@@ -2,8 +2,12 @@
 # Ok so the file was misnamed, sometimes I do functions here too
 
 
-fly-devcourse() {
-    env ASDF_CONCOURSE_VERSION=5.7.0 fly -t devcourse $@
+fly-devcourse-main() {
+    env ASDF_CONCOURSE_VERSION=5.7.0 fly -t devcourse-main $@
+}
+
+fly-devcourse-unittests-ops() {
+    env ASDF_CONCOURSE_VERSION=5.7.0 fly -t devcourse-unittests-ops $@
 }
 
 fly-prodcourse() {

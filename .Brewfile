@@ -1,4 +1,5 @@
 brew "asdf"
+brew "watch"
 brew "readline"
 brew "openssl"
 brew "neovim"
@@ -57,3 +58,6 @@ brew "hashicorp/tap/vault"
 
 # blumeops
 brew "aws-iam-authenticator"
+
+# Fedramp work
+brew "packer"
