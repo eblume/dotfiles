@@ -72,16 +72,22 @@ if [ "$system_type" = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
+    # arch -arm64 due to weird error: https://stackoverflow.com/questions/74310340
+    ARCH_PREFIX=''
+    if [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
+        ARCH_PREFIX='arch -arm64'
+    fi
+
     if [ -f "$HOME/.Brewfile" ]; then
         # Updating homebrew bundle
-        brew bundle --global
+        $ARCH_PREFIX brew bundle --global
     fi
 
     # Upgrading all installed brew packages
     # NOTE: This is something I'm trying out, I may want to disable this later. It might be better to stick with
     # only the `brew bundle --global` above, which does do updates after all.
-    brew update
-    brew upgrade
+    $ARCH_PREFIX brew update
+    $ARCH_PREFIX brew upgrade
 
 fi
 
