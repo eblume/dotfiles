@@ -15,8 +15,6 @@ set -o errexit
 #
 # (on non-Mac OS, you just need to replace steps 1 and 2 with whatever gives you a working 'yadm'.)
 
-### See COMMON ISSUES at bottom of file
-
 
 ### Detect if ssh keys have been decrypted, prompt otherwise
 # (Note: I've moved this up higher because until this check is done we can't expect anything to work)
@@ -137,6 +135,15 @@ fi
 # (at time of writing, not used, but could be used some day and shouldn't hurt?)
 yadm submodule update --recursive --init
 
+
+### BUGFIX: 'asdf not found' issue - if homebrew updates asdf, then all asdf shim paths
+# break and for some reason `asdf reshim` doesn't fix it. Should file a bug upstream, but for now, we can just blow away
+# the shim dir and start over, every time. If you wind up running in to issues with asdf-managed shims, try deleting
+# this first... the problem it fixes is RARE
+rm -rf "$HOME/.asdf/shims"
+asdf reshim
+
+
 ### Bootstrap neovim packer.nvim
 # (This will fail if packer hasn't yet bootstrqpped; in which case, just run 'nvim' once and then bootstrap again)
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -198,14 +205,3 @@ then
 else
     echo "Bootstrapping Complete!" | cowsay | lolcat
 fi
-
-
-### COMMON ISSUES
-#
-# 1. `asdf`-Shimmed commands (like `npm`) fail with errors about 'asdf: cannot execute: No such file or Directory'
-#
-#    Check to see if the path for asdf includes a version number, and check to see if that version matches what homebrew
-#    installed. If not, homebrew has updated asdf and broken your shims. For some reason, asdf reshim does not fix
-#    this... this feels like a bug with asdf so please file if you have enough info. The solution is:
-#
-#        $ rm -rf ~/.asdf/shims && asdf reshim
