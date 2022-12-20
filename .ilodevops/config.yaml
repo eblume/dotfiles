@@ -1,0 +1,11 @@
+---
+username: eblume
+email: erich.blume@illumio.com
+code: ~/code/work
+environments:
+  - name: dev
+    key: ~/.ssh/id_ed25519
+  - name: prod
+    key: ~/.ssh/id_ed25519
+  - name: gov
+    key: ~/.ssh/id_ed25519
