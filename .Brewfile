@@ -1,4 +1,5 @@
 brew "asdf"
+brew "gettext"
 brew "watch"
 brew "readline"
 brew "openssl"
