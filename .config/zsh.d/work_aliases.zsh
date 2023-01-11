@@ -19,3 +19,11 @@ fly-govcourse() {
 }
 
 export PATH="$PATH:$HOME/code/work/eblume/ilodevops/bin"
+
+
+# LOCAL ILODEVOPS - experimental - for using knife.rb from ilodevops, but outside of containers. This is NOT the source
+# of default ilodevops config!
+export ILODEVOPS_USER='eblume'
+export CHEF_SERVER_URL='https://chef-dev.ilabs.io'
+export CHEF_ADMINS='abondarenko,adias,akatida,eblume,gbeasley,jprathipati,jterry,kgo,kkim,ops-ci,pmoore,zcrownover'
+export ILODEVOPS_CODE="$HOME/code/work"
