@@ -4,7 +4,6 @@ nodejs 18.4.0
 golang 1.18.3
 kubectl 1.21.14
 kubectx 0.9.4
-poetry 1.2.0b3
-concourse 7.8.2
+poetry 1.3.2
 ruby 3.1.2
 terraform 1.3.2
