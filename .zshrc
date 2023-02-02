@@ -60,11 +60,6 @@ alias vim="nvim"
 export PYTHONDONTWRITEBYTECODE=1
 export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
 
-# Enable autocomplete with fly, if it's installed
-if type fly > /dev/null; then
-    eval "$(fly completion --shell=zsh)"
-fi
-
 # Enable chef
 ## (Disabled because it was interfering with PATH stuff; might be kludgeable)
 #if type chef > /dev/null; then
