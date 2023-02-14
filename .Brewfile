@@ -22,9 +22,9 @@ brew "starship"
 brew "wget"
 brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
-cask "asana"
 brew "dive"  # container exploration
 brew "imagemagick"
+cask "firefox"
 
 # nvim ale/lsp stuff
 brew "shellcheck"
@@ -49,16 +49,9 @@ brew "docker"
 brew "docker-compose"
 cask "docker"
 
-# Crowbar / AWS  -- used instead of aws-vault, unfortunately
-tap "moritzheiber/tap"
-brew "crowbar"
-
 # Hashicorp Vault
 tap "hashicorp/tap"
 brew "hashicorp/tap/vault"
 
 # blumeops
 brew "aws-iam-authenticator"
-
-# Fedramp work
-brew "packer"
