@@ -1,4 +1,6 @@
 brew "asdf"
+brew "minikube"
+brew "pulumi"
 brew "gettext"
 brew "watch"
 brew "readline"
