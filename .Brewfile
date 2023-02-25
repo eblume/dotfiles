@@ -1,4 +1,5 @@
 brew "asdf"
+brew "argocd"
 brew "minikube"
 brew "pulumi"
 brew "gettext"
