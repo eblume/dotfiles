@@ -1,4 +1,5 @@
 brew "asdf"
+brew "zellij"
 brew "argocd"
 brew "minikube"
 brew "pulumi"
