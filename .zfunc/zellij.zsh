@@ -917,7 +917,4 @@ _zellij__action__write-chars_commands() {
 }
 
 _zellij "$@"
-function zr () { zellij run --name "$*" -- zsh -ic "$*";}
-function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
-function ze () { zellij edit "$*";}
-function zef () { zellij edit --floating "$*";}
+# See also ~/.config/zsh.d/zellij.zsh
