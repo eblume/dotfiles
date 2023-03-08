@@ -2,7 +2,6 @@
 if type brew &>/dev/null
 then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
     autoload -Uz compinit
     compinit
 else
@@ -53,23 +52,17 @@ for file in ~/.config/zsh.d/*; do
 done
 
 
+### Load custom zfuncs (managed by me) (eg for completions)
+FPATH="$HOME/.zfuncs:${FPATH}"
+
 ### Helpful aliases 'n such
 alias vim="nvim"
+export EDITOR="$(which nvim)"
 
 # Misc
 export PYTHONDONTWRITEBYTECODE=1
 export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
 
-# Enable chef
-## (Disabled because it was interfering with PATH stuff; might be kludgeable)
-#if type chef > /dev/null; then
-#    eval "$(chef shell-init zsh)"
-#fi
-
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history
 setopt share_history
-
-
-### Automatically box in to a new zellij session if one doesn't exist
-eval "$(zellij setup --generate-auto-start zsh)"
