@@ -53,7 +53,7 @@ done
 
 
 ### Load custom zfuncs (managed by me) (eg for completions)
-FPATH="$HOME/.zfunc:${FPATH}"
+fpath=(~/.zfunc $fpath)
 
 ### Helpful aliases 'n such
 alias vim="nvim"
