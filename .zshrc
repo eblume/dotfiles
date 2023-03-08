@@ -2,8 +2,7 @@
 if type brew &>/dev/null
 then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-    autoload -Uz compinit
-    compinit
+    # Note, we will compinit later on
 else
     echo "WARNING: brew not found, have you set up homebrew yet? The remaing config is likely to fail..."
 fi
@@ -54,6 +53,8 @@ done
 
 ### Load custom zfuncs (managed by me) (eg for completions)
 fpath=(~/.zfunc $fpath)
+autoload -Uz compinit
+compinit
 
 ### Helpful aliases 'n such
 alias vim="nvim"
