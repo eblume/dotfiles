@@ -69,3 +69,7 @@ export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history
 setopt share_history
+
+
+### Automatically box in to a new zellij session if one doesn't exist
+eval "$(zellij setup --generate-auto-start zsh)"
