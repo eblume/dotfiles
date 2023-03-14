@@ -65,16 +65,18 @@ system_type=$(uname -s)
 
 ### Install homebrew and .Brewfile, to begin bootstrapping
 
-if [ "$system_type" = "Darwin" ]; then
+if [ "$system_type" = "Darwin" ] || [ "$system_type" = "Linux" ]; then
     # install homebrew if it's missing
     if ! command -v brew >/dev/null 2>&1; then
         # Installing homebrew
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	NONINTERACTIVE=1
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     # arch -arm64 due to weird error: https://stackoverflow.com/questions/74310340
     ARCH_PREFIX=''
-    if [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
+    if [ -d "/proc/sys/machdep" ] && [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
         ARCH_PREFIX='arch -arm64'
     fi
 
@@ -88,7 +90,6 @@ if [ "$system_type" = "Darwin" ]; then
     # only the `brew bundle --global` above, which does do updates after all.
     $ARCH_PREFIX brew update
     $ARCH_PREFIX brew upgrade
-
 fi
 
 
