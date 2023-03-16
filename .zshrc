@@ -2,6 +2,7 @@
 # (Added for WSL)
 if [ -z "$(pgrep ssh-agent)" ]; then
     # rm -rf /tmp/ssh-*
+    echo "~/.zshrc: new ssh agent"
     eval $(ssh-agent -s) > /dev/null
 else
     export SSH_AGENT_PID=$(pgrep ssh-agent)
