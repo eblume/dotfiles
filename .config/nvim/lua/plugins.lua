@@ -77,6 +77,11 @@ return require('packer').startup(function()
     end
   }
 
+  -- github copilot
+  -- (this costs $10/month, lol)
+  use 'github/copilot.vim'
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
