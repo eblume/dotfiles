@@ -1,4 +1,5 @@
 brew "asdf"
+brew "zsh-vi-mode"
 brew "zellij"
 brew "argocd"
 brew "minikube"
@@ -28,7 +29,7 @@ brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 brew "dive"  # container exploration
 brew "imagemagick"
-cask "firefox"
+# cask "firefox"  # Easier to just install it myself for now
 
 # nvim ale/lsp stuff
 brew "shellcheck"
@@ -49,9 +50,9 @@ brew "gh"
 brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
 
 # Docker for Mac
-brew "docker"
-brew "docker-compose"
-cask "docker"
+# brew "docker"
+# brew "docker-compose"
+# cask "docker"
 
 # Hashicorp Vault
 tap "hashicorp/tap"

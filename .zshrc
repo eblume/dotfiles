@@ -51,16 +51,13 @@ then
     echo $YADM_MODIFIED_FILES
 fi
 
-
 ### Enable starship prompt
 eval "$(starship init zsh)"
-
 
 ### Load extra configs (managed by me)
 for file in ~/.config/zsh.d/*; do
     source "$file"
 done
-
 
 ### Load custom zfuncs (managed by me) (eg for completions)
 fpath=(~/.zfunc $fpath)
