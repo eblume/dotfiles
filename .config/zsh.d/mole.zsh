@@ -6,7 +6,7 @@ function mymole() {
     if [ -f ~/code/personal/.env_settings.sh ]; then
       source ~/code/personal/.env_settings.sh
     else
-      echo "No API key found. Please set the TODOIST_API_KEY environment variable."
+      echo "No API key found. Please create ~/code/personal/.env_settings.sh"
       exit 1
     fi
   fi
