@@ -1,4 +1,5 @@
 brew "asdf"
+brew "tailscale"
 brew "zsh-vi-mode"
 brew "zellij"
 brew "argocd"

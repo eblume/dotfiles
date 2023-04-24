@@ -121,6 +121,7 @@ else
     asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git || true
     asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git || true
     asdf plugin add terraform-ls https://github.com/asdf-community/asdf-hashicorp.git || true
+    asdf plugin add java https://github.com/halcyon/asdf-java.git || true
     asdf plugin update --all
 
     # HACK: directly install python first, because poetry depends on it
