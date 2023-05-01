@@ -4,8 +4,8 @@ lua require('plugins')
 " Load lua init, which is where I do init.vim stuff but in lua
 lua require("init")
 
-" Configure vim-fubitive
-let g:fubitive_domain_pattern = 'stash\.ilabs\.io'
+" Set vim-fubitive prefix for work bitbucket server
+let g:fubitive_domain_pattern = 'bitbucket\.corp\.adcinternal\.com'
 
 " Automatically reload Packer config if it changed
 augroup packer_user_config
@@ -13,8 +13,13 @@ augroup packer_user_config
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 
-" Set <Leader> to <space> (ie, spacebar-leader)
-let mapleader="<space>"
+" Set <Leader> to <Space> (ie, spacebar-leader)
+" nnoremap <Space> <Nop>  " doesn't work 2023-04-19
+let mapleader = "\<Space>"
+
+" Set vimwiki config
+let g:vimwiki_list = [{'path': '~/code/personal/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0  " Without this, all markdown files are treated as vimwiki files
 
 " FZF search. More can be found here: https://github.com/junegunn/fzf.vim
 nnoremap <leader>f :<C-u>Files<CR>
