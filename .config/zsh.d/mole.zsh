@@ -1,7 +1,11 @@
 #!/bin/zsh
-# Defines `mymole` command to run mole with my API key.
+# Defines mole commands to run mole with my API key.
 
-function mymole() {
+function mymole {
+  ~/code/personal/mole/bin/mole $@
+}
+
+function whack() {
   if [ -z "$TODOIST_API_KEY" ]; then
     if [ -f ~/code/personal/.env_settings.sh ]; then
       source ~/code/personal/.env_settings.sh
@@ -11,5 +15,6 @@ function mymole() {
     fi
   fi
 
-  ~/code/personal/mole/bin/mole
+  mymole whack
 }
+
