@@ -32,6 +32,10 @@ brew "dive"  # container exploration
 brew "imagemagick"
 # cask "firefox"  # Easier to just install it myself for now
 
+# 1password CLI, _not_ the GUI cask
+tap "1password/tap"
+cask "1password/tap/1password-cli"
+
 # nvim ale/lsp stuff
 brew "shellcheck"
 brew "shfmt"
