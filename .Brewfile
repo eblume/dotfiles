@@ -1,5 +1,6 @@
 brew "asdf"
 brew "tailscale"
+cask "protonmail-bridge"
 brew "zsh-vi-mode"
 brew "zellij"
 brew "argocd"
