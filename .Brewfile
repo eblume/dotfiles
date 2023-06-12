@@ -15,6 +15,7 @@ brew "fzf"
 brew "bat"
 brew "git-delta"
 brew "ripgrep"
+brew "oath-toolkit"  # used for aws credential process + 1password
 brew "k9s"
 brew "z"
 brew "gnupg"
