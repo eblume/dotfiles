@@ -171,6 +171,27 @@ asdf reshim python
 go install github.com/rhysd/actionlint/cmd/actionlint@latest
 asdf reshim golang
 
+### Provision aws-vault
+function setup_aws_vault() {
+    local keychain_path="${HOME}/Library/Keychains/aws-vault.keychain-db"
+
+    if [ ! -f "$keychain_path" ]; then
+        echo "Setting up aws-vault keychain."
+        security create-keychain -p "" aws-vault.keychain-db
+    fi
+
+    echo "Making aws-vault keychain visible."
+    security list-keychains -s login.keychain-db aws-vault.keychain-db
+
+    echo "Configuring aws-vault keychain settings."
+    security set-keychain-settings -u -t 86400 aws-vault.keychain-db
+
+    echo "Unlocking aws-vault keychain."
+    security unlock-keychain -p "" aws-vault.keychain-db
+}
+setup_aws_vault
+
+
 ### Update remote url to use git now that we know ssh is in place
 remote_url=$(yadm remote get-url origin)
 intended_url="git@github.com:eblume/dotfiles.git"

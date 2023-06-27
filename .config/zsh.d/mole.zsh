@@ -1,4 +1,3 @@
-#!/bin/zsh
 # Defines mole commands to run mole with my API key.
 
 function mymole {

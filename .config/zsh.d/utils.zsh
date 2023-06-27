@@ -1,4 +1,3 @@
-#!/bin/zsh
 # Various utility functions
 
 function my_macname() {

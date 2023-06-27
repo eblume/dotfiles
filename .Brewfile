@@ -1,4 +1,5 @@
 brew "asdf"
+brew "ykman"  # yubikey
 brew "tailscale"
 cask "protonmail-bridge"
 brew "zsh-vi-mode"
