@@ -65,6 +65,3 @@ brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
 # Hashicorp Vault
 tap "hashicorp/tap"
 brew "hashicorp/tap/vault"
-
-# blumeops
-brew "aws-iam-authenticator"
