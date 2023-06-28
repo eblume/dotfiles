@@ -1,4 +1,17 @@
 --------
+-- Persistent Global Undo
+
+-- Ensure the undodir exists
+local undodir = vim.fn.expand('~/.config/nvim/undodir')
+if vim.fn.isdirectory(undodir) == 0 then
+    os.execute('mkdir -p ' .. undodir)
+end
+
+-- Enable persistent undo
+vim.opt.undodir = undodir
+vim.opt.undofile = true
+
+--------
 -- nvim-cmp suggested config for vsnip
 vim.api.nvim_set_option('completeopt', 'menu,menuone,noselect,preview')
 local cmp = require('cmp')
