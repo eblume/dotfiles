@@ -34,3 +34,18 @@ function my_macname() {
   fi
 }
 
+function my_youtube() {
+    url="$1"
+
+    if [ -z "$url" ]; then
+        url="$(pbpaste)"
+    fi
+
+    if [[ "$url" =~ ^https?://(www\.)?(youtube\.com|youtu\.be)/ ]]; then
+        echo "Opening YouTube link in Safari: $url"
+        /usr/bin/open -a "Safari" "$url"
+    else
+        echo "Error: Invalid YouTube link. Please provide a valid YouTube link."
+    fi
+}
+
