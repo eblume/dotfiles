@@ -1,4 +1,5 @@
 brew "asdf"
+brew "pipx"
 brew "ykman"  # yubikey
 brew "tailscale"
 cask "protonmail-bridge"
