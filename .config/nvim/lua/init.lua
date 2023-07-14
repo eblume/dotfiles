@@ -12,6 +12,16 @@ vim.opt.undodir = undodir
 vim.opt.undofile = true
 
 --------
+-- zellij run --floating -- ...
+function Zrf(opts)
+  local cmd = string.format("zellij run --name \"%s\" --floating -- zsh -ic \"%s\"", opts.args, opts.args)
+  vim.fn.system(cmd)
+end
+
+-- Create the command
+vim.api.nvim_create_user_command('Zrf', Zrf, { nargs = '*' })
+
+--------
 -- nvim-cmp suggested config for vsnip
 vim.api.nvim_set_option('completeopt', 'menu,menuone,noselect,preview')
 local cmp = require('cmp')

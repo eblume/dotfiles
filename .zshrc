@@ -69,7 +69,6 @@ alias vim="nvim"
 export EDITOR="$(which nvim)"
 
 # Misc
-export PYTHONDONTWRITEBYTECODE=1
 export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
 
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
