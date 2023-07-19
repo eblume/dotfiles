@@ -74,3 +74,7 @@ export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history
 setopt share_history
+
+# Created by `pipx` on 2023-07-19 01:33:08
+# (Didn't I do this already?! Trouble is brewing.)
+export PATH="$PATH:$HOME/.local/bin"
