@@ -153,19 +153,20 @@ npm install -g npm
 npm install -g yaml-language-server
 npm install -g cspell
 npm install -g bash-language-server
-npm install -g pyright
+# npm install -g pyright  # temp disabled
 npm install -g neovim  # see :checkhealth
 # Finally, do a global update, because I like to live dangerously
 npm update -g
 asdf reshim nodejs
 
 ### Install global python packages
-pip install --upgrade pip
-pip install --upgrade yamlfix
-pip install --upgrade bashate
-pip install --upgrade pynvim  # see :help provider-python
-pip install --upgrade jedi-language-server
-asdf reshim python
+pipx install yamlfix
+pipx install bashate
+pip install --upgrade pynvim  # see :help provider-python -- and no it can't be pipx
+pipx install ruff
+pipx install ruff-lsp
+# pipx install jedi-language-server  # temp disabled
+pipx upgrade-all
 
 ### Install global golang packages
 go install github.com/rhysd/actionlint/cmd/actionlint@latest

@@ -94,7 +94,8 @@ cmp.setup.cmdline(':', {
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts) vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
@@ -126,9 +127,23 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
-require('lspconfig')['jedi_language_server'].setup{on_attach = on_attach, capabilities = capabilities}
+-- DISABLED python linting, trying copilot + ruff now
+-- require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
+-- require('lspconfig')['jedi_language_server'].setup{on_attach = on_attach, capabilities = capabilities}
+
+require('lspconfig').ruff_lsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    }
+  }
+}
+
 require('lspconfig')['bashls'].setup{on_attach = on_attach, capabilities = capabilities}
+
 require('lspconfig')['yamlls'].setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -143,6 +158,7 @@ require('lspconfig')['yamlls'].setup{
     },
   },
 }
+
 require('lspconfig')['solargraph'].setup{on_attach = on_attach, capabilities = capabilities}
 
 
