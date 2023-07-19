@@ -70,8 +70,7 @@ if [ "$system_type" = "Darwin" ] || [ "$system_type" = "Linux" ]; then
     if ! command -v brew >/dev/null 2>&1; then
         # Installing homebrew
         # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	NONINTERACTIVE=1
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     # arch -arm64 due to weird error: https://stackoverflow.com/questions/74310340
