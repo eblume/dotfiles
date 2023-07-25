@@ -165,7 +165,7 @@ pip install --upgrade pynvim  # see :help provider-python -- and no it can't be 
 pipx install ruff
 pipx install ruff-lsp
 # pipx install jedi-language-server  # temp disabled
-pipx install openai
+pipx install llm
 pipx upgrade-all
 
 ### Install global golang packages

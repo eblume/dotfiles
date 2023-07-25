@@ -28,7 +28,6 @@ brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 brew "dive"  # container exploration
 brew "imagemagick"
-brew "llm"  # yay swillison!
 # cask "firefox"  # Easier to just install it myself for now
 
 # 1password CLI, _not_ the GUI cask
