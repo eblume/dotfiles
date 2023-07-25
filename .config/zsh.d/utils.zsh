@@ -35,17 +35,21 @@ function my_macname() {
 }
 
 function my_youtube() {
-    url="$1"
+  url="$1"
 
-    if [ -z "$url" ]; then
-        url="$(pbpaste)"
-    fi
+  if [ -z "$url" ]; then
+      url="$(pbpaste)"
+  fi
 
-    if [[ "$url" =~ ^https?://(www\.)?(youtube\.com|youtu\.be)/ ]]; then
-        echo "Opening YouTube link in Safari: $url"
-        /usr/bin/open -a "Safari" "$url"
-    else
-        echo "Error: Invalid YouTube link. Please provide a valid YouTube link."
-    fi
+  if [[ "$url" =~ ^https?://(www\.)?(youtube\.com|youtu\.be)/ ]]; then
+      echo "Opening YouTube link in Safari: $url"
+      /usr/bin/open -a "Safari" "$url"
+  else
+      echo "Error: Invalid YouTube link. Please provide a valid YouTube link."
+  fi
 }
 
+function my_llm() {
+  OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")"
+  llm $@
+}

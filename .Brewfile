@@ -5,9 +5,6 @@ brew "tailscale"
 cask "protonmail-bridge"
 brew "zsh-vi-mode"
 brew "zellij"
-brew "argocd"
-brew "minikube"
-brew "pulumi"
 brew "gettext"
 brew "watch"
 brew "readline"
@@ -17,23 +14,21 @@ brew "fzf"
 brew "bat"
 brew "git-delta"
 brew "ripgrep"
-brew "oath-toolkit"  # used for aws credential process + 1password
-brew "k9s"
 brew "z"
 brew "gnupg"
 brew "jq"
 brew "yq"
-cask "aws-vault"  # See Crowbar below
+cask "aws-vault"
 brew "awscli"
 cask "iterm2"
 cask "todoist"
-cask "fantastical"
 brew "starship"
 brew "wget"
 brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 brew "dive"  # container exploration
 brew "imagemagick"
+brew "llm"  # yay swillison!
 # cask "firefox"  # Easier to just install it myself for now
 
 # 1password CLI, _not_ the GUI cask
