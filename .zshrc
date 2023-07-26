@@ -18,6 +18,20 @@ else
     echo "WARNING: brew not found, have you set up homebrew yet? The remaing config is likely to fail..."
 fi
 
+# Enable sqlite3 managed by homebrew
+if type brew &>/dev/null
+then
+    # Check if sqlite is installed
+    if brew ls --versions sqlite > /dev/null
+    then
+        export PATH="$(brew --prefix sqlite)/bin:$PATH"
+    else
+        echo "WARNING: SQLite not found, have you installed it using brew yet? (Defaulting to system sqlite...)"
+    fi
+else
+    echo "WARNING: brew not found, have you set up homebrew yet? The remaing config is likely to fail..."
+fi
+
 # Activate asdf
 ASDF_ACTIVATION_SCRIPT="$(brew --prefix asdf)"/libexec/asdf.sh
 if [[ -f "$ASDF_ACTIVATION_SCRIPT" ]]
