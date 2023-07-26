@@ -50,6 +50,5 @@ function my_youtube() {
 }
 
 function my_llm() {
-  OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")"
-  llm $@
+  OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm $@
 }
