@@ -4,7 +4,6 @@ nodejs 18.4.0
 golang 1.20.5
 kubectl 1.26.1
 kubectx 0.9.4
-poetry 1.5.1
 ruby 3.1.2
 terraform 1.4.6
 java corretto-11.0.18.10.1

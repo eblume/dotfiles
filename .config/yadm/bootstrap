@@ -116,17 +116,11 @@ else
     asdf plugin add golang || true
     asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git || true
     asdf plugin add kubectx https://github.com/virtualstaticvoid/asdf-kubectx.git || true
-    asdf plugin add poetry https://github.com/asdf-community/asdf-poetry.git || true
     asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git || true
     asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git || true
     asdf plugin add terraform-ls https://github.com/asdf-community/asdf-hashicorp.git || true
     asdf plugin add java https://github.com/halcyon/asdf-java.git || true
     asdf plugin update --all
-
-    # HACK: directly install python first, because poetry depends on it
-    asdf install python
-
-
     asdf install # (this targets `.tool-versions`, which is linked by yadm)
 fi
 
@@ -163,6 +157,7 @@ pipx install yamlfix
 pipx install bashate
 pip install --upgrade pynvim  # see :help provider-python -- and no it can't be pipx
 pipx install ruff
+pipx install poetry
 pipx install ruff-lsp
 # pipx install jedi-language-server  # temp disabled
 pipx install llm
