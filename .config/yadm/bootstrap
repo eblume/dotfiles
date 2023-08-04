@@ -163,6 +163,9 @@ pipx install ruff-lsp
 pipx install llm
 pipx upgrade-all
 
+### Install llm plugins
+llm install llm-gpt4all
+
 ### Install global golang packages
 go install github.com/rhysd/actionlint/cmd/actionlint@latest
 asdf reshim golang
