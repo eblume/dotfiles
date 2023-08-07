@@ -153,6 +153,7 @@ npm update -g
 asdf reshim nodejs
 
 ### Install global python packages
+pip install --upgrade pip
 pipx install yamlfix
 pipx install bashate
 pip install --upgrade pynvim  # see :help provider-python -- and no it can't be pipx
