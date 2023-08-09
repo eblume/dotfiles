@@ -57,3 +57,20 @@ function my_branch() {
   # Use FZF to check out a branch by name, interactively
   git checkout $(git for-each-ref --format='%(refname:short)' refs/heads | fzf)
 }
+
+my_cbwrap() {
+  # Run a command and copy its output to the clipboard
+  local tmpfile=$(mktemp)
+  echo "$ $@" > $tmpfile
+  eval "$@" | tee -a $tmpfile 2>&1;
+  if command -v pbcopy > /dev/null; then
+      cat $tmpfile | pbcopy
+  elif command -v xclip > /dev/null; then
+      cat $tmpfile | xclip -sel clip
+  else
+      echo "Neither pbcopy nor xclip is available."
+      rm $tmpfile
+      return 1
+  fi
+  rm $tmpfile
+}

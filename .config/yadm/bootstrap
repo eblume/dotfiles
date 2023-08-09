@@ -221,6 +221,8 @@ echo "Bootstrapping complete (note: encrypted files NOT automated, see bootstrap
 # yaaay
 if [[ -x "$HOME/.iterm2/imgcat" ]]
 then
+    # I think there is a bug, I think yadm has imgcat always and it just doesnt do anything outside of iterm, but that's
+    # fine too.
     ~/.iterm2/imgcat ~/otis.png
     echo "Otis says: Bootstrapping Complete!" | cowsay | lolcat
 else
