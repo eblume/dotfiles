@@ -52,3 +52,8 @@ function my_youtube() {
 function my_llm() {
   OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm $@
 }
+
+function my_branch() {
+  # Use FZF to check out a branch by name, interactively
+  git checkout $(git for-each-ref --format='%(refname:short)' refs/heads | fzf)
+}
