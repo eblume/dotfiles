@@ -49,10 +49,6 @@ function my_youtube() {
   fi
 }
 
-function my_llm() {
-  OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm $@
-}
-
 function my_branch() {
   # Use FZF to check out a branch by name, interactively
   git checkout $(git for-each-ref --format='%(refname:short)' refs/heads | fzf)
@@ -73,4 +69,26 @@ my_cbwrap() {
       return 1
   fi
   rm $tmpfile
+}
+
+function my_llm() {
+  if [ $# -eq 0 ]; then
+    echo "No arguments provided. Launching $EDITOR for input."
+    TEMPFILE=$(mktemp)
+    if $EDITOR $TEMPFILE; then
+        if [ -s $TEMPFILE ]; then
+            echo "Running llm with input from $TEMPFILE"
+            echo
+            OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm < $TEMPFILE
+        else
+            echo "No input detected in $TEMPFILE."
+            echo "llm will not be run."
+        fi
+    else
+        echo "Editor exited with error. llm will not be run."
+    fi
+    rm $TEMPFILE
+  else
+    OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm $@
+  fi
 }

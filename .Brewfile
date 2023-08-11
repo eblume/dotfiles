@@ -1,3 +1,4 @@
+brew "mas"
 brew "asdf"
 brew "pipx"
 brew "ykman"  # yubikey
@@ -33,6 +34,10 @@ brew "imagemagick"
 # 1password CLI, _not_ the GUI cask
 tap "1password/tap"
 cask "1password/tap/1password-cli"
+# And now the actual GUI cask, which is seperate and has caused me issues:
+cask "1password"
+# mas "1Password 7", id: 1333542190  # 1password 7 via mac store if needed, but 8 is out now...
+# ( See https://1password.com/mac-app-store-subscribe/ )
 
 # nvim ale/lsp stuff
 brew "shellcheck"

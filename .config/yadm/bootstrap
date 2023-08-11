@@ -16,17 +16,28 @@ set -o errexit
 # (on non-Mac OS, you just need to replace steps 1 and 2 with whatever gives you a working 'yadm'.)
 
 
-### Detect if ssh keys have been decrypted, prompt otherwise
+### Detect if ssh keys have been decrypted, retrieve if not.
 # (Note: I've moved this up higher because until this check is done we can't expect anything to work)
+# (If this causes a first bootstrap issue, you can manually create the ssh key from 1password's UI)
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
-    echo "SSH keys seemingly not configured (or I forgot to update the bootstrap script after changing keyfiles)"
-    echo "Will now try to run 'yadm decrypt'; password will be required to continue"
-    # shellcheck disable=SC3045  # (warning about read -n missing in some POSIX environments)
-    read -n 1 -s -r -p "Press any key to continue (or ctrl-c to abort) [in some POSIXes, enter to continue]"
-    yadm decrypt
-    # TODO This bootstrap command is darwin specific, use yadm conditions to handle linux (with -K)
-    echo "ssh key decrypted, loading key, key password will now be needed..."
-    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
+    echo "No existing SSH key found."
+
+    if ! command -v op &> /dev/null; then
+        echo "1Password is not installed. Cannot retrieve SSH key."
+        echo "Continuing, but you should re-run when 1Password is installed."
+    else
+        echo "Attempting to retrieve SSH key from 1Password..."
+        op item get "SSH - Personal" --format json | jq '.fields[] | select(.id=="private_key") | .value' -r > "$HOME/.ssh/id_ed25519"
+        chmod 600 "$HOME/.ssh/id_ed25519"
+        echo "SSH key retrieved and saved!"
+
+        # Check for system type to decide ssh-add option
+        if [ "$(uname -s)" == "Darwin" ]; then
+            ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
+        else
+            ssh-add -K "$HOME/.ssh/id_ed25519"
+        fi
+    fi
 fi
 
 # But before we do anything, let's check to see if we're up to date.
@@ -166,6 +177,10 @@ pipx upgrade-all
 
 ### Install llm plugins
 llm install llm-gpt4all
+llm install llama-cpp-python
+llm install llm-llama-cpp
+# See model installation instructions here:
+# https://github.com/simonw/llm-llama-cpp#adding-models
 
 ### Install global golang packages
 go install github.com/rhysd/actionlint/cmd/actionlint@latest
@@ -205,16 +220,7 @@ if [ "$remote_url"  != "$intended_url" ]; then
 fi
 
 ### FIN
-echo "Bootstrapping complete (note: encrypted files NOT automated, see bootstrap script for info, probably safe to ignore)"
-# Note on the above: So, they sort of ARE managed... if my .ssh/id_ed25519 file doesn't exist then it will attempt to
-# run yadm decrypt, but otherwise nothing. Why not just always run yadm decrypt? two problems:
-#
-# 1. yadm decrypt runs gpg decryption which grabs the entire tty to enter a password... very disruptive
-# 2. yadm decrypt clobbers any local changes, as far as I can tell
-#
-# Therefore, just handle yadm encrypt / yadm decrypt yourself whenever changing an encrypted file... I feel like this
-# needs to be made better, maybe transcrypt/git-crypt would be better?
-
+echo "Bootstrapping complete"
 
 # still reading?
 # Putting this here makes me a bit happier every time I run bootstrap, and also if it fails then something went wrong
