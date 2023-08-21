@@ -20,6 +20,39 @@ let mapleader = "\<Space>"
 " Set vimwiki config
 let g:vimwiki_list = [{'path': '~/code/personal/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0  " Without this, all markdown files are treated as vimwiki files
+"<S-CR> and <C-CR> don't work in terminals, apparently - fixes exist, but blech
+nnoremap <leader>wv :VimwikiSplitLink<CR> 
+" Crazy idea with gpt4-written code: vimwiki diary index autoregen
+function! IsInVimwikiPath()
+  let current_path = expand('%:p')  " Gets the full path of the current file
+  " Here, loop over each of your vimwiki path
+  for wiki_path in g:vimwiki_list
+    " if your current file belongs to the vimwiki path, then return 1
+    if stridx(current_path, expand(wiki_path.path)) == 0
+      return 1
+    endif
+  endfor
+  return 0
+endfunction
+
+augroup vimwiki_diary
+  autocmd!
+  autocmd BufEnter diary.md if IsInVimwikiPath() | call vimwiki#diary#generate_diary_section() | endif
+augroup EN
+
+" Still vimwiki - let's make a simple command to make a new heading entry
+func! MyDiary()
+    VimwikiMakeDiaryNote
+    " If the buffer is empty, enter the day heading
+    if line('$') == 1 && getline('$') == ''
+        execute "normal! o# ".strftime('%B %d, %Y')
+    endif
+    execute "normal! G$o"
+    execute "normal! o## ".strftime('%H:%M')
+    execute "normal Go"
+endfunc
+
+command! MyDiary :call MyDiary()
 
 " FZF search. More can be found here: https://github.com/junegunn/fzf.vim
 nnoremap <leader>f :<C-u>Files<CR>

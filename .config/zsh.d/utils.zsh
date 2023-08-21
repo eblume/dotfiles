@@ -92,3 +92,8 @@ function my_llm() {
     OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm $@
   fi
 }
+
+function my_log() {
+  # Log to vimwiki - will fail if vimwiki isn't installed, but that's managed elsewhere
+  exec $EDITOR -c MyDiary -c startinsert
+}
