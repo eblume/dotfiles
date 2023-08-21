@@ -164,9 +164,3 @@ let g:diminactive_enable_focus = 1
 :nnoremap <A-j> <C-w>j
 :nnoremap <A-k> <C-w>k
 :nnoremap <A-l> <C-w>l
-
-" Copilot mappings
-let g:copilot_filetypes = {
-      \ 'markdown': v:true,
-      \ 'vimwiki': v:true,
-      \ }
