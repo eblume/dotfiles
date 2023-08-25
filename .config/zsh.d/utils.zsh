@@ -95,5 +95,5 @@ function my_llm() {
 
 function my_log() {
   # Log to vimwiki - will fail if vimwiki isn't installed, but that's managed elsewhere
-  exec $EDITOR -c MyDiary -c startinsert
+  $EDITOR -c MyDiary -c startinsert
 }
