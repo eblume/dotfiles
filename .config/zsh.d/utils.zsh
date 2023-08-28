@@ -94,6 +94,6 @@ function my_llm() {
 }
 
 function my_log() {
-  # Log to vimwiki - will fail if vimwiki isn't installed, but that's managed elsewhere
-  $EDITOR -c MyDiary -c startinsert
+  # Use nb to add a diary entry
+  nb --title "$(date '+%A, %B %d, %Y  %H:%M:%S')" --tags diary --edit
 }

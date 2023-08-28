@@ -17,9 +17,6 @@ return require('packer').startup(function()
   use 'tpope/vim-eunuch'  -- :Move, :Rename, etc
   use 'tpope/vim-projectionist'  -- project-specific configuration
 
-  -- vim-wiki personal knowledgebase
-  use 'vimwiki/vimwiki'
-
   -- 'vim-fubitive' - vim-fugitive for bitbucket. Note g:fubitive_domain_pattern config.
   use 'tommcdo/vim-fubitive'
 
