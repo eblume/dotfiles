@@ -68,7 +68,6 @@ tap "hashicorp/tap"
 brew "hashicorp/tap/vault"
 
 # prereqs and suggestions for nb
-brew "ncat"
 brew "pandoc"
 brew "tig"
 brew "w3m"

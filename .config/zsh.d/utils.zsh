@@ -97,3 +97,13 @@ function my_log() {
   # Use nb to add a diary entry
   nb --title "$(date '+%A, %B %d, %Y  %H:%M:%S')" --tags diary --edit
 }
+
+function my_idea() {
+  # Use nb to add an idea entry
+  if [ $# -eq 0 ]; then
+    echo "Usage: my_idea IDEA"
+    return 1
+  fi
+  idea="$@"
+  nb --title "$idea" --type=idea.md --edit
+}

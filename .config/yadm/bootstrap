@@ -206,6 +206,20 @@ function setup_aws_vault() {
 }
 setup_aws_vault
 
+### Provision nb-cli with my notebook sync repo
+if 
+    ! command -v nb >/dev/null
+then
+    echo "nb not found, bootstrapping failed - maybe bootstrapping needs to be added to your system: $system_type"
+    echo "see ~/.config/yadm/bootstrap"
+    exit 1
+else
+    remotes=$(nb remote list)
+    if [[ $remotes != *"eblume/notebook"* ]]; then
+        echo "Adding eblume/notebook as a remote to nb"
+        nb remote set git@github.com:eblume/notebook.git
+    fi
+fi
 
 ### Update remote url to use git now that we know ssh is in place
 remote_url=$(yadm remote get-url origin)
