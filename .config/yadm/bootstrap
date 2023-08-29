@@ -157,6 +157,7 @@ npm install -g npm
 npm install -g yaml-language-server
 npm install -g cspell
 npm install -g bash-language-server
+npm install -g readability-cli  # for nb-cli
 # npm install -g pyright  # temp disabled
 npm install -g neovim  # see :checkhealth
 # Finally, do a global update, because I like to live dangerously
