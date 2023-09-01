@@ -24,8 +24,10 @@ nnoremap <leader>b :<C-u>Buffers<CR>
 nnoremap <leader>l :<C-u>Lines<CR>
 if executable('rg')
   nnoremap <leader>a :<C-u>Rg<CR>
+  nnoremap <leader>r :Rg <C-R><C-W><CR>
 elseif executable('ag')
   nnoremap <leader>a :<C-u>Ag<CR>
+  nnoremap <leader>r :Ag <C-R><C-W><CR>
 endif
 " Map ctrl-p to :Files, to mimic ctrlp.vim, which is burned in to my brain
 nnoremap <C-p> :<C-u>Files<CR>
@@ -40,6 +42,7 @@ nnoremap <leader>/ :nohlsearch<CR>
 " some netrw setup
 let g:netrw_liststyle = 3  " tree view
 let g:netrw_banner = 0
+let g:netrw_preview = 1  " press p to preview
 
 " set wider column width
 set textwidth=120

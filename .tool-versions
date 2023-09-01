@@ -1,6 +1,6 @@
 python 3.11.1
 kustomize 4.5.5
-nodejs 18.4.0
+nodejs 18.17.1
 golang 1.20.5
 kubectl 1.26.1
 kubectx 0.9.4
