@@ -120,15 +120,24 @@ function my_idea() {
 }
 
 function my_summarize() {
-  # TODO rename this when I understand it better
-  # IDEA: Use nb to load relevant context. By default, the past N days of log entries. Maybe also todoist info? etc.
-  # Then have an llm summarize it.
-  context=$(nb list --type=log.md --limit=5 --sort --reverse --no-id --filenames --paths | xargs -L1 cat)
+  # Example: my_summarize
+  #   (default) Summarize last 5 updated entries
+  # Example: my_summarize --type=log.md --sort --reverse
+  #   Summarize last 5 log entries, sorted by creation order, most recent first
+  #
+  # NOTE: This works because nb overwrites arguments if specified multiple times
 
+  files=$(nb list --type=md --limit=5 --no-id --filenames --paths $@ | grep -E "^/.*\.md$")
   if [ $? -ne 0 ]; then
     echo "Error: Could not load context."
     return 1
   fi
 
-  my_llm -s "The assistant will summarize the log entries, aiming for a small number of bullet points. Be concise. Thanks!" <<< "$context"
+  context="Today's date: $(date '+%Y-%m-%d')\nContext:\n$(xargs -L1 cat <<< "$files")"
+
+  my_llm -s "The assistant will summarize the log entries, aiming for two to five bullet points. Be concise. Thanks!" <<< "$context"
+}
+
+function my_logsum() {
+  my_summarize --type=log.md --sort --reverse
 }
