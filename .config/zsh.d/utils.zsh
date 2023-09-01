@@ -54,7 +54,7 @@ function my_branch() {
   git checkout $(git for-each-ref --format='%(refname:short)' refs/heads | fzf)
 }
 
-my_cbwrap() {
+function my_cbwrap() {
   # Run a command and copy its output to the clipboard
   local tmpfile=$(mktemp)
   echo "$ $@" > $tmpfile
@@ -94,8 +94,19 @@ function my_llm() {
 }
 
 function my_log() {
-  # Use nb to add a diary entry
-  nb --title "$(date '+%A, %B %d, %Y  %H:%M:%S')" --tags diary --edit
+  # Use nb to add a diary entry. If it's the first entry of the day, use a full date line, otherwise use an abbreviated
+  # one.
+  long_form_date=$(date '+%A, %B %d, %Y')
+  short_form_date=$(date '+%H:%M')
+  calendar_date=$(date '+%Y-%m-%d')
+  entries=$(nb list --type=log.md "${calendar_date}.log.md")
+  if [ $? -eq 0 ]; then
+    # entries WERE found, so use nb edit
+    nb edit "${calendar_date}.log.md" --content "## ${short_form_date}" --edit
+  else
+    # entries were NOT found, so use nb add
+    nb add "${calendar_date}.log.md" --title "${long_form_date}" --content "## ${short_form_date}" --type=log.md --edit
+  fi
 }
 
 function my_idea() {
