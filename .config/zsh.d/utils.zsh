@@ -118,3 +118,17 @@ function my_idea() {
   idea="$@"
   nb --title "$idea" --type=idea.md --edit
 }
+
+function my_summarize() {
+  # TODO rename this when I understand it better
+  # IDEA: Use nb to load relevant context. By default, the past N days of log entries. Maybe also todoist info? etc.
+  # Then have an llm summarize it.
+  context=$(nb list --type=log.md --limit=5 --sort --reverse --no-id --filenames --paths | xargs -L1 cat)
+
+  if [ $? -ne 0 ]; then
+    echo "Error: Could not load context."
+    return 1
+  fi
+
+  my_llm -s "The assistant will summarize the log entries, aiming for a small number of bullet points. Be concise. Thanks!" <<< "$context"
+}
