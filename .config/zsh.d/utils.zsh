@@ -133,9 +133,15 @@ function my_summarize() {
     return 1
   fi
 
-  context="Today's date: $(date '+%Y-%m-%d')\nContext:\n$(xargs -L1 cat <<< "$files")"
+  context=$(cat << EOF
+Name: Erich Blume
+Date: $(date '+%Y-%m-%d')
+Context:
+$(xargs -L1 cat <<< "$files")
+EOF
+)
 
-  my_llm -s "The assistant will summarize the log entries, aiming for two to five bullet points. Be concise. Thanks!" <<< "$context"
+  my_llm -s "Please summarize my notebook, highlighting important pressing details. Aim for two to six bullet points." -o temperature 1.1 <<< "$context"
 }
 
 function my_logsum() {
