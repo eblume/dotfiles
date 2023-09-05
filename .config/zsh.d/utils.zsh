@@ -99,13 +99,15 @@ function my_log() {
   long_form_date=$(date '+%A, %B %d, %Y')
   short_form_date=$(date '+%H:%M')
   calendar_date=$(date '+%Y-%m-%d')
+  shortmsg=$'\n'"$@"
   entries=$(nb list --type=log.md "${calendar_date}.log.md")
+  edit=$(if [ $# -eq 0 ]; then echo "--edit"; else echo ""; fi)
   if [ $? -eq 0 ]; then
     # entries WERE found, so use nb edit
-    nb edit "${calendar_date}.log.md" --content "## ${short_form_date}" --edit
+    nb edit "${calendar_date}.log.md" --content "## ${short_form_date}${shortmsg}" $edit
   else
     # entries were NOT found, so use nb add
-    nb add "${calendar_date}.log.md" --title "${long_form_date}" --content "## ${short_form_date}" --type=log.md --edit
+    nb add "${calendar_date}.log.md" --title "${long_form_date}" --content "## ${short_form_date}${shortmsg}" --type=log.md $edit
   fi
 }
 
