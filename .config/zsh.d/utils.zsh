@@ -149,3 +149,57 @@ EOF
 function my_logsum() {
   my_summarize --type=log.md --sort --reverse
 }
+
+function my_transcribe() {
+  # my_transcribe FILE
+  # Transcribe an audio file to text using whisper.cpp
+  # This function will, if needed, clone and build whisper.cpp and download a good model
+  #
+  # If ~/code/whisper.cpp does not exist, clone it
+  codedir=~/code/3rd/whisper.cpp
+  if [ ! -d $codedir ]; then
+    git clone --quiet git@github.com:ggerganov/whisper.cpp.git $codedir
+  fi
+  cd $codedir
+
+  git pull --quiet
+  bash ./models/download-ggml-model.sh base.en > /dev/null 2>&1
+  make > /dev/null 2>&1
+  
+  outfile="$(mktemp).wav"
+  ffmpeg -i "$1" -ar 16000 -hide_banner -loglevel warning -nostats $outfile
+
+  ./main -nt -f $outfile 2>/dev/null | grep -v '^$' | sed 's/^[ \t]*//'
+
+  rm $outfile
+  cd ~-
+}
+
+function my_vm() {
+  # Batch process cloud-synced JustPressRecord voice memos
+  # For each memo found, it will be transcribed and added to that day's log
+  # If that day's log doesn't exist, it will be created
+  # TODO: the voice memo should be archived (it is not currently)
+  # The voice memo will then be deleted.
+  # Thus, this function will ultimately move voice memos in to NB via transcription.
+  
+  clouddir="$HOME/Library/Mobile Documents/iCloud~com~openplanetsoftware~just-press-record/Documents"
+
+  for file in $clouddir/*/*.m4a; do
+    echo "Processing $file"
+    date="$(basename "$(dirname "$file")")"
+    longformat="+%A, %B %d, %Y"
+    long_form_date=$(date -j -f "%Y-%m-%d" "$date" "$longformat")
+    transcript=$'\n'$'\n'"$(my_transcribe "$file")"
+    thetime=$(exiftool -CreateDate -d "%H:%M" "$file" | awk '{print $NF}')
+
+    # TODO this UPSERT pattern is dumb
+    add_or_edit=$(if nb list --type=log.md "$date.log.md" > /dev/null 2>&1; then echo "edit"; else echo "add"; fi)
+    
+    nb $add_or_edit "$date.log.md" --title "$long_form_date" --type=log.md --content "## $thetime (Voice Memo)$transcript"
+
+    # TODO archive
+    rm "$file"
+  done
+
+}

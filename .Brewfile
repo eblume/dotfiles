@@ -6,6 +6,7 @@ brew "tailscale"
 cask "protonmail-bridge"
 brew "zsh-vi-mode"
 brew "zellij"
+brew "exiftool"  # for my_vm
 brew "gettext"
 brew "watch"
 brew "zsh-autosuggestions"
