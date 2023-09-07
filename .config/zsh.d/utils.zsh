@@ -1,6 +1,7 @@
 # Various utility functions
 
 function my_macname() {
+  # Get or set the hostname of a Mac
   if [[ $# -eq 0 ]]; then
     echo "Usage: my_macname get | set NEW_NAME"
     return 1
@@ -35,6 +36,7 @@ function my_macname() {
 }
 
 function my_youtube() {
+  # Open a YouTube link in Safari. To use, copy a YouTube link to the clipboard, then run this function.
   url="$1"
 
   if [ -z "$url" ]; then
@@ -100,8 +102,8 @@ function my_log() {
   short_form_date=$(date '+%H:%M')
   calendar_date=$(date '+%Y-%m-%d')
   shortmsg=$'\n'"$@"
-  entries=$(nb list --type=log.md "${calendar_date}.log.md")
   edit=$(if [ $# -eq 0 ]; then echo "--edit"; else echo ""; fi)
+  entries=$(nb list --type=log.md "${calendar_date}.log.md")
   if [ $? -eq 0 ]; then
     # entries WERE found, so use nb edit
     nb edit "${calendar_date}.log.md" --content "## ${short_form_date}${shortmsg}" $edit
@@ -188,12 +190,12 @@ function my_vm() {
   for file in $clouddir/*/*.m4a; do
     echo "Processing $file"
     date="$(basename "$(dirname "$file")")"
+    thetime="$(date -j -f "%H-%M-%S" "$(basename "$file" | sed 's/\.m4a$//')" "+%H:%M")"
     longformat="+%A, %B %d, %Y"
     long_form_date=$(date -j -f "%Y-%m-%d" "$date" "$longformat")
     transcript=$'\n'$'\n'"$(my_transcribe "$file")"
-    thetime=$(exiftool -CreateDate -d "%H:%M" "$file" | awk '{print $NF}')
 
-    # TODO this UPSERT pattern is dumb
+    # TODO this UPSERT pattern is dumb, but also maybe backport it to my_log
     add_or_edit=$(if nb list --type=log.md "$date.log.md" > /dev/null 2>&1; then echo "edit"; else echo "add"; fi)
     
     nb $add_or_edit "$date.log.md" --title "$long_form_date" --type=log.md --content "## $thetime (Voice Memo)$transcript"
