@@ -184,6 +184,9 @@ function my_vm() {
   # TODO: the voice memo should be archived (it is not currently)
   # The voice memo will then be deleted.
   # Thus, this function will ultimately move voice memos in to NB via transcription.
+
+  # First, sync, because this is useless if its not synced
+  nb sync
   
   clouddir="$HOME/Library/Mobile Documents/iCloud~com~openplanetsoftware~just-press-record/Documents"
 
