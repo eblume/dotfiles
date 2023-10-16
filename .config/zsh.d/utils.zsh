@@ -101,15 +101,22 @@ function my_log() {
   long_form_date=$(date '+%A, %B %d, %Y')
   short_form_date=$(date '+%H:%M')
   calendar_date=$(date '+%Y-%m-%d')
-  shortmsg=$'\n'"$@"
-  edit=$(if [ $# -eq 0 ]; then echo "--edit"; else echo ""; fi)
+  shortmsg=$'\n'"$*"
+
+  # First, create all preamble for this entry including the file itself if needed
   entries=$(nb list --type=log.md "${calendar_date}.log.md")
   if [ $? -eq 0 ]; then
-    # entries WERE found, so use nb edit
-    nb edit "${calendar_date}.log.md" --content "## ${short_form_date}${shortmsg}" $edit
+    # entries were found, so use nb edit
+    nb edit "${calendar_date}.log.md" --content "## ${short_form_date}${shortmsg}"
   else
     # entries were NOT found, so use nb add
-    nb add "${calendar_date}.log.md" --title "${long_form_date}" --content "## ${short_form_date}${shortmsg}" --type=log.md $edit
+    nb add "${calendar_date}.log.md" --title "${long_form_date}" --content "## ${short_form_date}${shortmsg}" --type=log.md
+  fi
+
+  # If no args were passed, open the file in the editor
+  if [ $# -eq 0 ]; then
+    # Why do this and not just use --edit? Because --edit _locks nb systemwide_. wtf?
+    nb open "${calendar_date}.log.md"
   fi
 }
 
@@ -198,7 +205,7 @@ function my_vm() {
     long_form_date=$(date -j -f "%Y-%m-%d" "$date" "$longformat")
     transcript=$'\n'$'\n'"$(my_transcribe "$file")"
 
-    # TODO this UPSERT pattern is dumb, but also maybe backport it to my_log
+    # TODO this UPSERT pattern is dumb
     add_or_edit=$(if nb list --type=log.md "$date.log.md" > /dev/null 2>&1; then echo "edit"; else echo "add"; fi)
     
     nb $add_or_edit "$date.log.md" --title "$long_form_date" --type=log.md --content "## $thetime (Voice Memo)$transcript"
@@ -218,10 +225,29 @@ function my_project {
     if [[ "$1" =~ ^[0-9]+$ ]]; then
       nb edit "$1"
     else
-      filename="$(nb list --type=project.md --limit=1 --no-id --paths "$@")"
+      filename="$(nb list --type=project.md --limit=1 --no-id --paths "$*")"
       if [ $? -eq 0 ]; then
         nb edit "$filename"
       fi
     fi
+  fi
+}
+
+function my_todo {
+  # With no args, list the todos in the task list of todoist
+  # Otherwise, args are stringified and used to make a new task in todoist
+  TOKEN=$(op item get Todoist --field 'API Key')
+  if [ -z "$TOKEN" ]; then
+    echo "Error: Could not get Todoist API Key from 1Password."
+    return 1
+  fi
+
+  if [ $# -eq 0 ]; then
+    FILTER="filter=(today | overdue) & !p3 & (p1 | (p2 & !#Work) | !(#Daily Routine | #Work Routine | #Chores | #Camano Chores | #Work))"
+    curl -s --get https://api.todoist.com/rest/v2/tasks -H "Authorization: Bearer $TOKEN" --data-urlencode "$FILTER" | jq -r ".[].content"
+  else
+    JSON_DATA=$(printf '{"content": "%s", "due_string": "today"}' "$*")
+    URL=$(curl -s -X POST https://api.todoist.com/rest/v2/tasks -H "Authorization: Bearer $TOKEN" -H "X-Request-Id: $(uuidgen)" -H "Content-Type: application/json" --data "$JSON_DATA" | jq -r ".url")
+    echo "$(echo "$URL" | sed 's|https://todoist.com/showTask?|todoist://task?|')"
   fi
 }
