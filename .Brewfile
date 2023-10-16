@@ -30,6 +30,7 @@ brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 brew "dive"  # container exploration
 brew "imagemagick"
+mas "Just Press Record", id: 1033342465
 # cask "firefox"  # Easier to just install it myself for now
 
 # 1password CLI, _not_ the GUI cask

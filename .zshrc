@@ -84,6 +84,7 @@ export EDITOR="$(which nvim)"
 
 # Misc
 export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
+alias nbo="nb o"  # open notebook
 
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history

@@ -208,3 +208,20 @@ function my_vm() {
   done
 
 }
+
+function my_project {
+  # With no args, list projects and their nb id's
+  # With one arg, if it's numeric, open that nb doc, otherwise open the first matching search result of the arg string
+  if [ $# -eq 0 ]; then
+    nb list --type=project.md
+  else
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+      nb edit "$1"
+    else
+      filename="$(nb list --type=project.md --limit=1 --no-id --paths "$@")"
+      if [ $? -eq 0 ]; then
+        nb edit "$filename"
+      fi
+    fi
+  fi
+}
