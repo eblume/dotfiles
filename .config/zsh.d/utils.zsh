@@ -188,6 +188,7 @@ function my_vm() {
   # Batch process cloud-synced JustPressRecord voice memos
   # For each memo found, it will be transcribed and added to that day's log
   # If that day's log doesn't exist, it will be created
+  # If it contains a task, it will be added to todoist
   # TODO: the voice memo should be archived (it is not currently)
   # The voice memo will then be deleted.
   # Thus, this function will ultimately move voice memos in to NB via transcription.
@@ -202,13 +203,46 @@ function my_vm() {
     date="$(basename "$(dirname "$file")")"
     thetime="$(date -j -f "%H-%M-%S" "$(basename "$file" | sed 's/\.m4a$//')" "+%H:%M")"
     longformat="+%A, %B %d, %Y"
-    long_form_date=$(date -j -f "%Y-%m-%d" "$date" "$longformat")
-    transcript=$'\n'$'\n'"$(my_transcribe "$file")"
+    long_form_date="$(date -j -f "%Y-%m-%d" "$date" "$longformat")"
+    transcription="$(my_transcribe "$file")"
+    # Weird newline hack, to get the log entries spaced properly
+    transcript=$'\n'$'\n'"$transcription"
+    echo
+    echo "Transcription"
+    echo "$transcription"
+    echo
 
     # TODO this UPSERT pattern is dumb
     add_or_edit=$(if nb list --type=log.md "$date.log.md" > /dev/null 2>&1; then echo "edit"; else echo "add"; fi)
     
+    # Record the voice memo in the log
     nb $add_or_edit "$date.log.md" --title "$long_form_date" --type=log.md --content "## $thetime (Voice Memo)$transcript"
+    # Extract TODOs from the voice memo
+    response="$(my_llm -s "Please extract any tasks from the voice memo below, one task per line. If there are no tasks, just say 'none'. Be concise, don't respond with any chatter." <<< $transcription)"
+    if [ -z "$response" ]; then
+      echo "Task-extraction is empty or malformed. Aborting process. (This is a bug.)"
+      return 1
+    fi
+
+    # Clean response in case of checking for 'none'
+    response_clean="$(echo "$response" | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | xargs)"
+
+    if [[ "$response_clean" == "none" ]]; then
+      # Do nothing as there are no tasks, just continue with the next file
+      echo "No tasks found in $file"
+      continue
+    fi
+
+    # Split on newline into an array the zsh way
+    tasks=("${(@f)response}")
+    echo "Found ${#tasks[@]} tasks in $file"
+
+    # Iterate over each task and pass them to the 'my_todo' function
+    for task in "${tasks[@]}"; do
+      # Trim markdown formatting from the beginning of the task if it's there
+      task_clean=$(echo "$task" | sed 's/^ - //')
+      my_todo "$task_clean"
+    done
 
     # TODO archive
     rm "$file"
