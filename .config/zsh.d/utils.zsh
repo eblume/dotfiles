@@ -217,12 +217,19 @@ function my_vm() {
     
     # Record the voice memo in the log
     nb $add_or_edit "$date.log.md" --title "$long_form_date" --type=log.md --content "## $thetime (Voice Memo)$transcript"
+
+    # TODO archive
+    rm "$file"
+
     # Extract TODOs from the voice memo
     response="$(my_llm -s "Please extract any tasks from the voice memo below, one task per line. If there are no tasks, just say 'none'. Be concise, don't respond with any chatter." <<< $transcription)"
     if [ -z "$response" ]; then
       echo "Task-extraction is empty or malformed. Aborting process. (This is a bug.)"
       return 1
     fi
+
+    # Truncate to 1000 characters because gpt4 is expensive
+    response="${response:0:1000}"
 
     # Clean response in case of checking for 'none'
     response_clean="$(echo "$response" | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | xargs)"
@@ -240,12 +247,9 @@ function my_vm() {
     # Iterate over each task and pass them to the 'my_todo' function
     for task in "${tasks[@]}"; do
       # Trim markdown formatting from the beginning of the task if it's there
-      task_clean=$(echo "$task" | sed 's/^ - //')
+      task_clean=$(echo "$task" | sed 's/^ *- *//')
       my_todo "$task_clean"
     done
-
-    # TODO archive
-    rm "$file"
   done
 
 }
