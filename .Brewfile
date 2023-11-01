@@ -30,8 +30,6 @@ brew "ffmpeg"
 brew "solargraph"  # for ruby lsp
 brew "dive"  # container exploration
 brew "imagemagick"
-mas "Tailscale", id: 1475387142
-mas "Just Press Record", id: 1033342465
 # cask "firefox"  # Easier to just install it myself for now
 
 # 1password CLI, _not_ the GUI cask
@@ -80,3 +78,5 @@ brew "nb"
 # NOTE, you will need to manually "purchase" these once before they can be installed via brew
 # TODO: handle 1password this way? Maybe?
 mas "Just Press Record", id: 1033342465
+# mas "Tailscale", id: 1475387142
+# Tailscale can't be installed this way because it doesn't support ssh!
