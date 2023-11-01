@@ -1,8 +1,8 @@
 brew "mas"
-brew "bash"  # notebook prefers modern bash
+brew "bash" # notebook prefers modern bash
 brew "asdf"
 brew "pipx"
-brew "ykman"  # yubikey
+brew "ykman" # yubikey
 cask "protonmail-bridge"
 brew "zsh-vi-mode"
 brew "zellij"
@@ -27,8 +27,7 @@ cask "todoist"
 brew "starship"
 brew "wget"
 brew "ffmpeg"
-brew "solargraph"  # for ruby lsp
-brew "dive"  # container exploration
+brew "dive" # container exploration
 brew "imagemagick"
 # cask "firefox"  # Easier to just install it myself for now
 
@@ -58,23 +57,17 @@ cask "font-hack-nerd-font"
 brew "gh"
 brew "cmake"  # needed for a dependency, telescope-fzf-native.nvim
 
-# Docker for Mac
-# brew "docker"
-# brew "docker-compose"
-# cask "docker"
-
-# Hashicorp Vault
-tap "hashicorp/tap"
-brew "hashicorp/tap/vault"
-
 # prereqs and suggestions for nb
 brew "pandoc"
 brew "tig"
 brew "w3m"
 brew "nb"
 
-# Host-specific Brewfile
-file "~/.Brewfile-host"
+# Host-specific Brewfile hack
+# Use ruby eval and IO.read to read ~/.Brewfile-host, if it exists
+# (See https://github.com/Homebrew/homebrew-bundle/issues/521)
+# (Also note that yadm provides this file.)
+eval(IO.read(File.expand_path("~/.Brewfile-host"))) if File.exist?(File.expand_path("~/.Brewfile-host"))
 
 # And finally, stuff from the apple store:
 # NOTE, you will need to manually "purchase" these once before they can be installed via brew
