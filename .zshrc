@@ -70,6 +70,10 @@ eval "$(starship init zsh)"
 
 ### Load extra configs (managed by me)
 for file in ~/.config/zsh.d/*; do
+    # Check suffix ends in .zsh
+    if [[ "$file" != *.zsh ]]; then
+        continue
+    fi
     source "$file"
 done
 

@@ -73,10 +73,10 @@ brew "tig"
 brew "w3m"
 brew "nb"
 
+# Host-specific Brewfile
+file "~/.Brewfile-host"
 
 # And finally, stuff from the apple store:
 # NOTE, you will need to manually "purchase" these once before they can be installed via brew
 # TODO: handle 1password this way? Maybe?
 mas "Just Press Record", id: 1033342465
-# mas "Tailscale", id: 1475387142
-# Tailscale can't be installed this way because it doesn't support ssh!
