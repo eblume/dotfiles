@@ -1,4 +1,5 @@
 brew "mas"
+brew "bash"  # notebook prefers modern bash
 brew "asdf"
 brew "pipx"
 brew "ykman"  # yubikey
