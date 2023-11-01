@@ -1,0 +1,4 @@
+# On mouse we install tailscale via the Apple Store so that we get the nice comfy menubar GUI experience.
+# Note this isn't the default because by default we prefer a version which provides the open-source tailscaled binary
+# which allows for ssh broadcast.
+mas "Tailscale", id: 1475387142
