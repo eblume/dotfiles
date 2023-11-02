@@ -57,6 +57,12 @@ then
     . $WORK_CONFIG_FILE
 fi
 
+# Load postgresql16 bin if installed
+if [ -d "/usr/local/opt/postgresql@16/bin" ]
+then
+    export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+fi
+
 
 YADM_MODIFIED_FILES="$(yadm diff --name-only; yadm diff --name-only --staged; )"
 if [ ! -z "${YADM_MODIFIED_FILES// }" ]
