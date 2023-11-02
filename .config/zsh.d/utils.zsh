@@ -118,6 +118,9 @@ function my_log() {
     # Why do this and not just use --edit? Because --edit _locks nb systemwide_. wtf?
     nb open "${calendar_date}.log.md"
   fi
+
+  # Manually sync because I've turned off auto-sync to prevent ssh credential issues
+  nb sync # (nbo 118)
 }
 
 function my_idea() {
@@ -128,6 +131,7 @@ function my_idea() {
   fi
   idea="$@"
   nb --title "$idea" --type=idea.md --edit
+  nb sync # (nbo 118)
 }
 
 function my_summarize() {
@@ -217,6 +221,7 @@ function my_vm() {
     
     # Record the voice memo in the log
     nb $add_or_edit "$date.log.md" --title "$long_form_date" --type=log.md --content "## $thetime (Voice Memo)$transcript"
+    nb sync # (nbo 118)
 
     # TODO archive
     rm "$file"

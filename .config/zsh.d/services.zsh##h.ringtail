@@ -1,0 +1,10 @@
+# Run $@ with OP service account credentials
+function my_service() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: my_service <command>"
+    return 1
+  fi
+
+  # Token corresponds to svc_ringtail service account
+  OP_SERVICE_ACCOUNT_TOKEN="$(op item --vault blumeops get zukqtgtw5xt66k3z3il4hw366e --fields credential)" "$@"
+}

@@ -12,3 +12,5 @@
 #
 # https://github.com/xwmx/nb
 ###############################################################################
+
+export NB_AUTO_SYNC="${NB_AUTO_SYNC:-0}" # Set by `nb` • Thu Nov  2 15:40:45 PDT 2023
