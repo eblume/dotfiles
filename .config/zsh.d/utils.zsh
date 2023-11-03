@@ -81,7 +81,7 @@ function my_llm() {
         if [ -s $TEMPFILE ]; then
             echo "Running llm with input from $TEMPFILE"
             echo
-            OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm < $TEMPFILE
+            OPENAI_API_KEY="$(op item --vault personal get OpenAI --fields "API Key")" llm < $TEMPFILE
         else
             echo "No input detected in $TEMPFILE."
             echo "llm will not be run."
@@ -91,7 +91,7 @@ function my_llm() {
     fi
     rm $TEMPFILE
   else
-    OPENAI_API_KEY="$(op item get OpenAI --fields "API Key")" llm $@
+    OPENAI_API_KEY="$(op item --vault personal get OpenAI --fields "API Key")" llm $@
   fi
 }
 
@@ -279,7 +279,7 @@ function my_project {
 function my_todo {
   # With no args, list the todos in the task list of todoist
   # Otherwise, args are stringified and used to make a new task in todoist
-  TOKEN=$(op item get Todoist --field 'API Key')
+  TOKEN=$(op item --vault personal get Todoist --field 'API Key')
   if [ -z "$TOKEN" ]; then
     echo "Error: Could not get Todoist API Key from 1Password."
     return 1
