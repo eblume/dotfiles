@@ -127,10 +127,6 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- DISABLED python linting, trying copilot + ruff now
--- require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
--- require('lspconfig')['jedi_language_server'].setup{on_attach = on_attach, capabilities = capabilities}
-
 require('lspconfig').ruff_lsp.setup {
   on_attach = on_attach,
   capabilities = capabilities,

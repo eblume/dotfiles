@@ -172,7 +172,6 @@ pip install --upgrade pynvim  # see :help provider-python -- and no it can't be 
 pipx install ruff
 pipx install poetry
 pipx install ruff-lsp
-# pipx install jedi-language-server  # temp disabled
 pipx install llm
 
 echo "If the next command fails, try pipx reinstall-all"
