@@ -8,3 +8,7 @@ function my_service() {
   # Token corresponds to svc_ringtail service account
   OP_SERVICE_ACCOUNT_TOKEN="$(op item --vault blumeops get zukqtgtw5xt66k3z3il4hw366e --fields credential)" "$@"
 }
+
+
+# on ringtail, for postgres, load postgresql16's bin directory to PATH
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
