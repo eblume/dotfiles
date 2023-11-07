@@ -39,6 +39,10 @@ cask "1password"
 # mas "1Password 7", id: 1333542190  # 1password 7 via mac store if needed, but 8 is out now...
 # ( See https://1password.com/mac-app-store-subscribe/ )
 
+# my_summarize
+brew "lynx"
+brew "poppler"
+
 # nvim ale/lsp stuff
 brew "shellcheck"
 brew "shfmt"

@@ -106,12 +106,46 @@ function my_idea() {
   nb sync # (nbo 118)
 }
 
-function my_summarize() {
-  # Example: my_summarize
-  #   (default) Summarize last 5 updated entries
-  # Example: my_summarize --type=log.md --sort --reverse
-  #   Summarize last 5 log entries, sorted by creation order, most recent first
-  #
+function my_summarize {
+  # Use gpt to summarize the content of a file or web address
+  # Use beautifulsoup to extract text if it's an URL
+  if [ $# -eq 0 ]; then
+    echo "Usage: my_summarize FILE_OR_URL"
+    return 1
+  fi
+
+  local content
+
+  if [[ $1 =~ ^https?:// ]]; then
+    # It's a URL, fetch the resource and convert to text using lynx -dump
+    content=$(curl -s "$1" | lynx -dump -stdin)
+  else
+    # It's a file, we need to handle it depending on the file type.
+    file_type=$(file -b --mime-type "$1")
+    case $file_type in
+      application/pdf)
+        # Extract text from PDF
+        content=$(pdftotext "$1" -)
+        ;;
+      text/* | */xml)
+        # It's already text, just use it
+        content=$(<"$1")
+        ;;
+      *)
+        echo "Unsupported file type: $file_type"
+        return 2
+        ;;
+    esac
+  fi
+
+  # Convert content to UTF-8, replace invalid sequences with '?'
+  # TODO why is this needed
+  content=$(echo "$content" | iconv -f "$(iconv --list | grep -m 1 -o 'UTF-8//')" -t 'UTF-8//IGNORE')
+
+  my_llm -s "Summarize this content. Break down any viewpoints with direct quotes and author attributions. For technical content, give an overall summary and provide relevant links (if any) to further reading. Output markdown. Go long."  <<< "$content"
+}
+
+function my_nb_summarize() {
   # NOTE: This works because nb overwrites arguments if specified multiple times
 
   files=$(nb list --type=md --limit=5 --no-id --filenames --paths $@ | grep -E "^/.*\.md$")
