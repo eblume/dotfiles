@@ -1,12 +1,15 @@
+# Unset TMPDIR if it's set
+# This hack is needed because otherwise zellij sessions wind up in different places depending on the way the session
+# started.
+# I haven't figured this one out yet, but the net result is that if you ssh to ringtail TMPDIR is unset and otherwise
+# it's set. Really would love to know what is setting TMPDIR this way.
+#if [ ! -z "$TMPDIR" ]; then
+#    unset TMPDIR
+#fi
+
 # Enable ssh-agent early if its not running
-# (Added for WSL)
-if [ -z "$(pgrep ssh-agent)" ]; then
-    # rm -rf /tmp/ssh-*
-    echo "~/.zshrc: new ssh agent"
-    eval $(ssh-agent -s) > /dev/null
-else
-    export SSH_AGENT_PID=$(pgrep ssh-agent)
-    # export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval "$(ssh-agent -s)"
 fi
 
 # Enable homebrew completions
