@@ -46,22 +46,31 @@ if [ "$newpath" != ":" ]; then
   export PATH="$newpath$PATH"
 fi
 
+# Set a consistent TMPDIR, mostly for ssh-agent AUTH_SOCK locations.
+export TMPDIR="$HOME/tmp"
+mkdir -p "$TMPDIR"
+
 # Also, unfortunately, we can't trust apple's launchd ssh-agent listener because it doesn't get set in SSH! I would LOVE
 # to use it, but I need a consistent SSH_AUTH_SOCK to get services working properly. So we detect com.apple.launchd in
 # SSH_AUTH_SOCK and if set, we unset it and set our own.
-
-if [ ! -z "$SSH_AUTH_SOCK" ]; then
-  if [[ "$SSH_AUTH_SOCK" == *"com.apple.launchd"* ]]; then
-    echo "Unsetting SSH_AUTH_SOCK because it's set to $SSH_AUTH_SOCK"
-    echo "(And we can't trust apple's launchd ssh-agent listener)"
-    unset SSH_AUTH_SOCK
-    eval $(ssh-agent -s)
+function () {
+  if [ ! -z "$SSH_AUTH_SOCK" ]; then
+    if [[ "$SSH_AUTH_SOCK" != *"com.apple.launchd"* ]]; then
+      # Happy path - good agent detected
+      return
+    fi
   fi
-else
-  eval $(ssh-agent -s)
-fi
 
-# Finally, as another sanity check, we create a new TMPDIR. For some reason, SOMETHING is setting TMPDIR in local
-# sessions but not in SSH sessions, probably related to the path_helper issue above.
-export TMPDIR="$HOME/tmp"
-mkdir -p "$TMPDIR"
+  local agents=$(find $TMPDIR -type s -name "agent.*" 2>/dev/null)
+  if [ -z "$agents" ]; then
+    # No agent found, start a new one
+    eval $(ssh-agent -s)
+    return
+  fi
+
+  # kludge: we sort the agents by name and take the first. Order doesn't matter so long as its stable.
+  local agent=$(echo $agents | tr ' ' '\n' | sort -r | head -n 1)
+  export SSH_AUTH_SOCK="$agent"
+  # We don't need to export SSH_AGENT_PID because we're not using it.
+}
+
