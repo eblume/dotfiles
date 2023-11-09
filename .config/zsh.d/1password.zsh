@@ -30,11 +30,7 @@ function () {  # anonymous function, executes once and then unfuncs itself
     # Detect if user is connecting via ssh and if so, don't load the key.
     if [[ -n $SSH_CONNECTION ]]; then
         echo "ssh connection detected, not loading ssh key to avoid blocking login."
-        echo "You may need to run the following command to load your key:"
-        echo "    op item --vault personal get 'SSH - Personal' --fields 'Private Key' --reveal | tr -d '\r' | sed '1d; $d' | ssh-add -"
-        echo 
-        echo "    # Might also be useful, not sure if it can work headless:"
-        echo "    op signin"
+        echo "You may need to try this some variant of 'op signin' to get the key loaded."
         echo "(Sleeping for 2 seconds to allow you to read this message)"
         sleep 2
         return

@@ -46,6 +46,20 @@ if [ "$newpath" != ":" ]; then
   export PATH="$newpath$PATH"
 fi
 
+# Also, unfortunately, we can't trust apple's launchd ssh-agent listener because it doesn't get set in SSH! I would LOVE
+# to use it, but I need a consistent SSH_AUTH_SOCK to get services working properly. So we detect com.apple.launchd in
+# SSH_AUTH_SOCK and if set, we unset it and set our own.
+
+if [ ! -z "$SSH_AUTH_SOCK" ]; then
+  if [[ "$SSH_AUTH_SOCK" == *"com.apple.launchd"* ]]; then
+    echo "Unsetting SSH_AUTH_SOCK because it's set to $SSH_AUTH_SOCK"
+    echo "(And we can't trust apple's launchd ssh-agent listener)"
+    unset SSH_AUTH_SOCK
+    eval $(ssh-agent -s)
+  fi
+else
+  eval $(ssh-agent -s)
+fi
 
 # Finally, as another sanity check, we create a new TMPDIR. For some reason, SOMETHING is setting TMPDIR in local
 # sessions but not in SSH sessions, probably related to the path_helper issue above.

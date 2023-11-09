@@ -1,16 +1,10 @@
-# Unset TMPDIR if it's set
-# This hack is needed because otherwise zellij sessions wind up in different places depending on the way the session
-# started.
-# I haven't figured this one out yet, but the net result is that if you ssh to ringtail TMPDIR is unset and otherwise
-# it's set. Really would love to know what is setting TMPDIR this way.
-#if [ ! -z "$TMPDIR" ]; then
-#    unset TMPDIR
-#fi
-
-# Enable ssh-agent early if its not running
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval "$(ssh-agent -s)"
-fi
+# ~/.zshrc
+# My personal setup for zsh, which is managed by yadm (https://yadm.io/)
+# 
+# ~/.zprofile, which preceeds this file in most login shells, is intended as a place for creating relatively consistent
+# environment variables across shell types. (It does not succeed, but it tries, and we love it for that.)
+#
+# This file in contrast is about taking a consistent environment and building up my tools and aliases on top of it.
 
 # Enable homebrew completions
 if type brew &>/dev/null
