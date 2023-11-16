@@ -15,31 +15,6 @@ set -o errexit
 #
 # (on non-Mac OS, you just need to replace steps 1 and 2 with whatever gives you a working 'yadm'.)
 
-
-### Detect if ssh keys have been decrypted, retrieve if not.
-# (Note: I've moved this up higher because until this check is done we can't expect anything to work)
-# (If this causes a first bootstrap issue, you can manually create the ssh key from 1password's UI)
-if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
-    echo "No existing SSH key found."
-
-    if ! command -v op &> /dev/null; then
-        echo "1Password is not installed. Cannot retrieve SSH key."
-        echo "Continuing, but you should re-run when 1Password is installed."
-    else
-        echo "Attempting to retrieve SSH key from 1Password..."
-        op item get "SSH - Personal" --format json | jq '.fields[] | select(.id=="private_key") | .value' -r > "$HOME/.ssh/id_ed25519"
-        chmod 600 "$HOME/.ssh/id_ed25519"
-        echo "SSH key retrieved and saved!"
-
-        # Check for system type to decide ssh-add option
-        if [ "$(uname -s)" == "Darwin" ]; then
-            ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
-        else
-            ssh-add -K "$HOME/.ssh/id_ed25519"
-        fi
-    fi
-fi
-
 # But before we do anything, let's check to see if we're up to date.
 # We will check the rev-parse of local and remote and if they don't match we will pull and then re-exec.
 yadm fetch
