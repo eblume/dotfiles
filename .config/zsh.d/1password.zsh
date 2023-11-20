@@ -51,3 +51,5 @@ function () {  # anonymous function, executes once and then unfuncs itself
         return
     fi
 }
+
+# (nbo 123) context on why this func exists rather than relying on, eg., macos ssh-agent

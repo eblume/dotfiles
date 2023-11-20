@@ -172,3 +172,10 @@ require('telescope').load_extension('fzf')
 
 -- Configure octo (github)
 require("octo").setup()
+
+
+-- Configure Copilot
+vim.g.copilot_filetypes = {
+  -- The docs claim 'most file types are enabled by default'
+  zsh = true,
+}
