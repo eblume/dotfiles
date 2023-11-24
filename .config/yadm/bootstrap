@@ -133,7 +133,6 @@ npm install -g yaml-language-server
 npm install -g cspell
 npm install -g bash-language-server
 npm install -g readability-cli  # for nb-cli
-# npm install -g pyright  # temp disabled
 npm install -g neovim  # see :checkhealth
 # Finally, do a global update, because I like to live dangerously
 npm update -g
@@ -148,6 +147,7 @@ pipx install ruff
 pipx install poetry
 pipx install ruff-lsp
 pipx install llm
+pipx install pyright
 
 echo "If the next command fails, try pipx reinstall-all"
 
