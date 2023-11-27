@@ -11,8 +11,7 @@ command_timeout = 800  # 500 default
 [character] # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 
-[custom.mole_project]
-description = "Display the current MOLE_PROJECT environment variable"
-command = "echo $MOLE_PROJECT"
-when = "env_var('MOLE_PROJECT').is_some()"
+[env_var.MOLE_PROJECT]
 symbol = "🐭 "
+style = "bold yellow"
+format = "[$symbol$env_value]($style) "
