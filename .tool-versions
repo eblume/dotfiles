@@ -1,4 +1,4 @@
-python 3.11.1
+python 3.11.6  # Stuck due to https://github.com/sdispater/pendulum/discussions/771
 kustomize 4.5.5
 nodejs 18.17.1
 golang 1.20.5
