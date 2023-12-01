@@ -13,5 +13,5 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 
 [env_var.MOLE_PROJECT]
 symbol = "🐭 "
-style = "bold yellow"
+style = "bright-blue"
 format = "[$symbol$env_value]($style) "

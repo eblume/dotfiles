@@ -34,7 +34,7 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
 
   -- fzf file finder (mru, history, etc.)
-  use 'junegunn/fzf'  -- We will let `yadm bootstrap` handle upgrading fzf
+  use 'junegunn/fzf'  -- We will let `yadm bootstrap` handle upgrading fzf, so no fzf#install()
   use 'junegunn/fzf.vim'
 
   -- Syntax support for 100+ languages

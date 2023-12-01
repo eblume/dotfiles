@@ -18,7 +18,7 @@ brew "git-delta"
 brew "ripgrep"
 brew "z"
 brew "gnupg"
-brew "jq"
+brew "jaq"  # jq, rewritten in rust
 brew "yq"
 cask "aws-vault"
 brew "awscli"

@@ -88,6 +88,7 @@ compinit
 ### Helpful aliases 'n such
 alias vim="nvim"
 export EDITOR="$(which nvim)"
+alias jq="jaq"
 
 # Misc
 export GPG_TTY=$(tty)  # needed for yadm encrypt (via gpg)
