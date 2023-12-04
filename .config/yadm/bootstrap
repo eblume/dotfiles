@@ -140,14 +140,17 @@ asdf reshim nodejs
 
 ### Install global python packages
 pip install --upgrade pip
-pipx install yamlfix
-pipx install bashate
 pip install --upgrade pynvim  # see :help provider-python -- and no it can't be pipx
-pipx install ruff
-pipx install poetry
-pipx install ruff-lsp
-pipx install llm
-pipx install pyright
+
+### Install pipx packages
+PYTHON=$(asdf which python)
+pipx install --python "$PYTHON" yamlfix
+pipx install --python "$PYTHON" bashate
+pipx install --python "$PYTHON" ruff
+pipx install --python "$PYTHON" poetry
+pipx install --python "$PYTHON" ruff-lsp
+pipx install --python "$PYTHON" llm
+pipx install --python "$PYTHON" pyright
 
 echo "If the next command fails, try pipx reinstall-all"
 
