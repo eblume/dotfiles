@@ -14,4 +14,4 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 [env_var.MOLE_PROJECT]
 symbol = "🐭 "
 style = "bright-blue"
-format = "[$symbol$env_value]($style) "
+format = "in [$symbol$env_value]($style) "
