@@ -94,7 +94,8 @@ cmp.setup.cmdline(':', {
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+-- Disabling space-e for float and trying out an auto-open float on hover
+-- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
@@ -158,6 +159,36 @@ require('lspconfig')['yamlls'].setup{
 require('lspconfig')['solargraph'].setup{on_attach = on_attach, capabilities = capabilities}
 
 require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
+
+
+-- Configure diagnostic floating window on hover
+-- see: https://neovim.discourse.group/t/how-to-show-diagnostics-on-hover/3830/3
+function OpenDiagnosticIfNoFloat()
+  for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if vim.api.nvim_win_get_config(winid).zindex then
+      return
+    end
+  end
+  -- THIS IS FOR BUILTIN LSP
+  vim.diagnostic.open_float(0, {
+    scope = "cursor",
+    focusable = false,
+    close_events = {
+      "CursorMoved",
+      "CursorMovedI",
+      "BufHidden",
+      "InsertCharPre",
+      "WinLeave",
+    },
+  })
+end
+-- Show diagnostics under the cursor when holding position
+vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  pattern = "*",
+  command = "lua OpenDiagnosticIfNoFloat()",
+  group = "lsp_diagnostics_hold",
+})
 
 
 -- Configure lualine
