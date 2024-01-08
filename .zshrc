@@ -13,6 +13,7 @@ then
     # Note, we will compinit later on
 else
     echo "WARNING: brew not found, have you set up homebrew yet? The remaing config is likely to fail..."
+    echo "Try: https://brew.sh/"
 fi
 
 # Enable sqlite3 managed by homebrew
