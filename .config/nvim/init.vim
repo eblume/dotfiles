@@ -4,9 +4,6 @@ lua require('plugins')
 " Load lua init, which is where I do init.vim stuff but in lua
 lua require("init")
 
-" Set vim-fubitive prefix for work bitbucket server
-let g:fubitive_domain_pattern = 'bitbucket\.corp\.adcinternal\.com'
-
 " Automatically reload Packer config if it changed
 augroup packer_user_config
   autocmd!
