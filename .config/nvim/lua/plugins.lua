@@ -30,6 +30,9 @@ return require('packer').startup(function()
   -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
 
+  -- Crystal syntax, etc.
+  use 'vim-crystal/vim-crystal'
+
   -- Tokyo Night color scheme
   use 'folke/tokyonight.nvim'
 

@@ -160,6 +160,8 @@ require('lspconfig')['solargraph'].setup{on_attach = on_attach, capabilities = c
 
 require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
 
+require('lspconfig')['crystalline'].setup{on_attach = on_attach, capabilities = capabilities}
+
 
 -- Configure diagnostic floating window on hover
 -- see: https://neovim.discourse.group/t/how-to-show-diagnostics-on-hover/3830/3
