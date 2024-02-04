@@ -67,8 +67,8 @@ set hlsearch
 set incsearch
 set showmatch
 
-" Enable spellcheck
-set spell spelllang=en_us
+" Enable spellcheck for markdown files
+autocmd FileType markdown,text setlocal spell
 
 " make some things really visible
 " use :set list / :set nolist to turn on and off
