@@ -29,9 +29,9 @@
         nixpkgs.hostPlatform = "aarch64-darwin";
 
         # Declare the user that will be running `nix-darwin`.
-        users.users.$USER = {
-            name = "$USER";
-            home = "/Users/$USER";
+        users.users.erichdblume = {
+            name = "erichdblume";
+            home = "/Users/erichdblume";
         };
 
         # Create /etc/zshrc that loads the nix-darwin environment.
@@ -41,7 +41,7 @@
     };
   in
   {
-    darwinConfigurations."$HOSTNAME" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."mouse" = nix-darwin.lib.darwinSystem {
       modules = [
          configuration
       ];
