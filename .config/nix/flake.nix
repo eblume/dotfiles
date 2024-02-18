@@ -34,10 +34,71 @@
             home = "/Users/erichdblume";
         };
 
+        # Enable touch id for sudo
+        security.pam.enableSudoTouchIdAuth = true;
+
         # Create /etc/zshrc that loads the nix-darwin environment.
         programs.zsh.enable = true;
 
-        environment.systemPackages = [ ];
+        environment.systemPackages = [ pkgs.neofetch pkgs.vim ];
+
+        homebrew = {
+            enable = true;
+            # When able, uncomment this to begin declarative management of homebrew
+            # onActivation.cleanup = "uninstall";
+            # (And then start wittling away at these brews and casks to get them into nixpkgs)
+            taps = ["1password/tap" "homebrew/cask-fonts"];
+            brews = [
+                "bash"
+                "asdf"
+                "pipx"
+                "ykman"
+                "zsh-vi-mode"
+                "zellij"
+                "gettext"
+                "watch"
+                "zsh-autosuggestions"
+                "readline"
+                "openssl"
+                "neovim"
+                "fzf"
+                "bat"
+                "git-delta"
+                "ripgrep"
+                "z"
+                "gnupg"
+                "jaq"
+                "yq"
+                "awscli"
+                "starship"
+                "wget"
+                "ffmpeg"
+                "dive"
+                "imagemagick"
+                "lynx"
+                "poppler"
+                "shellcheck"
+                "shfmt"
+                "yadm"
+                "cowsay"
+                "lolcat"
+                "gh"
+                "cmake"
+                "pandoc"
+                "tig"
+                "w3m"
+                "nb"
+            ];
+            casks = [
+                "protonmail-bridge"
+                "aws-vault"
+                "iterm2"
+                "todoist"
+                "1password/tap/1password-cli"
+                "1password"
+                "font-hack-nerd-font"
+            ];
+        };
     };
   in
   {
