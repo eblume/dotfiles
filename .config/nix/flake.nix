@@ -8,9 +8,13 @@
         url = "github:LnL7/nix-darwin";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+        url = "github:nix-community/home-manager";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }:
   let
     configuration = {pkgs, ... }: {
 
@@ -100,11 +104,29 @@
             ];
         };
     };
+    homeconfig = {pkgs, ...}: {
+        # See https://davi.sh/blog/2024/02/nix-home-manager/
+        home.stateVersion = "23.05";
+        # Let home-manager manage itself
+        programs.home-manager.enable = true;
+
+        home.packages = with pkgs; [];
+
+        home.sessionVariables = {
+            EDITOR = "nvim";
+        };
+    };
   in
   {
     darwinConfigurations."mouse" = nix-darwin.lib.darwinSystem {
       modules = [
          configuration
+         home-manager.darwinModules.home-manager {
+             home-manager.useGlobalPkgs = true;
+             home-manager.useUserPackages = true;
+             home-manager.verbose = true;
+             home-manager.users.erichdblume = homeconfig;
+         }
       ];
     };
   };
