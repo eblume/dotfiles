@@ -58,28 +58,6 @@ return require('packer').startup(function()
   -- python black
   use 'averms/black-nvim'
 
-  -- github integration via octo.nvim (and deps)
-  use 'nvim-lua/plenary.nvim'
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-  }
-  use {
-    'pwntester/octo.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
-    },
-    config = function ()
-      require"octo".setup()
-    end
-  }
-
   -- github copilot
   -- (this costs $10/month, lol)
   use 'github/copilot.vim'

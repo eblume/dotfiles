@@ -1,4 +1,9 @@
 --------
+-- Load Modules
+-- These are my personal config modules for work, etc.
+vim.cmd([[source ~/.config/nvim/kagi.vim]])
+
+--------
 -- Persistent Global Undo
 
 -- Ensure the undodir exists
@@ -199,15 +204,6 @@ require('lualine').setup{
     theme = 'tokyonight'
   }
 }
-
--- Configure telescope
-require('telescope').setup()
-require('telescope').load_extension('fzf')
-
-
--- Configure octo (github)
-require("octo").setup()
-
 
 -- Configure Copilot
 vim.g.copilot_filetypes = {
