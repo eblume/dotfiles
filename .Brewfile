@@ -3,6 +3,7 @@ brew "bash" # notebook prefers modern bash
 brew "asdf"
 brew "pipx"
 brew "ykman" # yubikey
+cask "discord"
 cask "protonmail-bridge"
 brew "zsh-vi-mode"
 brew "zellij"
