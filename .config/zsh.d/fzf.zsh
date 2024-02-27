@@ -21,8 +21,7 @@ elif command -v rg &> /dev/null; then
 fi
 
 if command -v eza &> /dev/null; then
-  export FZF_DEFAULT_OPTS='--exit-0 --ansi --preview="eza -l {}" --preview-window=down,20% \
-  --bind="pgup:preview-half-page-up" --bind="pgdn:preview-half-page-down"'
+  export FZF_DEFAULT_OPTS='--exit-0 --ansi --preview="eza -l {}" --preview-window=down,20% --bind="pgup:preview-half-page-up" --bind="pgdn:preview-half-page-down"'
 fi
 
 # This might cause some problems someday, see:
