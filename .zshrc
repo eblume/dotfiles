@@ -98,6 +98,8 @@ alias nbo="nb o"  # open notebook
 # Enable shared history, WHY IN 2022 IS THIS NOT DEFAULT
 setopt inc_append_history
 setopt share_history
+export SAVEHIST=10000000
+export HISTSIZE=10000000
 
 # Created by `pipx` on 2023-07-19 01:33:08
 # (Didn't I do this already?! Trouble is brewing.)

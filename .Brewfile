@@ -31,6 +31,8 @@ brew "ffmpeg"
 brew "dive" # container exploration
 brew "imagemagick"
 # cask "firefox"  # Easier to just install it myself for now
+brew "eza"
+brew "bfs"
 
 # 1password CLI, _not_ the GUI cask
 tap "1password/tap"
