@@ -1,4 +1,5 @@
 brew "mas"
+brew "croc"
 brew "bash" # notebook prefers modern bash
 brew "asdf"
 brew "pipx"
@@ -84,3 +85,4 @@ mas "Just Press Record", id: 1033342465
 ## Work Stuff
 brew "gnu-tar"
 brew "libsass"
+cask "google-cloud-sdk"
