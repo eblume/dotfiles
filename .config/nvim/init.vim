@@ -27,7 +27,8 @@ elseif executable('ag')
   nnoremap <leader>r :Ag <C-R><C-W><CR>
 endif
 " Map ctrl-p to :Files, to mimic ctrlp.vim, which is burned in to my brain
-nnoremap <C-p> :<C-u>Files<CR>
+" Disabled Mar 6 2024; it conflicts with zellij and its got leader-f, lets ditch it
+" nnoremap <C-p> :<C-u>Files<CR>
 
 " <leader>[v,h] opens a [vertical/horizontal] split window and selects it.
 nnoremap <leader>v <C-w>v<C-w>l
