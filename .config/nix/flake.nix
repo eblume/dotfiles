@@ -12,10 +12,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devshell.url = "github:numtide/devshell";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, devshell }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager}:
   let
     nix-darwin-config = {pkgs, ... }: {
 
@@ -114,7 +113,9 @@
       # Let home-manager manage itself
       programs.home-manager.enable = true;
 
-      home.packages = with pkgs; [];
+      home.packages = with pkgs; [
+        texlive.combined.scheme-full
+      ];
 
       home.sessionVariables = {
         EDITOR = "nvim";
@@ -136,14 +137,5 @@
         ];
       };
 
-      devShell =
-        let
-          pkgs = import nixpkgs {
-            overlays = [ devshell.overlays.deault ];
-          };
-        in
-        pkgs.devshell.mkShell {
-          imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
-        };
     };
 }
