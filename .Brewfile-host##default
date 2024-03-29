@@ -1,4 +1,0 @@
-# This is the default brewfile for nonspecific hosts. Anything that should be installed on ALL hosts should go in
-# ~/.Brewfile
-
-brew "tailscale"

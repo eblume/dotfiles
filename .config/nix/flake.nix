@@ -46,6 +46,7 @@
 
       environment.systemPackages = with pkgs; [
         neofetch  # Useful for testing
+        asdf-vm  # Installed here, but managed by yadm bootstrap
       ];
 
       homebrew = {
@@ -55,45 +56,46 @@
         # (And then start wittling away at these brews and casks to get them into nixpkgs)
         taps = ["1password/tap" "homebrew/cask-fonts"];
         brews = [
-          "bash"
-          "asdf"
-          "pipx"
-          "ykman"
-          "zsh-vi-mode"
-          "zellij"
-          "gettext"
-          "watch"
-          "zsh-autosuggestions"
-          "readline"
-          "openssl"
-          "neovim"
-          "fzf"
-          "bat"
-          "git-delta"
-          "ripgrep"
-          "z"
-          "gnupg"
-          "jaq"
-          "yq"
           "awscli"
-          "starship"
-          "wget"
-          "ffmpeg"
+          "bash"
+          "bat"
+          "cmake"
+          "cowsay"
           "dive"
+          "eza"
+          "bfs"
+          "ffmpeg"
+          "fzf"
+          "gettext"
+          "gh"
+          "git-delta"
+          "gnupg"
           "imagemagick"
+          "jaq"
+          "lolcat"
           "lynx"
+          "nb"
+          "neovim"
+          "openssl"
+          "pandoc"
+          "pipx"
           "poppler"
+          "readline"
+          "ripgrep"
           "shellcheck"
           "shfmt"
-          "yadm"
-          "cowsay"
-          "lolcat"
-          "gh"
-          "cmake"
-          "pandoc"
+          "starship"
           "tig"
           "w3m"
-          "nb"
+          "watch"
+          "wget"
+          "yadm"
+          "ykman"
+          "yq"
+          "z"
+          "zellij"
+          "zsh-autosuggestions"
+          "zsh-vi-mode"
         ];
         casks = [
           "protonmail-bridge"
@@ -104,6 +106,9 @@
           "1password"
           "font-hack-nerd-font"
         ];
+        masApps = {
+          "Just Press Record" = 1033342465;
+        };
       };
     };
 

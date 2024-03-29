@@ -1,5 +1,7 @@
 # ~/.zshrc
 # My personal setup for zsh, which is managed by yadm (https://yadm.io/)
+#
+# 
 # 
 # ~/.zprofile, which preceeds this file in most login shells, is intended as a place for creating relatively consistent
 # environment variables across shell types. (It does not succeed, but it tries, and we love it for that.)
@@ -30,15 +32,6 @@ else
     echo "WARNING: brew not found, have you set up homebrew yet? The remaing config is likely to fail..."
 fi
 
-# Activate asdf
-ASDF_ACTIVATION_SCRIPT="$(brew --prefix asdf)"/libexec/asdf.sh
-if [[ -f "$ASDF_ACTIVATION_SCRIPT" ]]
-then
-    . $ASDF_ACTIVATION_SCRIPT
-else
-    echo "WARNING: asdf not found, have you set up yadm yet? (Skipping asdf setup...)"
-fi
-
 # Activate z (jump around!)
 Z_ACTIVATION_SCRIPT="$(brew --prefix)"/etc/profile.d/z.sh
 if [[ -f "$Z_ACTIVATION_SCRIPT" ]]
@@ -47,20 +40,6 @@ then
 else
     echo "WARNING: z.sh not found, have you run yadm bootstrap yet? (Skipping z.sh...)"
 fi
-
-# Activate my work config
-WORK_CONFIG_FILE="$HOME/code/work/config.zsh"
-if [[ -f "$WORK_CONFIG_FILE" ]]
-then
-    . $WORK_CONFIG_FILE
-fi
-
-# Load postgresql16 bin if installed
-if [ -d "/usr/local/opt/postgresql@16/bin" ]
-then
-    export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
-fi
-
 
 YADM_MODIFIED_FILES="$(yadm diff --name-only; yadm diff --name-only --staged; )"
 if [ ! -z "${YADM_MODIFIED_FILES// }" ]
@@ -102,5 +81,4 @@ export SAVEHIST=10000000
 export HISTSIZE=10000000
 
 # Created by `pipx` on 2023-07-19 01:33:08
-# (Didn't I do this already?! Trouble is brewing.)
 export PATH="$PATH:$HOME/.local/bin"

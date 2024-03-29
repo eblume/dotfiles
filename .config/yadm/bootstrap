@@ -49,34 +49,26 @@ fi
 
 system_type=$(uname -s)
 
-### Install homebrew and .Brewfile, to begin bootstrapping
-
-if [ "$system_type" = "Darwin" ] || [ "$system_type" = "Linux" ]; then
-    # install homebrew if it's missing
-    if ! command -v brew >/dev/null 2>&1; then
-        # Installing homebrew
-        # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+### Install Nix
+if [ ! -d "/nix" ]; then
+    echo "Nix not found, installing via Determinate Systems installer."
+    echo "(This will require sudo)"
+    if ! read -r -p "Press enter to continue"; then
+        echo "User cancelled"
+        exit 1
+    fi
+    if [ "$system_type" = "Darwin" ]; then
+        curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
     fi
 
-    # arch -arm64 due to weird error: https://stackoverflow.com/questions/74310340
-    ARCH_PREFIX=''
-    if [ -d "/proc/sys/machdep" ] && [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
-        ARCH_PREFIX='arch -arm64'
-    fi
-
-    if [ -f "$HOME/.Brewfile" ]; then
-        # Updating homebrew bundle
-        $ARCH_PREFIX brew bundle --global
-    fi
-
-    # Upgrading all installed brew packages
-    # NOTE: This is something I'm trying out, I may want to disable this later. It might be better to stick with
-    # only the `brew bundle --global` above, which does do updates after all.
-    $ARCH_PREFIX brew update
-    $ARCH_PREFIX brew upgrade
+    echo "Nix installation complete. Bootstrapping will continue, but you may need to re-run it."
 fi
 
+### Nix-Darwin flake activation
+if [ "$system_type" = "Darwin" ]; then
+    echo "Activating Nix-Darwin flake"
+    darwin-rebuild switch --flake "$HOME/.config/nix"
+fi
 
 ### Set up iterm2 config
 if [ "$system_type" = "Darwin" ]; then
@@ -113,15 +105,6 @@ fi
 ### Bootstrap sumbodules
 # (at time of writing, not used, but could be used some day and shouldn't hurt?)
 yadm submodule update --recursive --init
-
-
-### BUGFIX: 'asdf not found' issue - if homebrew updates asdf, then all asdf shim paths
-# break and for some reason `asdf reshim` doesn't fix it. Should file a bug upstream, but for now, we can just blow away
-# the shim dir and start over, every time. If you wind up running in to issues with asdf-managed shims, try deleting
-# this first... the problem it fixes is RARE
-rm -rf "$HOME/.asdf/shims"
-asdf reshim
-
 
 ### Bootstrap neovim packer.nvim
 # (This will fail if packer hasn't yet bootstrqpped; in which case, just run 'nvim' once and then bootstrap again)
