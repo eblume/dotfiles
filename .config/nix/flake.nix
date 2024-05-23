@@ -62,6 +62,7 @@
           "cmake"
           "cowsay"
           "dive"
+          "duckdb"
           "eza"
           "bfs"
           "ffmpeg"
@@ -96,8 +97,10 @@
           "zellij"
           "zsh-autosuggestions"
           "zsh-vi-mode"
+          "crystalline"
         ];
         casks = [
+          "discord"
           "protonmail-bridge"
           "aws-vault"
           "iterm2"
@@ -108,6 +111,9 @@
         ];
         masApps = {
           "Just Press Record" = 1033342465;
+          "Kagi for Safari" = 1622835804;
+          "1Password for Safari" = 1569813296;
+          "Xcode" = 497799835;
         };
       };
     };

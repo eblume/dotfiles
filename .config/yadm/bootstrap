@@ -134,7 +134,6 @@ pipx install --python "$PYTHON" poetry
 pipx install --python "$PYTHON" ruff-lsp
 pipx install --python "$PYTHON" llm
 pipx install --python "$PYTHON" pyright
-pipx install --python "$PYTHON" gsutil
 
 echo "If the next command fails, try pipx reinstall-all"
 

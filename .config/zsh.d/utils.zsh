@@ -81,7 +81,7 @@ function my_llm() {
         if [ -s $TEMPFILE ]; then
             echo "Running llm with input from $TEMPFILE"
             echo
-            OPENAI_API_KEY="$(op item --vault personal get OpenAI --fields "API Key")" llm < $TEMPFILE
+            llm < $TEMPFILE
         else
             echo "No input detected in $TEMPFILE."
             echo "llm will not be run."
@@ -91,7 +91,7 @@ function my_llm() {
     fi
     rm $TEMPFILE
   else
-    OPENAI_API_KEY="$(op item --vault personal get OpenAI --fields "API Key")" llm $@
+    llm $@
   fi
 }
 

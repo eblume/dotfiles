@@ -128,7 +128,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>F', vim.lsp.buf.formatting, bufopts)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -165,7 +165,11 @@ require('lspconfig')['solargraph'].setup{on_attach = on_attach, capabilities = c
 
 require('lspconfig')['pyright'].setup{on_attach = on_attach, capabilities = capabilities}
 
-require('lspconfig')['crystalline'].setup{on_attach = on_attach, capabilities = capabilities}
+-- Apparently crystalline can't handle large projects, so it's useless to me
+-- require('lspconfig')['crystalline'].setup{on_attach = on_attach, capabilities = capabilities}
+
+-- By default, filetypes = { "swift", "c", "cpp", "objective-c", "objective-cpp"}
+require('lspconfig')['sourcekit'].setup{on_attach = on_attach, capabilities = capabilities}
 
 
 -- Configure diagnostic floating window on hover
