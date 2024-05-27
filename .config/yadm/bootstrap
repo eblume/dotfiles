@@ -87,7 +87,7 @@ then
     echo "see ~/.config/yadm/bootstrap"
     exit 1
 else
-    mise install # (this targets `~/.mise.toml``, which is linked by yadm)
+    mise install --yes # (this targets `~/.mise.toml``, which is linked by yadm)
 fi
 # Hook the environment into the shell in case we need it later in this script
 # (This is also run every time an interactive prompt loads)
