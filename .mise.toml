@@ -1,0 +1,28 @@
+[settings]
+python_compile = true  # Avoid precompiled python bins with quirks; means we'll need requirements though
+experimental = true  # Specifically for pipx backend
+
+[tools]
+python = "latest"
+node = "latest"
+go = "latest"
+ruby = "latest"
+
+# pipx packages
+"pipx:yamlfix" = "latest"
+"pipx:bashate" = "latest"
+"pipx:ruff" = "latest"
+"pipx:poetry" = "latest"
+"pipx:pre-commit" = "latest"
+"pipx:llm" = "0.14"  # Needs to be pinned because "latest" refers to 0.9, presumably because of an alphanumeric sort
+"pipx:pyright" = "latest"
+
+# npm packages
+"npm:yaml-language-server" = "latest"
+"npm:cspell" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:readability-cli" = "latest"  # for nb-cli syntax highlighting
+"npm:neovim" = "latest"  # see :checkhealth
+
+[plugins]
+"poetry" = "latest"

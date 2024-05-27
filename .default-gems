@@ -1,4 +1,4 @@
 ### Default gems to install with every version of ruby
-# This file is used by asdf-ruby
-# Details: https://github.com/asdf-vm/asdf-ruby
+# This file is used by Mise's ruby backend
+# Details: https://mise.jdx.dev/lang/ruby.html#default-gems
 solargraph

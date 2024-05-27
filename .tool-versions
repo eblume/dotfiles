@@ -1,9 +1,0 @@
-python 3.11.6  # Stuck due to https://github.com/sdispater/pendulum/discussions/771
-kustomize 4.5.5
-nodejs 18.17.1
-golang 1.20.5
-kubectl 1.26.1
-kubectx 0.9.4
-ruby 3.1.2
-terraform 1.4.6
-java corretto-11.0.18.10.1

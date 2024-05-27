@@ -16,19 +16,11 @@ if [ -d "$HOME/.local/bin" ]; then
   newpath="$HOME/.local/bin:$newpath"
 fi
 
-if [ -d "$HOME/.asdf/shims" ]; then
-  newpath="$HOME/.asdf/shims:$newpath"
-fi
-
 # If HOMEBREW_PREFIX is set, which it should be from above, then we add a few things we might expect
 # but for some reason don't always see
 if [ ! -z "$HOMEBREW_PREFIX" ]; then
   if [ -d "$HOMEBREW_PREFIX/opt/postgresql@16/bin" ]; then
     newpath="$HOMEBREW_PREFIX/opt/postgresql@16/bin:$newpath"
-  fi
-
-  if [ -d "$HOMEBREW_PREFIX/opt/asdf/libexec/bin" ]; then
-    newpath="$HOMEBREW_PREFIX/opt/asdf/libexec/bin:$newpath"
   fi
 
   if [ -d "$HOMEBREW_PREFIX/opt/sqlite/bin" ]; then
@@ -73,4 +65,3 @@ function () {
   export SSH_AUTH_SOCK="$agent"
   # We don't need to export SSH_AGENT_PID because we're not using it.
 }
-

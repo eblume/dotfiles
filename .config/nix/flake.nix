@@ -46,7 +46,6 @@
 
       environment.systemPackages = with pkgs; [
         neofetch  # Useful for testing
-        asdf-vm  # Installed here, but managed by yadm bootstrap
       ];
 
       homebrew = {
@@ -59,12 +58,13 @@
           "awscli"
           "bash"
           "bat"
+          "bfs"
           "cmake"
           "cowsay"
+          "crystalline"
           "dive"
           "duckdb"
           "eza"
-          "bfs"
           "ffmpeg"
           "fzf"
           "gettext"
@@ -75,6 +75,7 @@
           "jaq"
           "lolcat"
           "lynx"
+          "mise"
           "nb"
           "neovim"
           "openssl"
@@ -97,7 +98,6 @@
           "zellij"
           "zsh-autosuggestions"
           "zsh-vi-mode"
-          "crystalline"
         ];
         casks = [
           "discord"

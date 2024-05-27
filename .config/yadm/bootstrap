@@ -79,28 +79,22 @@ if [ "$system_type" = "Darwin" ]; then
   fi
 fi
 
-### Install asdf versions (asdf itself hopefully installed above)
+### Install mise versions (mise provided via homebrew/nix-darwin)
 if
-    ! command -v asdf >/dev/null
+    ! command -v mise >/dev/null
 then
-    echo "asdf not found, bootstrapping failed - maybe bootstrapping needs to be added to your system: $system_type"
+    echo "mise not found, bootstrapping failed - maybe bootstrapping needs to be added to your system: $system_type"
     echo "see ~/.config/yadm/bootstrap"
     exit 1
 else
-    # The "|| true"'s here are because of the errexit set above, which these plugins will hit. oh well.
-    asdf plugin add python || true
-    asdf plugin add kustomize || true
-    asdf plugin add nodejs || true
-    asdf plugin add golang || true
-    asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git || true
-    asdf plugin add kubectx https://github.com/virtualstaticvoid/asdf-kubectx.git || true
-    asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git || true
-    asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git || true
-    asdf plugin add terraform-ls https://github.com/asdf-community/asdf-hashicorp.git || true
-    asdf plugin add java https://github.com/halcyon/asdf-java.git || true
-    asdf plugin update --all
-    asdf install # (this targets `.tool-versions`, which is linked by yadm)
+    mise install # (this targets `~/.mise.toml``, which is linked by yadm)
 fi
+# Hook the environment into the shell in case we need it later in this script
+# (This is also run every time an interactive prompt loads)
+eval "$(mise hook-env -s zsh)"
+
+# Regenerate poetry completions (because mise may have changed)
+poetry completions zsh > ~/.zfunc/_poetry
 
 ### Bootstrap sumbodules
 # (at time of writing, not used, but could be used some day and shouldn't hurt?)
@@ -110,34 +104,9 @@ yadm submodule update --recursive --init
 # (This will fail if packer hasn't yet bootstrqpped; in which case, just run 'nvim' once and then bootstrap again)
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
-### Install global npm packages
-npm install -g npm
-npm install -g yaml-language-server
-npm install -g cspell
-npm install -g bash-language-server
-npm install -g readability-cli  # for nb-cli
-npm install -g neovim  # see :checkhealth
-# Finally, do a global update, because I like to live dangerously
-npm update -g
-asdf reshim nodejs
-
 ### Install global python packages
 pip install --upgrade pip
 pip install --upgrade pynvim  # see :help provider-python -- and no it can't be pipx
-
-### Install pipx packages
-PYTHON=$(asdf which python)
-pipx install --python "$PYTHON" yamlfix
-pipx install --python "$PYTHON" bashate
-pipx install --python "$PYTHON" ruff
-pipx install --python "$PYTHON" poetry
-pipx install --python "$PYTHON" ruff-lsp
-pipx install --python "$PYTHON" llm
-pipx install --python "$PYTHON" pyright
-
-echo "If the next command fails, try pipx reinstall-all"
-
-pipx upgrade-all
 
 ### Install llm plugins
 llm install llm-gpt4all
@@ -145,10 +114,6 @@ llm install llama-cpp-python
 llm install llm-llama-cpp
 # See model installation instructions here:
 # https://github.com/simonw/llm-llama-cpp#adding-models
-
-### Install global golang packages
-go install github.com/rhysd/actionlint/cmd/actionlint@latest
-asdf reshim golang
 
 ### Provision aws-vault
 function setup_aws_vault() {
