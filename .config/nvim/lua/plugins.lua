@@ -10,16 +10,20 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- tpope
-  use 'tpope/vim-sensible'  -- sendible defaults
+  use 'tpope/vim-sensible'  -- sensible defaults
   use 'tpope/vim-fugitive' -- git integration
   use 'tpope/vim-rhubarb' -- fugitive for github
   use 'tpope/vim-vinegar' -- enhancements to netrw
   use 'tpope/vim-eunuch'  -- :Move, :Rename, etc
   use 'tpope/vim-projectionist'  -- project-specific configuration
+  use 'tpope/vim-surround' -- eg. cs"' to change surrounding quotes
+  
 
   -- 'vim-fubitive' - vim-fugitive for bitbucket. Note g:fubitive_domain_pattern config.
   use 'tommcdo/vim-fubitive'
 
+  -- autoclose.nvim -- lua-based autoclose with smart newlines and such. Minimal.
+  use 'm4xshen/autoclose.nvim'
 
   -- lualine (statusline)
   use {

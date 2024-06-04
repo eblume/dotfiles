@@ -205,3 +205,30 @@ vim.g.copilot_filetypes = {
   -- The docs claim 'most file types are enabled by default'
   zsh = true,
 }
+
+-- Set up autoclose.nvim - originally copied default values 3 Jun 2024
+local autoclose_config = {
+   keys = {
+      ["("] = { escape = false, close = true, pair = "()" },
+      ["["] = { escape = false, close = true, pair = "[]" },
+      ["{"] = { escape = false, close = true, pair = "{}" },
+
+      [">"] = { escape = true, close = false, pair = "<>" },
+      [")"] = { escape = true, close = false, pair = "()" },
+      ["]"] = { escape = true, close = false, pair = "[]" },
+      ["}"] = { escape = true, close = false, pair = "{}" },
+
+      ['"'] = { escape = true, close = true, pair = '""' },
+      ["'"] = { escape = true, close = true, pair = "''" },
+      ["`"] = { escape = true, close = true, pair = "``" },
+   },
+   options = {
+      disabled_filetypes = { "text", "markdown" },
+      disable_when_touch = false,
+      touch_regex = "[%w(%[{]",
+      pair_spaces = false,
+      auto_indent = true,
+      disable_command_mode = false,
+   },
+}
+require("autoclose").setup(autoclose_config)
