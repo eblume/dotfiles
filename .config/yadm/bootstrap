@@ -49,27 +49,6 @@ fi
 
 system_type=$(uname -s)
 
-### Install Nix
-if [ ! -d "/nix" ]; then
-    echo "Nix not found, installing via Determinate Systems installer."
-    echo "(This will require sudo)"
-    if ! read -r -p "Press enter to continue"; then
-        echo "User cancelled"
-        exit 1
-    fi
-    if [ "$system_type" = "Darwin" ]; then
-        curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-    fi
-
-    echo "Nix installation complete. Bootstrapping will continue, but you may need to re-run it."
-fi
-
-### Nix-Darwin flake activation
-if [ "$system_type" = "Darwin" ]; then
-    echo "Activating Nix-Darwin flake"
-    darwin-rebuild switch --flake "$HOME/.config/nix"
-fi
-
 ### Set up iterm2 config
 if [ "$system_type" = "Darwin" ]; then
   if [ -d "$HOME/.iterm2" ]; then
@@ -115,31 +94,6 @@ llm install llm-llama-cpp
 # See model installation instructions here:
 # https://github.com/simonw/llm-llama-cpp#adding-models
 
-### Provision aws-vault
-function setup_aws_vault() {
-    local keychain_path="${HOME}/Library/Keychains/aws-vault.keychain-db"
-
-    if [ ! -f "$keychain_path" ]; then
-        echo "Setting up aws-vault keychain."
-        security create-keychain -p "" aws-vault.keychain-db
-    fi
-
-    echo "Making aws-vault keychain visible."
-    security list-keychains -s login.keychain-db aws-vault.keychain-db
-
-    echo "Configuring aws-vault keychain settings."
-    security set-keychain-settings -u -t 86400 aws-vault.keychain-db
-
-    echo "Unlocking aws-vault keychain."
-    security unlock-keychain -p "" aws-vault.keychain-db
-}
-# setup_aws_vault
-# This has been disabled because it keeps locking my screen on a password prompt, despite the empty password. I suspect
-# the issue is that the first time create-keychain is run it prompts for a password anyway, and I naively type in my
-# usual password and then that overrides the otherwise empty password. Or maybe it's something else, but the point is
-# that I'm not using aws-vault actively right now and I don't want to deal with this. I'll re-enable it if I start
-# running in to issues.
-
 ### Provision nb-cli with my notebook sync repo
 if 
     ! command -v nb >/dev/null
@@ -166,6 +120,7 @@ if [ "$remote_url"  != "$intended_url" ]; then
     echo "(Otherwise, this probably just broke your setup, lol, sorrynotsorry)"
     echo "(... and btw, because of this fix, you won't need to do https login again)"
 fi
+
 
 ### FIN
 echo "Bootstrapping complete"
