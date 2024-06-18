@@ -28,10 +28,6 @@
         trash = lib.mkIf pkgs.stdenv.isLinux "${pkgs.trash-cli}/bin/trash-put";
       };
       functions = {
-        commandline-git-commits = {
-          description = "Insert commit into commandline";
-          body = builtins.readFile ./functions/commandline-git-commits.fish;
-        };
         copy = {
           description = "Copy file contents into clipboard";
           body = "cat $argv | pbcopy"; # Need to fix for non-macOS
@@ -49,20 +45,8 @@
           argumentNames = "directory";
           body = builtins.readFile ./functions/fcd.fish;
         };
-        fish_user_key_bindings = {
-          body = builtins.readFile ./functions/fish_user_key_bindings.fish;
-        };
         ip = {
           body = builtins.readFile ./functions/ip.fish;
-        };
-        json = {
-          description = "Tidy up JSON using jq";
-          body = "pbpaste | jq '.' | pbcopy"; # Need to fix for non-macOS
-        };
-        note = {
-          description = "Edit or create a note";
-          argumentNames = "filename";
-          body = builtins.readFile ./functions/note.fish;
         };
         recent = {
           description = "Open a recent file in Vim";
@@ -71,10 +55,6 @@
         search-and-edit = {
           description = "Search and open the relevant file in Vim";
           body = builtins.readFile ./functions/search-and-edit.fish;
-        };
-        syncnotes = {
-          description = "Full git commit on notes";
-          body = builtins.readFile ./functions/syncnotes.fish;
         };
       };
       interactiveShellInit = ''
@@ -111,19 +91,6 @@
         # Vim (overwritten by Neovim)
         v = "vim";
         vl = "vim -c 'normal! `0'";
-
-        # Notes
-        sn = "syncnotes";
-
-        # Fun CLI Tools
-        weather = "curl wttr.in/$WEATHER_CITY";
-        moon = "curl wttr.in/Moon";
-
-        # Cheat Sheets
-        ssl = "openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr";
-        fingerprint = "ssh-keyscan myhost.com | ssh-keygen -lf -";
-        publickey = "ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub";
-        forloop = "for i in (seq 1 100)";
 
         # Docker
         dc = "$DOTS/bin/docker_cleanup";

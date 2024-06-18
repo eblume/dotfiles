@@ -8,10 +8,9 @@
 
   imports = [
     ./applications
-    ./mail
     ./neovim
     ./programming
-    ./repositories
+    # ./repositories  # Disabled because its still pointing to nmasur's repos, TODO
     ./shell
   ];
 

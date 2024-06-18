@@ -97,15 +97,11 @@
 
           persistent-apps = [
             "/Applications/1Password.app"
-            "${pkgs.slack}/Applications/Slack.app"
             "/System/Applications/Calendar.app"
-            "${pkgs.firefox-bin}/Applications/Firefox.app"
             "/System/Applications/Messages.app"
             "/System/Applications/Mail.app"
-            "/Applications/zoom.us.app"
-            "${pkgs.discord}/Applications/Discord.app"
-            "${pkgs.obsidian}/Applications/Obsidian.app"
             "${pkgs.wezterm}/Applications/WezTerm.app"
+            "${pkgs.kitty}/Applications/kitty.app"
             "/System/Applications/System Settings.app"
           ];
         };
@@ -164,16 +160,6 @@
 
             # Default Finder window set to column view
             FXPreferredViewStyle = "clmv";
-          };
-          "leits.MeetingBar" = {
-            eventTimeFormat = ''"show"'';
-            eventTitleFormat = ''"none"'';
-            eventTitleIconFormat = ''"iconCalendar"'';
-            slackBrowser = ''{"deletable":true,"arguments":"","name":"Slack","path":""}'';
-            zoomBrowser = ''{"deletable":true,"arguments":"","name":"Zoom","path":""}'';
-            teamsBrowser = ''{"deletable":true,"arguments":"","name":"Teams","path":""}'';
-            KeyboardShortcuts_joinEventShortcut = ''{"carbonModifiers":6400,"carbonKeyCode":38}'';
-            timeFormat = ''"12-hour"'';
           };
         };
 

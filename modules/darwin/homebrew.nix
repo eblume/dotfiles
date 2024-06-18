@@ -33,21 +33,24 @@
         brewfile = true; # Run brew bundle from anywhere
         lockfiles = false; # Don't save lockfile (since running from anywhere)
       };
+      taps = [ "1password/tap" ];
       brews = [
         "trash" # Delete files and folders to trash instead of rm
+        "mise"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS
-        # "gitify" # Git notifications in menu bar (downgrade manually from 4.6.1)
-        "keybase" # GUI on Nix not available for macOS
-        # "logitech-g-hub" # Mouse and keyboard management
-        "logitune" # Logitech webcam firmware
-        "meetingbar" # Show meetings in menu bar
-        "scroll-reverser" # Different scroll style for mouse vs. trackpad
-        "notunes" # Don't launch Apple Music with the play button
-        "steam" # Not packaged for Nixon macOS
-        # "epic-games" # Not packaged for Nix
+        "1password/tap/1password-cli"
+        "iterm2"
+        "protonmail-bridge"
+        "todoist"
       ];
+      masApps = {
+        "Just Press Record" = 1033342465;
+        "Kagi for Safari" = 1622835804;
+        "1Password for Safari" = 1569813296;
+        "Xcode" = 497799835;
+      };
     };
   };
 }

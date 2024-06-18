@@ -1,5 +1,15 @@
 # System Configurations
 
+## Forked from [nmasur/dotfiles](https://github.com/nmasur/dotfiles)
+
+This configuration repository was forked from [nmasur/dotfiles](https://github.com/nmasur/dotfiles) and modified to suit
+my needs. The original MIT license is included in the repository.
+
+**The contents of this and other README files may be outdated for this fork.** Check `git blame` before trusting any
+information.
+
+---
+
 This repository contains configuration files for my NixOS, macOS, and WSL
 hosts.
 
@@ -40,10 +50,6 @@ configuration may be difficult to translate to a non-Nix system.
 | Feature  | Program                                     | Configuration                        |
 |----------|---------------------------------------------|--------------------------------------|
 | Keybinds | [Hammerspoon](https://www.hammerspoon.org/) | [Link](./modules/darwin/hammerspoon) |
-
-# Diagram
-
-![Diagram](https://github.com/nmasur/dotfiles/assets/7386960/4cc22285-cea1-4831-b387-a82241184381)
 
 ---
 

@@ -164,16 +164,6 @@
       flake = false;
     };
 
-    # Ren and rep - CLI find and replace
-    rep = {
-      url = "github:robenkleene/rep-grep";
-      flake = false;
-    };
-    ren = {
-      url = "github:robenkleene/ren-find";
-      flake = false;
-    };
-
     # Nextcloud Apps
     nextcloud-news = {
       # https://github.com/nextcloud/news/releases
@@ -206,17 +196,15 @@
       # Global configuration for my systems
       globals =
         let
-          baseName = "masu.rs";
+          baseName = "eblu.me";
         in
         rec {
-          user = "noah";
-          fullName = "Noah Masur";
+          user = "eblume";
+          fullName = "Erich Blume";
           gitName = fullName;
-          gitEmail = "7386960+nmasur@users.noreply.github.com";
-          mail.server = "noahmasur.com";
-          mail.imapHost = "imap.purelymail.com";
-          mail.smtpHost = "smtp.purelymail.com";
-          dotfilesRepo = "https://github.com/nmasur/dotfiles";
+          gitEmail = "725328+eblume@users.noreply.github.com";
+          dotfilesRepo = "https://github.com/eblume/blumeops";  # TODO fix branch
+          # TODO at time of writing, hostnames are all invalid - prune / cleanup
           hostnames = {
             git = "git.${baseName}";
             influxdb = "influxdb.${baseName}";
@@ -226,7 +214,6 @@
             n8n = "n8n2.${baseName}";
             prometheus = "prom.${baseName}";
             paperless = "paper.${baseName}";
-            secrets = "vault.${baseName}";
             stream = "stream.${baseName}";
             content = "cloud.${baseName}";
             books = "books.${baseName}";
@@ -240,14 +227,8 @@
         inputs.nur.overlay
         inputs.nix2vim.overlay
         (import ./overlays/neovim-plugins.nix inputs)
-        (import ./overlays/calibre-web.nix)
-        (import ./overlays/disko.nix inputs)
         (import ./overlays/tree-sitter.nix inputs)
         (import ./overlays/mpv-scripts.nix inputs)
-        (import ./overlays/nextcloud-apps.nix inputs)
-        (import ./overlays/betterlockscreen.nix)
-        (import ./overlays/gh-collaborators.nix)
-        (import ./overlays/ren-rep.nix inputs)
       ];
 
       # System types to support.
@@ -266,24 +247,23 @@
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#tempest
       nixosConfigurations = {
-        arrow = import ./hosts/arrow { inherit inputs globals overlays; };
-        tempest = import ./hosts/tempest { inherit inputs globals overlays; };
-        hydra = import ./hosts/hydra { inherit inputs globals overlays; };
-        flame = import ./hosts/flame { inherit inputs globals overlays; };
-        swan = import ./hosts/swan { inherit inputs globals overlays; };
+        # arrow = import ./hosts/arrow { inherit inputs globals overlays; };
+        # tempest = import ./hosts/tempest { inherit inputs globals overlays; };
+        # hydra = import ./hosts/hydra { inherit inputs globals overlays; };
+        # flame = import ./hosts/flame { inherit inputs globals overlays; };
+        # swan = import ./hosts/swan { inherit inputs globals overlays; };
       };
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#lookingglass
       darwinConfigurations = {
-        lookingglass = import ./hosts/lookingglass { inherit inputs globals overlays; };
+        mouse = import ./hosts/mouse { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#tempest
       homeConfigurations = {
-        tempest = nixosConfigurations.tempest.config.home-manager.users.${globals.user}.home;
-        lookingglass = darwinConfigurations.lookingglass.config.home-manager.users."Noah.Masur".home;
+        mouse = darwinConfigurations.mouse.config.home-manager.users."erichdblume".home;
       };
 
       # Disk formatting, only used once
@@ -293,16 +273,6 @@
 
       packages =
         let
-          staff =
-            system:
-            import ./hosts/staff {
-              inherit
-                inputs
-                globals
-                overlays
-                system
-                ;
-            };
           neovim =
             system:
             let
@@ -314,37 +284,6 @@
             };
         in
         {
-          x86_64-linux.staff = staff "x86_64-linux";
-          x86_64-linux.arrow = inputs.nixos-generators.nixosGenerate rec {
-            system = "x86_64-linux";
-            format = "iso";
-            specialArgs = {
-              pkgs-caddy = import inputs.nixpkgs-caddy { inherit system; };
-            };
-            modules = import ./hosts/arrow/modules.nix { inherit inputs globals overlays; };
-          };
-          x86_64-linux.arrow-aws = inputs.nixos-generators.nixosGenerate rec {
-            system = "x86_64-linux";
-            format = "amazon";
-            specialArgs = {
-              pkgs-caddy = import inputs.nixpkgs-caddy { inherit system; };
-            };
-            modules = import ./hosts/arrow/modules.nix { inherit inputs globals overlays; } ++ [
-              (
-                { ... }:
-                {
-                  boot.kernelPackages = inputs.nixpkgs.legacyPackages.x86_64-linux.linuxKernel.packages.linux_6_6;
-                  amazonImage.sizeMB = 16 * 1024;
-                  permitRootLogin = "prohibit-password";
-                  boot.loader.systemd-boot.enable = inputs.nixpkgs.lib.mkForce false;
-                  boot.loader.efi.canTouchEfiVariables = inputs.nixpkgs.lib.mkForce false;
-                  services.amazon-ssm-agent.enable = true;
-                  users.users.ssm-user.extraGroups = [ "wheel" ];
-                }
-              )
-            ];
-          };
-
           # Package Neovim config into standalone package
           x86_64-linux.neovim = neovim "x86_64-linux";
           x86_64-darwin.neovim = neovim "x86_64-darwin";
