@@ -16,6 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # 1Password shell integrations
+    _1password-shell-plugins = {
+      url = "github:1Password/shell-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Used for Windows Subsystem for Linux compatibility
     wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -203,7 +209,7 @@
           fullName = "Erich Blume";
           gitName = fullName;
           gitEmail = "725328+eblume@users.noreply.github.com";
-          dotfilesRepo = "https://github.com/eblume/blumeops";  # TODO fix branch
+          dotfilesRepo = "https://github.com/eblume/blumeops"; # TODO fix branch
           # TODO at time of writing, hostnames are all invalid - prune / cleanup
           hostnames = {
             git = "git.${baseName}";
@@ -246,13 +252,7 @@
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#tempest
-      nixosConfigurations = {
-        # arrow = import ./hosts/arrow { inherit inputs globals overlays; };
-        # tempest = import ./hosts/tempest { inherit inputs globals overlays; };
-        # hydra = import ./hosts/hydra { inherit inputs globals overlays; };
-        # flame = import ./hosts/flame { inherit inputs globals overlays; };
-        # swan = import ./hosts/swan { inherit inputs globals overlays; };
-      };
+      nixosConfigurations = { };
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#lookingglass
@@ -264,11 +264,6 @@
       # home-manager switch --flake .#tempest
       homeConfigurations = {
         mouse = darwinConfigurations.mouse.config.home-manager.users."erichdblume".home;
-      };
-
-      # Disk formatting, only used once
-      diskoConfigurations = {
-        root = import ./disks/root.nix;
       };
 
       packages =

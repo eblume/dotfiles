@@ -5,7 +5,6 @@
   ...
 }:
 {
-
   users.users.${config.user}.shell = pkgs.fish;
   programs.fish.enable = true; # Needed for LightDM to remember username
 
@@ -68,6 +67,8 @@
         set -g fish_cursor_insert line
         set -g fish_cursor_visual block
         set -g fish_cursor_replace_one underscore
+        # HACK: see 1password.nix, shouldn't need this
+        set -g SSH_AUTH_SOCK ${config.ssh-agent-socket}
       '';
       loginShellInit = "";
       shellAbbrs = {

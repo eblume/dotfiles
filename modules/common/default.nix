@@ -54,6 +54,11 @@
         default = true;
       };
     };
+    ssh-agent-socket = lib.mkOption {
+      type = lib.types.path;
+      description = "Path to an ssh-agent's unix socket";
+      default = config.homepath + "/.1password/agent.sock";
+    };
     homePath = lib.mkOption {
       type = lib.types.path;
       description = "Path of user's home directory.";
