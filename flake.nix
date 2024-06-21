@@ -111,11 +111,6 @@
       url = "github:akinsho/toggleterm.nvim/v2.11.0";
       flake = false;
     };
-    bufferline-nvim-src = {
-      # https://github.com/akinsho/bufferline.nvim/releases
-      url = "github:akinsho/bufferline.nvim/v4.6.1";
-      flake = false;
-    };
     nvim-tree-lua-src = {
       url = "github:kyazdani42/nvim-tree.lua";
       flake = false;

@@ -29,7 +29,6 @@ in
     telescope-nvim = withSrc prev.vimPlugins.telescope-nvim inputs.telescope-nvim-src;
     telescope-project-nvim = withSrc prev.vimPlugins.telescope-project-nvim inputs.telescope-project-nvim-src;
     toggleterm-nvim = withSrc prev.vimPlugins.toggleterm-nvim inputs.toggleterm-nvim-src;
-    bufferline-nvim = withSrc prev.vimPlugins.bufferline-nvim inputs.bufferline-nvim-src;
     nvim-tree-lua = withSrc prev.vimPlugins.nvim-tree-lua inputs.nvim-tree-lua-src;
     fidget-nvim = withSrc prev.vimPlugins.fidget-nvim inputs.fidget-nvim-src;
     nvim-lint = withSrc prev.vimPlugins.nvim-lint inputs.nvim-lint-src;

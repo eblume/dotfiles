@@ -47,7 +47,6 @@ pkgs.neovimBuilder {
     ;
   imports = [
     ../config/align.nix
-    ../config/bufferline.nix
     ../config/colors.nix
     ../config/completion.nix
     ../config/gitsigns.nix
