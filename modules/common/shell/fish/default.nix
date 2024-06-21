@@ -68,7 +68,9 @@
         set -g fish_cursor_visual block
         set -g fish_cursor_replace_one underscore
         # HACK: see 1password.nix, shouldn't need this
-        set -g SSH_AUTH_SOCK ${config.ssh-agent-socket}
+        if test -e ${config.ssh-agent-socket}
+          set -g SSH_AUTH_SOCK ${config.ssh-agent-socket}
+        end
       '';
       loginShellInit = "";
       shellAbbrs = {

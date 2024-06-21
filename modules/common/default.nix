@@ -10,7 +10,7 @@
     ./applications
     ./neovim
     ./programming
-    # ./repositories  # Disabled because its still pointing to nmasur's repos, TODO
+    ./repositories
     ./shell
   ];
 
