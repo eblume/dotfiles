@@ -15,22 +15,6 @@ vim.keymap.set("n", "<Leader>gs", telescope.git_status)
 vim.keymap.set("n", "<Leader>s", telescope.current_buffer_fuzzy_find)
 vim.keymap.set("n", "<Leader>rr", telescope.resume)
 
-vim.keymap.set("n", "<Leader>N", function()
-    local opts = {
-        prompt_title = "Search Notes",
-        cwd = "$NOTES_PATH",
-    }
-    telescope.live_grep(opts)
-end)
-
-vim.keymap.set("n", "<Leader>fN", function()
-    local opts = {
-        prompt_title = "Find Notes",
-        cwd = "$NOTES_PATH",
-    }
-    telescope.find_files(opts)
-end)
-
 vim.keymap.set("n", "<Leader>cr", function()
     local opts = require("telescope.themes").get_ivy({
         layout_config = {

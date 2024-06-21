@@ -18,6 +18,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown,text",
+    callback = function()
+        vim.bo.spell = true -- spell check enabled
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     command = "TableModeEnable",
 })
