@@ -24,7 +24,7 @@ local function dump(o)
 end
 
 -- Turn on when looking for the monitor name
-print(dump(hs.screen.allScreens()))
+-- print(dump(hs.screen.allScreens()))
 
 local function concat(...)
     local res = {}

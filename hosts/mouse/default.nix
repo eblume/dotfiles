@@ -27,6 +27,8 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays = [ inputs.firefox-darwin.overlay ] ++ overlays;
       networking.hostName = "mouse";
       gui.enable = true;
+      kitty.enable = true;
+      wezterm.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

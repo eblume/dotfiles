@@ -10,5 +10,8 @@
     ./system.nix
     ./user.nix
     ./utilities.nix
+    ./kitty.nix
+    ./alacritty.nix
+    ./hammerspoon.nix
   ];
 }

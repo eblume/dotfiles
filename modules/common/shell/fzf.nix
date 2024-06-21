@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
 
   # FZF is a fuzzy-finder for the terminal
