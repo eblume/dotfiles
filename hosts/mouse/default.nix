@@ -29,6 +29,7 @@ inputs.darwin.lib.darwinSystem {
       gui.enable = true;
       kitty.enable = true;
       wezterm.enable = true;
+      dotfiles.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

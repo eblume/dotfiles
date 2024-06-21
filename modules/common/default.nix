@@ -69,7 +69,7 @@
     dotfilesPath = lib.mkOption {
       type = lib.types.path;
       description = "Path of dotfiles repository.";
-      default = config.homePath + "/dev/personal/dotfiles";
+      default = config.homePath + "/code/personal/dotfiles";
     };
     dotfilesRepo = lib.mkOption {
       type = lib.types.str;
