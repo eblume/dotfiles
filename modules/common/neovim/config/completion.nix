@@ -80,6 +80,7 @@
         "abbr"
         "menu"
       ];
+      # TODO I don't think I like all of these icons, so work on them?
       format = dsl.rawLua ''
         function(entry, vim_item)
             local kind_icons = {
