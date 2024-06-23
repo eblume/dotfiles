@@ -6,16 +6,6 @@
 }:
 {
 
-  options = {
-
-    passwordHash = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      description = "Password created with mkpasswd -m sha-512";
-      default = null;
-      # Test it by running: mkpasswd -m sha-512 --salt "PZYiMGmJIIHAepTM"
-    };
-  };
-
   config = {
 
     # Allows us to declaritively set password
@@ -27,10 +17,8 @@
       # Create a home directory for human user
       isNormalUser = true;
 
-      # Automatically create a password to start
-      hashedPassword = config.passwordHash;
-
       extraGroups = [
+        "networkmanager"
         "wheel" # Sudo privileges
       ];
     };

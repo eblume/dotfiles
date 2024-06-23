@@ -9,7 +9,7 @@
   ...
 }:
 
-inputs.darwin.lib.darwinSystem {
+inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   specialArgs = { };
   modules = [
@@ -25,7 +25,7 @@ inputs.darwin.lib.darwinSystem {
         dark = true;
       };
       neovim.enable = true;
-      ssh-agent-socket = "/Users/erichdblume/Library/Group\\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+      ssh-agent-socket = "/home/eblume/.1password/agent.sock";
     }
     ../../modules/common
     ../../modules/nixos
