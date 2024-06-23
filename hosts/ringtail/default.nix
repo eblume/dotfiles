@@ -5,7 +5,6 @@
   inputs,
   globals,
   overlays,
-  lib,
   ...
 }:
 
@@ -74,7 +73,6 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Networking
       networking.networkmanager.enable = true;
-      networking.hostPlatform = lib.mkDefault true;
 
       # Time & Locale
       time.timeZone = "America/Los_Angeles";
