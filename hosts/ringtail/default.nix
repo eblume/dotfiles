@@ -60,7 +60,7 @@ inputs.nixpkgs.lib.nixosSystem {
         fsType = "ext4";
       };
 
-      filsystems."/boot" = {
+      fileSystems."/boot" = {
         device = "/dev/disk/by-uuid/D726-9E86";
         fsType = "vfat";
         options = [
