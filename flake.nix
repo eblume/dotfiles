@@ -247,7 +247,9 @@
 
       # Contains my full system builds, including home-manager
       # nixos-rebuild switch --flake .#tempest
-      nixosConfigurations = { };
+      nixosConfigurations = {
+        ringtail = import ./hosts/ringtail { inherit inputs globals overlays; };
+      };
 
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#lookingglass
@@ -259,6 +261,7 @@
       # home-manager switch --flake .#tempest
       homeConfigurations = {
         mouse = darwinConfigurations.mouse.config.home-manager.users."erichdblume".home;
+        ringtail = nixosConfigurations.ringtail.config.home-manager.users.${globals.user}.home;
       };
 
       packages =
