@@ -31,7 +31,7 @@ inputs.nixpkgs.lib.nixosSystem {
       # Programs and services
       neovim.enable = true;
       dotfiles.enable = true;
-      media.enable = true;
+      # media.enable = true;
       # firefox.enable = true;
       kitty.enable = true;
       _1password.enable = true;
