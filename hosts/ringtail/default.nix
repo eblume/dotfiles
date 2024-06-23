@@ -32,7 +32,7 @@ inputs.nixpkgs.lib.nixosSystem {
       neovim.enable = true;
       dotfiles.enable = true;
       media.enable = true;
-      firefox.enable = true;
+      # firefox.enable = true;
       kitty.enable = true;
       _1password.enable = true;
       wezterm.enable = true;
