@@ -41,6 +41,10 @@ inputs.nixpkgs.lib.nixosSystem {
         steam.enable = true;
       };
 
+      # Hack: until I find a secure way to thread 1password in to passwd, just manage ringtail's users manuall
+      # TODO mutable users hack
+      users.mutableUsers = true;
+
       # Boot options & drivers
       boot.initrd.availableKernelModules = [
         "nvme"
