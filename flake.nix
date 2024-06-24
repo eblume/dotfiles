@@ -16,12 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # 1Password shell integrations
-    _1password-shell-plugins = {
-      url = "github:1Password/shell-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Used for Windows Subsystem for Linux compatibility
     wsl = {
       url = "github:nix-community/NixOS-WSL";

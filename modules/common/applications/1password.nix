@@ -21,19 +21,13 @@
       "_1password-gui"
       "1password-cli"
     ];
+
     home-manager.users.${config.user} = {
       home.packages = with pkgs; [
         _1password-gui
         _1password
         git-credential-1password
       ];
-
-      programs._1password-shell-plugins = {
-        enable = true;
-        # Example: plugins for 1Password for other CLIs:
-        # plugins = with pkgs; [gh awscli2 cachix];
-        # see: https://github.com/1Password/shell-plugins
-      };
     };
 
     # Set SSH_AUTH_SOCK for 1password agent
