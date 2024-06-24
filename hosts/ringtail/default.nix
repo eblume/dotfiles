@@ -43,7 +43,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Hack: until I find a secure way to thread 1password in to passwd, just manage ringtail's users manuall
       # TODO mutable users hack
-      users.mutableUsers = true;
+      users.mutableUsers = inputs.nixpkgs.lib.mkForce true;
 
       # Boot options & drivers
       boot.initrd.availableKernelModules = [
