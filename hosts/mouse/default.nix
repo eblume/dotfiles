@@ -30,6 +30,7 @@ inputs.darwin.lib.darwinSystem {
       kitty.enable = true;
       wezterm.enable = true;
       dotfiles.enable = true;
+      terraform.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
