@@ -152,6 +152,7 @@
         vim
         wget
         curl
+        pipx
       ];
 
       # Use the system-level nixpkgs instead of Home Manager's
