@@ -50,6 +50,7 @@
         "Kagi for Safari" = 1622835804;
         "1Password for Safari" = 1569813296;
         "Xcode" = 497799835;
+        "Magnet" = 441258766;
       };
     };
   };
