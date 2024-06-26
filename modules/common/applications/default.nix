@@ -13,6 +13,5 @@
     ./slack.nix
     ./wezterm.nix
     ./yt-dlp.nix
-    ./pipx.nix
   ];
 }
