@@ -14,7 +14,12 @@
     };
   };
 
-  config = lib.mkIf (config.pipx.enable) { environment.systemPackages = [ pkgs.pipx ]; };
+  config = lib.mkIf (config.pipx.enable) {
+    environment.systemPackages = [
+      pkgs.pipx
+      pkgs.neofetch
+    ];
+  };
 
   # TODO: How can we declare pipx packages?
 }
