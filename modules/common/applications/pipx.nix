@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 {
   options = {
     pipx = {
@@ -14,7 +9,7 @@
     };
   };
 
-  config = lib.mkIf (config.pipx.enable) {
+  config = {
     environment.systemPackages = [
       pkgs.pipx
       pkgs.neofetch
