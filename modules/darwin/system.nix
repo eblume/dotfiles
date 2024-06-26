@@ -103,6 +103,7 @@
             "${pkgs.wezterm}/Applications/WezTerm.app"
             "${pkgs.kitty}/Applications/kitty.app"
             "/System/Applications/System Settings.app"
+            "${pkgs.slack}/Applications/Slack.app"
           ];
         };
 
