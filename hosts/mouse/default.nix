@@ -32,6 +32,8 @@ inputs.darwin.lib.darwinSystem {
       dotfiles.enable = true;
       terraform.enable = true;
       slack.enable = true;
+      mole.enable = true;
+      mise.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

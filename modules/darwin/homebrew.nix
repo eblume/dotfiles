@@ -36,7 +36,6 @@
       taps = [ "1password/tap" ];
       brews = [
         "trash" # Delete files and folders to trash instead of rm
-        "mise"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS

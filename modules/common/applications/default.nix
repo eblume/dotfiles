@@ -13,5 +13,6 @@
     ./slack.nix
     ./wezterm.nix
     ./yt-dlp.nix
+    ./mole.nix
   ];
 }

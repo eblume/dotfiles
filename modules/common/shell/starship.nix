@@ -12,6 +12,7 @@
       add_newline = false; # Don't print new line at the start of the prompt
       format = lib.concatStrings [
         "$directory"
+        "$python"
         "$git_branch"
         "$git_commit"
         "$git_status"
@@ -65,7 +66,7 @@
         symbol = "❄️";
       };
       python = {
-        format = "[\${version}\\(\${virtualenv}\\)]($style)";
+        format = "[\${version}\\(\${virtualenv}\\) ]($style)";
       };
     };
   };

@@ -8,5 +8,6 @@
     ./nixpkgs.nix
     ./starship.nix
     ./utilities.nix
+    ./mise.nix
   ];
 }
