@@ -34,6 +34,7 @@ inputs.darwin.lib.darwinSystem {
       slack.enable = true;
       mole.enable = true;
       mise.enable = true;
+      ovpn.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

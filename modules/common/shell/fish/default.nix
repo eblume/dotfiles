@@ -55,6 +55,10 @@
           description = "Search and open the relevant file in Vim";
           body = builtins.readFile ./functions/search-and-edit.fish;
         };
+        payrix-vpn = {
+          description = "Start the payrix openvpn client using sudo";
+          body = builtins.readFile ./functions/vpn.fish;
+        };
       };
       interactiveShellInit = ''
         fish_vi_key_bindings

@@ -14,5 +14,6 @@
     ./wezterm.nix
     ./yt-dlp.nix
     ./mole.nix
+    ./vpn.nix
   ];
 }
