@@ -95,11 +95,6 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Graphics
       services.xserver.videoDrivers = [ "nvidia" ];
-      nixpkgs.allowUnfreePackages = [
-        "nvidia-x11"
-        "nvidia-settings"
-        "nvidia-persistenced"
-      ];
 
       # Bluetooth
       hardware.bluetooth = {

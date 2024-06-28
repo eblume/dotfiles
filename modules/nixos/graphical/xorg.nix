@@ -30,6 +30,13 @@
       };
     };
 
+    # Whitelist nvidia packages - I don't know where this belongs
+    unfreePackages = [
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
+    ];
+
     environment.systemPackages = with pkgs; [
       xclip # Clipboard
     ];
