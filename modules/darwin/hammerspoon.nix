@@ -21,7 +21,7 @@
         kitty = "${pkgs.kitty}/Applications/kitty.app";
         wezterm = "${pkgs.wezterm}/Applications/WezTerm.app";
         # obsidian = "${pkgs.obsidian}/Applications/Obsidian.app";
-        # slack = "${pkgs.slack}/Applications/Slack.app";
+        slack = "${pkgs.slack}/Applications/Slack.app";
       };
       # Disabled because it's currently very nmasur-specific
       # xdg.configFile."hammerspoon/Spoons/MoveWindow.spoon".source = ./hammerspoon/Spoons/MoveWindow.spoon;
