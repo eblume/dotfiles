@@ -17,16 +17,19 @@
 
       # Login screen
       displayManager = {
-        lightdm = {
-          enable = config.services.xserver.enable;
-          background = config.wallpaper;
+        # Temp disabled as I test why I can't log in with lightdm
+        # lightdm = {
+        #   enable = config.services.xserver.enable;
+        #   background = config.wallpaper;
+        #
+        #   # Show default user
+        #   # Also make sure /var/lib/AccountsService/users/<user> has SystemAccount=false
+        #   extraSeatDefaults = ''
+        #     greeter-hide-users = false
+        #   '';
+        # };
 
-          # Show default user
-          # Also make sure /var/lib/AccountsService/users/<user> has SystemAccount=false
-          extraSeatDefaults = ''
-            greeter-hide-users = false
-          '';
-        };
+        gdm.enable = config.services.xserver.enable;
       };
     };
 
