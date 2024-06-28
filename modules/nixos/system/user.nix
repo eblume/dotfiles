@@ -43,13 +43,6 @@
       # Allow Nix to manage the default applications list
       mimeApps.enable = true;
 
-      # Create a desktop option for Burp
-      desktopEntries.burp = lib.mkIf pkgs.stdenv.isLinux {
-        name = "Burp";
-        exec = "${config.homePath}/.local/bin/burp.sh";
-        categories = [ "Application" ];
-      };
-
       # Set directories for application defaults
       userDirs = {
         enable = true;
