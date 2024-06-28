@@ -27,7 +27,7 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays = [ inputs.firefox-darwin.overlay ] ++ overlays;
       networking.hostName = "mouse";
       gui.enable = true;
-      kitty.enable = true;
+      kitty.enable = false;
       wezterm.enable = true;
       dotfiles.enable = true;
       terraform.enable = true;

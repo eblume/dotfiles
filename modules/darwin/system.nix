@@ -101,7 +101,7 @@
             "/System/Applications/Messages.app"
             "/System/Applications/Mail.app"
             "${pkgs.wezterm}/Applications/WezTerm.app"
-            "${pkgs.kitty}/Applications/kitty.app"
+            # "${pkgs.kitty}/Applications/kitty.app"
             "/System/Applications/System Settings.app"
             "${pkgs.slack}/Applications/Slack.app"
           ];
