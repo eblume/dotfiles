@@ -37,12 +37,26 @@ in
 
   config = lib.mkIf (pkgs.stdenv.isLinux && config.gui.enable) {
     sound.enable = true;
+    hardware.pulseaudio.enable = false;
+    # A module for ‘rtkit’, a DBus system service that hands out realtime
+    # scheduling priority to processes that ask for it.
+    security.rtkit.enable = true;
 
     # Enable PipeWire
     services.pipewire = {
       enable = true;
       pulse.enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
     };
+
+    # Enable bluetooth
+    # TODO move to bluetooth.nix ?
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    services.blueman.enable = true;
 
     # Provides audio source with background noise filtered
     programs.noisetorch.enable = true;
