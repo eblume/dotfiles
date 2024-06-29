@@ -15,5 +15,6 @@
     ./yt-dlp.nix
     ./mole.nix
     ./vpn.nix
+    ./llm.nix
   ];
 }

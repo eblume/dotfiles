@@ -33,6 +33,7 @@ inputs.darwin.lib.darwinSystem {
       terraform.enable = true;
       slack.enable = true;
       mole.enable = true;
+      llm.enable = true;
       mise.enable = true;
       ovpn.enable = true;
       theme = {
