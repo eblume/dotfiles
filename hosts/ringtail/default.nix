@@ -29,6 +29,7 @@ inputs.nixpkgs.lib.nixosSystem {
       gtk.theme.name = inputs.nixpkgs.lib.mkDefault "Adwaita-dark";
 
       # Programs and services
+      firefox.enable = true;
       neovim.enable = true;
       dotfiles.enable = true;
       # media.enable = true;

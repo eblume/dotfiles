@@ -142,7 +142,7 @@
 
   config =
     let
-      stateVersion = "23.05";
+      stateVersion = "24.05";
     in
     {
 
@@ -164,6 +164,8 @@
       # Allow specified unfree packages (identified elsewhere)
       # Retrieves package object based on string name
       nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) config.unfreePackages;
+      # TODO Revisit this - just whitelist all unfree for now
+      nixpkgs.config.allowUnfree = true;
 
       # Pin a state version to prevent warnings
       home-manager.users.${config.user}.home.stateVersion = stateVersion;
