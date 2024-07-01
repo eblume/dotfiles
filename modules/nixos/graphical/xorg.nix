@@ -16,19 +16,19 @@
       enable = config.gui.enable;
 
       # Login screen
-      # displayManager = {
-      #   lightdm = {
-      #     enable = config.services.xserver.enable;
-      #     background = config.wallpaper;
-
-      #     # Show default user
-      #     # Also make sure /var/lib/AccountsService/users/<user> has SystemAccount=false
-      #     extraSeatDefaults = ''
-      #       greeter-hide-users = false
-      #     '';
-      #   };
-      # };
-      gdm.enable = config.services.xserver.enable;
+      displayManager = {
+        # lightdm = {
+        #   enable = config.services.xserver.enable;
+        #   background = config.wallpaper;
+        #
+        #   # Show default user
+        #   # Also make sure /var/lib/AccountsService/users/<user> has SystemAccount=false
+        #   extraSeatDefaults = ''
+        #     greeter-hide-users = false
+        #   '';
+        # };
+        gdm.enable = config.services.xserver.enable;
+      };
     };
 
     # Grasping at straws:
