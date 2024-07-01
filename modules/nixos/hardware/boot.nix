@@ -45,6 +45,10 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # TODO see if this is needed?
+  # hail-marry to get wifi ath10k working on ringtail
+  hardware.enableRedistributableFirmware = true;
+
   # Allow reading from Windows drives
   boot.supportedFilesystems = lib.mkIf config.physical [ "ntfs" ];
 
