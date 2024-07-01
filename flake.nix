@@ -198,7 +198,7 @@
           fullName = "Erich Blume";
           gitName = fullName;
           gitEmail = "725328+eblume@users.noreply.github.com";
-          dotfilesRepo = "https://github.com/eblume/blumeops";
+          dotfilesRepo = "git@github.com:eblume/dotfiles.git";
           # TODO at time of writing, hostnames are all invalid - prune / cleanup
           hostnames = {
             git = "git.${baseName}";
