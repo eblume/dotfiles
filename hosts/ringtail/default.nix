@@ -33,7 +33,6 @@ inputs.nixpkgs.lib.nixosSystem {
       neovim.enable = true;
       dotfiles.enable = true;
       # media.enable = true;
-      # firefox.enable = true;
       kitty.enable = true;
       _1password.enable = true;
       wezterm.enable = true;
@@ -41,6 +40,7 @@ inputs.nixpkgs.lib.nixosSystem {
         enable = true;
         steam.enable = true;
       };
+      services.openssh.enable = true;
 
       # Not intended as secure, just guards physical access
       passwordHash = "$6$jmd10dn10dh$V7pTqgp0xqMqOvjoqFBS.SjhrS8P8KT66EPS6Q0ydbGVVBBDBAuQ.QfkHKeyevQaByPmO9co7v7itr6iZtOZV/";
