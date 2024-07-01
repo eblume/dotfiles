@@ -16,5 +16,6 @@
     ./mole.nix
     ./vpn.nix
     ./llm.nix
+    ./aws.nix
   ];
 }
