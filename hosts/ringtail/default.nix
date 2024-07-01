@@ -19,7 +19,7 @@ inputs.nixpkgs.lib.nixosSystem {
       networking.hostName = "ringtail";
       gui.enable = true;
       physical = true;
-      server = true;
+      server = false;
       ssh-agent-socket = "/home/eblume/.1password/agent.sock";
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
