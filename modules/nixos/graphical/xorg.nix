@@ -28,7 +28,7 @@
           '';
         };
 
-        gdm.enable = config.services.xserver.enable;
+        # gdm.enable = config.services.xserver.enable;
       };
     };
 
