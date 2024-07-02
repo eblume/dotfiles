@@ -9,5 +9,6 @@
     ./starship.nix
     ./utilities.nix
     ./mise.nix
+    ./charm.nix
   ];
 }
