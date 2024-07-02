@@ -25,6 +25,7 @@ inputs.nixpkgs.lib.nixosSystem {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
       };
+      charm.enable = true;
       wallpaper = "${inputs.wallpapers}/gruvbox/road.jpg";
       gtk.theme.name = inputs.nixpkgs.lib.mkDefault "Adwaita-dark";
 
