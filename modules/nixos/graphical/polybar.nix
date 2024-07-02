@@ -212,7 +212,7 @@
           "module/keyboard" = {
             type = "custom/text";
             content = "󰌌";
-            click-left = "doas systemctl restart keyd";
+            click-left = "sudo systemctl restart keyd";
             content-foreground = config.theme.colors.base04;
           };
           "module/power" = {

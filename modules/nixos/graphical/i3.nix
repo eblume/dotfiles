@@ -147,7 +147,7 @@ in
               } -e sh -c '${pkgs.home-manager}/bin/home-manager switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
               "${modifier}+Mod1+r" = "exec --no-startup-id ${
                 config.home-manager.users.${config.user}.programs.rofi.terminal
-              } -e sh -c 'doas nixos-rebuild switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
+              } -e sh -c 'sudo nixos-rebuild switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
 
               # Window options
               "${modifier}+q" = "kill";

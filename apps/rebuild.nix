@@ -10,7 +10,7 @@
       if [ "$SYSTEM" == "darwin" ]; then
           sudo darwin-rebuild switch --flake ${builtins.toString ../.}
       else
-          doas nixos-rebuild switch --flake ${builtins.toString ../.}
+          sudo nixos-rebuild switch --flake ${builtins.toString ../.}
       fi
     ''
   );

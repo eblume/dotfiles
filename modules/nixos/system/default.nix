@@ -9,6 +9,7 @@
   imports = [
     ./user.nix
     ./timezone.nix
+    ./journald.nix
   ];
 
   config = lib.mkIf pkgs.stdenv.isLinux {

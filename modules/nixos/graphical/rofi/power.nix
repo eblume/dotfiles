@@ -38,11 +38,11 @@ in
 
       case "$chosen" in
           "$power_off")
-              confirm 'Shutdown?' && doas shutdown now
+              confirm 'Shutdown?' && sudo shutdown now
               ;;
 
           "$reboot")
-              confirm 'Reboot?' && doas reboot
+              confirm 'Reboot?' && sudo reboot
               ;;
 
           "$lock")
