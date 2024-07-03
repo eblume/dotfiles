@@ -15,6 +15,7 @@
           tools = {
             python = "latest";
             poetry = "latest";
+            node = "latest";
           };
 
           plugins = {
