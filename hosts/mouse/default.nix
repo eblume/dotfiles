@@ -14,6 +14,7 @@ inputs.darwin.lib.darwinSystem {
   modules = [
     ../../modules/common
     ../../modules/darwin
+    ../../modules/payrix
     (
       globals
       // {
@@ -24,7 +25,7 @@ inputs.darwin.lib.darwinSystem {
     )
     inputs.home-manager.darwinModules.home-manager
     {
-      nixpkgs.overlays = [ inputs.firefox-darwin.overlay ] ++ overlays;
+      nixpkgs.overlays = overlays;
       networking.hostName = "mouse";
       gui.enable = true;
       kitty.enable = false;
@@ -38,6 +39,7 @@ inputs.darwin.lib.darwinSystem {
       ovpn.enable = true;
       charm.enable = true;
       awscli.enable = true;
+      payrix-cli.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

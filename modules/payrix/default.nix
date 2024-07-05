@@ -1,0 +1,4 @@
+{ ... }:
+{
+  imports = [ ./payrix-cli.nix ];
+}
