@@ -13,10 +13,12 @@
     home-manager.users.${config.user} = {
 
       home.packages = with pkgs; [
-        # python310 # Standard Python interpreter
+        python312 # Standard Python interpreter
+        python312Packages.pip
+        python312Packages.pipx
         pyright # Python language server
         black # Python formatter
-        python310Packages.flake8 # Python linter
+        python312Packages.flake8 # Python linter
       ];
 
       programs.fish.shellAbbrs = {
