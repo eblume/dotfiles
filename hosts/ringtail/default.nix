@@ -34,6 +34,7 @@ inputs.nixpkgs.lib.nixosSystem {
       neovim.enable = true;
       dotfiles.enable = true;
       # media.enable = true;
+      mise.enable = true;
       kitty.enable = true;
       _1password.enable = true;
       wezterm.enable = true;
