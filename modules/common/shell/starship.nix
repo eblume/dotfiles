@@ -16,6 +16,7 @@
         "$git_branch"
         "$git_commit"
         "$git_status"
+        "$aws"
         "$hostname"
         "$cmd_duration"
         "$character"
