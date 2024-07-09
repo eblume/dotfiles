@@ -9,7 +9,7 @@
   home-manager.users.${config.user}.programs.starship = {
     enable = true;
     settings = {
-      add_newline = false; # Don't print new line at the start of the prompt
+      add_newline = true;
       format = lib.concatStrings [
         "$directory"
         "$python"
@@ -19,6 +19,7 @@
         "$aws"
         "$hostname"
         "$cmd_duration"
+        "$shell"
         "$character"
       ];
       right_format = "$nix_shell";

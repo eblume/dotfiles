@@ -40,8 +40,13 @@
   config = lib.mkIf (config.payrix-cli.enable && config.mise.enable) {
     home-manager.users.${config.user} = {
       # home.packages = [ payrix-cli ];
-      programs.fish.shellAliases = {
-        px = "mise x node@18 -- npx ${config.homePath}/code/work/devops/payrix-cli/";
+      programs.fish = {
+        shellAliases.px = "mise x node@18 -- npx ${config.homePath}/code/work/devops/payrix-cli/";
+
+        functions.payrix-vpn = {
+          description = "Start the payrix openvpn client using sudo";
+          body = builtins.readFile ./functions/payrix-vpn.fish;
+        };
       };
     };
   };
