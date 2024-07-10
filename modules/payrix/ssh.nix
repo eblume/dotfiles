@@ -1,13 +1,13 @@
+# Shame, Shame (TODO)
+# I had to take the entire repo private because while these IPs are not
+# technically secret, as they are VPN only, they still present a really
+# juicey target. In the future I think I'd like to investigate injecting
+# secrets from 1password at derivation time... obviously the idea has the
+# inherent flaw of allowing all your derivations to hardcode those secrets,
+# but this is precisely the use case for that sort of thing: I don't want it
+# in SOURCE CONTROL, but it is not actually a secret.
 { config, ... }:
 let
-  # Shame, Shame (TODO)
-  # I had to take the entire repo private because while these IPs are not
-  # technically secret, as they are VPN only, they still present a really
-  # juicey target. In the future I think I'd like to investigate injecting
-  # secrets from 1password at derivation time... obviously the idea has the
-  # inherent flaw of allowing all your derivations to hardcode those secrets,
-  # but this is precisely the use case for that sort of thing: I don't want it
-  # in SOURCE CONTROL, but it is not actually a secret.
   hosts = {
     payrix-bastion = "10.0.240.122";
     payrix-sandbox-api = "3.229.230.4";
