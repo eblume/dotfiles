@@ -26,12 +26,6 @@ key("n", "<A-k>", ":m .-2<CR>==")
 key("v", "<A-j>", ":m '>+1<CR>gv=gv")
 key("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
--- Better window navigation
-key("n", "<C-h>", "<C-w>h")
-key("n", "<C-j>", "<C-w>j")
-key("n", "<C-k>", "<C-w>k")
-key("n", "<C-l>", "<C-w>l")
-
 -- File commands
 key("n", "<Leader>q", ":quit<CR>")
 key("n", "<Leader>Q", ":quitall<CR>")
