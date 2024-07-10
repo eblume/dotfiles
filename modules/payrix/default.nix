@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ./payrix-cli.nix ];
+  imports = [
+    ./payrix-cli.nix
+    ./ssh.nix
+  ];
 }

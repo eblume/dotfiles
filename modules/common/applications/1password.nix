@@ -27,13 +27,16 @@
         _1password-gui
         _1password
       ];
-    };
 
-    # Set SSH_AUTH_SOCK for 1password agent
-    # NOTE: This doesn't seem to work at all - possibly because fish bypasses ~/.profile?
-    # Instead, there's a HACK in modules/common/shell/fish/default.nix
-    # which sets SSH_AUTH_SOCK in the fish interactive shell handler.
-    environment.variables.SSH_AUTH_SOCK = config.ssh-agent-socket;
+      home.sessionVariables = {
+        SSH_AUTH_SOCK = config.ssh-agent-socket;
+      };
+
+      programs.ssh = {
+        enable = true;
+        matchBlocks."*".extraOptions.IdentityAgent = config.ssh-agent-socket;
+      };
+    };
 
     # https://1password.community/discussion/135462/firefox-extension-does-not-connect-to-linux-app
     # On Mac, does not apply: https://1password.community/discussion/142794/app-and-browser-integration
