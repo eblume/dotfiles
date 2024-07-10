@@ -61,6 +61,13 @@
           [ "echo" ];
     };
 
+    use.lspconfig.tsserver.setup = dsl.callWith {
+      cmd = [
+        "${pkgs.nodePackages_latest.typescript-language-server}/bin/typescript-language-server"
+        "--stdio"
+      ];
+    };
+
     use.lspconfig.rust_analyzer.setup = dsl.callWith {
       cmd = [ "${pkgs.rust-analyzer}/bin/rust-analyzer" ];
       settings = {
