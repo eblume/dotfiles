@@ -43,7 +43,7 @@ in
           };
           shellAbbrs = {
             v = lib.mkForce "nvim";
-            vl = lib.mkForce "nvim -c 'normal! `0' -c 'bdelete 1'";
+            vl = lib.mkForce "nvim -c 'normal! `0'";
             vll = "nvim -c 'Telescope oldfiles'";
           };
         };
