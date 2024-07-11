@@ -28,10 +28,7 @@
         _1password
       ];
 
-      home.sessionVariables = {
-        SSH_AUTH_SOCK = config.ssh-agent-socket;
-      };
-
+      # Note: something I don't understand about nix mergeing means this next bit may be overwritten in modules/payrix/ssh.nix
       programs.ssh = {
         enable = true;
         matchBlocks."*".extraOptions.IdentityAgent = config.ssh-agent-socket;
