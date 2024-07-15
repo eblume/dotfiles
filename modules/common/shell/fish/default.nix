@@ -55,10 +55,6 @@
           description = "Search and open the relevant file in Vim";
           body = builtins.readFile ./functions/search-and-edit.fish;
         };
-        px-times = {
-          description = "Print relevant time information for payrix";
-          body = builtins.readFile ./functions/px-times.fish;
-        };
       };
       interactiveShellInit = ''
         fish_vi_key_bindings

@@ -43,9 +43,19 @@
       programs.fish = {
         shellAliases.px = "mise x node@18 -- npx ${config.homePath}/code/work/devops/payrix-cli/";
 
-        functions.payrix-vpn = {
-          description = "Start the payrix openvpn client using sudo";
-          body = builtins.readFile ./functions/payrix-vpn.fish;
+        functions = {
+          payrix-vpn = {
+            description = "Start the payrix openvpn client using sudo";
+            body = builtins.readFile ./functions/payrix-vpn.fish;
+          };
+          payrix-times = {
+            description = "Print relevant time information for payrix";
+            body = builtins.readFile ./functions/payrix-times.fish;
+          };
+          payrix-whitelist-sg = {
+            description = "Attempts to whitelist the current host IP for payrix access";
+            body = builtins.readFile ./functions/payrix-whitelist-sg.fish;
+          };
         };
       };
     };
