@@ -82,6 +82,13 @@
       };
     };
 
+    use.lspconfig.omnisharp.setup = dsl.callWith {
+      cmd = [
+        "${pkgs.dotnet-sdk_8}/bin/dotnet"
+        "${pkgs.omnisharp-roslyn}/lib/omnisharp-roslyn/OmniSharp.dll"
+      ];
+    };
+
     setup.conform = {
       format_on_save = {
         # These options will be passed to conform.format()
