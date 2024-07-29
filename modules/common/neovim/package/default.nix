@@ -49,6 +49,7 @@ pkgs.neovimBuilder {
     ../config/align.nix
     ../config/colors.nix
     ../config/completion.nix
+    ../config/gitlab.nix
     ../config/gitsigns.nix
     ../config/lsp.nix
     ../config/misc.nix
