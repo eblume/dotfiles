@@ -7,6 +7,9 @@
     # Used for system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # private dotfiles (mostly work related)
+    private_dotfiles.url = "git+ssh://git@github.com/eblume/private_dotfiles";
+
     # Used for caddy plugins
     nixpkgs-caddy.url = "github:jpds/nixpkgs/caddy-external-plugins";
 

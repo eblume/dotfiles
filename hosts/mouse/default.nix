@@ -14,7 +14,7 @@ inputs.darwin.lib.darwinSystem {
   modules = [
     ../../modules/common
     ../../modules/darwin
-    ../../modules/payrix
+    (inputs.private_dotfiles + "/default.nix")
     (
       globals
       // {
@@ -39,7 +39,6 @@ inputs.darwin.lib.darwinSystem {
       ovpn.enable = true;
       charm.enable = true;
       awscli.enable = true;
-      payrix-cli.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

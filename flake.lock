@@ -508,6 +508,22 @@
         "type": "github"
       }
     },
+    "private_dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722288371,
+        "narHash": "sha256-3KZjD6j/mi+/RDARsvX8l7iRmuRMGFS6knFUffG2GLs=",
+        "ref": "refs/heads/main",
+        "rev": "fbe6531eb78bbc3a19ae104cd522220dfd013f81",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/eblume/private_dotfiles"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/eblume/private_dotfiles"
+      }
+    },
     "root": {
       "inputs": {
         "baleia-nvim-src": "baleia-nvim-src",
@@ -533,6 +549,7 @@
         "nvim-lspconfig-src": "nvim-lspconfig-src",
         "nvim-tree-lua-src": "nvim-tree-lua-src",
         "nvim-treesitter-src": "nvim-treesitter-src",
+        "private_dotfiles": "private_dotfiles",
         "telescope-nvim-src": "telescope-nvim-src",
         "telescope-project-nvim-src": "telescope-project-nvim-src",
         "toggleterm-nvim-src": "toggleterm-nvim-src",
