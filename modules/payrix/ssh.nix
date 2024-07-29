@@ -1,27 +1,20 @@
-# Shame, Shame (TODO)
-# I had to take the entire repo private because while these IPs are not
-# technically secret, as they are VPN only, they still present a really
-# juicey target. In the future I think I'd like to investigate injecting
-# secrets from 1password at derivation time... obviously the idea has the
-# inherent flaw of allowing all your derivations to hardcode those secrets,
-# but this is precisely the use case for that sort of thing: I don't want it
-# in SOURCE CONTROL, but it is not actually a secret.
 { config, ... }:
 let
   hosts = {
-    payrix-bastion = "10.0.240.122";
-    payrix-sandbox-api = "3.229.230.4";
-    payrix-sandbox-jobs = "34.224.195.65";
-    payrix-sandbox-portal = "3.216.249.216";
-    payrix-qa = "54.243.149.29";
-    payrix-portal = "52.7.184.35";
-    payrix-api1 = "10.0.21.81";
-    payrix-api2 = "10.0.23.122";
-    payrix-api3 = "10.0.28.47";
-    payrix-jobs1 = "10.0.20.36";
-    payrix-jobs2 = "10.0.17.62";
-    payrix-jobs-dev = "10.0.21.128";
-    payrix-letsencrypt = "10.0.25.248";
+    payrix-api1 = "i-071d3f94aef8890b1";
+    payrix-api2 = "i-08d64fae8e091d442";
+    payrix-api3 = "i-07600937bdb1c80bd";
+    payrix-bastion = "i-03e6070ca46e3111f";
+    payrix-jobs-dev = "i-031f8bfebbf1d717d";
+    payrix-jobs1 = "i-0d9d85c1350a03039";
+    payrix-jobs2 = "i-0c2508ca707526f00";
+    payrix-letsencrypt = "i-0632a9d823e7da6b3";
+    payrix-portal = "i-04b5f3641185cf6d5";
+    payrix-qa = "i-09c1b0645dc0062dd";
+    payrix-sandbox-api = "i-070390dfc54ceab1b";
+    payrix-sandbox-jobs = "i-07aec346e999c251b";
+    payrix-sandbox-portal = "i-0c9c9c1c1508784ed";
+    payrix-vpn = "i-01c29c02af2ca6cca";
   };
 in
 {
@@ -29,16 +22,16 @@ in
     home-manager.users.${config.user} = {
       programs.ssh = {
         enable = true;
-        matchBlocks =
-          builtins.mapAttrs (name: address: {
-            hostname = address;
+        matchBlocks = builtins.mapAttrs (name: address: { hostname = address; }) hosts // {
+          "payrix-*" = {
             user = "erichb";
             port = 2202;
-          }) hosts
-          // {
-            # TODO why won't this merge from 1password.nix??
-            "*".extraOptions.IdentityAgent = config.ssh-agent-socket;
+            proxyCommand = "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'";
           };
+
+          # TODO why won't this merge from 1password.nix??
+          "*".extraOptions.IdentityAgent = config.ssh-agent-socket;
+        };
       };
     };
   };
