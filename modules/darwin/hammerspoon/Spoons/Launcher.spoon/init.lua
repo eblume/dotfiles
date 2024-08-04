@@ -86,6 +86,9 @@ function obj:init()
     self.launcher:bind("", "S", function()
         self:switch("@slack@")
     end)
+    self.launcher:bind("", "O", function()
+        self:switch("@obsidian@")
+    end)
 end
 
 function obj:switch(app)

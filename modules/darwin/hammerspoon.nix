@@ -20,7 +20,7 @@
         # discord = "${pkgs.discord}/Applications/Discord.app";
         # kitty = "${pkgs.kitty}/Applications/kitty.app";
         wezterm = "${pkgs.wezterm}/Applications/WezTerm.app";
-        # obsidian = "${pkgs.obsidian}/Applications/Obsidian.app";
+        obsidian = "${pkgs.obsidian}/Applications/Obsidian.app";
         slack = "${pkgs.slack}/Applications/Slack.app";
       };
       # Disabled because it's currently very nmasur-specific

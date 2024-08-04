@@ -39,6 +39,7 @@ inputs.darwin.lib.darwinSystem {
       ovpn.enable = true;
       charm.enable = true;
       awscli.enable = true;
+      obsidian.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
