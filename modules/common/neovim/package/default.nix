@@ -58,5 +58,6 @@ pkgs.neovimBuilder {
     ../config/telescope.nix
     ../config/toggleterm.nix
     ../config/tree.nix
+    ../config/obsidian.nix
   ];
 }

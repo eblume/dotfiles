@@ -35,3 +35,11 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.bo.commentstring = "# %s"
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "nix",
+    callback = function()
+        vim.o.shiftwidth = 2
+        vim.o.softtabstop = 2
+    end,
+})
