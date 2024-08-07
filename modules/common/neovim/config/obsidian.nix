@@ -1,8 +1,5 @@
 # Obsidian in neovim via Obsidian.nvim
 # https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file
-
-# TODO this whole package should only be enabled if options.obsidian, but I'm too lazy to test right now
-
 { pkgs, ... }:
 {
   plugins = [
