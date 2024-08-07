@@ -14,7 +14,7 @@ inputs.darwin.lib.darwinSystem {
   modules = [
     ../../modules/common
     ../../modules/darwin
-    (inputs.private_dotfiles + "/default.nix")
+    ../../modules/work
     (
       globals
       // {
