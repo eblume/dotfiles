@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./bash
     ./fish
     ./fzf.nix
     ./git.nix

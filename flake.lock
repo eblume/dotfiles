@@ -287,57 +287,6 @@
         "type": "github"
       }
     },
-    "nextcloud-cookbook": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1702545935,
-        "narHash": "sha256-19LN1nYJJ0RMWj6DrYPvHzocTyhMfYdpdhBFch3fpHE=",
-        "type": "tarball",
-        "url": "https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.0/cookbook-0.11.0.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.0/cookbook-0.11.0.tar.gz"
-      }
-    },
-    "nextcloud-external": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1699624334,
-        "narHash": "sha256-RCL2RP5twRDLxI/KfAX6QLYQOzqZmSWsfrC5ZQIwTD4=",
-        "type": "tarball",
-        "url": "https://github.com/nextcloud-releases/external/releases/download/v5.3.1/external-v5.3.1.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/nextcloud-releases/external/releases/download/v5.3.1/external-v5.3.1.tar.gz"
-      }
-    },
-    "nextcloud-news": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1703426420,
-        "narHash": "sha256-AENBJH/bEob5JQvw4WEi864mdLYJ5Mqe78HJH6ceCpI=",
-        "type": "tarball",
-        "url": "https://github.com/nextcloud/news/releases/download/25.0.0-alpha3/news.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/nextcloud/news/releases/download/25.0.0-alpha3/news.tar.gz"
-      }
-    },
-    "nextcloud-snappymail": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-7oJEJ6t6iS/pcnSHashf1AkOEf+gKizpQHBy9XwY4Yo=",
-        "type": "file",
-        "url": "https://github.com/nmasur/snappymail-nextcloud/releases/download/v2.36.1/snappymail-2.36.1-nextcloud.tar.gz"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/nmasur/snappymail-nextcloud/releases/download/v2.36.1/snappymail-2.36.1-nextcloud.tar.gz"
-      }
-    },
     "nix2vim": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -536,10 +485,6 @@
         "hmts-nvim-src": "hmts-nvim-src",
         "home-manager": "home-manager",
         "mac-app-util": "mac-app-util",
-        "nextcloud-cookbook": "nextcloud-cookbook",
-        "nextcloud-external": "nextcloud-external",
-        "nextcloud-news": "nextcloud-news",
-        "nextcloud-snappymail": "nextcloud-snappymail",
         "nix2vim": "nix2vim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
@@ -561,8 +506,7 @@
         "tree-sitter-rasi": "tree-sitter-rasi",
         "tree-sitter-vimdoc": "tree-sitter-vimdoc",
         "wallpapers": "wallpapers",
-        "wsl": "wsl",
-        "zenyd-mpv-scripts": "zenyd-mpv-scripts"
+        "wsl": "wsl"
       }
     },
     "systems": {
@@ -810,22 +754,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "type": "github"
-      }
-    },
-    "zenyd-mpv-scripts": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1707704915,
-        "narHash": "sha256-9P/8q/OZXfaJMS08acQP4h3/zUA5mKRQee0JmkXcz1w=",
-        "owner": "zenyd",
-        "repo": "mpv-scripts",
-        "rev": "9bdce0050144cb24f92475f7bdd77180e0e4c26b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zenyd",
-        "repo": "mpv-scripts",
         "type": "github"
       }
     }

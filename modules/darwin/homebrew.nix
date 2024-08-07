@@ -26,7 +26,7 @@
       enable = true;
       onActivation = {
         autoUpdate = false; # Don't update during rebuild
-        cleanup = "zap"; # Uninstall all programs not declared
+        # cleanup = "zap"; # Uninstall all programs not declared
         upgrade = true;
       };
       global = {
@@ -41,14 +41,13 @@
         "1password" # 1Password will not launch from Nix on macOS
         "1password/tap/1password-cli"
         "iterm2"
-        "protonmail-bridge"
         "todoist"
+	"slack"
       ];
       masApps = {
         "Just Press Record" = 1033342465;
         "Kagi for Safari" = 1622835804;
         "1Password for Safari" = 1569813296;
-        "Xcode" = 497799835;
         "Magnet" = 441258766;
       };
     };

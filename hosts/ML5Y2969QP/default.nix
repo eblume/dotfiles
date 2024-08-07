@@ -1,6 +1,4 @@
-# Mouse
-# personal m1 macbook air
-
+# FIS-issued macbook
 {
   inputs,
   globals,
@@ -18,15 +16,15 @@ inputs.darwin.lib.darwinSystem {
     (
       globals
       // {
-        user = "erichdblume";
+        user = "eblume";
         gitName = "Erich Blume";
-        gitEmail = "725328+eblume@users.noreply.github.com";
+        gitEmail = "Erich.Blume@worldpay.com";
       }
     )
     inputs.home-manager.darwinModules.home-manager
     {
       nixpkgs.overlays = overlays;
-      networking.hostName = "mouse";
+      networking.hostName = "ML5Y2969QP";
       gui.enable = true;
       kitty.enable = false;
       wezterm.enable = true;
@@ -39,6 +37,7 @@ inputs.darwin.lib.darwinSystem {
       charm.enable = true;
       awscli.enable = true;
       obsidian.enable = true;
+      payrix-cli.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;

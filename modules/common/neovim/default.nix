@@ -10,7 +10,6 @@ let
   neovim = import ./package {
     inherit pkgs;
     colors = config.theme.colors;
-    terraform = config.terraform.enable;
     github = true;
     kubernetes = config.kubernetes.enable;
   };

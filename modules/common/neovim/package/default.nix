@@ -1,35 +1,6 @@
-# { inputs, globals, extraConfig ? [ ], ... }:
-#
-# let
-#
-#   pkgs = import inputs.nixpkgs {
-#     system = inputs.system;
-#     overlays = [
-#       (import ./modules/neovim/plugins-overlay.nix inputs)
-#       inputs.nix2vim.overlay
-#     ];
-#   };
-#
-# in pkgs.neovimBuilder {
-#   package = pkgs.neovim-unwrapped;
-#   imports = [
-#     ./modules/common/neovim/plugins/bufferline.nix
-#     ./modules/common/neovim/plugins/completion.nix
-#     ./modules/common/neovim/plugins/gitsigns.nix
-#     ./modules/common/neovim/plugins/lsp.nix
-#     ./modules/common/neovim/plugins/misc.nix
-#     ./modules/common/neovim/plugins/statusline.nix
-#     ./modules/common/neovim/plugins/syntax.nix
-#     ./modules/common/neovim/plugins/telescope.nix
-#     ./modules/common/neovim/plugins/toggleterm.nix
-#     ./modules/common/neovim/plugins/tree.nix
-#   ] ++ extraConfig;
-# }
-
 {
   pkgs,
   colors,
-  terraform ? false,
   github ? false,
   kubernetes ? false,
   ...
@@ -41,7 +12,6 @@ pkgs.neovimBuilder {
   package = pkgs.neovim-unwrapped;
   inherit
     colors
-    terraform
     github
     kubernetes
     ;

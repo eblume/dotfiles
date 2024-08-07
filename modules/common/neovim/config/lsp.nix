@@ -7,8 +7,6 @@
 }:
 {
 
-  # Terraform optional because non-free
-  options.terraform = lib.mkEnableOption "Whether to enable Terraform LSP";
   options.github = lib.mkEnableOption "Whether to enable GitHub features";
   options.kubernetes = lib.mkEnableOption "Whether to enable Kubernetes features";
 
@@ -48,17 +46,6 @@
         "${pkgs.pyright}/bin/pyright-langserver"
         "--stdio"
       ];
-    };
-
-    use.lspconfig.terraformls.setup = dsl.callWith {
-      cmd =
-        if config.terraform then
-          [
-            "${pkgs.terraform-ls}/bin/terraform-ls"
-            "serve"
-          ]
-        else
-          [ "echo" ];
     };
 
     use.lspconfig.tsserver.setup = dsl.callWith {
@@ -102,7 +89,6 @@
         nix = [ "nixfmt" ];
         rust = [ "rustfmt" ];
         sh = [ "shfmt" ];
-        terraform = if config.terraform then [ "terraform_fmt" ] else [ ];
         hcl = [ "hcl" ];
       };
       formatters = {
@@ -119,7 +105,6 @@
             "-ci"
           ];
         };
-        terraform_fmt.command = if config.terraform then "${pkgs.terraform}/bin/terraform" else "";
         hcl.command = "${pkgs.hclfmt}/bin/hclfmt";
       };
     };

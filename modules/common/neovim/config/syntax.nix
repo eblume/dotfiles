@@ -73,8 +73,8 @@
   };
 
   # Use mkAfter to ensure tree-sitter is already loaded
-  lua = lib.mkAfter ''
-    -- Use HCL parser with .tf files
-    vim.treesitter.language.register('hcl', 'terraform')
-  '';
+  # lua = lib.mkAfter ''
+  #   -- Use HCL parser with .tf files
+  #   vim.treesitter.language.register('hcl', 'terraform')
+  # '';
 }
