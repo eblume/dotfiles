@@ -92,7 +92,7 @@
         vl = "vim -c 'normal! `0'";
 
         # Obsidian
-        zk = "vim $HOME/code/personal/zk/";
+        zk = "vim $HOME/code/personal/zk/ -c 'cd $HOME/code/personal/zk/'";
 
         # Docker
         dc = "$DOTS/bin/docker_cleanup";

@@ -1,15 +1,20 @@
 { config, ... }:
+let
+  # Manually placed. See [[
+  cert_file = "/etc/nix/ca_cert.pem";
+in
 {
   config = {
-    security.pki.certificateFiles = [ "/etc/nix/ca_cert.pem" ]; # Manually placed
+    security.pki.certificateFiles = [ cert_file ]; # Manually placed
     home-manager.users.${config.user} = {
       # Throw it all at the wall and see what sticks
       home.sessionVariables = {
-        SSL_CERT_FILE = "/etc/nix/ca_cert.pem";
-        AWS_CA_BUNDLE = "/etc/nix/ca_cert.pem";
-        REQUESTS_CA_BUNDLE = "/etc/nix/ca_cert.pem";
-        CURL_CA_BUNDLE = "/etc/nix/ca_cert.pem";
-        NODE_EXTRA_CA_CERTS = "/etc/nix/ca_cert.pem";
+        SSL_CERT_FILE = cert_file;
+        AWS_CA_BUNDLE = cert_file;
+        REQUESTS_CA_BUNDLE = cert_file;
+        CURL_CA_BUNDLE = cert_file;
+        NODE_EXTRA_CA_CERTS = cert_file;
+        NIX_SSL_CERT_FILE = cert_file;
       };
     };
   };
