@@ -28,7 +28,7 @@
         _1password
       ];
 
-      # Note: something I don't understand about nix mergeing means this next bit may be overwritten in modules/payrix/ssh.nix
+      # Note: something I don't understand about nix mergeing means this next bit may be overwritten in modules/work/ssh.nix
       programs.ssh = {
         enable = true;
         matchBlocks."*".extraOptions.IdentityAgent = config.ssh-agent-socket;

@@ -29,6 +29,13 @@ in
             proxyCommand = "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'";
           };
 
+          # Use alt-ssh because 22 is blocked to gitlab (whyyyyyy?!)
+          "gitlab.com" = {
+            hostname = "altssh.gitlab.com";
+            user = "git";
+            port = 443;
+          };
+
           # TODO why won't this merge from 1password.nix??
           "*".extraOptions.IdentityAgent = config.ssh-agent-socket;
         };
