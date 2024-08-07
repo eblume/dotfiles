@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  # Manually placed. See [[
+  # Manually placed. See [[1723066665-JZBU]].
   cert_file = "/etc/nix/ca_cert.pem";
 in
 {
