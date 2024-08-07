@@ -16,15 +16,10 @@
       xdg.configFile."hammerspoon/Spoons/DismissAlerts.spoon".source = ./hammerspoon/Spoons/DismissAlerts.spoon;
       xdg.configFile."hammerspoon/Spoons/Launcher.spoon/init.lua".source = pkgs.substituteAll {
         src = ./hammerspoon/Spoons/Launcher.spoon/init.lua;
-        # firefox = "${pkgs.firefox-bin}/Applications/Firefox.app";
-        # discord = "${pkgs.discord}/Applications/Discord.app";
-        # kitty = "${pkgs.kitty}/Applications/kitty.app";
         wezterm = "${pkgs.wezterm}/Applications/WezTerm.app";
         obsidian = "${pkgs.obsidian}/Applications/Obsidian.app";
         slack = "${pkgs.slack}/Applications/Slack.app";
       };
-      # Disabled because it's currently very nmasur-specific
-      # xdg.configFile."hammerspoon/Spoons/MoveWindow.spoon".source = ./hammerspoon/Spoons/MoveWindow.spoon;
 
       home.activation.reloadHammerspoon =
         config.home-manager.users.${config.user}.lib.dag.entryAfter [ "writeBoundary" ]

@@ -26,7 +26,7 @@
       enable = true;
       onActivation = {
         autoUpdate = false; # Don't update during rebuild
-        # cleanup = "zap"; # Uninstall all programs not declared
+        cleanup = "zap"; # Uninstall all programs not declared
         upgrade = true;
       };
       global = {
@@ -42,7 +42,7 @@
         "1password/tap/1password-cli"
         "iterm2"
         "todoist"
-	"slack"
+        "slack"
       ];
       masApps = {
         "Just Press Record" = 1033342465;
