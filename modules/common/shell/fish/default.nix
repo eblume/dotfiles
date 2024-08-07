@@ -91,6 +91,9 @@
         v = "vim";
         vl = "vim -c 'normal! `0'";
 
+        # Obsidian
+        zk = "vim $HOME/code/personal/zk/";
+
         # Docker
         dc = "$DOTS/bin/docker_cleanup";
         dr = "docker run --rm -it";
