@@ -93,6 +93,7 @@
 
         # Obsidian
         zk = "vim $HOME/code/personal/zk/ -c 'cd $HOME/code/personal/zk/'";
+        zkt = "vim $HOME/code/personal/zk/ -c 'cd $HOME/code/personal/zk/' -c 'ObsidianToday'";
 
         # Docker
         dc = "$DOTS/bin/docker_cleanup";
