@@ -89,6 +89,9 @@ function obj:init()
     self.launcher:bind("", "O", function()
         self:switch("@obsidian@")
     end)
+    self.launcher:bind("", "T", function()
+        self:switch("Todoist.app")
+    end)
 end
 
 function obj:switch(app)
