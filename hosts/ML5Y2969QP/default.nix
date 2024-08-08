@@ -44,6 +44,7 @@ inputs.darwin.lib.darwinSystem {
       };
       neovim.enable = true;
       ssh-agent-socket = "/Users/eblume/Library/Group\\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+      use_custom_root_cert = true;
     }
   ];
 }

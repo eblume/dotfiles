@@ -1,10 +1,13 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   # Manually placed. See [[1723066665-JZBU]].
   cert_file = "/etc/nix/ca_cert.pem";
 in
 {
-  config = {
+
+  options.use_custom_root_cert = lib.mkEnableOption "Custom Root CA Cert";
+
+  config = lib.mkIf config.use_custom_root_cert {
     security.pki.certificateFiles = [ cert_file ]; # Manually placed
     home-manager.users.${config.user} = {
       # Throw it all at the wall and see what sticks
