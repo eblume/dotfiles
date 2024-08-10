@@ -22,12 +22,19 @@
       }
     ];
 
+    # This *should* be synced via the vault's sync community plugins setting, but if not:
+    #   Enabled:
+    #     * Use UID instead of file paths
+    #     * Add filepath parameter
+    # This is intended to make hyperlinks work across multiple vaults, so that
+    # I can make portable cross-project links. Using a UID in the URI means
+    # that file move operations are nondestructive. Tbe tradeoff is that every
+    # link will be pretty long, but conceallevel=1 helps with that.
+    use_advanced_uri = true;
+
     # NOTE: :ObsidianOpen is currently broken due to nix-darwin's packaging of Obsidian.app
     # There was a PR open that got closed without merging that would have fixed this.
     # I've left a comment here: https://github.com/epwalsh/obsidian.nvim/issues/304
-    # For now I'm just making do without but I think I could package this specific PR's commit too?
-    # Or patch it; it's a small change.
-    # Oh - or I could manually link the Application? hmmm
 
     picker = {
       name = "telescope.nvim";
