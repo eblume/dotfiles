@@ -9,10 +9,17 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Init largely copied from:
 -- https://github.com/epwalsh/obsidian.nvim
 require('obsidian').setup({
-  -- TODO: Do something smarter with workspaces.
-  -- For instance, path can be a lua function which can, for instance, target
-  -- an environment variable - set by mole or envrc/devenv?
   workspaces = {
+    -- Attempt to use $ZK_PROJECT dunamically
+    {
+      name = "zk-project",
+      path = function()
+        return assert(os.getenv("ZK_PROJECT"))
+      end,
+      -- NOTE: strict = true,  -- might be needed if links are broken, unclear
+      -- (Also there is an overrides = {...} for proj-specific settings, hmm)
+    },
+    -- Default workspace for my primary 'zk' knowledge base, matches last:
     {
       name = "zk",
       path = "~/code/personal/zk",
@@ -47,7 +54,8 @@ require('obsidian').setup({
   sort_by = "modified",
   sort_reversed = true,
 
-  -- "current", "vsplit", "hsplit" open_notes_in = "vsplit",
+  -- "current", "vsplit", "hsplit"
+  open_notes_in = "current",
 
   ui = {
     enable = true,          -- refers to all the conceallevel tricks, I think

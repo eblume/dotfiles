@@ -27,14 +27,6 @@
         trash = lib.mkIf pkgs.stdenv.isLinux "${pkgs.trash-cli}/bin/trash-put";
       };
       functions = {
-        copy = {
-          description = "Copy file contents into clipboard";
-          body = "cat $argv | pbcopy"; # Need to fix for non-macOS
-        };
-        edit = {
-          description = "Open a file in Vim";
-          body = builtins.readFile ./functions/edit.fish;
-        };
         envs = {
           description = "Evaluate a bash-like environment variables file";
           body = ''set -gx (cat $argv | tr "=" " " | string split ' ')'';
@@ -47,13 +39,14 @@
         ip = {
           body = builtins.readFile ./functions/ip.fish;
         };
-        recent = {
-          description = "Open a recent file in Vim";
-          body = builtins.readFile ./functions/recent.fish;
-        };
         search-and-edit = {
           description = "Search and open the relevant file in Vim";
           body = builtins.readFile ./functions/search-and-edit.fish;
+        };
+        workon = {
+          description = "Set $ZK_PROJECT='payrix' and open or create a note for the ticket.";
+          argumentNames = "ticket";
+          body = builtins.readFile ./functions/workon.fish;
         };
       };
       interactiveShellInit = ''
@@ -84,26 +77,25 @@
         s = "sudo";
         sc = "systemctl";
         scs = "systemctl status";
-        m = "make";
-        t = "trash";
 
         # Vim (overwritten by Neovim)
         v = "vim";
         vl = "vim -c 'normal! `0'";
 
-        # Obsidian
-        zk = "vim $HOME/code/personal/zk/ -c 'cd $HOME/code/personal/zk/'";
-        zkt = "vim $HOME/code/personal/zk/ -c 'cd $HOME/code/personal/zk/' -c 'ObsidianToday'";
-
-        # Docker
-        dc = "$DOTS/bin/docker_cleanup";
-        dr = "docker run --rm -it";
-        db = "docker build . -t";
+        # [[Obsidian.nvim]] commands
+        zk = "vim $ZK_PROJECT -c 'cd $ZK_DIR'";
+        zkt = "vim -c 'cd $ZK_DIR' -c 'ObsidianToday'";
+        zkn = "vim -c 'cd $ZK_DIR' -c 'ObsidianNew'";
+        zkd = "vim -c 'cd $ZK_DIR' -c 'ObsidianDailies'";
       };
       shellInit = "";
     };
 
-    home.sessionVariables.fish_greeting = "";
+    home.sessionVariables = {
+      ZK_DIR = "$HOME/code/personal/zk"; # See [[Obsidian.nvim]], aka 1722897441-MWFE.md
+      ZK_PROJECT = "$ZK_DIR";
+      fish_greeting = "";
+    };
 
     programs.starship.enableFishIntegration = true;
     programs.zoxide.enableFishIntegration = true;
