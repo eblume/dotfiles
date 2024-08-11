@@ -83,10 +83,10 @@
         vl = "vim -c 'normal! `0'";
 
         # [[Obsidian.nvim]] commands
-        zk = "vim $ZK_PROJECT -c 'cd $ZK_DIR'";
-        zkt = "vim -c 'cd $ZK_DIR' -c 'ObsidianToday'";
-        zkn = "vim -c 'cd $ZK_DIR' -c 'ObsidianNew'";
-        zkd = "vim -c 'cd $ZK_DIR' -c 'ObsidianDailies'";
+        zk = "vim $ZK_PROJECT -c \"cd $ZK_DIR\"";
+        zkt = "vim -c \"cd $ZK_DIR\" -c 'ObsidianToday'";
+        zkn = "vim -c \"cd $ZK_DIR\" -c 'ObsidianNew'";
+        zkd = "vim -c \"cd $ZK_DIR\" -c 'ObsidianDailies'";
       };
       shellInit = "";
     };

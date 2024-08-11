@@ -10,13 +10,13 @@ vim.api.nvim_create_autocmd("FileType", {
 -- https://github.com/epwalsh/obsidian.nvim
 require('obsidian').setup({
     workspaces = {
-        -- Attempt to use $ZK_PROJECT dunamically
+        -- Attempt to use $ZK_PROJECT dynamically
         {
             name = "zk-project",
             path = function()
                 return assert(os.getenv("ZK_PROJECT"))
             end,
-            -- NOTE: strict = true,  -- might be needed if links are broken, unclear
+            -- strict = true, -- might be needed if links are broken, unclear
             -- (Also there is an overrides = {...} for proj-specific settings, hmm)
         },
         -- Default workspace for my primary 'zk' knowledge base, matches last:
