@@ -10,4 +10,7 @@ rec {
   # Run neovim as an app
   neovim = import ./neovim.nix { inherit pkgs; };
   nvim = neovim;
+
+  # Show a nice help message
+  help = import ./help.nix { inherit pkgs; };
 }
