@@ -1,16 +1,15 @@
 set -g ZK_PROJECT $ZK_DIR/payrix
 
-set ticket (string upper $ticket) # abc-1234 -> ABC-1234
-
 set -l ticket_note "$ZK_PROJECT/tasks/$ticket.md"
 set -l jira "https://payrix.atlassian.net/browse/$ticket"
 
 switch $ticket
     case string match -r '^\w+-\d+$'
+        set ticket (string upper $ticket) # abc-1234 -> ABC-1234
         echo "Working on $ticket..."
     case string match -r '^https://payrix.atlassian.net/browse/(?<url_ticket>\w+-\d+)$'
         # Like: https://payrix.atlassian.net/browse/ABC-1234
-        set ticket $url_ticket
+        set ticket (string upper $url_ticket)
         echo "Working on $ticket..."
     case '*'
         echo >&2 "Unrecognized ticket format, expected ABC-1234: $ticket"
