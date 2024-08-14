@@ -44,6 +44,14 @@
         shellAliases.px = "mise x node@18 -- npx ${config.homePath}/code/work/devops/payrix-cli/";
 
         functions = {
+          payrix-rds-pci = {
+            description = "Connect to payrix-jobs-dev and echo a psql connection command";
+            body = builtins.readFile ./functions/payrix-rds-pci.fish;
+          };
+          payrix-rds-sandbox = {
+            description = "Connect to payrix-sandbox-jobs and echo a psql connection command";
+            body = builtins.readFile ./functions/payrix-rds-sandbox.fish;
+          };
           payrix-vpn = {
             description = "Start the payrix openvpn client using sudo";
             body = builtins.readFile ./functions/payrix-vpn.fish;
