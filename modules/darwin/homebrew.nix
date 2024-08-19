@@ -25,8 +25,8 @@
     homebrew = {
       enable = true;
       onActivation = {
-        autoUpdate = false; # Don't update during rebuild
-        cleanup = "zap"; # Uninstall all programs not declared
+        autoUpdate = true; # Consider disabling for a more nix-y experience
+        # cleanup = "zap"; # Uninstall all programs not declared
         upgrade = true;
       };
       global = {
@@ -36,6 +36,7 @@
       taps = [ "1password/tap" ];
       brews = [
         "trash" # Delete files and folders to trash instead of rm
+        "mise"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS

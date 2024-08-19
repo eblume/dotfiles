@@ -34,7 +34,6 @@ inputs.darwin.lib.darwinSystem {
       slack.enable = true;
       mole.enable = true;
       llm.enable = true;
-      mise.enable = true;
       ovpn.enable = true;
       charm.enable = true;
       awscli.enable = true;
