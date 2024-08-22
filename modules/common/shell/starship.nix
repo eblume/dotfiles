@@ -17,10 +17,11 @@
         "$git_commit"
         "$git_status"
         "$aws"
+        "$pulumi"
         "$hostname"
         "$cmd_duration"
         "$shell"
-        "$character"
+        "\n$character"
       ];
       right_format = "$nix_shell";
       character = {
@@ -31,7 +32,7 @@
       cmd_duration = {
         min_time = 5000;
         show_notifications = if pkgs.stdenv.isLinux then false else true;
-        min_time_to_notify = 30000;
+        min_time_to_notify = 120000;
         format = "[$duration]($style) ";
       };
       directory = {
