@@ -18,7 +18,7 @@ inputs.darwin.lib.darwinSystem {
     (
       globals
       // {
-        user = "erichdblume";
+        user = "eblume";
         gitName = "Erich Blume";
         gitEmail = "725328+eblume@users.noreply.github.com";
       }
@@ -43,7 +43,7 @@ inputs.darwin.lib.darwinSystem {
         dark = true;
       };
       neovim.enable = true;
-      ssh-agent-socket = "/Users/erichdblume/Library/Group\\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+      ssh-agent-socket = "/Users/eblume/Library/Group\\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
     }
   ];
 }
