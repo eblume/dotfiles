@@ -87,7 +87,6 @@
         zkt = "vim -c \"cd $ZK_PROJECT\" -c 'ObsidianToday'";
         zkn = "vim -c \"cd $ZK_PROJECT\" -c 'ObsidianNew'";
         zkd = "vim -c \"cd $ZK_PROJECT\" -c 'ObsidianDailies'";
-        zkm = "ZK_PROJECT='$ZK_DIR/payrix' vim -c \"cd $ZK_PROJECT/meetings\" -c 'ObsidianNew'";
       };
       shellInit = "";
     };

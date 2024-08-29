@@ -9,7 +9,6 @@
   home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
 
     home.packages = [
-      pkgs.visidata # CSV inspector
       pkgs.dos2unix # Convert Windows text files
       pkgs.inetutils # Includes telnet
       pkgs.pandoc # Convert text documents

@@ -17,7 +17,7 @@ let
   # The present solution, given to me by @nmasur, works in the interim!
   # https://github.com/nmasur/dotfiles/commit/068cdbf5d464c3882473ea0218b954b9ddab8261
 
-  mole = pkgs.python311.pkgs.buildPythonPackage {
+  mole = pkgs.python312.pkgs.buildPythonPackage {
     pname = "mole";
     version = "0.7.2";
     pyproject = true;
@@ -32,10 +32,10 @@ let
     };
 
     # buildtime
-    nativeBuildInputs = [ pkgs.python311Packages.poetry-core ];
+    nativeBuildInputs = [ pkgs.python312Packages.poetry-core ];
 
     # Build + runtime
-    propagatedBuildInputs = with pkgs.python311Packages; [
+    propagatedBuildInputs = with pkgs.python312Packages; [
       typer
       todoist-api-python
       openai
@@ -48,7 +48,7 @@ let
       pendulum
     ];
 
-    build-system = [ pkgs.python311.pkgs.setuptools ];
+    build-system = [ pkgs.python312.pkgs.setuptools ];
 
     # No tests :(
     doCheck = false;

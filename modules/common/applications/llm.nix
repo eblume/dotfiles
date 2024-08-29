@@ -6,7 +6,8 @@
 }:
 let
   # credit: https://github.com/jpetrucciani/nix/blob/3947483b426ef687709b9f78c2365614497475d9/mods/python/ai/bindings.nix#L644
-  groq = pkgs.python311.pkgs.buildPythonPackage {
+  # regen with `nsr nix-prefetch-github eblume mole`
+  groq = pkgs.python312.pkgs.buildPythonPackage {
     pname = "groq";
     version = "0.9.0";
     pyproject = true;
@@ -18,12 +19,12 @@ let
       sha256 = "sha256-WQJg/I0+tK2KtG1Vs5TiLRjji1wUATVwJ1XHuwrr5FI=";
     };
 
-    nativeBuildInputs = with pkgs.python311.pkgs; [
+    nativeBuildInputs = with pkgs.python312.pkgs; [
       hatchling
       hatch-fancy-pypi-readme
       pydantic
     ];
-    propagatedBuildInputs = with pkgs.python311.pkgs; [
+    propagatedBuildInputs = with pkgs.python312.pkgs; [
       anyio
       cached-property
       distro
@@ -47,7 +48,7 @@ let
     };
   };
 
-  llm-groq = pkgs.python311.pkgs.buildPythonPackage {
+  llm-groq = pkgs.python312.pkgs.buildPythonPackage {
     pname = "llm-groq";
     version = "0.4";
     pyproject = true;
@@ -60,7 +61,7 @@ let
     };
 
     propagatedBuildInputs = [ groq ];
-    build-system = with pkgs.python311.pkgs; [
+    build-system = with pkgs.python312.pkgs; [
       setuptools
       llm
     ];
