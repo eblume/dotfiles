@@ -103,6 +103,11 @@
           };
           extraConfig = ''
             return {
+                -- Fix: fonts render as just blocks of color, no detail, unreadable
+                -- see: https://github.com/wez/wezterm/issues/5990
+                front_end = "WebGpu",
+
+                -- Theme
                 color_scheme = "myTheme",
 
                 -- Scrollback

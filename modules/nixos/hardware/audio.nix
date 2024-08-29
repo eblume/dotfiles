@@ -36,7 +36,6 @@ in
 {
 
   config = lib.mkIf (pkgs.stdenv.isLinux && config.gui.enable) {
-    sound.enable = false; # Something about pipewire?
     hardware.pulseaudio.enable = false;
     # A module for ‘rtkit’, a DBus system service that hands out realtime
     # scheduling priority to processes that ask for it.
