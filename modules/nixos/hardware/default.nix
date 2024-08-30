@@ -9,6 +9,7 @@
     ./monitors.nix
     ./mouse.nix
     ./networking.nix
+    ./power.nix
     ./server.nix
     ./wifi.nix
     ./zfs.nix
