@@ -152,6 +152,7 @@
         vim
         wget
         curl
+        devenv
       ];
 
       # Use the system-level nixpkgs instead of Home Manager's
