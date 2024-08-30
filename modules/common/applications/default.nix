@@ -4,6 +4,7 @@
   imports = [
     ./1password.nix
     ./alacritty.nix
+    ./devenv.nix
     ./discord.nix
     ./firefox.nix
     ./kitty.nix

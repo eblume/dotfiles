@@ -152,7 +152,6 @@
         vim
         wget
         curl
-        devenv
       ];
 
       # Use the system-level nixpkgs instead of Home Manager's
@@ -167,6 +166,12 @@
       nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) config.unfreePackages;
       # TODO Revisit this - just whitelist all unfree for now
       nixpkgs.config.allowUnfree = true;
+
+      # Add self to nix trust store, to shut up devenv
+      nix.settings.trusted-users = [
+        "root"
+        config.user
+      ];
 
       # Pin a state version to prevent warnings
       home-manager.users.${config.user}.home.stateVersion = stateVersion;
