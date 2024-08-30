@@ -43,6 +43,14 @@
         ];
         shadowOpacity = 0.5;
         vSync = true;
+        extraArgs = [
+          # See: https://github.com/yshui/picom/issues/1265
+          # logs were being spammed with:
+          # "Duplicate vblank event found with msc 32767. Possible NVIDIA bug?"
+          # This may also have been the cause of nonresponsiveness after sleep,
+          # if so consider removing anti-sleeping-aids in power.nix
+          "no-frame-pacing"
+        ];
       };
 
       xsession.windowManager.i3.config.startup = [
