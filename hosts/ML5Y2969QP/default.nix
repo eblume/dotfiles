@@ -33,7 +33,6 @@ inputs.darwin.lib.darwinSystem {
       mole.enable = true;
       llm.enable = true;
       ovpn.enable = true;
-      tailscale.enable = true;
       charm.enable = true;
       awscli.enable = true;
       obsidian.enable = true;

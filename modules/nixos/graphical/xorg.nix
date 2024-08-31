@@ -41,6 +41,10 @@
       "nvidia-persistenced"
     ];
 
+    # Don't know why but I just hit this:
+    # https://discourse.nixos.org/t/hardware-nvidia-open-is-used-but-not-defined-error-when-updating-nixos-flake-config/51359
+    hardware.nvidia.open = false;
+
     environment.systemPackages = with pkgs; [
       xclip # Clipboard
     ];
