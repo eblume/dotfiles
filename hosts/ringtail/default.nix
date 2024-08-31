@@ -77,8 +77,13 @@ inputs.nixpkgs.lib.nixosSystem {
 
       swapDevices = [ ];
 
-      # Networking
       networking.networkmanager.enable = true;
+      services.openssh.enable = true;
+      publicKeys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILmh1SSCdDAyu3vkSQH7kAXEPDi8APyjo9JXDTjtha2j"
+      ];
+
+      services.xserver.videoDrivers = [ "nvidia" ];
 
       # Time & Locale
       time.timeZone = "America/Los_Angeles";
@@ -94,9 +99,6 @@ inputs.nixpkgs.lib.nixosSystem {
         LC_TELEPHONE = "en_US.UTF-8";
         LC_TIME = "en_US.UTF-8";
       };
-
-      # Graphics
-      services.xserver.videoDrivers = [ "nvidia" ];
 
       # Bluetooth
       hardware.bluetooth = {
