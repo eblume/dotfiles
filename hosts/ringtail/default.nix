@@ -43,6 +43,7 @@ inputs.nixpkgs.lib.nixosSystem {
         enable = true;
         steam.enable = true;
       };
+      services.jellyfin.enable = true;
 
       # Not intended as secure, just guards physical access
       passwordHash = "$6$jmd10dn10dh$V7pTqgp0xqMqOvjoqFBS.SjhrS8P8KT66EPS6Q0ydbGVVBBDBAuQ.QfkHKeyevQaByPmO9co7v7itr6iZtOZV/";
