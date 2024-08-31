@@ -4,19 +4,20 @@
   imports = [
     ./1password.nix
     ./alacritty.nix
+    ./aws.nix
     ./devenv.nix
     ./discord.nix
     ./firefox.nix
     ./kitty.nix
+    ./llm.nix
     ./media.nix
+    ./mole.nix
     ./obsidian.nix
     ./qbittorrent.nix
     ./slack.nix
+    ./tailscale.nix
+    ./vpn.nix
     ./wezterm.nix
     ./yt-dlp.nix
-    ./mole.nix
-    ./vpn.nix
-    ./llm.nix
-    ./aws.nix
   ];
 }

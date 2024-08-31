@@ -36,6 +36,7 @@ inputs.darwin.lib.darwinSystem {
       llm.enable = true;
       ovpn.enable = true;
       charm.enable = true;
+      tailscale.enable = true;
       awscli.enable = true;
       obsidian.enable = true;
       theme = {
