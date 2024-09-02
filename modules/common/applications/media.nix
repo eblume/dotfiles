@@ -32,12 +32,8 @@
           hwdec = "auto-safe"; # Attempt to use GPU decoding for video
         };
         scripts = [
-
           # Automatically load playlist entries before and after current file
           pkgs.mpvScripts.autoload
-
-          # Delete current file after quitting
-          pkgs.mpvScripts.mpv-delete-file
         ];
       };
 
