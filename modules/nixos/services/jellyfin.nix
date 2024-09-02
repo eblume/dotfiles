@@ -32,6 +32,9 @@
       extraPackages = [ pkgs.libva ];
     };
     environment.systemPackages = [
+      pkgs.jellyfin
+      pkgs.jellyfin-web
+      pkgs.jellyfin-ffmpeg
       pkgs.libva-utils
       pkgs.nvidia-vaapi-driver
     ];
