@@ -10,7 +10,11 @@
 {
 
   config = lib.mkIf config.services.jellyfin.enable {
+    # Create a 'media' group
+    users.groups.media = { };
+    users.users.${config.user}.extraGroups = [ "media" ];
 
+    # Create a jellyfin user in the media group
     services.jellyfin.group = "media";
     users.users.jellyfin = {
       isSystemUser = true;
