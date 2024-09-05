@@ -13,7 +13,6 @@
       pkgs.inetutils # Includes telnet
       pkgs.pandoc # Convert text documents
       pkgs.mpd # TUI slideshows
-      pkgs.mpv # Video player
       pkgs.gnupg # Encryption
       pkgs.awscli2
       pkgs.ssm-session-manager-plugin
