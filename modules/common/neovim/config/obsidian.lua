@@ -42,12 +42,12 @@ require('obsidian').setup({
 
   picker = {
     name = "telescope.nvim",
-    new = "<C-x>",             -- Create a new note from telescope query
-    insert_link = "<C-l>",     -- Create a new link to telescope selected quote
+    new = "<C-x>",         -- Create a new note from telescope query
+    insert_link = "<C-l>", -- Create a new link to telescope selected quote
   },
   tag_mappings = {
-    tag_note = "<C-x>",       -- Add tag(s) to current note
-    insert_tag = "<C-l>",     -- Insert a tag at the current location
+    tag_note = "<C-x>",   -- Add tag(s) to current note
+    insert_tag = "<C-l>", -- Insert a tag at the current location
   },
 
   -- Recommended to sort modified/true for most recent edits first
@@ -55,11 +55,11 @@ require('obsidian').setup({
   sort_reversed = true,
 
   -- "current", "vsplit", "hsplit"
-  open_notes_in = "current",
+  open_notes_in = "vsplit",
 
   ui = {
-    enable = true,              -- refers to all the conceallevel tricks, I think
-    max_file_length = 5000,     -- Large files get crunchy, I think - not seen yet
+    enable = true,          -- refers to all the conceallevel tricks, I think
+    max_file_length = 5000, -- Large files get crunchy, I think - not seen yet
     checkboxes = {
       -- I don't quite understand this array-keyed syntax, and it stumped me for having this config in obsiadian.nix
       -- (I guess that it's not an array but some sort of literal identifier, but no time to check now how to nixify)
