@@ -39,10 +39,6 @@ inputs.darwin.lib.darwinSystem {
       tailscale.enable = true;
       awscli.enable = true;
       obsidian.enable = true;
-      services.openssh.enable = true;
-      publicKeys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILmh1SSCdDAyu3vkSQH7kAXEPDi8APyjo9JXDTjtha2j"
-      ];
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
