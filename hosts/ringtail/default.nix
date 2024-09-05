@@ -34,6 +34,7 @@ inputs.nixpkgs.lib.nixosSystem {
       firefox.enable = true;
       neovim.enable = true;
       dotfiles.enable = true;
+      yt-dlp.enable = true;
       media.enable = true;
       _1password.enable = true;
       wezterm.enable = true;
