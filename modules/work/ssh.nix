@@ -15,6 +15,7 @@ let
     payrix-sandbox-jobs = "i-07aec346e999c251b";
     payrix-sandbox-portal = "i-0c9c9c1c1508784ed";
     payrix-vpn = "i-01c29c02af2ca6cca";
+    payrix-socket2 = "i-0a3d790d631613af5";
   };
 in
 {
