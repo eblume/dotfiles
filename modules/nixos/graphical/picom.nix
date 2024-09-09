@@ -49,7 +49,7 @@
           # "Duplicate vblank event found with msc 32767. Possible NVIDIA bug?"
           # This may also have been the cause of nonresponsiveness after sleep,
           # if so consider removing anti-sleeping-aids in power.nix
-          "no-frame-pacing"
+          "--no-frame-pacing"
         ];
       };
 
