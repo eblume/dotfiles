@@ -7,14 +7,13 @@
   overlays,
   ...
 }:
-
 inputs.darwin.lib.darwinSystem {
   system = "aarch64-darwin";
   specialArgs = { };
   modules = [
     ../../modules/common
     ../../modules/darwin
-    ../../modules/work
+    (inputs.private_dotfiles + "/default.nix")
     (
       globals
       // {

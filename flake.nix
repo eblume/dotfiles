@@ -7,18 +7,9 @@
     # Used for system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Used for caddy plugins
-    nixpkgs-caddy.url = "github:jpds/nixpkgs/caddy-external-plugins";
-
     # Used for MacOS system config
     darwin = {
       url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Used for Windows Subsystem for Linux compatibility
-    wsl = {
-      url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,25 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list for their inputs
     };
 
-    # Community packages; used for Firefox extensions
-    nur.url = "github:nix-community/nur";
-
-    # Use official Firefox binary for macOS
-    firefox-darwin = {
-      url = "github:bandithedoge/nixpkgs-firefox-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Better App install management in macOS
-    mac-app-util = {
-      url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list for their inputs
-    };
-
-    # Manage disk format and partitioning
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+    # Personal (Private) flake config
+    private_dotfiles = {
+      url = "git+ssh://git@github.com/eblume/private_dotfiles";
+      flake = false;
     };
 
     # Wallpapers
@@ -190,7 +166,6 @@
 
       # Common overlays to always use
       overlays = [
-        inputs.nur.overlay
         inputs.nix2vim.overlay
         (import ./overlays/neovim-plugins.nix inputs)
         (import ./overlays/tree-sitter.nix inputs)
