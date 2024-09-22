@@ -80,7 +80,12 @@ in
 
   config = lib.mkIf config.llm.enable {
     home-manager.users.${config.user} = {
-      home.packages = [ (pkgs.llm.withPlugins ([ llm-groq ])) ];
+      home.packages = [
+        (pkgs.python312.withPackages (ps: [
+          ps.llm
+          llm-groq
+        ]))
+      ];
     };
   };
 
