@@ -31,6 +31,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Programs and services
       tailscale.enable = true;
+      todoist.enable = true;
       neovim.enable = true;
       dotfiles.enable = true;
       yt-dlp.enable = true;

@@ -15,6 +15,7 @@
     ./qbittorrent.nix
     ./slack.nix
     ./tailscale.nix
+    ./todoist.nix
     ./vpn.nix
     ./wezterm.nix
     ./yt-dlp.nix
