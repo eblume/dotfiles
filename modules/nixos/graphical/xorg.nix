@@ -18,14 +18,14 @@
       # Login screen
       displayManager = {
         # lightdm = {
-        #   enable = config.services.xserver.enable;
-        #   background = config.wallpaper;
+        #  enable = config.services.xserver.enable;
+        #  background = config.wallpaper;
         #
-        #   # Show default user
-        #   # Also make sure /var/lib/AccountsService/users/<user> has SystemAccount=false
-        #   extraSeatDefaults = ''
-        #     greeter-hide-users = false
-        #   '';
+        #  # Show default user
+        #  # Also make sure /var/lib/AccountsService/users/<user> has SystemAccount=false
+        #  extraSeatDefaults = ''
+        #    greeter-hide-users = false
+        #  '';
         # };
         gdm.enable = config.services.xserver.enable;
       };
@@ -50,7 +50,6 @@
     ];
 
     home-manager.users.${config.user} = {
-
       programs.fish.shellAliases = {
         pbcopy = "xclip -selection clipboard -in";
         pbpaste = "xclip -selection clipboard -out";

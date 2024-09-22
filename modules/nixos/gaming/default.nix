@@ -7,12 +7,6 @@
 {
 
   imports = [
-    ./chiaki.nix
-    ./dwarf-fortress.nix
-    ./legendary.nix
-    ./lutris.nix
-    ./minecraft-server.nix
-    ./ryujinx.nix
     ./steam.nix
   ];
 

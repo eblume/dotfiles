@@ -42,7 +42,7 @@
             module-margin = 1;
             modules-left = "i3";
             modules-center = "xwindow";
-            modules-right = "mailcount network pulseaudio date keyboard power";
+            modules-right = "network pulseaudio date keyboard power";
             cursor-click = "pointer";
             cursor-scroll = "ns-resize";
             enable-ipc = true;
@@ -110,29 +110,6 @@
           # label-unmounted = "%mountpoint% not mounted";
           # label-unmounted-foreground = colors.disabled;
           # };
-          "module/mailcount" = {
-            type = "custom/script";
-            interval = 10;
-            format = "<label>";
-            exec = builtins.toString (
-              pkgs.writeShellScript "mailcount.sh" ''
-                ${pkgs.notmuch}/bin/notmuch new --quiet 2>&1>/dev/null
-                UNREAD=$(
-                    ${pkgs.notmuch}/bin/notmuch count \
-                        is:inbox and \
-                        is:unread and \
-                        folder:main/Inbox \
-                        2>/dev/null
-                )
-                if [ $UNREAD = "0" ]; then
-                  echo ""
-                else
-                  echo "%{T2}%{T-} $UNREAD "
-                fi
-              ''
-            );
-            click-left = "i3-msg 'exec --no-startup-id kitty --class aerc aerc'; sleep 0.15; i3-msg '[class=aerc] focus'";
-          };
           "module/network" = {
             type = "internal/network";
             interface-type = "wired";

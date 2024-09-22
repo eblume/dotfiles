@@ -12,7 +12,6 @@
     ./power.nix
     ./server.nix
     ./wifi.nix
-    ./zfs.nix
   ];
 
   options = {
