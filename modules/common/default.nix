@@ -176,8 +176,5 @@
       # Pin a state version to prevent warnings
       home-manager.users.${config.user}.home.stateVersion = stateVersion;
       home-manager.users.root.home.stateVersion = stateVersion;
-
-      # I don't understand whatg's going on, but this seems to be needed now?
-      system.stateVersion = 5;
     };
 }
