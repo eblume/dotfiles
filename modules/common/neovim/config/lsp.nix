@@ -35,6 +35,10 @@
       cmd = [ "${pkgs.lua-language-server}/bin/lua-language-server" ];
     };
 
+    use.lspconfig.ansiblels.setup = dsl.callWith {
+      cmd = [ "${pkgs.ansible-language-server}" ];
+    };
+
     use.lspconfig.nixd.setup = dsl.callWith {
       cmd = [ "${pkgs.nixd}/bin/nixd" ];
       capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
