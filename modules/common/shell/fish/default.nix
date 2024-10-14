@@ -60,6 +60,8 @@
         set -g fish_cursor_insert line
         set -g fish_cursor_visual block
         set -g fish_cursor_replace_one underscore
+        # pipx install location:
+        fish_add_path ~/.local/bin
       '';
       loginShellInit = "";
       shellAbbrs = {
