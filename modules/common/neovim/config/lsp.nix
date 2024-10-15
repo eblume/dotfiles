@@ -36,7 +36,10 @@
     };
 
     use.lspconfig.ansiblels.setup = dsl.callWith {
-      cmd = [ "${pkgs.ansible-language-server}" ];
+      cmd = [
+        "${pkgs.ansible-language-server}/bin/ansible-language-server"
+        "--stdio"
+      ];
     };
 
     use.lspconfig.nixd.setup = dsl.callWith {
