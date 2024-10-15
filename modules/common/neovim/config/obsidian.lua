@@ -55,7 +55,9 @@ require('obsidian').setup({
   sort_reversed = true,
 
   -- "current", "vsplit", "hsplit"
-  open_notes_in = "vsplit",
+  -- If set other than "current", beware extra buffers from `zkd`, `zkn`, etc.
+  -- (Fixable with :bdelete 0 in command but meh)
+  open_notes_in = "current",
 
   ui = {
     enable = true,          -- refers to all the conceallevel tricks, I think
