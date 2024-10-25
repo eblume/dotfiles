@@ -20,6 +20,7 @@ pkgs.neovimBuilder {
     ../config/colors.nix
     ../config/completion.nix
     ../config/gitlab.nix
+    ../config/github.nix
     ../config/gitsigns.nix
     ../config/lsp.nix
     ../config/misc.nix
