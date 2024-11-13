@@ -7,5 +7,6 @@
   imports = [
     ./jellyfin.nix
     ./sshd.nix
+    ./plex.nix
   ];
 }
