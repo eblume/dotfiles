@@ -75,10 +75,9 @@
       };
     };
 
-    use.lspconfig.omnisharp.setup = dsl.callWith {
+    use.lspconfig.csharp_ls.setup = dsl.callWith {
       cmd = [
-        "${pkgs.dotnet-sdk_8}/bin/dotnet"
-        "${pkgs.omnisharp-roslyn}/lib/omnisharp-roslyn/OmniSharp.dll"
+        "${pkgs.csharp-ls}/bin/csharp-ls"
       ];
     };
 
