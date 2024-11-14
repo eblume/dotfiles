@@ -45,6 +45,7 @@
     use.lspconfig.nixd.setup = dsl.callWith {
       cmd = [ "${pkgs.nixd}/bin/nixd" ];
       capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      extraOptions.offset_encoding = "utf-8"; # See https://github.com/neovim/neovim/issues/30675
     };
 
     use.lspconfig.pyright.setup = dsl.callWith {
