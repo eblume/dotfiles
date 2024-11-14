@@ -48,6 +48,16 @@
       extraOptions.offset_encoding = "utf-8"; # See https://github.com/neovim/neovim/issues/30675
     };
 
+    use.lspconfig.csharp_ls.setup = dsl.callWith {
+      cmd = [
+        "${pkgs.csharp-ls}/bin/csharp-ls"
+      ];
+      # The default config will chdir to the containing .sln or .csproj file, which
+      # makes sense in mose C# projects but completely breaks our pulumi infra repo
+      # So instead, we root on .git
+      root_dir = dsl.rawLua "require('lspconfig.util').root_pattern('.git')";
+    };
+
     use.lspconfig.pyright.setup = dsl.callWith {
       cmd = [
         "${pkgs.pyright}/bin/pyright-langserver"
@@ -74,12 +84,6 @@
           };
         };
       };
-    };
-
-    use.lspconfig.csharp_ls.setup = dsl.callWith {
-      cmd = [
-        "${pkgs.csharp-ls}/bin/csharp-ls"
-      ];
     };
 
     setup.conform = {

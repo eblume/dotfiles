@@ -18,8 +18,9 @@
   setup.nvim-tree = {
     disable_netrw = true; # Disable the built-in file manager
     hijack_netrw = true; # Works as the file manager
-    sync_root_with_cwd = true; # Change project whenever currend dir changes
-    respect_buf_cwd = false; # Disabled to stop breaking project-wide search
+    # Note that these options don't change chdir, they change the tree:
+    sync_root_with_cwd = true; # Change tree root whenever currend dir changes
+    respect_buf_cwd = true; # Change tree root to match opened buffers
     update_focused_file = {
       # Change project based on the focused buffer
       enable = true;
