@@ -7,12 +7,6 @@
     # Used for system packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Use prebuilt nix-index
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Used for MacOS system config
     darwin = {
       url = "github:lnl7/nix-darwin/master";
