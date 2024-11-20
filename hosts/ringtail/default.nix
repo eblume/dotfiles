@@ -15,7 +15,7 @@ inputs.nixpkgs.lib.nixosSystem {
     globals
     inputs.home-manager.nixosModules.home-manager
     # prebuilt nix-index:
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.nixosModules.nix-index
     {
       nixpkgs.overlays = overlays;
       networking.hostName = "ringtail";
