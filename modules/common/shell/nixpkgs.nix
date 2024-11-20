@@ -60,12 +60,6 @@
       };
     };
 
-    # Provides "command-not-found" options
-    programs.nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
     # Set automatic generation cleanup for home-manager
     nix.gc = {
       automatic = config.nix.gc.automatic;
