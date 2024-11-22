@@ -43,16 +43,8 @@ inputs.nixpkgs.lib.nixosSystem {
         enable = true;
         steam.enable = true;
       };
+      synology.enable = true;
       services.jellyfin.enable = true;
-      # TODO - split up plex and jellyfin
-      # Right now the jellyfin config is the main
-      # config, and plex kinda just gloms on to it while
-      # I try it out.
-      services.plex = {
-        enable = true;
-        dataDir = "/var/lib/jellyfin/library";
-        user = "jellyfin";
-      };
       # Not intended as secure, just guards physical access
       passwordHash = "$6$jmd10dn10dh$V7pTqgp0xqMqOvjoqFBS.SjhrS8P8KT66EPS6Q0ydbGVVBBDBAuQ.QfkHKeyevQaByPmO9co7v7itr6iZtOZV/";
 
