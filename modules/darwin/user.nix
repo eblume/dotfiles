@@ -11,7 +11,6 @@
     users.users."${config.user}" = {
       # macOS user
       home = config.homePath;
-      shell = pkgs.fish; # Default shell
     };
 
     home-manager.users.${config.user} = {
