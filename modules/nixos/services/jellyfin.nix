@@ -20,11 +20,21 @@
       isSystemUser = true;
     };
 
-    # Create videos directory, allow anyone in Jellyfin group to manage it
-    systemd.tmpfiles.rules = [
-      "d /var/lib/jellyfin 0775 jellyfin media"
-      "d /var/lib/jellyfin/library 0775 jellyfin media"
-    ];
+    # Mount the sifaka/allisonflix SMB share
+    fileSystems."/mnt/sifaka/allisonflix" = {
+      device = "//sifaka/allisonflix";
+      fsType = "cifs";
+      options =
+        let
+          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+          uid = "990";
+          gid = "988";
+        in
+        # /etc/nixos/smb-secrets is hardcoded, for ref see 1password "sifaka | synology"
+        [
+          "${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${uid},gid=${gid},file_mode=0770,dir_mode=0770"
+        ];
+    };
 
     # Enable VA-API for hardware transcoding
     hardware.graphics = {
@@ -32,6 +42,7 @@
       extraPackages = [ pkgs.libva ];
     };
     environment.systemPackages = [
+      pkgs.cifs-utils
       pkgs.jellyfin
       pkgs.jellyfin-web
       pkgs.jellyfin-ffmpeg
