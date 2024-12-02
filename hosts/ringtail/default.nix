@@ -61,21 +61,55 @@ inputs.nixpkgs.lib.nixosSystem {
       boot.extraModulePackages = [ ];
 
       # Filesystem
-      fileSystems."/" = {
-        device = "/dev/disk/by-uuid/0d6dc37d-17cf-4987-8c8b-ff2337609594";
-        fsType = "ext4";
-      };
 
-      fileSystems."/boot" = {
-        device = "/dev/disk/by-uuid/D726-9E86";
-        fsType = "vfat";
-        options = [
-          "fmask=0022"
-          "dmask=0022"
-        ];
-      };
+      fileSystems = {
+        "/" = {
+          device = "/dev/disk/by-uuid/0d6dc37d-17cf-4987-8c8b-ff2337609594";
+          fsType = "ext4";
+        };
 
-      swapDevices = [ ];
+        "/boot" = {
+          device = "/dev/disk/by-uuid/D726-9E86";
+          fsType = "vfat";
+          options = [
+            "fmask=0022"
+            "dmask=0022"
+          ];
+        };
+
+        "/mnt/sifaka/allisonflix" = {
+          device = "//sifaka/allisonflix";
+          fsType = "cifs";
+          options =
+            let
+              automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+              uid = "990";
+              gid = "988";
+            in
+            # /etc/nixos/smb-secrets is hardcoded, for ref see 1password "sifaka | synology"
+            [
+              "${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${uid},gid=${gid},file_mode=0770,dir_mode=0770"
+            ];
+        };
+
+        "/mnt/store1" = {
+          device = "/dev/disk/by-label/store1";
+          fsType = "ext4";
+        };
+        "/mnt/store2" = {
+          device = "/dev/disk/by-label/store2";
+          fsType = "ext4";
+        };
+        "/mnt/store3" = {
+          device = "/dev/disk/by-label/store3";
+          fsType = "ext4";
+        };
+      };
+      swapDevices = [
+        {
+          device = "/dev/disk/by-label/swap";
+        }
+      ];
 
       networking.networkmanager.enable = true;
       services.openssh.enable = true;

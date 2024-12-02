@@ -20,22 +20,6 @@
       isSystemUser = true;
     };
 
-    # Mount the sifaka/allisonflix SMB share
-    fileSystems."/mnt/sifaka/allisonflix" = {
-      device = "//sifaka/allisonflix";
-      fsType = "cifs";
-      options =
-        let
-          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-          uid = "990";
-          gid = "988";
-        in
-        # /etc/nixos/smb-secrets is hardcoded, for ref see 1password "sifaka | synology"
-        [
-          "${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${uid},gid=${gid},file_mode=0770,dir_mode=0770"
-        ];
-    };
-
     # Enable VA-API for hardware transcoding
     hardware.graphics = {
       enable = true;
