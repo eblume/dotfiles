@@ -36,6 +36,7 @@
     };
 
     use.lspconfig.ansiblels.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       cmd = [
         "${pkgs.ansible-language-server}/bin/ansible-language-server"
         "--stdio"
@@ -52,18 +53,20 @@
     # because of this: https://github.com/razzmatazz/csharp-language-server/issues/211
     # Or rather because of that bug reporter marking the package as unsafe
     # and then I could not find a way to roll back to 0.15
-    # 
+    #
     # use.lspconfig.csharp_ls.setup = dsl.callWith {
+    #   capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
     #   cmd = [
     #     "${pkgs.csharp-ls}/bin/csharp-ls"
     #   ];
     #   # The default config will chdir to the containing .sln or .csproj file, which
-    #   # makes sense in mose C# projects but completely breaks our pulumi infra repo
+    #   # makes sense in most C# projects but completely breaks our pulumi infra repo
     #   # So instead, we root on .git
     #   root_dir = dsl.rawLua "require('lspconfig.util').root_pattern('.git')";
     # };
 
     use.lspconfig.pyright.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       cmd = [
         "${pkgs.pyright}/bin/pyright-langserver"
         "--stdio"
@@ -71,6 +74,7 @@
     };
 
     use.lspconfig.tsserver.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       cmd = [
         "${pkgs.nodePackages_latest.typescript-language-server}/bin/typescript-language-server"
         "--stdio"
@@ -78,6 +82,7 @@
     };
 
     use.lspconfig.rust_analyzer.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       cmd = [ "${pkgs.rust-analyzer}/bin/rust-analyzer" ];
       settings = {
         "['rust-analyzer']" = {
