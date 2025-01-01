@@ -134,33 +134,13 @@
     { nixpkgs, ... }@inputs:
     let
       # Global configuration for my systems
-      globals =
-        let
-          baseName = "eblu.me";
-        in
-        rec {
-          user = "eblume";
-          fullName = "Erich Blume";
-          gitName = fullName;
-          gitEmail = "725328+eblume@users.noreply.github.com";
-          dotfilesRepo = "git@github.com:eblume/dotfiles.git";
-          # TODO at time of writing, hostnames are all invalid - prune / cleanup
-          hostnames = {
-            git = "git.${baseName}";
-            influxdb = "influxdb.${baseName}";
-            irc = "irc.${baseName}";
-            metrics = "metrics.${baseName}";
-            minecraft = "minecraft.${baseName}";
-            n8n = "n8n2.${baseName}";
-            prometheus = "prom.${baseName}";
-            paperless = "paper.${baseName}";
-            stream = "stream.${baseName}";
-            content = "cloud.${baseName}";
-            books = "books.${baseName}";
-            download = "download.${baseName}";
-            transmission = "transmission.${baseName}";
-          };
-        };
+      globals = rec {
+        user = "eblume";
+        fullName = "Erich Blume";
+        gitName = fullName;
+        gitEmail = "725328+eblume@users.noreply.github.com";
+        dotfilesRepo = "git@github.com:eblume/dotfiles.git";
+      };
 
       # Common overlays to always use
       overlays = [

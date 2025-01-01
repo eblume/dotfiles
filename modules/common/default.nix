@@ -80,64 +80,6 @@
       description = "List of unfree packages to allow.";
       default = [ ];
     };
-    hostnames = {
-      git = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for git server (Gitea).";
-      };
-      metrics = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for metrics server.";
-      };
-      minecraft = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for Minecraft server.";
-      };
-      paperless = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for document server (paperless-ngx).";
-      };
-      prometheus = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for Prometheus server.";
-      };
-      influxdb = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for InfluxDB2 server.";
-      };
-      secrets = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for passwords and secrets (Vaultwarden).";
-      };
-      stream = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for video/media library (Jellyfin).";
-      };
-      content = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for personal content system (Nextcloud).";
-      };
-      books = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for books library (Calibre-Web).";
-      };
-      download = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for download services.";
-      };
-      irc = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for IRC services.";
-      };
-      n8n = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for n8n automation.";
-      };
-      transmission = lib.mkOption {
-        type = lib.types.str;
-        description = "Hostname for peer2peer downloads (Transmission).";
-      };
-    };
   };
 
   config =
