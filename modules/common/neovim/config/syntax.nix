@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
 
   plugins = [
@@ -6,18 +6,27 @@
       _plugins: with pkgs.tree-sitter-grammars; [
         tree-sitter-bash
         tree-sitter-c
+        tree-sitter-c-sharp
+        tree-sitter-dockerfile
         tree-sitter-fish
+        tree-sitter-go
         tree-sitter-hcl
         tree-sitter-ini
         tree-sitter-json
+        tree-sitter-latex
         tree-sitter-lua
         tree-sitter-markdown
         tree-sitter-markdown-inline
         tree-sitter-nix
+        tree-sitter-php
         tree-sitter-puppet
         tree-sitter-python
         tree-sitter-rasi
+        tree-sitter-ruby
+        tree-sitter-rust
+        tree-sitter-sql
         tree-sitter-toml
+        tree-sitter-typescript
         tree-sitter-vimdoc
         tree-sitter-yaml
       ]
