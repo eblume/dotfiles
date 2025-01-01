@@ -132,9 +132,7 @@
 
   outputs =
     { nixpkgs, ... }@inputs:
-
     let
-
       # Global configuration for my systems
       globals =
         let
