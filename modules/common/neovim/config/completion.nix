@@ -2,6 +2,7 @@
 {
 
   plugins = [
+    pkgs.vimPlugins.nvim-cmp
     pkgs.vimPlugins.cmp-nvim-lsp
     pkgs.vimPlugins.cmp-buffer
     pkgs.vimPlugins.cmp-path
