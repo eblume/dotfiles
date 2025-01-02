@@ -25,13 +25,13 @@
       enable = true;
       extraPackages = [ pkgs.libva ];
     };
-    environment.systemPackages = [
-      pkgs.cifs-utils
-      pkgs.jellyfin
-      pkgs.jellyfin-web
-      pkgs.jellyfin-ffmpeg
-      pkgs.libva-utils
-      pkgs.nvidia-vaapi-driver
+    environment.systemPackages = with pkgs; [
+      cifs-utils
+      jellyfin
+      jellyfin-web
+      jellyfin-ffmpeg
+      libva-utils
+      nvidia-vaapi-driver
     ];
     environment.variables = {
       # VAAPI and VDPAU config for accelerated video.
