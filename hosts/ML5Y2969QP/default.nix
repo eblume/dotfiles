@@ -25,7 +25,6 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays = overlays;
       networking.hostName = "ML5Y2969QP";
       gui.enable = true;
-      kitty.enable = false;
       wezterm.enable = true;
       dotfiles.enable = true;
       slack.enable = true;

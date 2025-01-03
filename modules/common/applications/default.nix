@@ -7,7 +7,6 @@
     ./aws.nix
     ./devenv.nix
     ./discord.nix
-    ./kitty.nix
     ./llm.nix
     ./media.nix
     ./mole.nix

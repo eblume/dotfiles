@@ -49,9 +49,7 @@ function fish_vi_cursor -d 'Set cursor shape for different vi modes'
             and not set -q WT_PROFILE_ID
             and not set -q XTERM_VERSION
             and not string match -rq '^st(-.*)$' -- $TERM
-            and not string match -q 'xterm-kitty*' -- $TERM
             and not string match -q 'rxvt*' -- $TERM
-            and not string match -q 'alacritty*' -- $TERM
             return
         end
 

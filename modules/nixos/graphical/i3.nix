@@ -48,7 +48,6 @@ in
               "${ws1}" = [ { class = "Firefox"; } ];
               "${ws2}" = [
                 { class = "aerc"; }
-                { class = "kitty"; }
                 { class = "obsidian"; }
                 { class = "wezterm"; }
               ];
@@ -116,9 +115,12 @@ in
                 # Disable dynamic sleep
                 # https://github.com/rockowitz/ddcutil/issues/323
                 "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 + 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 + 30";
-              "Shift+F11" = "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 - 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 - 30";
-              "XF86MonBrightnessUp" = "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 + 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 + 30";
-              "XF86MonBrightnessDown" = "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 - 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 - 30";
+              "Shift+F11" =
+                "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 - 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 - 30";
+              "XF86MonBrightnessUp" =
+                "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 + 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 + 30";
+              "XF86MonBrightnessDown" =
+                "exec ${pkgs.ddcutil}/bin/ddcutil --display 1 setvcp 10 - 30 && sleep 1; exec ${pkgs.ddcutil}/bin/ddcutil --disable-dynamic-sleep --display 2 setvcp 10 - 30";
 
               # Media player controls
               "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -139,14 +141,17 @@ in
               "${modifier}+c" = "exec --no-startup-id ${config.calculatorCommand}";
               "${modifier}+Shift+c" = "reload";
               "${modifier}+Shift+r" = "restart";
-              "${modifier}+Shift+q" = ''exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"'';
+              "${modifier}+Shift+q" =
+                ''exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"'';
               "${modifier}+Shift+x" = "exec ${lockCmd}";
-              "${modifier}+Mod1+h" = "exec --no-startup-id ${
-                config.home-manager.users.${config.user}.programs.rofi.terminal
-              } -e sh -c '${pkgs.home-manager}/bin/home-manager switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
-              "${modifier}+Mod1+r" = "exec --no-startup-id ${
-                config.home-manager.users.${config.user}.programs.rofi.terminal
-              } -e sh -c 'sudo nixos-rebuild switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
+              "${modifier}+Mod1+h" =
+                "exec --no-startup-id ${
+                  config.home-manager.users.${config.user}.programs.rofi.terminal
+                } -e sh -c '${pkgs.home-manager}/bin/home-manager switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
+              "${modifier}+Mod1+r" =
+                "exec --no-startup-id ${
+                  config.home-manager.users.${config.user}.programs.rofi.terminal
+                } -e sh -c 'sudo nixos-rebuild switch --flake ${config.dotfilesPath}#${config.networking.hostName} || read'";
 
               # Window options
               "${modifier}+q" = "kill";
