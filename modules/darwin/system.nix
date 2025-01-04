@@ -100,6 +100,12 @@
             "/System/Applications/System Settings.app"
             "${pkgs.slack}/Applications/Slack.app"
           ];
+
+          # Disable all of the hot corner actions (Disabled = 1)
+          wvous-bl-corner = 1;
+          wvous-br-corner = 1;
+          wvous-tl-corner = 1;
+          wvous-tr-corner = 1;
         };
 
         finder = {
@@ -115,6 +121,9 @@
 
           # Allow quitting of Finder application
           QuitMenuItem = true;
+
+          # Show all extensions in finder
+          AppleShowAllExtensions = true;
         };
 
         # Disable "Are you sure you want to open" dialog
