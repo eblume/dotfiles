@@ -131,7 +131,6 @@
 
     use.lint = {
       linters_by_ft = dsl.toTable {
-        python = [ "ruff" ];
         sh = [ "shellcheck" ];
       };
     };
@@ -147,7 +146,6 @@
     lua = ''
       ${builtins.readFile ./lsp.lua}
 
-      local ruff = require('lint').linters.ruff; ruff.cmd = "${pkgs.ruff}/bin/ruff"
       local shellcheck = require('lint').linters.shellcheck; shellcheck.cmd = "${pkgs.shellcheck}/bin/shellcheck"
 
       -- Prevent infinite log size (change this when debugging)
