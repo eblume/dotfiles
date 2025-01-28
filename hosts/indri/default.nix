@@ -32,6 +32,7 @@ inputs.darwin.lib.darwinSystem {
       dotfiles.enable = true;
       slack.enable = true;
       llm.enable = true;
+      mole.enable = true;
       charm.enable = true;
       tailscale.enable = true;
       awscli.enable = true;
