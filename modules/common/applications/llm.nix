@@ -9,14 +9,14 @@ let
   # regen with `nsr nix-prefetch-github eblume mole`
   groq = pkgs.python312.pkgs.buildPythonPackage {
     pname = "groq";
-    version = "0.9.0";
+    version = "0.15.0";
     pyproject = true;
 
     src = pkgs.fetchFromGitHub {
       owner = "groq";
       repo = "groq-python";
-      rev = "8bcc29478315e59c2a9a730ade712511e0540f7b";
-      sha256 = "sha256-WQJg/I0+tK2KtG1Vs5TiLRjji1wUATVwJ1XHuwrr5FI=";
+      rev = "2b91340106d3e6b0f06f3cad4cfde436866cdfd2";
+      sha256 = "sha256-RoUvUDgUO1M3pSZA0B0eimRvE8buF4FDaz+FD1a241I=";
     };
 
     nativeBuildInputs = with pkgs.python312.pkgs; [
@@ -50,14 +50,14 @@ let
 
   llm-groq = pkgs.python312.pkgs.buildPythonPackage {
     pname = "llm-groq";
-    version = "0.4";
+    version = "0.7";
     pyproject = true;
 
     src = pkgs.fetchFromGitHub {
       owner = "angerman";
       repo = "llm-groq";
-      rev = "fca3e1566bbc7dc8e0468c657e9fe1762cb135d0"; # v0.4
-      sha256 = "sha256-wbycnUPIPBw9/HQuAa9dxMV/KfMx9v5MzY9JwueLs9M=";
+      rev = "57be10aeb6f69b31b067060209688982c409dd51"; # v0.7 27 Jan 2025
+      sha256 = "sha256-N2VbcY8z7AppZe0X0sk/cKTvb+WlMmWBtTkoLamtKSM=";
     };
 
     propagatedBuildInputs = [ groq ];
