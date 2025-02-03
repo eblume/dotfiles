@@ -19,7 +19,7 @@ let
 
   mole = pkgs.python312.pkgs.buildPythonPackage {
     pname = "mole";
-    version = "0.8.0";
+    version = "0.8.1";
     pyproject = true;
 
     src = pkgs.fetchFromGitHub {
@@ -27,8 +27,8 @@ let
       # TODO - mole release process, semver, etc.
       owner = "eblume";
       repo = "mole";
-      rev = "da17b04ffe64694b8783681dda32ebb9db0e942b";
-      sha256 = "sha256-acHFtLZAOBZOtVODveXT+9kn9hCR8uHJbOVIY2RIGqA=";
+      rev = "41df37a8dd2237db3a04dd48db4bf42fb05f65c2";
+      sha256 = "sha256-rTzPUh4ddYfjih2zm/j/xdqILPsgGC+67g99UZr0rQ4=";
     };
 
     # buildtime
