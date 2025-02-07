@@ -127,11 +127,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738789832,
-        "narHash": "sha256-HdlMPfObPu5y7oDfH/w3vvlU3UTQ/bQjSULChZARm5M=",
+        "lastModified": 1738878603,
+        "narHash": "sha256-fmhq8B3MvQLawLbMO+LWLcdC2ftLMmwSk+P29icJ3tE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "30ea6fed4e4b41693cebc2263373dd810de4de49",
+        "rev": "433799271274c9f2ab520a49527ebfe2992dcfbd",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
     "nvim-lint-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1737487916,
-        "narHash": "sha256-DKfivSjBFra/iXIuYQa7Mv5f2LglNbQTr8bQ+sCm8to=",
+        "lastModified": 1738838825,
+        "narHash": "sha256-E/KcQr4RM4gz+ItENI9e7hMicyBKyzoIaDO5D1VDYSw=",
         "owner": "mfussenegger",
         "repo": "nvim-lint",
-        "rev": "789b7ada1b4f00e08d026dffde410dcfa6a0ba87",
+        "rev": "6e9dd545a1af204c4022a8fcd99727ea41ffdcc8",
         "type": "github"
       },
       "original": {
@@ -266,11 +266,11 @@
     "nvim-treesitter-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1738760335,
-        "narHash": "sha256-EPCw0R2Fd6gSHBvhrPiCEVeQ9oo1Bldewgvv3n4yenE=",
+        "lastModified": 1738827806,
+        "narHash": "sha256-3MEzws+XO5vLRbJjc7y0Qcp24AEfE1JnM0JYKSYO3/o=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "9e0b5e7f0d148963d6ec71c48cec1a3f8607d619",
+        "rev": "824bf8455fd670186986fb3eb46fcaa4c5460949",
         "type": "github"
       },
       "original": {
@@ -283,11 +283,11 @@
     "private_dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1738800084,
-        "narHash": "sha256-01wnaWFKa4idzq3+dvrjx+c6PWh4R5R03LhRhmtfvDQ=",
+        "lastModified": 1738896559,
+        "narHash": "sha256-mxygA1Y0YOvHMRXgXX/llL2kedOKyfUANdMGrOAuw4U=",
         "ref": "refs/heads/main",
-        "rev": "8d57688a599f46bfef48a8db284358a916c3bca3",
-        "revCount": 23,
+        "rev": "6ed36e86a6f6105cf414fe03ed8353c943448db2",
+        "revCount": 24,
         "type": "git",
         "url": "ssh://git@github.com/eblume/private_dotfiles"
       },
