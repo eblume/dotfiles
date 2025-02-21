@@ -12,13 +12,14 @@
 
     home-manager.users.${config.user} = {
       xdg.configFile."hammerspoon/init.lua".source = ./hammerspoon/init.lua;
-      xdg.configFile."hammerspoon/Spoons/ControlEscape.spoon".source = ./hammerspoon/Spoons/ControlEscape.spoon;
-      xdg.configFile."hammerspoon/Spoons/DismissAlerts.spoon".source = ./hammerspoon/Spoons/DismissAlerts.spoon;
+      xdg.configFile."hammerspoon/Spoons/ControlEscape.spoon".source =
+        ./hammerspoon/Spoons/ControlEscape.spoon;
+      xdg.configFile."hammerspoon/Spoons/DismissAlerts.spoon".source =
+        ./hammerspoon/Spoons/DismissAlerts.spoon;
       xdg.configFile."hammerspoon/Spoons/Launcher.spoon/init.lua".source = pkgs.substituteAll {
         src = ./hammerspoon/Spoons/Launcher.spoon/init.lua;
         wezterm = "${pkgs.wezterm}/Applications/WezTerm.app";
         obsidian = "${pkgs.obsidian}/Applications/Obsidian.app";
-        slack = "${pkgs.slack}/Applications/Slack.app";
       };
 
       home.activation.reloadHammerspoon =
