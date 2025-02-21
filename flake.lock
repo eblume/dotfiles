@@ -283,11 +283,11 @@
     "private_dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1738896559,
-        "narHash": "sha256-mxygA1Y0YOvHMRXgXX/llL2kedOKyfUANdMGrOAuw4U=",
+        "lastModified": 1739934272,
+        "narHash": "sha256-vOgVB12MSpaYgkNO9ExJz/q2p2IXai50rfBqoK5D4+g=",
         "ref": "refs/heads/main",
-        "rev": "6ed36e86a6f6105cf414fe03ed8353c943448db2",
-        "revCount": 24,
+        "rev": "a645844b44fcf7488a04ed51260af8fef97ec5de",
+        "revCount": 25,
         "type": "git",
         "url": "ssh://git@github.com/eblume/private_dotfiles"
       },
