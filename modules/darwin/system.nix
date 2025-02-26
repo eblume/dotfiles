@@ -3,8 +3,6 @@
 
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
-    services.nix-daemon.enable = true;
-
     # This setting only applies to Darwin, different on NixOS
     nix.gc.interval = {
       Hour = 12;
@@ -14,7 +12,7 @@
 
     environment.shells = [ pkgs.fish ];
 
-    security.pam.enableSudoTouchIdAuth = true;
+    security.pam.services.sudo_local.touchIdAuth = true;
 
     system = {
       stateVersion = 5;

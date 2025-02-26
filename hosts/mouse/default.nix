@@ -24,6 +24,9 @@ inputs.darwin.lib.darwinSystem {
     )
     inputs.home-manager.darwinModules.home-manager
     {
+      # Not sure why this is needed, but it does seem to be needed.
+      ids.gids.nixbld = 30000;
+
       _1password.enable = true;
       nixpkgs.overlays = overlays;
       networking.hostName = "mouse";
