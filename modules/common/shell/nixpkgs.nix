@@ -60,11 +60,6 @@
       };
     };
 
-    # Set automatic generation cleanup for home-manager
-    nix.gc = {
-      automatic = config.nix.gc.automatic;
-      options = config.nix.gc.options;
-    };
   };
 
   nix = {
@@ -83,11 +78,6 @@
       experimental-features = nix-command flakes
       warn-dirty = false
     '';
-
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 10d";
-    };
 
     settings = {
       # Scans and hard links identical files in the store

@@ -25,6 +25,9 @@ inputs.darwin.lib.darwinSystem {
     )
     inputs.home-manager.darwinModules.home-manager
     {
+      _1password.enable = true;
+      nix.enable = false; # Not sure what's going on here.
+      nix.gc.automatic = false;
       nixpkgs.overlays = overlays;
       networking.hostName = "indri";
       gui.enable = true;
@@ -32,7 +35,6 @@ inputs.darwin.lib.darwinSystem {
       dotfiles.enable = true;
       slack.enable = true;
       llm.enable = true;
-      mole.enable = true;
       charm.enable = true;
       tailscale.enable = true;
       awscli.enable = true;
