@@ -16,22 +16,10 @@
   };
 
   config = lib.mkIf (config.gui.enable && config.wezterm.enable) {
-
-    # Set the Rofi-Systemd terminal for viewing logs
-    # Using optionalAttrs because only available in NixOS
-    environment =
-      { }
-      // lib.attrsets.optionalAttrs (builtins.hasAttr "sessionVariables" config.environment) {
-        sessionVariables.ROFI_SYSTEMD_TERM = "${pkgs.wezterm}/bin/wezterm";
-      };
-
     home-manager.users.${config.user} = {
 
       # Set the i3 terminal
       xsession.windowManager.i3.config.terminal = lib.mkIf pkgs.stdenv.isLinux "wezterm";
-
-      # Set the Rofi terminal for running programs
-      programs.rofi.terminal = lib.mkIf pkgs.stdenv.isLinux "${pkgs.wezterm}/bin/wezterm";
 
       # Display images in the terminal
       programs.fish.shellAliases = {
@@ -99,15 +87,15 @@
         };
         extraConfig = ''
           return {
-              -- Fix: fonts render as just blocks of color, no detail, unreadable
-              -- see: https://github.com/wez/wezterm/issues/5990
-              front_end = "WebGpu",
-
               -- Theme
               color_scheme = "myTheme",
 
               -- Scrollback
               scrollback_lines = 10000,
+
+              -- Fix weird crash due to missing glyph notification:
+              -- https://github.com/wezterm/wezterm/issues/6731#issuecomment-2687099304
+              warn_about_missing_glyphs = false,
 
               -- Window
               window_padding = {
@@ -117,7 +105,12 @@
                 bottom = 10,
               },
 
+              -- Font
               font_size = ${if pkgs.stdenv.isLinux then "14.0" else "18.0"},
+              font = wezterm.font_with_fallback({
+                { family = "VictorMono Nerd Font" },
+                { family = "Arial" },
+              }),
 
               -- Tab Bar
               hide_tab_bar_if_only_one_tab = true,
@@ -136,9 +129,6 @@
 
               -- Disable audio
               audible_bell = "Disabled",
-
-              initial_rows = 80,
-              initial_cols = 200,
 
               keys = {
                 -- sends completion string for fish autosuggestions
@@ -178,52 +168,6 @@
                   key = 't',
                   mods = 'SUPER|SHIFT',
                   action = wezterm.action.SpawnTab 'CurrentPaneDomain'
-                },
-                -- project switcher
-                {
-                   key = 'P',
-                   mods = 'SUPER',
-                   action = wezterm.action_callback(function(window, pane)
-                     local choices = {}
-
-                     wezterm.log_info "working?"
-
-                     function scandir(directory)
-                         local i, t, popen = 0, {}, io.popen
-                         local pfile = popen('${pkgs.fd}/bin/fd --search-path "'..directory..'" --type directory --exact-depth 2 | ${pkgs.proximity-sort}/bin/proximity-sort "'..os.getenv("HOME").."/dev/work"..'"')
-                         for filename in pfile:lines() do
-                             i = i + 1
-                             t[i] = filename
-                         end
-                         pfile:close()
-                         return t
-                     end
-
-                     for _, v in pairs(scandir(os.getenv("HOME").."/dev")) do
-                       table.insert(choices, { label = v })
-                     end
-
-                     window:perform_action(
-                       wezterm.action.InputSelector {
-                         action = wezterm.action_callback(function(window, pane, id, label)
-                           if not id and not label then
-                             wezterm.log_info "cancelled"
-                           else
-                             window:perform_action(
-                               wezterm.action.SpawnCommandInNewTab {
-                                 cwd = label,
-                               },
-                               pane
-                             )
-                           end
-                         end),
-                         fuzzy = true,
-                         title = "Select Project",
-                         choices = choices,
-                       },
-                       pane
-                     )
-                   end),
                 },
               },
           }
