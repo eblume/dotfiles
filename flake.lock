@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740452771,
-        "narHash": "sha256-/tI1vFJ7/dXJqUmI+s0EV1F0DPe6dZvT444mrLUkrlU=",
+        "lastModified": 1740755725,
+        "narHash": "sha256-amZbqP84H/ApugaT+TADXTB3NbjkVHI9Vac1saIk0kE=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "42be12b510253d750138ec90c66decc282298b44",
+        "rev": "5d6e0851b60508cffd66b4a6982440a40720338d",
         "type": "github"
       },
       "original": {
@@ -127,11 +127,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740579671,
-        "narHash": "sha256-Dwt/3KknOQ4bgFG5YjqDT7oWRy27rPpDjAi2P0ok1zw=",
+        "lastModified": 1740699498,
+        "narHash": "sha256-r9hkKzX99CGiP1ZqH0e+SWKK4CMsRNRLyotuwrUjhTI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "53c587d263f94aaf6a281745923c76bbec62bcf3",
+        "rev": "b71edac7a3167026aabea82a54d08b1794088c21",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1740367490,
-        "narHash": "sha256-WGaHVAjcrv+Cun7zPlI41SerRtfknGQap281+AakSAw=",
+        "lastModified": 1740560979,
+        "narHash": "sha256-Vr3Qi346M+8CjedtbyUevIGDZW8LcA1fTG0ugPY/Hic=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0196c0175e9191c474c26ab5548db27ef5d34b05",
+        "rev": "5135c59491985879812717f4c9fea69604e7f26f",
         "type": "github"
       },
       "original": {
@@ -266,11 +266,11 @@
     "nvim-treesitter-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1740587808,
-        "narHash": "sha256-/sf0zXrSf48fT2AdvW2RjWYiKt4bDYd4hXSWcaPJ61I=",
+        "lastModified": 1740731859,
+        "narHash": "sha256-joUieQWTWGEO9gJ/HUttJgQODs8HF0P14h14S/MEGXk=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "8f87d28442f7f91347e993661c319135f47729c7",
+        "rev": "99487eb34a397befce8182ff63347a21c5f4b881",
         "type": "github"
       },
       "original": {
@@ -283,11 +283,11 @@
     "private_dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1740602920,
-        "narHash": "sha256-CbaFA+pVdrCdmDDmpC0bq9Qlhb/IwPN/JLVS1QzKDFs=",
+        "lastModified": 1740784965,
+        "narHash": "sha256-ka77nrntfsJrcJL0+e/4qWlbAAItHzhTulimr4EADxE=",
         "ref": "refs/heads/main",
-        "rev": "1bb2ea3c37828f3551bdf1f1fa893e37720da05e",
-        "revCount": 27,
+        "rev": "758a79844e0b3079e80fed720281f72445050959",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@github.com/eblume/private_dotfiles"
       },
