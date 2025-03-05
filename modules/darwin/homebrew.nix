@@ -50,8 +50,11 @@
         "1password" # 1Password will not launch from Nix on macOS
         "1password/tap/1password-cli"
         "iterm2"
-        "todoist"
+        "obsidian"
         "slack"
+        "todoist"
+        "wezterm" # see https://github.com/iss/wezterm/issues/6731#issuecomment-2690905891
+        # (we use /Applications/WezTerm.app/ on darwin, but still install nixpkgs)
       ];
       masApps = {
         "Just Press Record" = 1033342465;

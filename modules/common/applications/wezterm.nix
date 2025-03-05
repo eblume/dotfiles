@@ -93,8 +93,7 @@
               -- Scrollback
               scrollback_lines = 10000,
 
-              -- Fix weird crash due to missing glyph notification:
-              -- https://github.com/wezterm/wezterm/issues/6731#issuecomment-2687099304
+              -- Not sure why, but Im getting lots of errors.
               warn_about_missing_glyphs = false,
 
               -- Window

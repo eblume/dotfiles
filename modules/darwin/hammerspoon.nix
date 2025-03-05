@@ -18,8 +18,6 @@
         ./hammerspoon/Spoons/DismissAlerts.spoon;
       xdg.configFile."hammerspoon/Spoons/Launcher.spoon/init.lua".source = pkgs.substituteAll {
         src = ./hammerspoon/Spoons/Launcher.spoon/init.lua;
-        wezterm = "${pkgs.wezterm}/Applications/WezTerm.app";
-        obsidian = "${pkgs.obsidian}/Applications/Obsidian.app";
       };
 
       home.activation.reloadHammerspoon =
