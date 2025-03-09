@@ -48,6 +48,11 @@
           argumentNames = "ticket";
           body = builtins.readFile ./functions/workon.fish;
         };
+        oncall = {
+          description = "Set $ZK_PROJECT='payrix' and open or create a note for the ticket.";
+          argumentNames = "pageid";
+          body = builtins.readFile ./functions/oncall.fish;
+        };
       };
       interactiveShellInit = ''
         fish_vi_key_bindings
