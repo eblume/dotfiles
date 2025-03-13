@@ -38,9 +38,9 @@ inputs.darwin.lib.darwinSystem {
       charm.enable = true;
       tailscale.enable = true;
       awscli.enable = true;
-      obsidian.enable = true;
       ovpn.enable = true;
       payrix-cli.enable = true;
+      payrix-aws.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
