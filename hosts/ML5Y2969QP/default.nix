@@ -32,7 +32,6 @@ inputs.darwin.lib.darwinSystem {
       wezterm.enable = true;
       dotfiles.enable = true;
       slack.enable = true;
-      llm.enable = true;
       ovpn.enable = true;
       charm.enable = true;
       awscli.enable = true;
