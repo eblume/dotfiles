@@ -172,6 +172,7 @@
       # darwin-rebuild switch --flake .#lookingglass
       darwinConfigurations = {
         mouse = import ./hosts/mouse { inherit inputs globals overlays; };
+        gilbert = import ./hosts/gilbert { inherit inputs globals overlays; };
         indri = import ./hosts/indri { inherit inputs globals overlays; };
         ML5Y2969QP = import ./hosts/ML5Y2969QP { inherit inputs globals overlays; };
       };
@@ -180,6 +181,7 @@
       # home-manager switch --flake .#tempest
       homeConfigurations = {
         mouse = darwinConfigurations.mouse.config.home-manager.users."eblume".home;
+        gilbert = darwinConfigurations.gilbert.config.home-manager.users."eblume".home;
         indri = darwinConfigurations.indri.config.home-manager.users."erichblume".home;
         ML5Y2969QP = darwinConfigurations.ML5Y2969QP.config.home-manager.users."eblume".home;
         ringtail = nixosConfigurations.ringtail.config.home-manager.users.${globals.user}.home;
