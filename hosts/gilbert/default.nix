@@ -26,6 +26,7 @@ inputs.darwin.lib.darwinSystem {
     {
       _1password.enable = true;
       nixpkgs.overlays = overlays;
+      nix.enable = false;
       networking.hostName = "gilbert";
       gui.enable = true;
       wezterm.enable = true;
