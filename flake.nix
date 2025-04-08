@@ -179,7 +179,7 @@
       # For quickly applying home-manager settings with:
       # home-manager switch --flake .#tempest
       homeConfigurations = {
-        mouse = darwinConfigurations.mouse.config.home-manager.users."erichdblume".home;
+        mouse = darwinConfigurations.mouse.config.home-manager.users."eblume".home;
         indri = darwinConfigurations.indri.config.home-manager.users."erichblume".home;
         ML5Y2969QP = darwinConfigurations.ML5Y2969QP.config.home-manager.users."eblume".home;
         ringtail = nixosConfigurations.ringtail.config.home-manager.users.${globals.user}.home;
