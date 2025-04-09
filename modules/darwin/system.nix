@@ -87,9 +87,9 @@
             "/System/Applications/Calendar.app"
             "/System/Applications/Messages.app"
             "/System/Applications/Mail.app"
-            "${pkgs.wezterm}/Applications/WezTerm.app"
+            "/Applications/WezTerm.app"
             "/System/Applications/System Settings.app"
-            "${pkgs.slack}/Applications/Slack.app"
+            "/Applications/Slack.app"
           ];
 
           # Disable all of the hot corner actions (Disabled = 1)
