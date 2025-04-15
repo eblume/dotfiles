@@ -4,7 +4,7 @@
 {
   plugins = [
     pkgs.vimPlugins.obsidian-nvim
-    pkgs.vimPlugins.nvim-treesitter
+    # treesitter imported via syntax.nix for plugin reasons
   ];
 
   # setup.obsidian is not included here but rather in obsidian.lua

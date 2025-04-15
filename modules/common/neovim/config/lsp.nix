@@ -73,7 +73,7 @@
       ];
     };
 
-    use.lspconfig.tsserver.setup = dsl.callWith {
+    use.lspconfig.ts_ls.setup = dsl.callWith {
       capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       cmd = [
         "${pkgs.nodePackages_latest.typescript-language-server}/bin/typescript-language-server"

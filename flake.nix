@@ -62,11 +62,6 @@
       url = "github:m00qek/baleia.nvim";
       flake = false;
     };
-    nvim-treesitter-src = {
-      # https://github.com/nvim-treesitter/nvim-treesitter/tags
-      url = "github:nvim-treesitter/nvim-treesitter/master";
-      flake = false;
-    };
     telescope-nvim-src = {
       # https://github.com/nvim-telescope/telescope.nvim/releases
       url = "github:nvim-telescope/telescope.nvim/0.1.8";
@@ -112,22 +107,6 @@
       url = "github:MunifTanjim/tree-sitter-lua/main";
       flake = false;
     };
-    tree-sitter-ini = {
-      url = "github:justinmk/tree-sitter-ini";
-      flake = false;
-    };
-    tree-sitter-puppet = {
-      url = "github:amaanq/tree-sitter-puppet";
-      flake = false;
-    };
-    tree-sitter-rasi = {
-      url = "github:Fymyte/tree-sitter-rasi";
-      flake = false;
-    };
-    tree-sitter-vimdoc = {
-      url = "github:neovim/tree-sitter-vimdoc";
-      flake = false;
-    };
   };
 
   outputs =
@@ -145,8 +124,6 @@
       # Common overlays to always use
       overlays = [
         inputs.nix2vim.overlay
-        (import ./overlays/neovim-plugins.nix inputs)
-        (import ./overlays/tree-sitter.nix inputs)
       ];
 
       # System types to support.
