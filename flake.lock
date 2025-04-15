@@ -1,53 +1,5 @@
 {
   "nodes": {
-    "baleia-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721805312,
-        "narHash": "sha256-qA1x5kplP2I8bURO0I4R0gt/zeznu9hQQ+XHptLGuwc=",
-        "owner": "m00qek",
-        "repo": "baleia.nvim",
-        "rev": "1b25eac3ac03659c3d3af75c7455e179e5f197f7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "m00qek",
-        "repo": "baleia.nvim",
-        "type": "github"
-      }
-    },
-    "base16-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1744677862,
-        "narHash": "sha256-UULXOijMpfYbTdrw2MMyNVpWu87OBylZHCyCmkC8yq0=",
-        "owner": "RRethy",
-        "repo": "base16-nvim",
-        "rev": "fbd9aabc97f1da23291955572774a5b807a3bc66",
-        "type": "github"
-      },
-      "original": {
-        "owner": "RRethy",
-        "repo": "base16-nvim",
-        "type": "github"
-      }
-    },
-    "cmp-nvim-lsp-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743496195,
-        "narHash": "sha256-iaihXNCF5bB5MdeoosD/kc3QtpA/QaIDZVLiLIurBSM=",
-        "owner": "hrsh7th",
-        "repo": "cmp-nvim-lsp",
-        "rev": "a8912b88ce488f411177fc8aed358b04dc246d7b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hrsh7th",
-        "repo": "cmp-nvim-lsp",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -69,23 +21,6 @@
         "type": "github"
       }
     },
-    "fidget-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716093309,
-        "narHash": "sha256-Gpk/G0ByOAIE8uX4Xr94CvAjJBSJMEOwBuvrhmYYGsg=",
-        "owner": "j-hui",
-        "repo": "fidget.nvim",
-        "rev": "ef99df04a1c53a453602421bc0f756997edc8289",
-        "type": "github"
-      },
-      "original": {
-        "owner": "j-hui",
-        "ref": "v1.4.5",
-        "repo": "fidget.nvim",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -101,22 +36,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "hmts-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729786258,
-        "narHash": "sha256-V5dwIJdxBulFVKk1iSlf4H5NRz1UH7uYQeMvwtgkpIs=",
-        "owner": "calops",
-        "repo": "hmts.nvim",
-        "rev": "c7ff4c3ad96cd05664b18fb5bbbe2abbd7682dd2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "calops",
-        "repo": "hmts.nvim",
         "type": "github"
       }
     },
@@ -214,55 +133,6 @@
         "type": "github"
       }
     },
-    "nvim-lint-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1744298988,
-        "narHash": "sha256-WzGkZ6AqQWe7S1M1SZlCKlUsbQnO7qxrev/N93hajU8=",
-        "owner": "mfussenegger",
-        "repo": "nvim-lint",
-        "rev": "5b1bdf306bd3e565908145279e8bbfc594dac3b3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mfussenegger",
-        "repo": "nvim-lint",
-        "type": "github"
-      }
-    },
-    "nvim-lspconfig-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716281382,
-        "narHash": "sha256-foJ7a59N0a3QaBW24PtwbyYDQVlIsFxiatADLO/hQvc=",
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "rev": "0b8165cf95806bc4bb8f745bb0c92021b2ed4b98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "ref": "v0.1.8",
-        "repo": "nvim-lspconfig",
-        "type": "github"
-      }
-    },
-    "nvim-tree-lua-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1744339714,
-        "narHash": "sha256-XYUPrvUYE8AN5jhbYAx2gC716DsWMOyQOhvLtex8P9Y=",
-        "owner": "kyazdani42",
-        "repo": "nvim-tree.lua",
-        "rev": "5bea2b37523a31288e0fcab42f3be5c1bd4516bb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kyazdani42",
-        "repo": "nvim-tree.lua",
-        "type": "github"
-      }
-    },
     "private_dotfiles": {
       "flake": false,
       "locked": {
@@ -281,26 +151,12 @@
     },
     "root": {
       "inputs": {
-        "baleia-nvim-src": "baleia-nvim-src",
-        "base16-nvim-src": "base16-nvim-src",
-        "cmp-nvim-lsp-src": "cmp-nvim-lsp-src",
         "darwin": "darwin",
-        "fidget-nvim-src": "fidget-nvim-src",
-        "hmts-nvim-src": "hmts-nvim-src",
         "home-manager": "home-manager",
         "nix2vim": "nix2vim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
-        "nvim-lint-src": "nvim-lint-src",
-        "nvim-lspconfig-src": "nvim-lspconfig-src",
-        "nvim-tree-lua-src": "nvim-tree-lua-src",
         "private_dotfiles": "private_dotfiles",
-        "telescope-nvim-src": "telescope-nvim-src",
-        "telescope-project-nvim-src": "telescope-project-nvim-src",
-        "toggleterm-nvim-src": "toggleterm-nvim-src",
-        "tree-sitter-bash": "tree-sitter-bash",
-        "tree-sitter-lua": "tree-sitter-lua",
-        "tree-sitter-python": "tree-sitter-python",
         "wallpapers": "wallpapers"
       }
     },
@@ -316,107 +172,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "telescope-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716532947,
-        "narHash": "sha256-e1ulhc4IIvUgpjKQrSqPY4WpXuez6wlxL6Min9U0o5Q=",
-        "owner": "nvim-telescope",
-        "repo": "telescope.nvim",
-        "rev": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-telescope",
-        "ref": "0.1.8",
-        "repo": "telescope.nvim",
-        "type": "github"
-      }
-    },
-    "telescope-project-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1744311570,
-        "narHash": "sha256-mIhO6jSIksfiVl59mkCreEOycFXSGqnbHI5L9nb+gf0=",
-        "owner": "nvim-telescope",
-        "repo": "telescope-project.nvim",
-        "rev": "f1f9d2d042bdff242a392fe14375f37363c37a33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-telescope",
-        "repo": "telescope-project.nvim",
-        "type": "github"
-      }
-    },
-    "toggleterm-nvim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713792255,
-        "narHash": "sha256-mM5bGgAemsRJD9U6U5K6ia5qb8NaTusM99x6xrtEBfw=",
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
-        "rev": "066cccf48a43553a80a210eb3be89a15d789d6e6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "akinsho",
-        "ref": "v2.11.0",
-        "repo": "toggleterm.nvim",
-        "type": "github"
-      }
-    },
-    "tree-sitter-bash": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738310128,
-        "narHash": "sha256-ODWgFpCLLPgzNYXFhfAVvDXPr5bW8/49ezsaS9MOWMk=",
-        "owner": "tree-sitter",
-        "repo": "tree-sitter-bash",
-        "rev": "0c46d792d54c536be5ff7eb18eb95c70fccdb232",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tree-sitter",
-        "ref": "master",
-        "repo": "tree-sitter-bash",
-        "type": "github"
-      }
-    },
-    "tree-sitter-lua": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742570327,
-        "narHash": "sha256-uJdXqlDn8F8mjh/NukpkQA6jdd7YjYOBbugzIrBb6GA=",
-        "owner": "MunifTanjim",
-        "repo": "tree-sitter-lua",
-        "rev": "db16e76558122e834ee214c8dc755b4a3edc82a9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MunifTanjim",
-        "ref": "main",
-        "repo": "tree-sitter-lua",
-        "type": "github"
-      }
-    },
-    "tree-sitter-python": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738275152,
-        "narHash": "sha256-t9etfZcrliF7f9hfiomh2U9P+3ufAm8iSK1y9rOhP7s=",
-        "owner": "tree-sitter",
-        "repo": "tree-sitter-python",
-        "rev": "710796b8b877a970297106e5bbc8e2afa47f86ec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tree-sitter",
-        "ref": "master",
-        "repo": "tree-sitter-python",
         "type": "github"
       }
     },
