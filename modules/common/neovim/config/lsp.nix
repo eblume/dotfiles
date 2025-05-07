@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   dsl,
@@ -49,21 +50,21 @@
       extraOptions.offset_encoding = "utf-8"; # See https://github.com/neovim/neovim/issues/30675
     };
 
-    # DISABLED 1 Jan 2025 [happy new year :(]
-    # because of this: https://github.com/razzmatazz/csharp-language-server/issues/211
-    # Or rather because of that bug reporter marking the package as unsafe
-    # and then I could not find a way to roll back to 0.15
-    #
-    # use.lspconfig.csharp_ls.setup = dsl.callWith {
-    #   capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
-    #   cmd = [
-    #     "${pkgs.csharp-ls}/bin/csharp-ls"
-    #   ];
-    #   # The default config will chdir to the containing .sln or .csproj file, which
-    #   # makes sense in most C# projects but completely breaks our pulumi infra repo
-    #   # So instead, we root on .git
-    #   root_dir = dsl.rawLua "require('lspconfig.util').root_pattern('.git')";
-    # };
+    use.lspconfig.csharp_ls.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      cmd = [
+        # "${pkgs.csharp-ls}/bin/csharp-ls"
+        # Had to comment this out 7 May 2025 - getting aarch64 build errors from nix
+        # and the lspconfig docs say to install via `dotnet tool install --global csharp-ls`
+        # so I will just do that by hand
+        "csharp-ls"
+      ];
+      # The default config will chdir to the containing .sln or .csproj file, which
+      # makes sense in most C# projects but completely breaks our pulumi infra repo
+      # So instead, we root on .git
+      root_dir = dsl.rawLua "require('lspconfig.util').root_pattern('.git')";
+    };
+    # And then make sure to set DOTNET_ROOT, which I do in common/shell/fish/default.nix
 
     use.lspconfig.pyright.setup = dsl.callWith {
       capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";

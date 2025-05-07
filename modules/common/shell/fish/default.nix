@@ -65,8 +65,13 @@
         set -g fish_cursor_insert line
         set -g fish_cursor_visual block
         set -g fish_cursor_replace_one underscore
+
         # pipx install location:
         fish_add_path ~/.local/bin
+
+        # csharp-ls fix for manually-installed csharp-ls via dotnet via mise (see lsp.nix):
+        fish_add_path ~/.dotnet/tools/
+        set -gx DOTNET_ROOT (dirname (which dotnet))
       '';
       loginShellInit = "";
       shellAbbrs = {
