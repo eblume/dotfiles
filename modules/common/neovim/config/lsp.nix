@@ -97,6 +97,18 @@
       };
     };
 
+    use.lspconfig.phpactor.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      # DISABLED 8 May 2025: macos cant build php
+      # https://github.com/php/php-src/issues/18324
+      # which is needed for nixpkgs' phpactor
+      # I will install phpactor separately for now
+      # cmd = [
+      #   "${pkgs.phpactor}/bin/phpactor"
+      #   "language-server"
+      # ];
+    };
+
     setup.conform = {
       format_on_save = {
         # These options will be passed to conform.format()
