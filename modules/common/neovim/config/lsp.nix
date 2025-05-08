@@ -103,10 +103,10 @@
       # https://github.com/php/php-src/issues/18324
       # which is needed for nixpkgs' phpactor
       # I will install phpactor separately for now
-      # cmd = [
-      #   "${pkgs.phpactor}/bin/phpactor"
-      #   "language-server"
-      # ];
+      cmd = [
+        "${pkgs.phpactor}/bin/phpactor"
+        "language-server"
+      ];
     };
 
     setup.conform = {
