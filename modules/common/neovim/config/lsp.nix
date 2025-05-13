@@ -16,7 +16,6 @@
       pkgs.vimPlugins.conform-nvim
       pkgs.vimPlugins.fidget-nvim
       pkgs.vimPlugins.nvim-lint
-      pkgs.vimPlugins.vim-table-mode
     ];
 
     setup.fidget = { };

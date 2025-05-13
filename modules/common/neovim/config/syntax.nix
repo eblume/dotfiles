@@ -5,13 +5,6 @@
     pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     pkgs.vimPlugins.vim-matchup # Better % jumping in languages
     pkgs.vimPlugins.nginx-vim
-    pkgs.vimPlugins.vim-helm
-    (pkgs.vimUtils.buildVimPlugin {
-      # Noah built this thing which does something I don't get to indentation
-      pname = "nmasur";
-      version = "0.1";
-      src = ../plugin;
-    })
   ];
 
   setup."nvim-treesitter.configs" = {
@@ -51,10 +44,4 @@
       };
     };
   };
-
-  # Use mkAfter to ensure tree-sitter is already loaded
-  # lua = lib.mkAfter ''
-  #   -- Use HCL parser with .tf files
-  #   vim.treesitter.language.register('hcl', 'terraform')
-  # '';
 }
