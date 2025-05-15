@@ -18,6 +18,7 @@
       pkgs.vimPlugins.nvim-lint
     ];
 
+    # Status messages floating in the bottom right
     setup.fidget = { };
 
     use.lspconfig.lua_ls.setup = dsl.callWith {
@@ -98,10 +99,6 @@
 
     use.lspconfig.phpactor.setup = dsl.callWith {
       capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
-      # DISABLED 8 May 2025: macos cant build php
-      # https://github.com/php/php-src/issues/18324
-      # which is needed for nixpkgs' phpactor
-      # I will install phpactor separately for now
       cmd = [
         "${pkgs.phpactor}/bin/phpactor"
         "language-server"
