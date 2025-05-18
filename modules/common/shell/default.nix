@@ -1,12 +1,13 @@
 { ... }:
 {
   imports = [
+    ./charm.nix
     ./fish
     ./fzf.nix
     ./git.nix
+    ./mise.nix
     ./nixpkgs.nix
     ./starship.nix
     ./utilities.nix
-    ./charm.nix
   ];
 }

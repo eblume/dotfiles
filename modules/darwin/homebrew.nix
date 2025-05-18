@@ -22,12 +22,6 @@
     # Add homebrew paths to CLI path
     home-manager.users.${config.user} = {
       home.sessionPath = [ "/opt/homebrew/bin/" ];
-
-      # mise-via-homebrew hack config [[1723066665-JZBU#Aug-20-2024]]
-      programs.fish.interactiveShellInit = ''
-        set -l mise_path (brew --prefix mise)
-        $mise_path/bin/mise activate fish | source
-      '';
     };
 
     homebrew = {
@@ -44,7 +38,6 @@
       taps = [ "1password/tap" ];
       brews = [
         "trash" # Delete files and folders to trash instead of rm
-        "mise"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS
