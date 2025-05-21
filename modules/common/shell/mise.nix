@@ -21,7 +21,6 @@
         "pipx:eblume/mole" = "latest";
         "pipx:simonw/llm" = "latest";
         dotnet = "8";
-        php = "8.4.7";
         node = "latest";
       };
 
