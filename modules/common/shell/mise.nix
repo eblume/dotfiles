@@ -16,7 +16,7 @@
     programs.mise.globalConfig = {
       tools = {
         "pipx:ansible-core" = {
-          "version" = "2.16";
+          "version" = "2.16.11";
           "uvx_args" = "--with botocore --with boto3";
           "uvx" = true; # or else change ^ to pipx_args
         };
