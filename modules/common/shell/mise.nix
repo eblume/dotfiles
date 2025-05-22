@@ -15,9 +15,10 @@
 
     programs.mise.globalConfig = {
       tools = {
-        "pipx:ansible" = {
-          "version" = "9.13.0";
-          "pipx_args" = "--preinstall botocore boto3";
+        "pipx:ansible-core" = {
+          "version" = "2.16";
+          "uvx_args" = "--with botocore --with boto3";
+          "uvx" = true; # or else change ^ to pipx_args
         };
         python = "latest";
         rust = "latest";
