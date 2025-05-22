@@ -15,13 +15,17 @@
 
     programs.mise.globalConfig = {
       tools = {
-        ansible = "9.13.0";
+        "pipx:ansible" = {
+          "version" = "9.13.0";
+          "pipx_args" = "--preinstall botocore boto3";
+        };
         python = "latest";
         rust = "latest";
         "pipx:eblume/mole" = "latest";
         "pipx:simonw/llm" = "latest";
         dotnet = "8";
         node = "latest";
+        uv = "latest";
       };
 
       settings = {
