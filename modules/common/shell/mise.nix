@@ -27,6 +27,7 @@
         dotnet = "8";
         node = "latest";
         uv = "latest";
+        "npm:serverless" = "latest";
       };
 
       settings = {
