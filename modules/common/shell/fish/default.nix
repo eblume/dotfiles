@@ -25,6 +25,13 @@
 
         # Move files to XDG trash on the commandline
         trash = lib.mkIf pkgs.stdenv.isLinux "${pkgs.trash-cli}/bin/trash-put";
+
+        # Zoxide commands
+        # z -- zoxide default, 'smart cd'
+        # zi -- zoxide default, 'interactive cd'
+        # zf -- 'interactive smart cd with fuzzy matching and preview'
+        zf = "cd (${pkgs.zoxide}/bin/zoxide query --list --score | ${pkgs.fzf}/bin/fzf --height 40% --layout reverse --info inline --border --preview \"${pkgs.eza}/bin/eza --all --group-directories-first --header --long --no-user --no-permissions --color=always {2}\" --no-sort | awk '{print $2}')";
+        # via gh:AdrianArtiles https://github.com/ajeetdsouza/zoxide/issues/34#issuecomment-2099442403
       };
       functions = {
         envs = {
