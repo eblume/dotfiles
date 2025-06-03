@@ -16,9 +16,8 @@
         ./hammerspoon/Spoons/ControlEscape.spoon;
       xdg.configFile."hammerspoon/Spoons/DismissAlerts.spoon".source =
         ./hammerspoon/Spoons/DismissAlerts.spoon;
-      xdg.configFile."hammerspoon/Spoons/Launcher.spoon/init.lua".source = pkgs.substituteAll {
-        src = ./hammerspoon/Spoons/Launcher.spoon/init.lua;
-      };
+      xdg.configFile."hammerspoon/Spoons/Launcher.spoon/init.lua".source =
+        ./hammerspoon/Spoons/Launcher.spoon/init.lua;
 
       home.activation.reloadHammerspoon =
         config.home-manager.users.${config.user}.lib.dag.entryAfter [ "writeBoundary" ]
