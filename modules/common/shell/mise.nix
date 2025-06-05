@@ -24,7 +24,7 @@
         rust = "latest";
         "pipx:eblume/mole" = "latest";
         "pipx:simonw/llm" = "latest";
-        dotnet = "8";
+        dotnet = "latest";
         node = "latest";
         uv = "latest";
       };
