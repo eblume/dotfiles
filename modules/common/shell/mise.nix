@@ -25,6 +25,7 @@
         "pipx:eblume/mole" = "latest";
         "pipx:simonw/llm" = "latest";
         dotnet = "latest";
+        "dotnet:csharp-ls" = "latest";
         node = "latest";
         uv = "latest";
       };
