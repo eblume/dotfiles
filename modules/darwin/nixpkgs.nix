@@ -20,7 +20,7 @@
                 set option "--option substitute false"
             end
             git -C ${config.dotfilesPath} add --intent-to-add --all
-            commandline -r "darwin-rebuild switch $option --flake ${config.dotfilesPath}"
+            commandline -r "sudo darwin-rebuild switch $option --flake ${config.dotfilesPath}"
             commandline --function execute
           '';
         };
