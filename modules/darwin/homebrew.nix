@@ -10,7 +10,7 @@
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
     # Requires Homebrew to be installed
-    system.activationScripts.preUserActivation.text = ''
+    system.activationScripts.homebrew.text = lib.mkAfter ''
       if ! xcode-select --version 2>/dev/null; then
         $DRY_RUN_CMD xcode-select --install
       fi

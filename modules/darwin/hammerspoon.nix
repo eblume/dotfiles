@@ -30,7 +30,7 @@
 
     homebrew.casks = [ "hammerspoon" ];
 
-    system.activationScripts.postUserActivation.text = ''
+    system.activationScripts.hammerspoon.text = lib.mkAfter ''
       defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
       sudo killall Dock
     '';

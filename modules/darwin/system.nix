@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
 
   config = lib.mkIf pkgs.stdenv.isDarwin {
@@ -9,6 +14,9 @@
 
     system = {
       stateVersion = 5;
+
+      # Part of a migration towards fully multiuser nix-darwin
+      primaryUser = "${config.user}";
 
       keyboard = {
         remapCapsLockToControl = true;
@@ -163,25 +171,6 @@
 
         };
       };
-
-      # Settings that don't have an option in nix-darwin
-      activationScripts.postActivation.text = ''
-        echo "Allow apps from anywhere"
-        SPCTL=$(spctl --status)
-        if ! [ "$SPCTL" = "assessments disabled" ]; then
-            sudo spctl --master-disable
-        fi
-      '';
-
-      # User-level settings
-      activationScripts.postUserActivation.text = ''
-        echo "Show the ~/Library folder"
-        chflags nohidden ~/Library
-
-        echo "Reduce Menu Bar padding"
-        defaults write -globalDomain NSStatusItemSelectionPadding -int 6
-        defaults write -globalDomain NSStatusItemSpacing -int 6
-      '';
     };
   };
 }
