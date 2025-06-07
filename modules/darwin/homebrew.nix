@@ -40,6 +40,7 @@
         "trash" # Delete files and folders to trash instead of rm
         "eza" # modern ls
         "ansible-lint"
+        "yq"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS
