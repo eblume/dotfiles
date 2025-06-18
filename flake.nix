@@ -25,12 +25,6 @@
       flake = false;
     };
 
-    # Wallpapers
-    wallpapers = {
-      url = "gitlab:exorcist365/wallpapers";
-      flake = false;
-    };
-
     # Used to generate NixOS images for other platforms
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
