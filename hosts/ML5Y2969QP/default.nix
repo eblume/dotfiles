@@ -17,7 +17,7 @@ inputs.darwin.lib.darwinSystem {
       // {
         user = "eblume";
         gitName = "Erich Blume";
-        gitEmail = "Erich.Blume@worldpay.com";
+        gitEmail = "725328+eblume@users.noreply.github.com";
       }
     )
     inputs.home-manager.darwinModules.home-manager
