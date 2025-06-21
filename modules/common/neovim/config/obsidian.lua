@@ -18,27 +18,13 @@ require('obsidian').setup({
         },
     },
 
-    -- This *should* be synced via the vault's sync community plugins setting, but if not:
-    --  Enabled:
-    --     * Use UID instead of file paths
-    --     * Add filepath parameter
-    -- This is intended to make hyperlinks work across multiple vaults, so that
-    -- I can make portable cross-project links. Using a UID in the URI means
-    -- that file move operations are nondestructive. Tbe tradeoff is that every
-    -- link will be pretty long, but conceallevel=1 helps with that.
-    use_advanced_uri = true,
-
-    -- NOTE: :ObsidianOpen is currently broken due to nix-darwin's packaging of Obsidian.app
-    -- There was a PR open that got closed without merging that would have fixed this.
-    -- I've left a comment here: https://github.com/epwalsh/obsidian.nvim/issues/304
-
     picker = {
         name = "telescope.nvim",
-        new = "<C-x>",     -- Create a new note from telescope query
+        new = "<C-x>",         -- Create a new note from telescope query
         insert_link = "<C-l>", -- Create a new link to telescope selected quote
     },
     tag_mappings = {
-        tag_note = "<C-x>", -- Add tag(s) to current note
+        tag_note = "<C-x>",   -- Add tag(s) to current note
         insert_tag = "<C-l>", -- Insert a tag at the current location
     },
 
@@ -52,7 +38,7 @@ require('obsidian').setup({
     open_notes_in = "current",
 
     ui = {
-        enable = true,      -- refers to all the conceallevel tricks, I think
+        enable = true,          -- refers to all the conceallevel tricks, I think
         max_file_length = 5000, -- Large files get crunchy, I think - not seen yet
         checkboxes = {
             -- I don't quite understand this array-keyed syntax, and it stumped me for having this config in obsiadian.nix
