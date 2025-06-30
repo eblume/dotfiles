@@ -29,18 +29,6 @@ end)
 -- Zoxide
 vim.keymap.set("n", "<Leader>fz", require("telescope").extensions.zoxide.list)
 
--- Project
-require("telescope").load_extension("projects")
-vim.keymap.set("n", "<C-p>", function()
-    local opts = require("telescope.themes").get_ivy({
-        layout_config = {
-            bottom_pane = {
-                height = 10,
-            },
-        },
-    })
-    require("telescope").extensions.projects.projects(opts)
-end)
 
 -- File browser
 require("telescope").load_extension("file_browser")
