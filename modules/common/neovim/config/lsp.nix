@@ -96,6 +96,13 @@
       };
     };
 
+    use.lspconfig.terraformls.setup = dsl.callWith {
+      cmd = [
+        "${pkgs.terraform-ls}/bin/terraform-ls"
+        "serve"
+      ];
+    };
+
     use.lspconfig.phpactor.setup = dsl.callWith {
       capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       cmd = [
