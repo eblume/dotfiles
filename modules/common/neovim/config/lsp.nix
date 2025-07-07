@@ -15,10 +15,11 @@
       pkgs.vimPlugins.conform-nvim
       pkgs.vimPlugins.fidget-nvim
       pkgs.vimPlugins.nvim-lint
+      pkgs.vimPlugins.tiny-inline-diagnostic-nvim
     ];
 
-    # Status messages floating in the bottom right
     setup.fidget = { };
+    setup.tiny-inline-diagnostic-nvim = { };
 
     use.lspconfig.lua_ls.setup = dsl.callWith {
       settings = {
@@ -118,13 +119,14 @@
         lsp_fallback = true;
       };
       formatters_by_ft = {
-        lua = [ "stylua" ];
-        python = [ "black" ];
         fish = [ "fish_indent" ];
+        hcl = [ "hcl" ];
+        lua = [ "stylua" ];
         nix = [ "nixfmt" ];
+        python = [ "black" ];
         rust = [ "rustfmt" ];
         sh = [ "shfmt" ];
-        hcl = [ "hcl" ];
+        terraform = [ "terraform_fmt" ];
       };
       formatters = {
         lua.command = "${pkgs.stylua}/bin/stylua";
@@ -141,12 +143,17 @@
           ];
         };
         hcl.command = "${pkgs.hclfmt}/bin/hclfmt";
+        terraform_fmt.command = "${pkgs.terraform}/bin/terraform";
       };
     };
 
+    # https://github.com/mfussenegger/nvim-lint
+    # lsp-complementary linting
     use.lint = {
       linters_by_ft = dsl.toTable {
         sh = [ "shellcheck" ];
+        python = [ "ruff" ];
+        json = [ "jsonlint" ];
       };
     };
 

@@ -40,6 +40,7 @@
         "trash" # Delete files and folders to trash instead of rm
         "eza" # modern ls
         "ansible-lint"
+        "jsonlint"
         "yq"
       ];
       casks = [
