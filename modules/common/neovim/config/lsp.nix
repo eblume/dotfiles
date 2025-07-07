@@ -19,7 +19,7 @@
     ];
 
     setup.fidget = { };
-    setup.tiny-inline-diagnostic-nvim = { };
+    setup.tiny-inline-diagnostic = { };
 
     use.lspconfig.lua_ls.setup = dsl.callWith {
       settings = {
