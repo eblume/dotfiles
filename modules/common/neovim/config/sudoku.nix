@@ -18,6 +18,8 @@ let
   };
 in
 {
+  withPython3 = true;
+
   plugins = [
     vim-sudoku
   ];
