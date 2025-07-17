@@ -12,6 +12,7 @@ let
     colors = config.theme.colors;
     github = true;
     kubernetes = config.kubernetes.enable;
+    terraform = config.enableTerraform;
   };
 in
 {

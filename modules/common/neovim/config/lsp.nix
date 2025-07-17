@@ -1,13 +1,14 @@
 {
   pkgs,
   lib,
+  config,
   dsl,
   ...
 }:
 {
-
   options.github = lib.mkEnableOption "Whether to enable GitHub features";
   options.kubernetes = lib.mkEnableOption "Whether to enable Kubernetes features";
+  options.enableTerraform = lib.mkEnableOption "Whether to enable Terraform LSP";
 
   config = {
     plugins = [
@@ -98,10 +99,14 @@
     };
 
     use.lspconfig.terraformls.setup = dsl.callWith {
-      cmd = [
-        "${pkgs.terraform-ls}/bin/terraform-ls"
-        "serve"
-      ];
+      cmd =
+        if config.enableTerraform then
+          [
+            "${pkgs.terraform-ls}/bin/terraform-ls"
+            "serve"
+          ]
+        else
+          [ "echo" ];
     };
 
     use.lspconfig.phpactor.setup = dsl.callWith {
@@ -143,7 +148,8 @@
           ];
         };
         hcl.command = "${pkgs.hclfmt}/bin/hclfmt";
-        terraform_fmt.command = "${pkgs.terraform}/bin/terraform";
+        terraform_fmt.command =
+          if config.enableTerraform then "${pkgs.terraform}/bin/terraform" else "echo";
       };
     };
 

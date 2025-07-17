@@ -3,6 +3,7 @@
   colors,
   github ? false,
   kubernetes ? false,
+  enableTerraform ? false,
   ...
 }:
 
@@ -14,6 +15,7 @@ pkgs.neovimBuilder {
     colors
     github
     kubernetes
+    enableTerraform
     ;
   imports = [
     ../config/align.nix
