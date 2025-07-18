@@ -32,6 +32,5 @@ pkgs.neovimBuilder {
     ../config/toggleterm.nix
     ../config/tree.nix
     ../config/obsidian.nix
-    ../config/sudoku.nix
   ];
 }
