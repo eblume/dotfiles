@@ -103,9 +103,9 @@
 
         # [[Obsidian.nvim]] commands
         zk = "vim $ZK_PROJECT -c \"cd $ZK_PROJECT\"";
-        zkt = "vim -c \"cd $ZK_PROJECT\" -c 'ObsidianToday'";
-        zkn = "vim -c \"cd $ZK_PROJECT\" -c 'ObsidianNew'";
-        zkd = "vim -c \"cd $ZK_PROJECT\" -c 'ObsidianDailies'";
+        zkt = "vim -c \"cd $ZK_PROJECT\" -c 'Obsidian today'";
+        zkn = "vim -c \"cd $ZK_PROJECT\" -c 'Obsidian new'";
+        zkd = "vim -c \"cd $ZK_PROJECT\" -c 'Obsidian dailies'";
       };
       shellInit = "";
     };

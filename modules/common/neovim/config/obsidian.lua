@@ -52,4 +52,7 @@ require('obsidian').setup({
     },
 
     follow_url_func = vim.ui.open,
+
+    -- disable warning message, remove in 4.0
+    legacy_commands = false,
 })
