@@ -40,6 +40,7 @@ inputs.darwin.lib.darwinSystem {
       awscli.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;
+      kubernetes.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
