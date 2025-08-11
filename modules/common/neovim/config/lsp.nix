@@ -33,12 +33,12 @@
           };
         };
       };
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [ "${pkgs.lua-language-server}/bin/lua-language-server" ];
     };
 
     use.lspconfig.ansiblels.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [
         "${pkgs.ansible-language-server}/bin/ansible-language-server"
         "--stdio"
@@ -46,13 +46,13 @@
     };
 
     use.lspconfig.nixd.setup = dsl.callWith {
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [ "${pkgs.nixd}/bin/nixd" ];
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
       extraOptions.offset_encoding = "utf-8"; # See https://github.com/neovim/neovim/issues/30675
     };
 
     use.lspconfig.csharp_ls.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [
         # "${pkgs.csharp-ls}/bin/csharp-ls"
         # Had to comment this out 7 May 2025 - getting aarch64 build errors from nix
@@ -68,7 +68,7 @@
     # And then make sure to set DOTNET_ROOT, which I do in common/shell/fish/default.nix
 
     use.lspconfig.pyright.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [
         "${pkgs.pyright}/bin/pyright-langserver"
         "--stdio"
@@ -76,7 +76,7 @@
     };
 
     use.lspconfig.ts_ls.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [
         "${pkgs.nodePackages_latest.typescript-language-server}/bin/typescript-language-server"
         "--stdio"
@@ -84,7 +84,7 @@
     };
 
     use.lspconfig.rust_analyzer.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [ "${pkgs.rust-analyzer}/bin/rust-analyzer" ];
       settings = {
         "['rust-analyzer']" = {
@@ -107,10 +107,11 @@
           ]
         else
           [ "echo" ];
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
     };
 
     use.lspconfig.phpactor.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('cmp_nvim_lsp').default_capabilities()";
+      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [
         "${pkgs.phpactor}/bin/phpactor"
         "language-server"

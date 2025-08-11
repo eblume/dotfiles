@@ -62,13 +62,6 @@
   vim.o.backupdir = dsl.rawLua ''vim.fn.expand("~/.local/state/nvim/backup//")'';
   vim.o.undodir = dsl.rawLua ''vim.fn.expand("~/.local/state/nvim/undo//")'';
 
-  # Required for nvim-cmp completion
-  vim.opt.completeopt = [
-    "menu"
-    "menuone"
-    "noselect"
-  ];
-
   lua = lib.mkBefore ''
     vim.loader.enable()
     ${builtins.readFile ../lua/keybinds.lua};
