@@ -22,6 +22,10 @@
       fuzzy.implementation = "prefer_rust_with_warning";
       signature.enabled = true;
     };
-    opts_extend = [ "sources.default" ];
+    dependencies =
+      dsl.rawLua # lua
+        ''
+          { 'L3MON4D3/LuaSnip', version = 'v2.*' }
+        '';
   };
 }
