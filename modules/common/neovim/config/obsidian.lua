@@ -38,11 +38,12 @@ require('obsidian').setup({
     open_notes_in = "current",
 
     ui = {
+        -- Note, devs have said they are trying to move away from ui module entirely
         enable = true,          -- refers to all the conceallevel tricks, I think
         max_file_length = 5000, -- Large files get crunchy, I think - not seen yet
-        checkboxes = {
-            -- I don't quite understand this array-keyed syntax, and it stumped me for having this config in obsiadian.nix
-            -- (I guess that it's not an array but some sort of literal identifier, but no time to check now how to nixify)
+    },
+    checkbox = {
+        order = {
             [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
             ["x"] = { char = "", hl_group = "ObsidianDone" },
             [">"] = { char = "", hl_group = "ObsidianRightArrow" },
