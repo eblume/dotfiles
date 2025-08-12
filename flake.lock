@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754886238,
-        "narHash": "sha256-LTQomWOwG70lZR+78ZYSZ9sYELWNq3HJ7/tdHzfif/s=",
+        "lastModified": 1754974548,
+        "narHash": "sha256-XMjUjKD/QRPcqUnmSDczSYdw46SilnG0+wkho654DFM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0d492b89d1993579e63b9dbdaed17fd7824834da",
+        "rev": "27a26be51ff0162a8f67660239f9407dba68d7c5",
         "type": "github"
       },
       "original": {
@@ -136,11 +136,11 @@
     "private_dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1754363770,
-        "narHash": "sha256-QgjEUEnM9N8KocDEXgHOSWX58rPgf9g6mPa/L5lh2KQ=",
+        "lastModified": 1754937880,
+        "narHash": "sha256-JmocRwSfXuV/QSUcgPI7VmXJnLiqzTk3cqJ7fhjRU9w=",
         "ref": "refs/heads/main",
-        "rev": "87bde3cab2db0fab5025ced1459e2b60d031bc6a",
-        "revCount": 92,
+        "rev": "7aeb9c64677e503e469868e5703a380e6e5c99db",
+        "revCount": 95,
         "type": "git",
         "url": "ssh://git@github.com/eblume/private_dotfiles"
       },
