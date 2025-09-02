@@ -4,8 +4,8 @@
 
 -- Function to cut down config boilerplate
 local key = function(mode, key_sequence, action, params)
-    params = params or {}
-    vim.keymap.set(mode, key_sequence, action, params)
+  params = params or {}
+  vim.keymap.set(mode, key_sequence, action, params)
 end
 
 -- Remap space as leader key
@@ -16,9 +16,6 @@ vim.g.maplocalleader = " "
 -- Keep selection when changing indentation
 key("v", "<", "<gv")
 key("v", ">", ">gv")
-
--- Clear search register
-key("n", "<CR>", ":noh<CR><CR>", { silent = true })
 
 -- Shuffle lines around
 key("n", "<A-j>", ":m .+1<CR>==")

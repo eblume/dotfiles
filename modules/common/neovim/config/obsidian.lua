@@ -20,12 +20,14 @@ require('obsidian').setup({
 
     picker = {
         name = "telescope.nvim",
-        new = "<C-x>",         -- Create a new note from telescope query
-        insert_link = "<C-l>", -- Create a new link to telescope selected quote
-    },
-    tag_mappings = {
-        tag_note = "<C-x>",   -- Add tag(s) to current note
-        insert_tag = "<C-l>", -- Insert a tag at the current location
+        note_mappings = {
+            new = "<C-x>",         -- Create a new note from telescope query
+            insert_link = "<C-l>", -- Create a new link to telescope selected quote
+        },
+        tag_mappings = {
+            tag_note = "<C-x>",   -- Add tag(s) to current note
+            insert_tag = "<C-l>", -- Insert a tag at the current location
+        },
     },
 
     -- Recommended to sort modified/true for most recent edits first
@@ -41,9 +43,7 @@ require('obsidian').setup({
         -- Note, devs have said they are trying to move away from ui module entirely
         enable = true,          -- refers to all the conceallevel tricks, I think
         max_file_length = 5000, -- Large files get crunchy, I think - not seen yet
-    },
-    checkbox = {
-        order = {
+        checkboxes = {
             [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
             ["x"] = { char = "", hl_group = "ObsidianDone" },
             [">"] = { char = "", hl_group = "ObsidianRightArrow" },
@@ -52,7 +52,16 @@ require('obsidian').setup({
         },
     },
 
+    checkbox = {
+        enabled = true,
+        order = { " ", "x", ">", "~", "!" },
+    },
+
     follow_url_func = vim.ui.open,
+
+    completion = {
+        blink = true,
+    },
 
     -- disable warning message, remove in 4.0
     legacy_commands = false,
