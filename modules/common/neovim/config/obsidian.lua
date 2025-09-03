@@ -43,13 +43,6 @@ require('obsidian').setup({
         -- Note, devs have said they are trying to move away from ui module entirely
         enable = true,          -- refers to all the conceallevel tricks, I think
         max_file_length = 5000, -- Large files get crunchy, I think - not seen yet
-        checkboxes = {
-            [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-            ["x"] = { char = "", hl_group = "ObsidianDone" },
-            [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-            ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-            ["!"] = { char = "", hl_group = "ObsidianImportant" },
-        },
     },
 
     checkbox = {
