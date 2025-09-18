@@ -29,7 +29,6 @@ inputs.darwin.lib.darwinSystem {
       nix.enable = false;
       networking.hostName = "gilbert";
       gui.enable = true;
-      enableTerraform = true;
       wezterm.enable = true;
       dotfiles.enable = true;
       slack.enable = true;

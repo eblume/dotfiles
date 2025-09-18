@@ -8,7 +8,6 @@
 {
   options.github = lib.mkEnableOption "Whether to enable GitHub features";
   options.kubernetes = lib.mkEnableOption "Whether to enable Kubernetes features";
-  options.enableTerraform = lib.mkEnableOption "Whether to enable Terraform LSP";
 
   config = {
     plugins = [
@@ -98,18 +97,6 @@
       };
     };
 
-    use.lspconfig.terraformls.setup = dsl.callWith {
-      cmd =
-        if config.enableTerraform then
-          [
-            "${pkgs.terraform-ls}/bin/terraform-ls"
-            "serve"
-          ]
-        else
-          [ "echo" ];
-      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
-    };
-
     use.lspconfig.phpactor.setup = dsl.callWith {
       capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [
@@ -126,13 +113,11 @@
       };
       formatters_by_ft = {
         fish = [ "fish_indent" ];
-        hcl = [ "hcl" ];
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
         python = [ "black" ];
         rust = [ "rustfmt" ];
         sh = [ "shfmt" ];
-        terraform = [ "terraform_fmt" ];
       };
       formatters = {
         lua.command = "${pkgs.stylua}/bin/stylua";
@@ -148,9 +133,6 @@
             "-ci"
           ];
         };
-        hcl.command = "${pkgs.hclfmt}/bin/hclfmt";
-        terraform_fmt.command =
-          if config.enableTerraform then "${pkgs.terraform}/bin/terraform" else "echo";
       };
     };
 

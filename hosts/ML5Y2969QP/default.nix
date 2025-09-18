@@ -35,7 +35,6 @@ inputs.darwin.lib.darwinSystem {
       ovpn.enable = true;
       charm.enable = true;
       awscli.enable = true;
-      enableTerraform = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;
       kubernetes.enable = true;
