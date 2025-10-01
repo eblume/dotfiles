@@ -49,7 +49,7 @@
         "iterm2"
         "obsidian"
         "slack"
-        "todoist"
+        "todoist-app"
         "wezterm" # see https://github.com/iss/wezterm/issues/6731#issuecomment-2690905891
         # (we use /Applications/WezTerm.app/ on darwin, but still install nixpkgs)
       ];
