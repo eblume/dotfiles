@@ -36,14 +36,6 @@
       cmd = [ "${pkgs.lua-language-server}/bin/lua-language-server" ];
     };
 
-    use.lspconfig.ansiblels.setup = dsl.callWith {
-      capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
-      cmd = [
-        "${pkgs.ansible-language-server}/bin/ansible-language-server"
-        "--stdio"
-      ];
-    };
-
     use.lspconfig.nixd.setup = dsl.callWith {
       capabilities = dsl.rawLua "require('blink.cmp').get_lsp_capabilities()";
       cmd = [ "${pkgs.nixd}/bin/nixd" ];
