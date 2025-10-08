@@ -42,6 +42,8 @@
         "ansible-lint"
         "jsonlint"
         "yq"
+        "awscli"
+        "aws-vault"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS
@@ -50,6 +52,7 @@
         "obsidian"
         "slack"
         "todoist-app"
+        "session-manager-plugin"
         "wezterm" # see https://github.com/iss/wezterm/issues/6731#issuecomment-2690905891
         # (we use /Applications/WezTerm.app/ on darwin, but still install nixpkgs)
       ];

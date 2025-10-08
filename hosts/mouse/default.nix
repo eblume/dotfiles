@@ -37,7 +37,6 @@ inputs.darwin.lib.darwinSystem {
       ovpn.enable = true;
       charm.enable = true;
       tailscale.enable = true;
-      awscli.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;
       theme = {

@@ -12,13 +12,9 @@
       pkgs.dos2unix # Convert Windows text files
       pkgs.inetutils # Includes telnet
       pkgs.pandoc # Convert text documents
-      pkgs.mpd # TUI slideshows
       pkgs.gnupg # Encryption
-      pkgs.awscli2
-      pkgs.ssm-session-manager-plugin
       pkgs.awslogs
       pkgs.noti # Create notifications programmatically
-      pkgs.ipcalc # Make IP network calculations
     ];
   };
 }

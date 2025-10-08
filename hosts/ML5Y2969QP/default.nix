@@ -34,7 +34,6 @@ inputs.darwin.lib.darwinSystem {
       slack.enable = true;
       ovpn.enable = true;
       charm.enable = true;
-      awscli.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;
       kubernetes.enable = true;

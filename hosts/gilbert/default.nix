@@ -36,7 +36,6 @@ inputs.darwin.lib.darwinSystem {
       charm.enable = true;
       tailscale.enable = true;
       yt-dlp.enable = true;
-      awscli.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;
       kubernetes.enable = true;

@@ -4,7 +4,6 @@
   imports = [
     ./1password.nix
     ./alacritty.nix
-    ./aws.nix
     ./devenv.nix
     ./discord.nix
     ./media.nix
