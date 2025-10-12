@@ -1,0 +1,50 @@
+add_newline = true
+format = "$directory$python$git_branch$git_commit$git_status$aws$pulumi$hostname$cmd_duration$shell\n$character"
+right_format = "$nix_shell"
+
+[character]
+error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"
+vicmd_symbol = "[❮](bold green)"
+
+[cmd_duration]
+format = "[$duration]($style) "
+min_time = 5000
+min_time_to_notify = 120000
+show_notifications = true
+
+[directory]
+truncate_to_repo = true
+truncation_length = 100
+
+[git_branch]
+format = "[$symbol$branch]($style)"
+
+[git_commit]
+format = "( @ [$hash]($style) )"
+only_detached = false
+
+[git_status]
+ahead = "⇡"
+behind = "⇣"
+conflicted = "="
+deleted = "✘"
+diverged = "⇕"
+format = "([$all_status$ahead_behind]($style) )"
+modified = "∽"
+renamed = "»"
+staged = "+"
+stashed = "⩮"
+style = "red"
+untracked = "⋄"
+
+[hostname]
+format = "on [$hostname](bold red) "
+ssh_only = true
+
+[nix_shell]
+format = "[$symbol $name]($style)"
+symbol = "❄️"
+
+[python]
+format = "[${version}\\(${virtualenv}\\) ]($style)"
