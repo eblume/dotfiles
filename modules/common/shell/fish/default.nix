@@ -62,6 +62,11 @@
         };
       };
       interactiveShellInit = ''
+        # chezmoi migration: Stuff in this section _was_ configured via nix/homemanager
+        starship init fish | source
+        source (mise activate | psub)  # remove when fish is off nix; not sure why this is needed
+
+        # some useful things
         fish_vi_key_bindings
         bind yy fish_clipboard_copy
         bind Y fish_clipboard_copy
@@ -79,9 +84,6 @@
         # csharp-ls fix for manually-installed csharp-ls via dotnet via mise (see lsp.nix):
         fish_add_path ~/.dotnet/tools/
         set -gx DOTNET_ROOT (dirname (which dotnet))
-
-        # chezmoi migration: Stuff in this section _was_ configured via nix/homemanager
-        starship init fish | source
       '';
       loginShellInit = "";
       shellAbbrs = {

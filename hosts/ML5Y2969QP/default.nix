@@ -30,7 +30,6 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "ML5Y2969QP";
       gui.enable = true;
       wezterm.enable = true;
-      dotfiles.enable = true;
       slack.enable = true;
       ovpn.enable = true;
       charm.enable = true;

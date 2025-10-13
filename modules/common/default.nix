@@ -10,7 +10,6 @@
     ./applications
     ./neovim
     ./programming
-    ./repositories
     ./shell
   ];
 

@@ -32,7 +32,6 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "mouse";
       gui.enable = true;
       wezterm.enable = true;
-      dotfiles.enable = true;
       slack.enable = true;
       ovpn.enable = true;
       charm.enable = true;

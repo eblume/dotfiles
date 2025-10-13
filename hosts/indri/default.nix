@@ -32,7 +32,6 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "indri";
       gui.enable = true;
       wezterm.enable = true;
-      dotfiles.enable = true;
       slack.enable = true;
       charm.enable = true;
       tailscale.enable = true;
