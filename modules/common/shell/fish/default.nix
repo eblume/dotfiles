@@ -13,6 +13,15 @@
     # Packages used in abbreviations and aliases
     home.packages = with pkgs; [ curl ];
 
+    # Activate chezmoi on environment build
+    home.activation.chezmoiUpdate =
+      config.home-manager.users.${config.user}.lib.dag.entryAfter [ "writeBoundary" ]
+        ''
+          if command -v chezmoi > /dev/null; then
+            chezmoi update
+          fi
+        '';
+
     programs.fish = {
       enable = true;
       shellAliases = {

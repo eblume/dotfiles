@@ -32,7 +32,6 @@ inputs.darwin.lib.darwinSystem {
       gui.enable = true;
       wezterm.enable = true;
       slack.enable = true;
-      charm.enable = true;
       tailscale.enable = true;
       ovpn.enable = true;
       payrix-cli.enable = true;
