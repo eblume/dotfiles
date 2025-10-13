@@ -7,7 +7,6 @@
     ./git.nix
     ./mise.nix
     ./nixpkgs.nix
-    ./starship.nix
     ./utilities.nix
   ];
 }

@@ -45,6 +45,7 @@
         "awscli"
         "aws-vault"
         "chezmoi"
+        "starship"
       ];
       casks = [
         "1password" # 1Password will not launch from Nix on macOS
