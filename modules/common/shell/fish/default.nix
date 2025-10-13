@@ -79,6 +79,9 @@
         # csharp-ls fix for manually-installed csharp-ls via dotnet via mise (see lsp.nix):
         fish_add_path ~/.dotnet/tools/
         set -gx DOTNET_ROOT (dirname (which dotnet))
+
+        # chezmoi migration: Stuff in this section _was_ configured via nix/homemanager
+        starship init fish | source
       '';
       loginShellInit = "";
       shellAbbrs = {
@@ -116,7 +119,6 @@
       fish_greeting = "";
     };
 
-    programs.starship.enableFishIntegration = true;
     programs.zoxide.enableFishIntegration = true;
     programs.fzf.enableFishIntegration = true;
   };
