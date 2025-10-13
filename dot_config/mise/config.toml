@@ -1,0 +1,18 @@
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = []
+
+[tools]
+dotnet = "latest"
+"dotnet:csharp-ls" = "latest"
+node = "latest"
+"pipx:eblume/mole" = "latest"
+"pipx:simonw/llm" = "latest"
+python = "latest"
+rust = "latest"
+uv = "latest"
+
+[tools."pipx:ansible-core"]
+uvx = true
+uvx_args = "--with botocore --with boto3"
+version = "2.16.11"
