@@ -25,7 +25,6 @@ inputs.darwin.lib.darwinSystem {
     )
     inputs.home-manager.darwinModules.home-manager
     {
-      _1password.enable = true;
       nix.enable = false; # Not sure what's going on here.
       nix.gc.automatic = false;
       nixpkgs.overlays = overlays;

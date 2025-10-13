@@ -65,15 +65,10 @@ in
   };
 
   config = lib.mkIf (config.mole.enable) {
-    unfreePackages = [
-      "_1password"
-      "1password-cli"
-    ];
     home-manager.users.${config.user} = {
       home.packages = [
         mole
         pkgs.zellij
-        pkgs._1password
         pkgs.nb
       ];
     };

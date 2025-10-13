@@ -24,7 +24,6 @@ inputs.darwin.lib.darwinSystem {
     )
     inputs.home-manager.darwinModules.home-manager
     {
-      _1password.enable = true;
       nixpkgs.overlays = overlays;
       nix.enable = false;
       networking.hostName = "gilbert";
