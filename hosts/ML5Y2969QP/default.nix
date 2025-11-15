@@ -30,8 +30,6 @@ inputs.darwin.lib.darwinSystem {
       gui.enable = true;
       wezterm.enable = true;
       ovpn.enable = true;
-      payrix-cli.enable = true;
-      payrix-aws.enable = true;
       kubernetes.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;

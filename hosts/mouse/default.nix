@@ -34,8 +34,6 @@ inputs.darwin.lib.darwinSystem {
       slack.enable = true;
       ovpn.enable = true;
       tailscale.enable = true;
-      payrix-cli.enable = true;
-      payrix-aws.enable = true;
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
