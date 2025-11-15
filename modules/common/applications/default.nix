@@ -2,11 +2,6 @@
 {
 
   imports = [
-    ./alacritty.nix
-    ./devenv.nix
-    ./discord.nix
-    ./media.nix
-    ./mole.nix
     ./obsidian.nix
     ./qbittorrent.nix
     ./slack.nix
