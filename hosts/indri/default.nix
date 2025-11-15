@@ -31,8 +31,6 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "indri";
       gui.enable = true;
       wezterm.enable = true;
-      slack.enable = true;
-      tailscale.enable = true;
       ovpn.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;

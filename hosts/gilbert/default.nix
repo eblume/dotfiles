@@ -29,9 +29,7 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "gilbert";
       gui.enable = true;
       wezterm.enable = true;
-      slack.enable = true;
       ovpn.enable = true;
-      tailscale.enable = true;
       yt-dlp.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;

@@ -29,7 +29,6 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "ML5Y2969QP";
       gui.enable = true;
       wezterm.enable = true;
-      slack.enable = true;
       ovpn.enable = true;
       payrix-cli.enable = true;
       payrix-aws.enable = true;
