@@ -1,5 +1,11 @@
+-- config.lua -- the entrypoint for my config
+-- Some notes:
+-- The _real_ entrypoint is ../init.vim but it is supposed to do as little as possible other than call this file
+-- This file should itself mostly just require various other bits of my config,
+-- and then as a last step, init the lazy.nvim plugin system
+
 require('keybinds')
-require('autocommands')
+require('misc')
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -30,3 +36,4 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+-- NOTHINNG BELOW THIS LINE (lazy.nvim should come last)

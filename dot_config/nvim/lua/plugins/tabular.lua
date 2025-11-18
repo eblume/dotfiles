@@ -6,6 +6,5 @@ return {
       vim.keymap.set("", "<Leader>t#", ":Tabularize /#<CR>")
       vim.keymap.set("", "<Leader>tl", ":Tabularize /---<CR>")
     end,
-    lazy = true
   },
 }
