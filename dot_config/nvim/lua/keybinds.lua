@@ -11,7 +11,7 @@ end
 -- Remap space as leader key
 key("", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Keep selection when changing indentation
 key("v", "<", "<gv")
