@@ -4,8 +4,8 @@
 
 -- Function to cut down config boilerplate
 local key = function(mode, key_sequence, action, params)
-  params = params or {}
-  vim.keymap.set(mode, key_sequence, action, params)
+	params = params or {}
+	vim.keymap.set(mode, key_sequence, action, params)
 end
 
 -- Remap space as leader key
@@ -60,11 +60,8 @@ key("n", "co", ":copen<CR>")
 key("n", "cq", ":cclose<CR>")
 
 -- Other
-key("n", "<A-CR>", ":noh<CR>", { silent = true })           --- Clear search in VimWiki
-key("n", "Y", "y$")                                         --- Copy to end of line
+key("n", "<A-CR>", ":noh<CR>", { silent = true }) --- Clear search in VimWiki
+key("n", "Y", "y$") --- Copy to end of line
 key("v", "<C-r>", "y<Esc>:%s/<C-r>+//gc<left><left><left>") --- Substitute selected
-key("v", "D", "y'>gp")                                      --- Duplicate selected
-key("x", "<Leader>p", '"_dP')                               --- Paste but keep register
-
-
-
+key("v", "D", "y'>gp") --- Duplicate selected
+key("x", "<Leader>p", '"_dP') --- Paste but keep register
