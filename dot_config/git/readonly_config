@@ -1,0 +1,22 @@
+[core]
+editor = "nvim"
+pager = "/opt/homebrew/opt/git/share/git-core/contrib/diff-highlight | less -F"
+
+[init]
+defaultBranch = "main"
+
+[interactive]
+difffilter = "/opt/homebrew/opt/git/share/git-core/contrib/diff-highlight"
+
+[pull]
+ff = "only"
+
+[push]
+autoSetupRemote = "true"
+
+[rebase]
+autosquash = "true"
+
+[user]
+email = "725328+eblume@users.noreply.github.com"
+name = "Erich Blume"
