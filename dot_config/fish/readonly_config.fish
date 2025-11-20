@@ -4,8 +4,7 @@
 set -q __fish_config_sourced; and exit
 set -g __fish_config_sourced 1
 
-set -gx __HM_SESS_VARS_SOURCED '1'
-set -gx EDITOR 'nvim'
+set -gx EDITOR nvim
 set -gx FZF_CTRL_T_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_OPTS '-m --height 50% --border'
