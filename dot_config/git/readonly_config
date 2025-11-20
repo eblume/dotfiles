@@ -1,12 +1,8 @@
 [core]
 editor = "nvim"
-pager = "/opt/homebrew/opt/git/share/git-core/contrib/diff-highlight | less -F"
 
 [init]
 defaultBranch = "main"
-
-[interactive]
-difffilter = "/opt/homebrew/opt/git/share/git-core/contrib/diff-highlight"
 
 [pull]
 ff = "only"
