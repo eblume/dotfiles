@@ -57,6 +57,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"ansiblels",
+					"fish_lsp",
 					"lua_ls",
 					"phpactor",
 					"terraformls",
