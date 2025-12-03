@@ -1,0 +1,7 @@
+k9s:
+  ui:
+    crumbsless: false
+    enableMouse: true
+    headless: true
+    logoless: true
+    skin: main
