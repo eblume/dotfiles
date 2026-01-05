@@ -8,12 +8,12 @@ set -gx EDITOR nvim
 set -gx FZF_CTRL_T_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_OPTS '-m --height 50% --border'
-set -gx KUBECONFIG "/$HOME/.kube/config:/$HOME/.kube/eks-development.yml"
+set -gx KUBECONFIG "$HOME/.kube/config:$HOME/.kube/eks-development.yml"
 set -gx MANPAGER 'nvim +Man!'
-set -gx XDG_CACHE_HOME "/$HOME/.cache"
-set -gx XDG_CONFIG_HOME "/$HOME/.config"
-set -gx XDG_DATA_HOME "/$HOME/.local/share"
-set -gx XDG_STATE_HOME "/$HOME/.local/state"
+set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx ZK_DIR "$HOME"'/code/personal/zk'
 set -gx ZK_PROJECT "$ZK_DIR"
 set -gx fish_greeting ''
