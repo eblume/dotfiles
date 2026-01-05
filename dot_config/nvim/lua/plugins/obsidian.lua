@@ -54,8 +54,6 @@ return {
 				order = { " ", "x", ">", "~", "!" },
 			},
 
-			follow_url_func = vim.ui.open,
-
 			completion = {
 				blink = true,
 			},
