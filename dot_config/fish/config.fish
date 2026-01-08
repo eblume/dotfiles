@@ -95,11 +95,11 @@ status is-interactive; and begin
     alias vim nvim
     alias zf 'cd (zoxide query --list --score | fzf --height 40% --layout reverse --info inline --border --preview "eza --all --group-directories-first --header --long --no-user --no-permissions --color=always {2}" --no-sort | awk '\''{print $2}'\'')'
 
-    # Interactive shell initialisation
+    # Tool init
     fzf --fish | source
     zoxide init fish | source
     starship init fish | source
-    # source (mise activate | psub) # remove when fish is off nix; not sure why this is needed
+    atuin init fish | source
 
     # some useful things
     fish_vi_key_bindings
