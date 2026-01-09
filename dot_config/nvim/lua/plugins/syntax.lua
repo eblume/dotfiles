@@ -75,7 +75,6 @@ return {
 				"jsdoc",
 				"json",
 				"json5",
-				"jsonc",
 				"jsonnet",
 				"julia",
 				"kotlin",
