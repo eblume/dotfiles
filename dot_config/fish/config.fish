@@ -17,7 +17,7 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx ZK_DIR "$HOME"'/code/personal/zk'
 set -gx ZK_PROJECT "$ZK_DIR"
 set -gx fish_greeting ''
-set -gx PATH '/opt/homebrew/bin/'(test -n "$PATH" && echo ':' || echo)"$PATH"
+set -gx PATH $PATH /opt/homebrew/bin "$HOME/bin"
 
 status is-login; and begin
     # Login shell initialisation
