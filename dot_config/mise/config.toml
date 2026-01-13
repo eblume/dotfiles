@@ -11,6 +11,7 @@ node = "latest"
 python = "latest"
 rust = "latest"
 uv = "latest"
+"pipx:borgmatic" = "latest"
 
 [tools."pipx:ansible-core"]
 uvx = true
