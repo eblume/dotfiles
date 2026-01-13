@@ -99,7 +99,7 @@ status is-interactive; and begin
     fzf --fish | source
     zoxide init fish | source
     starship init fish | source
-    atuin init fish | source
+    atuin init fish --disable-up-arrow | source
 
     # some useful things
     fish_vi_key_bindings
