@@ -5,6 +5,7 @@ set -q __fish_config_sourced; and exit
 set -g __fish_config_sourced 1
 
 set -gx EDITOR nvim
+set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 set -gx FZF_CTRL_T_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_OPTS '-m --height 50% --border'
