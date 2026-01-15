@@ -1,7 +1,7 @@
 function payrix-rds-sandbox --description="Connect to sandbox psql rds"
     set -f aws_profile payrix-sandbox
     set -f jump_host_name sandbox-jobs-1
-    set -f db_host "payrix-sandbox-rds-proxy.proxy-cfv6yjj08qvp.us-east-1.rds.amazonaws.com"
+    set -f db_host "payrix-sandbox-api-cluster.cluster-cfv6yjj08qvp.us-east-1.rds.amazonaws.com"
     set -f remote_port 5432
     set -f local_port 5432
     set -f pg_user payrixroot
