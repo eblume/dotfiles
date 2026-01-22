@@ -5,11 +5,12 @@ set -q __fish_config_sourced; and exit
 set -g __fish_config_sourced 1
 
 set -gx EDITOR nvim
+set -gx PYTHONDONTWRITEBYTECODE 1
 set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 set -gx FZF_CTRL_T_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_OPTS '-m --height 50% --border'
-set -gx KUBECONFIG "$HOME/.kube/config:$HOME/.kube/eks-development.yml"
+set -gx KUBECONFIG "$HOME/.kube/config:$HOME/.kube/eks-development.yml:$HOME/.kube/minikube-indri/config.yml"
 set -gx MANPAGER 'nvim +Man!'
 set -gx XDG_CACHE_HOME "$HOME/.cache"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -18,7 +19,7 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx ZK_DIR "$HOME"'/code/personal/zk'
 set -gx ZK_PROJECT "$ZK_DIR"
 set -gx fish_greeting ''
-set -gx PATH $PATH /opt/homebrew/bin "$HOME/bin"
+set -gx PATH $PATH /opt/homebrew/bin
 
 status is-login; and begin
     # Login shell initialisation
@@ -60,7 +61,9 @@ status is-interactive; and begin
     abbr --add -- gu 'git pull'
     abbr --add -- hm rebuild-home
     abbr --add -- k kubectl
-    abbr --add -- ks k9s
+    abbr --add -- k9 k9s
+    abbr --add -- k9i 'k9s --context=minikube-indri'
+    abbr --add -- ki 'kubectl --context=minikube-indri'
     abbr --add -- l 'ls -lh'
     abbr --add -- la 'ls -a'
     abbr --add -- lh 'ls -lh'

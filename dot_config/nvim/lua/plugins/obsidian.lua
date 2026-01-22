@@ -2,6 +2,13 @@ return {
 	{
 		"obsidian-nvim/obsidian.nvim",
 		version = "*", -- use latest release, not latest commit
+		keys = {
+			{ "<Leader>os", "<cmd>Obsidian search<cr>", desc = "Obsidian search" },
+			{ "<Leader>ot", "<cmd>Obsidian tags<cr>", desc = "Obsidian tags" },
+			{ "<Leader>of", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian notes" },
+			{ "<Leader>ob", "<cmd>Obsidian backlinks<cr>", desc = "Obsidian backlinks" },
+			{ "<Leader>ol", "<cmd>Obsidian links<cr>", desc = "Obsidian links" },
+		},
 		opts = {
 			workspaces = {
 				-- Attempt to use $ZK_PROJECT dynamically
