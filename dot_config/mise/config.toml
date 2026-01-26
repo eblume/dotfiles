@@ -26,3 +26,7 @@ uvx_args = "--with devpi-web"
 [tools."pipx:devpi-client"]
 version = "latest"
 uvx = true
+
+[tools."pipx:osxphotos"]
+version = "latest"
+uvx = true
