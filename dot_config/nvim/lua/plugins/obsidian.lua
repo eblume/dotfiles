@@ -2,6 +2,8 @@ return {
 	{
 		"obsidian-nvim/obsidian.nvim",
 		version = "*", -- use latest release, not latest commit
+		ft = "markdown",
+		cmd = { "Obsidian" },
 		keys = {
 			{ "<Leader>os", "<cmd>Obsidian search<cr>", desc = "Obsidian search" },
 			{ "<Leader>ot", "<cmd>Obsidian tags<cr>", desc = "Obsidian tags" },
@@ -20,10 +22,16 @@ return {
 					-- strict = true, -- might be needed if links are broken, unclear
 					-- (Also there is an overrides = {...} for proj-specific settings, hmm)
 				},
-				-- Default workspace for my primary 'zk' knowledge base, matches last:
+				-- Default workspace for my primary 'zk' knowledge base:
 				{
 					name = "zk",
 					path = "~/code/personal/zk",
+				},
+				-- Blumeops docs - git-managed, separate from main zk
+				{
+					name = "blumeops",
+					path = "~/code/personal/blumeops/docs",
+					strict = true, -- no .obsidian folder here, treat path as root
 				},
 			},
 
