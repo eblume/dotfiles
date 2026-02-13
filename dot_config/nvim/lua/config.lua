@@ -6,6 +6,7 @@
 
 require("keybinds")
 require("misc")
+require("payrix")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
