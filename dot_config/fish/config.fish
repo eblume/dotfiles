@@ -20,6 +20,7 @@ set -gx ZK_DIR "$HOME"'/code/personal/zk'
 set -gx ZK_PROJECT "$ZK_DIR"
 set -gx fish_greeting ''
 set -gx PATH $PATH /opt/homebrew/bin
+set -gx DAGGER_NO_NAG 1 # I mean wtf, dagger
 
 status is-login; and begin
     # Login shell initialisation
