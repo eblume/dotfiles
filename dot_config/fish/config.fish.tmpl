@@ -6,7 +6,11 @@ set -g __fish_config_sourced 1
 
 set -gx EDITOR nvim
 set -gx PYTHONDONTWRITEBYTECODE 1
+{{- if eq .chezmoi.os "darwin" }}
 set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{- else }}
+set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
+{{- end }}
 set -gx FZF_CTRL_T_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_OPTS '-m --height 50% --border'
@@ -19,7 +23,9 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx ZK_DIR "$HOME"'/code/personal/zk'
 set -gx ZK_PROJECT "$ZK_DIR"
 set -gx fish_greeting ''
+{{- if eq .chezmoi.os "darwin" }}
 set -gx PATH $PATH /opt/homebrew/bin
+{{- end }}
 set -gx DAGGER_NO_NAG 1 # I mean wtf, dagger
 
 status is-login; and begin
