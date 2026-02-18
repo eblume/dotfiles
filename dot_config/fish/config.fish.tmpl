@@ -107,6 +107,9 @@ status is-interactive; and begin
     alias zf 'cd (zoxide query --list --score | fzf --height 40% --layout reverse --info inline --border --preview "eza --all --group-directories-first --header --long --no-user --no-permissions --color=always {2}" --no-sort | awk '\''{print $2}'\'')'
 
     # Tool init
+{{- if ne .chezmoi.os "darwin" }}
+    mise activate fish | source
+{{- end }}
     fzf --fish | source
     zoxide init fish | source
     starship init fish | source
