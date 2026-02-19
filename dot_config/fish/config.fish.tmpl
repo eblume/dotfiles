@@ -108,7 +108,7 @@ status is-interactive; and begin
 
     # Tool init
 {{- if ne .chezmoi.os "darwin" }}
-    mise activate fish | source
+    mise activate fish --shims | source
 {{- end }}
     fzf --fish | source
     zoxide init fish | source
