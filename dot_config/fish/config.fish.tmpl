@@ -14,7 +14,7 @@ set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
 set -gx FZF_CTRL_T_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file'
 set -gx FZF_DEFAULT_OPTS '-m --height 50% --border'
-set -gx KUBECONFIG "$HOME/.kube/config:$HOME/.kube/eks-development.yml:$HOME/.kube/minikube-indri/config.yml"
+set -gx KUBECONFIG "$HOME/.kube/config:$HOME/.kube/eks-development.yml:$HOME/.kube/minikube-indri/config.yml:$HOME/.kube/k3s-ringtail/config.yml"
 set -gx MANPAGER 'nvim +Man!'
 set -gx XDG_CACHE_HOME "$HOME/.cache"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
