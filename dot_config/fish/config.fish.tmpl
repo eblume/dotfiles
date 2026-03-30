@@ -1,4 +1,4 @@
-# This config was adapted from what nix home-manager built for me prior to 17 Nov 2025.
+# Fish shell configuration, managed by chezmoi.
 
 # Only execute this file once per shell.
 set -q __fish_config_sourced; and exit
@@ -66,7 +66,6 @@ status is-interactive; and begin
     abbr --add -- grh 'git reset --hard'
     abbr --add -- gs 'git status'
     abbr --add -- gu 'git pull'
-    abbr --add -- hm rebuild-home
     abbr --add -- k kubectl
     abbr --add -- k9 k9s
     abbr --add -- k9i 'k9s --context=minikube-indri'
@@ -77,16 +76,7 @@ status is-interactive; and begin
     abbr --add -- ll 'ls -alhF'
     abbr --add -- lsf 'ls -lh | fzf'
     abbr --add -- mkd 'mkdir -pv'
-    abbr --add -- n nix
-    abbr --add -- nixh 'man home-configuration.nix'
-    abbr --add -- nixo 'man configuration.nix'
     abbr --add -- nodes 'kubectl get nodes'
-    abbr --add -- nps 'nix repl '\''<nixpkgs>'\'''
-    abbr --add -- nr rebuild-darwin
-    abbr --add -- nro 'rebuild-darwin offline'
-    abbr --add -- ns 'nix-shell -p'
-    abbr --add -- nsf 'nix-shell --run fish -p'
-    abbr --add -- nsr nix-shell-run
     abbr --add -- pods 'kubectl get pods -A'
     abbr --add -- s sudo
     abbr --add -- sc systemctl
@@ -94,7 +84,6 @@ status is-interactive; and begin
     abbr --add -- v nvim
     abbr --add -- vl 'nvim -c '\''normal! `0'\'''
     abbr --add -- vll 'nvim -c '\''Telescope oldfiles'\'''
-    abbr --add -- yt yt-dlp
     abbr --add -- zk 'vim $ZK_PROJECT -c "cd $ZK_PROJECT"'
     abbr --add -- zkd 'vim -c "cd $ZK_PROJECT" -c '\''Obsidian dailies'\'''
     abbr --add -- zkn 'vim -c "cd $ZK_PROJECT" -c '\''Obsidian new'\'''
