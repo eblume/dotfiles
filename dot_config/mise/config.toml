@@ -12,6 +12,7 @@ python = "latest"
 rust = "latest"
 uv = "latest"
 "pipx:borgmatic" = "latest"
+"npm:@anthropic-ai/claude-code" = "2.1.104"
 
 [tools."pipx:ansible-core"]
 uvx = true
