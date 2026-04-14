@@ -3,15 +3,15 @@ experimental = true
 idiomatic_version_file_enable_tools = []
 
 [tools]
-dotnet = "10.0.200"
-"dotnet:csharp-ls" = "0.22.0"
-node = "25.8.1"
+dotnet = "10.0.201"
+"dotnet:csharp-ls" = "0.23.0"
+node = "25.9.0"
 "pipx:eblume/mole" = "1.0.2"
 "pipx:simonw/llm" = "0.30"
-python = "3.14.3"
-rust = "1.94.0"
-uv = "0.10.9"
-"pipx:borgmatic" = "2.1.3"
+python = "3.14.4"
+rust = "1.94.1"
+uv = "0.11.6"
+"pipx:borgmatic" = "2.1.4"
 
 [tools."pipx:ansible-core"]
 uvx = true
@@ -19,14 +19,10 @@ uvx_args = "--with botocore --with boto3"
 version = "2.20.4"
 
 [tools."pipx:devpi-server"]
-version = "6.19.1"
+version = "6.19.3"
 uvx = true
 uvx_args = "--with devpi-web"
 
 [tools."pipx:devpi-client"]
-version = "7.2.0"
-uvx = true
-
-[tools."pipx:osxphotos"]
-version = "0.75.6"
+version = "7.2.1"
 uvx = true
