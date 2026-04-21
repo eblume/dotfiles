@@ -3,19 +3,18 @@ experimental = true
 idiomatic_version_file_enable_tools = []
 
 [tools]
-dotnet = "10.0.201"
-"dotnet:csharp-ls" = "0.23.0"
+dotnet = "10.0.202"
+"dotnet:csharp-ls" = "0.24.0"
 node = "25.9.0"
-"pipx:eblume/mole" = "1.0.2"
 "pipx:simonw/llm" = "0.30"
 python = "3.14.4"
-rust = "1.94.1"
-uv = "0.11.6"
+rust = "1.95.0"
+uv = "0.11.7"
 
 [tools."pipx:ansible-core"]
 uvx = true
 uvx_args = "--with botocore --with boto3"
-version = "2.20.4"
+version = "2.20.5"
 
 [tools."pipx:devpi-server"]
 version = "6.19.3"
