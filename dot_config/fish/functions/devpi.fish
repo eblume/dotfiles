@@ -1,6 +1,6 @@
 function devpi --description="Toggle private PyPI indexes (devpi + Forgejo Packages)" --argument-names=cmd
     set -l devpi_url "https://pypi.ops.eblu.me/root/pypi/+simple/"
-    set -l forgejo_url "https://forge.eblu.me/api/packages/eblume/pypi/simple/"
+    set -l forgejo_url "https://forge.ops.eblu.me/api/packages/eblume/pypi/simple/"
 
     switch "$cmd"
         case on
@@ -19,7 +19,7 @@ function devpi --description="Toggle private PyPI indexes (devpi + Forgejo Packa
             # with same-named packages on public PyPI.
             set -gx UV_INDEX "forgejo=$forgejo_url"
             set -gx UV_DEFAULT_INDEX "$devpi_url"
-            set -e UV_INDEX_URL  # clear legacy var to avoid conflict
+            set -e UV_INDEX_URL # clear legacy var to avoid conflict
             echo "Private indexes enabled (Forgejo Packages + devpi)"
         case off
             set -Ux DEVPI_ENABLED 0
