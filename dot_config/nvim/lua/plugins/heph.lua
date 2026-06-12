@@ -1,21 +1,21 @@
--- heph.nvim — personal context manager (knowledge base + tasks), an
--- obsidian.nvim replacement. Installed from a forge checkout because lazy can't
--- load a subdir plugin from a bare git URL, so `dir` points at the clone.
+-- hephaestus.nvim — personal context manager (knowledge base + tasks), an
+-- obsidian.nvim replacement. Installed straight from its forge repo (the plugin
+-- is at the repo root, so lazy loads it from a bare git URL).
 --
--- Update the plugin + rebuild the daemon:
---   git -C ~/.local/share/heph/checkout pull
+-- Update the plugin:   :Lazy update
+-- Rebuild the daemon:
 --   cargo install --locked \
 --     --git ssh://forgejo@forge.ops.eblu.me:2222/eblume/hephaestus.git \
 --     --branch feature/v1-prototype heph hephd
--- (see the repo's docs/how-to/install-heph.md)
+--   heph daemon restart
+-- (see the hephaestus repo's docs/how-to/install-heph.md)
 --
--- Plug-and-play: setup() spawns and supervises its own hephd against the default
--- XDG paths (your real data), and self-heals if it dies. Lazy-loaded on :Heph
--- and the <leader>h maps, so it costs nothing until you use it.
+-- Connect-only: setup() talks to a hephd you run as a service (`heph daemon
+-- start`); it never spawns one. Lazy-loaded on :Heph and the <leader>h maps, so
+-- it costs nothing until you use it.
 return {
 	{
-		dir = vim.fn.expand("~/.local/share/heph/checkout/heph.nvim"),
-		name = "heph.nvim",
+		url = "ssh://forgejo@forge.ops.eblu.me:2222/eblume/hephaestus.nvim.git",
 		cmd = "Heph",
 		keys = {
 			{ "<leader>hi", "<cmd>Heph home<cr>", desc = "heph: home / index page" },
