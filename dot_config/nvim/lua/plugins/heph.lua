@@ -25,10 +25,23 @@ return {
 			{ "<leader>hf", "<cmd>Heph search<cr>", desc = "heph: search" },
 			{ "<leader>hd", "<cmd>Heph done<cr>", desc = "heph: mark task done" },
 			{ "<leader>hp", "<cmd>Heph promote<cr>", desc = "heph: promote context item" },
+			-- Visual-mode selection → link gestures. `:<C-u>` leaves visual mode so
+			-- the `'<`/`'>` marks are set (a `<cmd>` map would read a stale selection).
+			{ "<leader>hL", ":<C-u>Heph linkify<cr>", mode = "x", desc = "heph: linkify selection" },
+			{ "<leader>hx", ":<C-u>Heph extract<cr>", mode = "x", desc = "heph: extract selection to a card" },
 		},
 		config = function()
 			-- keymaps handled by lazy `keys` above
-			require("heph").setup({ keymaps = false })
+			require("heph").setup({
+				keymaps = false,
+				-- Intelligent extraction (:Heph extract) via OpenRouter. The API key is
+				-- resolved lazily through 1Password only when an extraction actually
+				-- fires; model/endpoint inherit the plugin defaults (claude-sonnet-5).
+				extract = {
+					intelligent = true,
+					api_key_cmd = { "op", "read", "op://Private/OpenRouter/credential" },
+				},
+			})
 		end,
 	},
 }
