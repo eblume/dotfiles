@@ -1,0 +1,18 @@
+# heph hub-login contexts — see docs/how-to/configure-hub-login.md in hephaestus.
+# `heph auth login` with no flags uses the current context below.
+
+current_context = "indri"
+
+[[hubs]]
+name = "indri"
+url = "http://indri.tail8d86e.ts.net:8787"
+
+[[identities]]
+name = "authentik"
+issuer = "https://authentik.ops.eblu.me/application/o/heph/"
+client_id = "heph"
+
+[[contexts]]
+name = "indri"
+hub = "indri"
+identity = "authentik"
